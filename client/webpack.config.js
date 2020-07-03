@@ -1,6 +1,6 @@
 const path = require('path');
-const SassPlugin = require('sass-webpack-plugin');
-const HtmlPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ScssConfigWebpackPlugin = require('scss-config-webpack-plugin');
 
 // Object in which we can specify our setting or configuration
 // Export object using node js syntax
@@ -8,7 +8,7 @@ module.exports = {
     // Entry point,Output,Loader,Plugins
 
     // . means current folder
-    entry: ['babel-polyfill', './src/js/index.js'],
+    entry: ['babel-polyfill', './src/js/index.js', './src/sass/main.scss'],
 
     // object
     output: {
@@ -23,18 +23,12 @@ module.exports = {
         contentBase: './dist',
     },
     plugins: [
-        new SassPlugin(
-            { './src/sass/main.scss': './css/style.css' },
-            {
-                sourceMap: false,
-                sass: { outputStyle: 'compressed' },
-                autoprefixer: true,
-            }
-        ),
-        new HtmlPlugin({
+        new ScssConfigWebpackPlugin({
+            filename: 'css/style.css',
+        }),
+        new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: './src/index.html',
-            links: [{ rel: 'stylesheet', type: 'text/css', href: './css/style.css' }],
+            template: 'src/index.html',
         }),
     ],
     module: {
