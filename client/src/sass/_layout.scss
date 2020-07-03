@@ -3,8 +3,7 @@
     min-height: 50rem;
     // For Development min to max
     min-width: 120rem;
-    color: $color-grey-dark-1;
-    background-color: $color-grey-light-3;
+    color: $color-grey-light-4;
     border-radius: 0.6rem;
     box-shadow: $shadow-dark;
     @include grid();
@@ -35,6 +34,20 @@
     @include grid();
     @include customColumns(1fr 1fr);
 }
+// For Development
+.header * {
+    @include flex();
+    background-color: $color-grey-dark-3;
+}
+.main * {
+    @include flex();
+    background-color: $color-grey-dark-2;
+}
+.footer * {
+    @include flex();
+    background-color: $color-grey-dark-3;
+}
+
 /*
 .container {
     grid-template-areas:
