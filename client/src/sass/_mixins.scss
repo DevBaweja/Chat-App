@@ -1,0 +1,22 @@
+@use "sass:meta";
+@mixin flex($justify: center) {
+    display: flex;
+    align-items: center;
+    justify-content: $justify;
+}
+
+@mixin direction($direction: row) {
+    flex-direction: $direction;
+}
+
+@mixin grid() {
+    display: grid;
+}
+
+@mixin columns($columns) {
+    grid-template-columns: repeat($columns, 1fr);
+}
+
+@mixin customColumns($args...) {
+    grid-template-columns: $args;
+}
