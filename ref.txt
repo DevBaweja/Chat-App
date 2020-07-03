@@ -1,4 +1,5 @@
 git status
-
+// Git Commands
 git add -A
 git commit -m "Init"
+git push origin master
