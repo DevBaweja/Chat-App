@@ -19,6 +19,7 @@
 
     // ----------------------------------
     // Components
+    // Logo Box
     .logo-box {
         &__svg {
             fill: $color-primary;
@@ -27,6 +28,7 @@
             color: $color-white;
         }
     }
+    // Search
     .search {
         &__input {
             background-color: darken($color-grey-light-4, 15%);
@@ -57,7 +59,7 @@
             fill: $color-primary;
         }
     }
-
+    // Menu
     .menu {
         &__list {
         }
@@ -81,7 +83,43 @@
         }
     }
 
+    // CTA
+    .cta {
+        &__btn {
+        }
+
+        &__action {
+            border-color: $color-primary;
+            &:hover {
+                border-color: lighten($color-primary, 10%);
+            }
+        }
+
+        &__sign-up {
+            background-color: $color-primary;
+            color: $color-grey-dark-3;
+
+            &:hover {
+                background-color: lighten($color-primary, 10%);
+            }
+        }
+        &__log-in {
+            background-color: $color-grey-dark-3;
+            color: $color-primary;
+            &:hover {
+                color: lighten($color-primary, 10%);
+            }
+        }
+    }
     .about-me {
+        &__link {
+            color: inherit;
+            background-color: darken($color-grey-light-4, 15%);
+
+            &:hover {
+                background-color: darken($color-grey-light-4, 30%);
+            }
+        }
     }
 
     .chat-panel {

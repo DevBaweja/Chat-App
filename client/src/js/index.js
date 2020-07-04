@@ -1,10 +1,9 @@
+import faker from 'faker';
+
 const state = {
-    currentUser: null,
+    currentUser: {},
 };
-const elements = {
-    LogoBox: document.querySelector('.logo-box'),
-    Header: document.querySelector('.header'),
-};
+import { elements } from './base';
 
 const renderIdeal = () => {
     let markup;
@@ -18,9 +17,15 @@ const renderIdeal = () => {
     elements.LogoBox.insertAdjacentHTML('beforeend', markup);
 
     markup = `
+    <div class="cta">
+        <div class="cta__btn">
+            <button class="cta__sign-up cta__action">Sign Up</button>
+            <button class="cta__log-in cta__action">Log In</button>
+        </div>
+    </div>
     `;
 
-    elements.LogoBox.insertAdjacentHTML('afterend', markup);
+    elements.Header.insertAdjacentHTML('beforeend', markup);
 
     elements.Header.classList.add('ideal');
 };
@@ -36,7 +41,7 @@ const renderUser = () => {
             </svg>
         </button>
     </form>
-`;
+    `;
     elements.LogoBox.insertAdjacentHTML('beforeend', markup);
 
     markup = `
@@ -64,11 +69,20 @@ const renderUser = () => {
             </li>
         </ul>
     </div>
+    `;
+    elements.Header.insertAdjacentHTML('beforeend', markup);
+
+    markup = `
     <div class="about-me">
-        About Me
+    <a href="#" class="about-me__link">
+        <img src=${faker.image.avatar()} alt="user-photo" class="about-me__photo"/>
+        
+        <span class="about-me__name">${faker.fake('{{name.suffix}} {{name.firstName}} {{name.lastName}}')}</span>
+    </a>
     </div>
     `;
-    elements.LogoBox.insertAdjacentHTML('afterend', markup);
+
+    elements.Header.insertAdjacentHTML('beforeend', markup);
 
     elements.Header.classList.add('user');
 };
