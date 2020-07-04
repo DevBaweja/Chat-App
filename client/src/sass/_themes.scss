@@ -1,0 +1,45 @@
+// Use these classes on app
+
+// Dark Theme
+.dark {
+    // Layout
+    .header {
+        @include darkTheme($color-grey-dark-3, 50%);
+    }
+    .main {
+        @include darkTheme($color-grey-dark-2, 50%);
+    }
+    .footer {
+        @include darkTheme($color-grey-dark-3, 50%);
+    }
+
+    // Components
+    .logo-box {
+        &__svg {
+            fill: $color-grey-light-4;
+        }
+    }
+    .search-bar {
+    }
+
+    .about-me {
+    }
+
+    .chat-panel {
+    }
+
+    .chat-box {
+        @include darkTheme($color-grey-dark-1, 50%);
+    }
+    .chat-profile {
+    }
+
+    .copyright {
+    }
+    .created-by {
+    }
+}
+
+// Light Theme
+.light {
+}

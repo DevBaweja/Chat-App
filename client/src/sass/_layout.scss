@@ -35,44 +35,12 @@
     @include customColumns(1fr 1fr);
 }
 // For Development
-.header * {
+.header > * {
     @include flex();
-    background-color: $color-grey-dark-3;
 }
-.main * {
+.main > * {
     @include flex();
-    background-color: $color-grey-dark-2;
 }
-.footer * {
+.footer > * {
     @include flex();
-    background-color: $color-grey-dark-3;
 }
-
-/*
-.container {
-    grid-template-areas:
-        'logo-box search-bar about-me'
-        'chat-panel chat-box chat-profile'
-        'copyright test created-by';
-}
-
-// Header
-.header {
-    grid-area: 1 / 1 / 2 / 4;
-}
-
-// Main
-.main {
-    grid-area: 2 / 1 / 3 / 4;
-}
-
-// Footer
-.footer {
-    grid-area: 3 / 1 / 4 / 4;
-}
-
-/*
-'logo-box search-bar about-me'
-'chat-panel chat-box chat-profile'
-'copyright test created-by'
-*/

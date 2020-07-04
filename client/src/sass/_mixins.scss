@@ -20,3 +20,14 @@
 @mixin customColumns($args...) {
     grid-template-columns: $args;
 }
+
+// Dark Theme
+@mixin darkTheme($color, $lighten) {
+    background-color: $color;
+    color: lighten($color, $lighten);
+}
+
+@mixin lightTheme($color, $darken) {
+    background-color: $color;
+    color: darken($color, $darken);
+}

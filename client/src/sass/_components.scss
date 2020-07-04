@@ -1,4 +1,8 @@
 .logo-box {
+    &__svg {
+        width: 5rem;
+        height: 4rem;
+    }
 }
 .search-bar {
 }
@@ -8,7 +12,6 @@
 .chat-panel {
 }
 .chat-box {
-    background-color: $color-grey-dark-1;
 }
 .chat-profile {
 }
