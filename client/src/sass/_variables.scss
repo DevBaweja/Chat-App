@@ -1,12 +1,44 @@
+// Base Colors
+$color-primary: #01c0c8;
+
+// Different
+$color-secondary-1: #4b36d3;
+$color-secondary-2: #3587d8;
+
+// ----------------------------
+// Common Theme
+
 $color-white: #fff;
 $color-black: #000;
 
-// Base Colors
-$color-primary: #4b36d3;
+// Font Weights
+// Available - 300,400,600,700
 
-// Different
-$color-secondary-1: #3587d8;
-$color-secondary-2: #01c0c8;
+$font-weight-thin: 100;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 600;
+$font-weight-bolder: 700;
+
+// Font Size
+$fon-size-smaller: 0.8rem;
+$font-size-small: 1rem;
+$font-size-jayesh: 1.3rem;
+$font-size-regular-1: 1.4rem;
+$font-size-regular-2: 1.6rem;
+$font-size-medium: 1.8rem;
+$font-size-large: 2rem;
+$font-size-larger: 2.2rem;
+
+// ------------------------------
+// Dark Theme
+
+// Light
+$color-grey-light-1: #bbb;
+$color-grey-light-2: #a2a2a2;
+$color-grey-light-3: #888;
+$color-grey-light-4: #6f6f6f;
 
 // Dark
 $color-grey-dark-1: #1a1a1a;
@@ -17,8 +49,5 @@ $color-grey-dark-3: #333;
 $shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.1);
 $shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
 
-// Light
-$color-grey-light-1: #faf9f9;
-$color-grey-light-2: #f4f2f2;
-$color-grey-light-3: #f0eeee;
-$color-grey-light-4: #ccc;
+// ------------------------------
+// Light Theme

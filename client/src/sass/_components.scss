@@ -1,14 +1,94 @@
+// Logo Box
 .logo-box {
+    @include flex(flex-start);
+
     &__svg {
+        margin: 1rem;
         width: 5rem;
         height: 4rem;
     }
+
+    &__name {
+        margin: 0.5rem;
+        font-size: $font-size-larger;
+        font-weight: $font-weight-bold;
+    }
 }
-.search-bar {
+.search {
+    @include flex();
+    width: 70%;
+    &__input {
+        font-size: $font-size-regular-1;
+        font-family: inherit;
+        border: none;
+        border-radius: 10rem;
+        padding: 0.5rem 4rem 0.5rem 1.5rem;
+        width: 100%;
+        margin-left: 1rem;
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__button {
+        margin-left: -3rem;
+        border: none;
+
+        &:focus {
+            outline: none;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__icon {
+        height: 2rem;
+        width: 2rem;
+    }
 }
+
+// Menu
+.menu {
+    @include flex(flex-start);
+    align-items: flex-end;
+
+    &__list {
+        @include flex(space-around);
+        width: 65%;
+        list-style: none;
+    }
+
+    &__item {
+        margin-left: 0.1rem;
+        margin-right: 0.1rem;
+
+        flex: 1;
+        @include flex();
+
+        &:first-child {
+        }
+    }
+
+    &__link {
+        flex: 1;
+        text-align: center;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: $font-size-jayesh;
+        font-weight: $font-weight-bolder;
+        padding-bottom: 0.5rem;
+        padding-top: 0.5rem;
+        border-bottom-width: 0.2rem;
+        border-bottom-style: solid;
+        transition: border-bottom-color 0.4s, background-color 0.4s;
+    }
+}
+
 .about-me {
 }
 
+// Chat Panel
 .chat-panel {
 }
 .chat-box {

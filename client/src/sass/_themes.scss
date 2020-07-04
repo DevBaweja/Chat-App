@@ -2,6 +2,10 @@
 
 // Dark Theme
 .dark {
+    &.app {
+        background-image: linear-gradient(to right bottom, lighten($color-primary, 2.5%), darken($color-primary, 2.5%));
+    }
+
     // Layout
     .header {
         @include darkTheme($color-grey-dark-3, 50%);
@@ -13,13 +17,68 @@
         @include darkTheme($color-grey-dark-3, 50%);
     }
 
+    // ----------------------------------
     // Components
     .logo-box {
         &__svg {
-            fill: $color-grey-light-4;
+            fill: $color-primary;
+        }
+        &__name {
+            color: $color-white;
         }
     }
-    .search-bar {
+    .search {
+        &__input {
+            background-color: darken($color-grey-light-4, 15%);
+            color: $color-grey-light-1;
+
+            &::placeholder {
+                color: $color-grey-light-4;
+            }
+
+            &:focus {
+                background-color: darken($color-grey-light-4, 30%);
+            }
+        }
+
+        &__button {
+            background-color: darken($color-grey-light-4, 15%);
+        }
+
+        &__input:focus + .search__button {
+            background-color: darken($color-grey-light-4, 30%);
+        }
+
+        &__icon {
+            fill: lighten($color-grey-light-4, 10%);
+        }
+
+        &__input:focus + .search__button .search__icon {
+            fill: $color-primary;
+        }
+    }
+
+    .menu {
+        &__list {
+        }
+
+        &__item {
+        }
+
+        &__link {
+            color: inherit;
+            background-color: darken($color-grey-light-4, 30%);
+            border-bottom-color: transparent;
+
+            &:hover {
+                background-color: $color-grey-dark-1;
+                border-bottom-color: $color-grey-light-2;
+            }
+            &--active {
+                border-bottom-color: $color-primary;
+                background-color: $color-grey-dark-1;
+            }
+        }
     }
 
     .about-me {
