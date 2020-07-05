@@ -201,6 +201,22 @@ const renderUser = () => {
     `;
     elements.ChatPanel.insertAdjacentHTML('beforeend', markup);
 
+    markup = `
+    <div class="chat-box-user__null">
+        <div class="chat-box-user__null--container">
+            <div class="chat-box-user__null--svg">
+                <svg>
+                <use xlink:href="img/sprite.svg#icon-null"></use>
+                </svg>
+            </div>
+            <div class="chat-box-user__null--title">
+                No one's around to play with Wumpus.
+            </div>
+        </div>
+    </div>
+    `;
+    elements.ChatBox.insertAdjacentHTML('beforeend', markup);
+
     elements.Header.classList.add('user');
 };
 

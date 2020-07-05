@@ -237,6 +237,10 @@
 }
 .chat-panel-ideal,
 .chat-panel-user__null {
+    @include flex(flex-start);
+    @include direction(column);
+    align-items: stretch;
+
     &__title {
         padding: 2rem 1.5rem;
         margin: 1rem;
@@ -294,6 +298,28 @@
 
 // Chat Box
 .chat-box {
+}
+
+.chat-box-ideal {
+}
+.chat-box-user {
+}
+.chat-box-user__null {
+    &--container {
+    }
+    &--svg {
+        svg {
+            width: 60rem;
+            height: 30rem;
+        }
+        margin-top: 15rem;
+        margin-left: 10rem;
+    }
+    &--title {
+        text-align: center;
+        margin-top: -3rem;
+        // color: darken($color-primary, 5%);
+    }
 }
 // Chat Profile
 .chat-profile {

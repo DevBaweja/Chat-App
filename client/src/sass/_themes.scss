@@ -173,10 +173,6 @@
     }
     .chat-panel-ideal,
     .chat-panel-user__null {
-        @include flex(flex-start);
-        @include direction(column);
-        align-items: stretch;
-
         &__title {
             background-color: $color-grey-dark-3;
         }
