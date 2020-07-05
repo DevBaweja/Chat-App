@@ -27,6 +27,39 @@ const renderIdeal = () => {
 
     elements.Header.insertAdjacentHTML('beforeend', markup);
 
+    const chat_panel_ideal = () => `
+    <div class="chat-panel-ideal__dimmer--item">
+        <div class="chat-panel-ideal__dimmer--circle">
+            <svg viewBox="0 0 50 50">
+                <circle></circle>
+            </svg>
+        </div>
+        <div class="chat-panel-ideal__dimmer--rect">
+            <svg viewBox="0 0 180 40">
+                <rect></rect>
+            </svg>
+        </div>
+    </div>
+    `;
+
+    markup = `
+    <div class="chat-panel-ideal">
+        <div class="chat-panel-ideal__title"></div>
+        <div class="chat-panel-ideal__dimmer">
+            ${chat_panel_ideal()}
+            ${chat_panel_ideal()}
+            ${chat_panel_ideal()}
+            ${chat_panel_ideal()}
+            ${chat_panel_ideal()}
+            ${chat_panel_ideal()}
+            ${chat_panel_ideal()}
+            ${chat_panel_ideal()}
+            ${chat_panel_ideal()}
+        </div>
+    </div>
+`;
+    elements.ChatPanel.insertAdjacentHTML('beforeend', markup);
+
     elements.Header.classList.add('ideal');
 };
 
@@ -85,40 +118,86 @@ const renderUser = () => {
     elements.Header.insertAdjacentHTML('beforeend', markup);
 
     const chat_panel__item = () => ` 
-    <li class="chat-panel__item">
-    <a href="#" class="chat-panel__link">
-        <img src=${faker.image.avatar()} alt="photo" class="chat-panel__userphoto" />
-        <span class="chat-panel__username">${faker.fake('{{name.firstName}} {{name.lastName}}')}</span>
-        <svg class="chat-panel__option">
+    <li class="chat-panel-user__item">
+    <a href="#" class="chat-panel-user__link">
+        <img src=${faker.image.avatar()} alt="photo" class="chat-panel-user__userphoto" />
+        <span class="chat-panel-user__username">${faker.fake('{{name.firstName}} {{name.lastName}}')}</span>
+        <svg class="chat-panel-user__option">
             <use xlink:href="img/sprite.svg#icon-dots-three-vertical"></use>
         </svg>
     </a>
     </li>
     `;
     markup = `
-    <h3 class="chat-panel__title">
-        Active Now <span>(10)</span>
-    </h3>
-    <ul class="chat-panel__list">
-        ${chat_panel__item()}
-        ${chat_panel__item()}
-        ${chat_panel__item()}
-
-        <li class="chat-panel__item chat-panel__item--active">
-        <a href="#" class="chat-panel__link">
-            <img src=${faker.image.avatar()} alt="photo" class="chat-panel__userphoto" />
-            <span class="chat-panel__username">${faker.fake('{{name.firstName}} {{name.lastName}}')}</span>
-            <svg class="chat-panel__option">
-                <use xlink:href="img/sprite.svg#icon-dots-three-vertical"></use>
+    <div class="chat-panel-user">                    
+        <div class="chat-panel-user__title">
+            Active Now <span class="chat-panel-user__count">(10)</span>
+            <svg class="chat-panel-user__reload">
+                <use xlink:href="img/sprite.svg#icon-spinner"></use>
             </svg>
-        </a>
-        </li>
-        ${chat_panel__item()}
-        ${chat_panel__item()}
-        ${chat_panel__item()}
-        ${chat_panel__item()}
-        ${chat_panel__item()}
-    </ul>
+        </div>
+        <ul class="chat-panel-user__list">
+            ${chat_panel__item()}
+            ${chat_panel__item()}
+            ${chat_panel__item()}
+
+            <li class="chat-panel-user__item chat-panel-user__item--active">
+            <a href="#" class="chat-panel-user__link">
+                <img src=${faker.image.avatar()} alt="photo" class="chat-panel-user__userphoto" />
+                <span class="chat-panel-user__username">${faker.fake('{{name.firstName}} {{name.lastName}}')}</span>
+                <svg class="chat-panel-user__option">
+                    <use xlink:href="img/sprite.svg#icon-dots-three-vertical"></use>
+                </svg>
+            </a>
+            </li>
+            ${chat_panel__item()}
+            ${chat_panel__item()}
+            ${chat_panel__item()}
+            ${chat_panel__item()}
+            ${chat_panel__item()}
+            ${chat_panel__item()}
+            ${chat_panel__item()}
+            ${chat_panel__item()}
+            ${chat_panel__item()}
+        </ul>
+    </div>
+
+    `;
+
+    const chat_panel_user = () => `
+    <div class="chat-panel-user__null__dimmer--item">
+        <div class="chat-panel-user__null__dimmer--circle">
+            <svg viewBox="0 0 50 50">
+                <circle></circle>
+            </svg>
+        </div>
+        <div class="chat-panel-user__null__dimmer--rect">
+            <svg viewBox="0 0 180 40">
+                <rect></rect>
+            </svg>
+        </div>
+    </div>
+    `;
+    // No users
+    markup = `
+    <div class="chat-panel-user__null">
+        <div class="chat-panel-user__title">
+            Active Now <span class="chat-panel-user__count">(10)</span>
+            <svg class="chat-panel-user__reload">
+                <use xlink:href="img/sprite.svg#icon-spinner"></use>
+            </svg>
+        </div>
+        <div class="chat-panel-user__dimmer">
+            ${chat_panel_user()}
+            ${chat_panel_user()}
+            ${chat_panel_user()}
+            ${chat_panel_user()}
+            ${chat_panel_user()}
+            ${chat_panel_user()}
+            ${chat_panel_user()}
+            ${chat_panel_user()}
+        </div>
+    </div>
     `;
     elements.ChatPanel.insertAdjacentHTML('beforeend', markup);
 
