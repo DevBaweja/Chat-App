@@ -154,8 +154,10 @@
                 background-color: darken($color-grey-light-3, 35%);
             }
 
-            &.chat-panel-user__item--active {
+            &.chat-panel-user__item--selected {
                 background-color: darken($color-grey-light-3, 42.5%);
+            }
+            &.chat-panel-user__item--active {
             }
         }
 
@@ -167,8 +169,22 @@
         }
         &__username {
         }
+        // Option
         &__option {
             fill: $color-grey-light-1;
+        }
+        // State
+
+        &__state {
+            fill: black;
+        }
+
+        &__state--active {
+            fill: #0f0;
+        }
+
+        &__state--inactive {
+            fill: transparent;
         }
     }
     .chat-panel-ideal,

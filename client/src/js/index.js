@@ -60,6 +60,22 @@ const renderIdeal = () => {
 `;
     elements.ChatPanel.insertAdjacentHTML('beforeend', markup);
 
+    markup = `
+    <div class="chat-box-ideal">
+        <div class="chat-box-ideal--container">
+            <div class="chat-box-ideal--svg">
+                <svg>
+                <use xlink:href="img/sprite.svg#icon-ideal"></use>
+                </svg>
+            </div>
+            <div class="chat-box-ideal--title">
+                No one's around to play with Wumpus.
+            </div>
+        </div>
+    </div>
+    `;
+    elements.ChatBox.insertAdjacentHTML('beforeend', markup);
+
     elements.Header.classList.add('ideal');
 };
 
@@ -141,18 +157,33 @@ const renderUser = () => {
             ${chat_panel__item()}
             ${chat_panel__item()}
 
-            <li class="chat-panel-user__item chat-panel-user__item--active">
+            <li class="chat-panel-user__item chat-panel-user__item--selected">
             <a href="#" class="chat-panel-user__link">
                 <img src=${faker.image.avatar()} alt="photo" class="chat-panel-user__userphoto" />
                 <span class="chat-panel-user__username">${faker.fake('{{name.firstName}} {{name.lastName}}')}</span>
                 <svg class="chat-panel-user__option">
                     <use xlink:href="img/sprite.svg#icon-dots-three-vertical"></use>
                 </svg>
+                <svg class="chat-panel-user__state">
+                    <use xlink:href="img/sprite.svg#icon-dot-single"></use>
+                </svg>
             </a>
             </li>
             ${chat_panel__item()}
             ${chat_panel__item()}
-            ${chat_panel__item()}
+           
+            <li class="chat-panel-user__item">
+            <a href="#" class="chat-panel-user__link">
+                <img src=${faker.image.avatar()} alt="photo" class="chat-panel-user__userphoto" />
+                <span class="chat-panel-user__username">${faker.fake('{{name.firstName}} {{name.lastName}}')}</span>
+                <svg class="chat-panel-user__option">
+                    <use xlink:href="img/sprite.svg#icon-dots-three-vertical"></use>
+                </svg>
+                <svg class="chat-panel-user__state chat-panel-user__state--active">
+                    <use xlink:href="img/sprite.svg#icon-dot-single"></use>
+                </svg>
+            </a>
+            </li>
             ${chat_panel__item()}
             ${chat_panel__item()}
             ${chat_panel__item()}
@@ -163,6 +194,7 @@ const renderUser = () => {
     </div>
 
     `;
+    elements.ChatPanel.insertAdjacentHTML('beforeend', markup);
 
     const chat_panel_user = () => `
     <div class="chat-panel-user__null__dimmer--item">
@@ -178,6 +210,7 @@ const renderUser = () => {
         </div>
     </div>
     `;
+
     // No users
     markup = `
     <div class="chat-panel-user__null">
@@ -199,7 +232,7 @@ const renderUser = () => {
         </div>
     </div>
     `;
-    elements.ChatPanel.insertAdjacentHTML('beforeend', markup);
+    // elements.ChatPanel.insertAdjacentHTML('beforeend', markup);
 
     markup = `
     <div class="chat-box-user__null">

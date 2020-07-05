@@ -215,6 +215,7 @@
     &__username {
         flex: 1;
     }
+    // Option
     &__option {
         position: absolute;
         top: 0;
@@ -224,10 +225,14 @@
         margin: 0.5rem;
         opacity: 0;
         visibility: hidden;
-
-        &:hover {
-            cursor: pointer;
-        }
+    }
+    // State
+    &__state {
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        height: 2.5rem;
+        width: 2.5rem;
     }
 
     &__link:hover &__option {
@@ -300,26 +305,28 @@
 .chat-box {
 }
 
-.chat-box-ideal {
-}
-.chat-box-user {
-}
+.chat-box-ideal,
 .chat-box-user__null {
     &--container {
     }
     &--svg {
+        @include flex();
         svg {
             width: 60rem;
             height: 30rem;
         }
         margin-top: 15rem;
-        margin-left: 10rem;
     }
     &--title {
         text-align: center;
-        margin-top: -3rem;
-        // color: darken($color-primary, 5%);
+        margin-top: -2rem;
     }
+}
+.chat-box-ideal--title {
+    margin-top: 2rem;
+}
+
+.chat-box-user {
 }
 // Chat Profile
 .chat-profile {
