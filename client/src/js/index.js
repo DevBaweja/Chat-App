@@ -89,15 +89,30 @@ const renderUser = () => {
     <a href="#" class="chat-panel__link">
         <img src=${faker.image.avatar()} alt="photo" class="chat-panel__userphoto" />
         <span class="chat-panel__username">${faker.fake('{{name.firstName}} {{name.lastName}}')}</span>
+        <svg class="chat-panel__option">
+            <use xlink:href="img/sprite.svg#icon-dots-three-vertical"></use>
+        </svg>
     </a>
     </li>
     `;
     markup = `
     <h3 class="chat-panel__title">
-        Active Now
+        Active Now <span>(10)</span>
     </h3>
     <ul class="chat-panel__list">
         ${chat_panel__item()}
+        ${chat_panel__item()}
+        ${chat_panel__item()}
+
+        <li class="chat-panel__item chat-panel__item--active">
+        <a href="#" class="chat-panel__link">
+            <img src=${faker.image.avatar()} alt="photo" class="chat-panel__userphoto" />
+            <span class="chat-panel__username">${faker.fake('{{name.firstName}} {{name.lastName}}')}</span>
+            <svg class="chat-panel__option">
+                <use xlink:href="img/sprite.svg#icon-dots-three-vertical"></use>
+            </svg>
+        </a>
+        </li>
         ${chat_panel__item()}
         ${chat_panel__item()}
         ${chat_panel__item()}

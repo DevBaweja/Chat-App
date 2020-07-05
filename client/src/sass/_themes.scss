@@ -68,7 +68,7 @@
         }
 
         &__link {
-            color: inherit;
+            color: lighten($color-grey-dark-3, 50%);
             background-color: darken($color-grey-light-4, 30%);
             border-bottom-color: transparent;
 
@@ -76,7 +76,7 @@
                 background-color: $color-grey-dark-1;
                 border-bottom-color: $color-grey-light-2;
             }
-            &--active {
+            &.menu__link--active {
                 border-bottom-color: $color-primary;
                 background-color: $color-grey-dark-1;
             }
@@ -124,28 +124,40 @@
 
     .chat-panel {
         &__title {
-            color: $color-grey-light-2;
-            background-color: darken($color-grey-light-3, 42.5%);
+            color: lighten($color-grey-light-2, 20%);
+
+            background-color: darken($color-grey-light-3, 32.5%);
+            border-color: darken($color-grey-light-3, 35%);
             &:hover {
+                background-color: darken($color-grey-light-3, 42.5%);
+            }
+
+            span {
                 color: lighten($color-grey-light-2, 10%);
-                background-color: darken($color-grey-light-3, 32.5%);
             }
         }
         &__list {
         }
         &__item {
             border-top: 0.1rem solid darken($color-grey-light-3, 35%);
-            border-bottom: 0.1rem solid darken($color-grey-light-3, 35%);
+            border-bottom-color: darken($color-grey-light-3, 35%);
             transition: all 0.2s;
             &:hover {
                 background-color: darken($color-grey-light-3, 35%);
             }
         }
+        &__item.chat-panel__item--active {
+            background-color: darken($color-grey-light-3, 42.5%);
+        }
         &__link {
+            color: lighten($color-grey-dark-2, 50%);
         }
         &__userphoto {
         }
         &__username {
+        }
+        &__option {
+            fill: $color-grey-light-1;
         }
     }
 
