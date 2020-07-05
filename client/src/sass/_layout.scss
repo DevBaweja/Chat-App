@@ -37,7 +37,7 @@
 .main {
     grid-area: main;
     @include grid();
-    @include customColumns(1.25fr 2.5fr 1fr);
+    @include customColumns(1.25fr 2.75fr 1fr);
 }
 
 // Footer
@@ -47,9 +47,6 @@
     @include customColumns(1fr 1fr);
 }
 // For Development
-.main > * {
-    @include flex();
-}
 .footer > * {
     @include flex();
 }

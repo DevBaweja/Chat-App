@@ -123,6 +123,30 @@
     }
 
     .chat-panel {
+        &__title {
+            color: $color-grey-light-2;
+            background-color: darken($color-grey-light-3, 42.5%);
+            &:hover {
+                color: lighten($color-grey-light-2, 10%);
+                background-color: darken($color-grey-light-3, 32.5%);
+            }
+        }
+        &__list {
+        }
+        &__item {
+            border-top: 0.1rem solid darken($color-grey-light-3, 35%);
+            border-bottom: 0.1rem solid darken($color-grey-light-3, 35%);
+            transition: all 0.2s;
+            &:hover {
+                background-color: darken($color-grey-light-3, 35%);
+            }
+        }
+        &__link {
+        }
+        &__userphoto {
+        }
+        &__username {
+        }
     }
 
     .chat-box {

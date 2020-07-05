@@ -84,6 +84,29 @@ const renderUser = () => {
 
     elements.Header.insertAdjacentHTML('beforeend', markup);
 
+    const chat_panel__item = () => ` 
+    <li class="chat-panel__item">
+    <a href="#" class="chat-panel__link">
+        <img src=${faker.image.avatar()} alt="photo" class="chat-panel__userphoto" />
+        <span class="chat-panel__username">${faker.fake('{{name.firstName}} {{name.lastName}}')}</span>
+    </a>
+    </li>
+    `;
+    markup = `
+    <h3 class="chat-panel__title">
+        Active Now
+    </h3>
+    <ul class="chat-panel__list">
+        ${chat_panel__item()}
+        ${chat_panel__item()}
+        ${chat_panel__item()}
+        ${chat_panel__item()}
+        ${chat_panel__item()}
+        ${chat_panel__item()}
+    </ul>
+    `;
+    elements.ChatPanel.insertAdjacentHTML('beforeend', markup);
+
     elements.Header.classList.add('user');
 };
 
