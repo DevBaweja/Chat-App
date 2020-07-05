@@ -187,6 +187,7 @@
         list-style: none;
         padding: 1rem 1.5rem;
         overflow-y: scroll;
+        overflow-x: hidden;
         font-size: $font-size-regular-1;
     }
     &__item {
@@ -212,19 +213,71 @@
         width: 3.5rem;
         border-radius: 50%;
     }
+    &__info {
+        flex: 1;
+        @include flex(space-between);
+    }
     &__username {
         flex: 1;
     }
+    // Settings
+    &__settings {
+        @include flex();
+        &--icons {
+            height: 2rem;
+            width: 2rem;
+            margin: 0 0.25rem;
+            &:last-child {
+                margin-right: 2.5rem;
+            }
+        }
+    }
+    .icon-pin-chat {
+    }
+    .icon-mute-notification {
+    }
+    .icon-dot-single {
+    }
+
     // Option
     &__option {
         position: absolute;
         top: 0;
         right: 0;
-        height: 3rem;
-        width: 1.5rem;
+        height: 2rem;
+        width: 2rem;
         margin: 0.5rem;
         opacity: 0;
         visibility: hidden;
+        transition: 0.2s all;
+
+        &:hover {
+            transform: scale(1.25);
+        }
+    }
+    // Drop Down
+    &__dropdown {
+        position: absolute;
+        height: 20rem;
+        width: 10rem;
+        z-index: 999;
+        // For JS
+        top: 47.5%;
+        left: 22.5%;
+        // For Development
+
+        visibility: hidden;
+        opacity: 0;
+        display: none;
+
+        &--list {
+        }
+        &--item {
+        }
+        &--svg {
+        }
+        &--span {
+        }
     }
     // State
     &__state {
@@ -234,6 +287,7 @@
         height: 2.5rem;
         width: 2.5rem;
     }
+    //
 
     &__link:hover &__option {
         opacity: 1;
@@ -333,6 +387,25 @@
 }
 
 .copyright {
+    @include flex(flex-start);
+    margin-left: 2rem;
+    font-size: $font-size-jayesh;
 }
 .created-by {
+    @include flex(flex-end);
+    margin-right: 1rem;
+    font-size: $font-size-jayesh;
+    word-spacing: 0.2rem;
+    p {
+    }
+    &--svg {
+        margin: 0.5rem;
+        height: 2rem;
+        width: 2rem;
+    }
+}
+.developers {
+    letter-spacing: 0.1rem;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
 }

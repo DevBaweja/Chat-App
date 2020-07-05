@@ -4,6 +4,7 @@
 .dark {
     &.app {
         background-image: linear-gradient(to right bottom, lighten($color-primary, 2.5%), darken($color-primary, 2.5%));
+        position: relative;
     }
 
     // Layout
@@ -167,14 +168,44 @@
 
         &__userphoto {
         }
+        &__info {
+        }
         &__username {
+        }
+        // Settings
+        &__settings {
+            &--icons {
+                fill: $color-grey-light-2;
+            }
+        }
+        .icon-pin-chat {
+        }
+        .icon-mute-notification {
+        }
+        .icon-dot-single {
+            fill: $color-primary;
         }
         // Option
         &__option {
-            fill: $color-grey-light-1;
+            fill: $color-grey-light-2;
+            &:hover {
+                fill: $color-grey-light-1;
+            }
+        }
+        // Drop Down
+        &__dropdown {
+            background-color: #fff;
+
+            &--list {
+            }
+            &--item {
+            }
+            &--svg {
+            }
+            &--span {
+            }
         }
         // State
-
         &__state {
             fill: black;
         }
@@ -211,6 +242,14 @@
     .copyright {
     }
     .created-by {
+        p {
+        }
+        &--svg {
+            fill: red;
+        }
+    }
+    .developers {
+        color: $color-svg-light;
     }
 }
 
