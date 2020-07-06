@@ -54,7 +54,6 @@ const renderIdeal = () => {
             ${chat_panel_ideal()}
             ${chat_panel_ideal()}
             ${chat_panel_ideal()}
-            ${chat_panel_ideal()}
         </div>
     </div>
 `;
@@ -145,7 +144,7 @@ const renderUser = () => {
         </svg>
         <!-- ACTIVE -->
         <svg class="chat-panel-user__state chat-panel-user__state--inactive">
-            <use xlink:href="img/sprite.svg#icon-dot-single"></use>
+            <use xlink:href="img/sprite.svg#icon-dot-single--active"></use>
         </svg>
         
     </a>
@@ -173,7 +172,7 @@ const renderUser = () => {
         </div>
         <!-- ACTIVE -->
         <svg class="chat-panel-user__state chat-panel-user__state--inactive">
-            <use xlink:href="img/sprite.svg#icon-dot-single"></use>
+            <use xlink:href="img/sprite.svg#icon-dot-single--active"></use>
         </svg>
 
         <!-- OPTION -->
@@ -194,8 +193,8 @@ const renderUser = () => {
                 <div class="chat-panel-user__info">
                 <span class="chat-panel-user__username">${faker.fake('{{name.firstName}} {{name.lastName}}')}</span>
                 <div class="chat-panel-user__settings">
-                <svg class="chat-panel-user__settings--icons icon-dot-single">
-                <use xlink:href="img/sprite.svg#icon-dot-single"></use>
+                <svg class="chat-panel-user__settings--icons icon-dot-single--notification">
+                <use xlink:href="img/sprite.svg#icon-dot-single--notification"></use>
                 </svg>
                 <svg class="chat-panel-user__settings--icons icon-pin-chat">
                 <use xlink:href="img/sprite.svg#icon-pin-chat"></use>
@@ -210,7 +209,7 @@ const renderUser = () => {
                     <use xlink:href="img/sprite.svg#icon-chevron-down"></use>
                 </svg>
                 <svg class="chat-panel-user__state chat-panel-user__state--inactive">
-                    <use xlink:href="img/sprite.svg#icon-dot-single"></use>
+                    <use xlink:href="img/sprite.svg#icon-dot-single--active"></use>
                 </svg>
             </a>
             </li>
@@ -230,7 +229,7 @@ const renderUser = () => {
                     <use xlink:href="img/sprite.svg#icon-chevron-down"></use>
                 </svg>
                 <svg class="chat-panel-user__state chat-panel-user__state--inactive">
-                    <use xlink:href="img/sprite.svg#icon-dot-single"></use>
+                    <use xlink:href="img/sprite.svg#icon-dot-single--active"></use>
                 </svg>
             </a>
             </li>
@@ -249,7 +248,7 @@ const renderUser = () => {
                     <use xlink:href="img/sprite.svg#icon-chevron-down"></use>
                 </svg>
                 <svg class="chat-panel-user__state chat-panel-user__state--active">
-                    <use xlink:href="img/sprite.svg#icon-dot-single"></use>
+                    <use xlink:href="img/sprite.svg#icon-dot-single--active"></use>
                 </svg>
             </a>
             </li>

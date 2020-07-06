@@ -182,7 +182,7 @@
         }
         .icon-mute-notification {
         }
-        .icon-dot-single {
+        .icon-dot-single--notification {
             fill: $color-primary;
         }
         // Option
@@ -208,14 +208,14 @@
         // State
         &__state {
             fill: black;
-        }
+            &--active {
+                fill: #0f0;
+                border-color: $color-grey-dark-2;
+            }
 
-        &__state--active {
-            fill: #0f0;
-        }
-
-        &__state--inactive {
-            fill: transparent;
+            &--inactive {
+                fill: transparent;
+            }
         }
     }
     .chat-panel-ideal,
