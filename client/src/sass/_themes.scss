@@ -18,6 +18,46 @@
         @include darkTheme($color-grey-dark-3, 50%);
     }
 
+    // Dropdown
+    .about-me,
+    .chat-panel-user {
+        &__dropdown {
+            background-color: $color-grey-dark-1;
+            color: lighten($color-grey-dark-1, 50%);
+            border-color: $color-primary;
+
+            &--list {
+            }
+            &--item {
+                &:hover {
+                    background-color: $color-grey-dark-3;
+                }
+            }
+            &--svg {
+                fill: lighten($color-grey-dark-1, 50%);
+
+                // Types
+                &-dot {
+                    fill: $color-primary;
+                }
+                &-star {
+                    fill: $color-primary;
+                }
+                &-pin {
+                }
+                &-mute {
+                }
+                &-delete {
+                    fill: #ff337c;
+                }
+            }
+            &--span {
+                &-delete {
+                    color: #ff337c;
+                }
+            }
+        }
+    }
     // ----------------------------------
     // Components
     // Logo Box
@@ -113,6 +153,7 @@
             }
         }
     }
+
     .about-me {
         &__link {
             color: inherit;
@@ -121,6 +162,9 @@
             &:hover {
                 background-color: darken($color-grey-light-4, 30%);
             }
+        }
+        // Dropdown
+        &__dropdown {
         }
     }
 
@@ -205,44 +249,6 @@
                 fill: $color-grey-light-1;
             }
         }
-        // Drop Down
-        &__dropdown {
-            background-color: $color-grey-dark-1;
-            color: lighten($color-grey-dark-1, 50%);
-            border-color: $color-primary;
-
-            &--list {
-            }
-            &--item {
-                &:hover {
-                    background-color: $color-grey-dark-3;
-                }
-
-                &:last-child {
-                    color: #ff337c;
-                }
-            }
-            &--svg {
-                fill: lighten($color-grey-dark-1, 50%);
-
-                &-dot {
-                    fill: $color-primary;
-                }
-                &-star {
-                    fill: $color-primary;
-                }
-                &-pin {
-                }
-                &-mute {
-                }
-                &-delete {
-                    fill: #ff337c;
-                }
-            }
-            &--span {
-            }
-            // Types
-        }
         // State
         &__state {
             fill: black;
@@ -254,6 +260,9 @@
             &--inactive {
                 fill: transparent;
             }
+        }
+        // Dropdown
+        &__dropdown {
         }
     }
     .chat-panel-ideal,

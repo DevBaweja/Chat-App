@@ -1,4 +1,5 @@
 import faker from 'faker';
+import axios from 'axios';
 
 const state = {
     currentUser: {},
@@ -295,6 +296,7 @@ const renderUser = () => {
         </div>
     </div>
     `;
+
     // elements.ChatPanel.insertAdjacentHTML('beforeend', markup);
 
     markup = `
@@ -314,6 +316,8 @@ const renderUser = () => {
     elements.ChatBox.insertAdjacentHTML('beforeend', markup);
 
     elements.Header.classList.add('user');
+
+    axios(`http://localhost:3000/users`).then(data => console.log(data.data));
 };
 
 const init = () => {

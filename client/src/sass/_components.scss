@@ -1,3 +1,64 @@
+// Drop Down
+.about-me,
+.chat-panel-user {
+    // Drop Down
+    &__dropdown {
+        position: absolute;
+        z-index: 1;
+        border-radius: 1rem;
+        border-width: 0.1rem;
+        border-style: solid;
+        overflow: hidden;
+        // For Development
+        // visibility: hidden;
+        // opacity: 0;
+        // display: none;
+
+        &--list {
+            @include flex();
+            @include direction(column);
+            align-items: stretch;
+            padding: 1rem 0;
+            list-style: none;
+        }
+        &--item {
+            @include flex(flex-start);
+            padding: 0.5rem 0;
+            padding-right: 2.5rem;
+            margin: 0.1rem 0;
+            transition: all 0.2s;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        &--svg {
+            height: 1.5rem;
+            width: 1.5rem;
+            margin: 0.5rem;
+            margin-right: 1.5rem;
+            margin-left: 1.5rem;
+        }
+        &--span {
+        }
+    }
+}
+.about-me {
+    &__dropdown {
+        top: 8.5%;
+        right: 10%;
+        border-top-right-radius: 0;
+    }
+}
+.chat-panel-user {
+    // Drop Down
+    &__dropdown {
+        top: 46%;
+        left: 20.5%;
+        border-top-left-radius: 0;
+        clip-path: polygon(11.25% 5%, 16% 0, 100% 0, 100% 100%, 0 100%, 0 0, 6.5% 0);
+    }
+}
+// -----------------------------------------
 // Logo Box
 .logo-box {
     @include flex(flex-start);
@@ -254,53 +315,7 @@
             transform: scale(1.25);
         }
     }
-    // Drop Down
-    &__dropdown {
-        position: absolute;
-        z-index: 1;
-        // For JS
-        top: 46%;
-        left: 20.5%;
 
-        border-radius: 1rem;
-        border-top-left-radius: 0;
-        clip-path: polygon(11.25% 5%, 16% 0, 100% 0, 100% 100%, 0 100%, 0 0, 6.5% 0);
-
-        border-width: 0.1rem;
-        border-style: solid;
-        overflow: hidden;
-        // For Development
-        // visibility: hidden;
-        // opacity: 0;
-        // display: none;
-
-        &--list {
-            @include flex();
-            @include direction(column);
-            align-items: stretch;
-            padding: 1rem 0;
-            list-style: none;
-        }
-        &--item {
-            @include flex(flex-start);
-            padding: 0.5rem 0;
-            padding-right: 2.5rem;
-            margin: 0.1rem 0;
-            transition: all 0.2s;
-            &:hover {
-                cursor: pointer;
-            }
-        }
-        &--svg {
-            height: 1.5rem;
-            width: 1.5rem;
-            margin: 0.5rem;
-            margin-right: 1.5rem;
-            margin-left: 1.5rem;
-        }
-        &--span {
-        }
-    }
     // State
     &__state {
         position: absolute;

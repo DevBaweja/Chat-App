@@ -29,9 +29,7 @@
                     <!-- Chat Box -->
                     <div class="chat-box"></div>
                     <!-- Chat Profile -->
-                    <div class="chat-profile">
-                        Chat Profile
-                    </div>
+                    <div class="chat-profile"></div>
                 </main>
                 <!-- Footer -->
                 <footer class="footer">
@@ -57,8 +55,8 @@
                 </footer>
             </div>
             <!-- Drop Down -->
+            <!-- Chat Panel -->
             <div class="chat-panel-user__dropdown">
-                <div class="chat-panel-user__dropdown--tilt"></div>
                 <ul class="chat-panel-user__dropdown--list">
                     <li class="chat-panel-user__dropdown--item">
                         <svg class="chat-panel-user__dropdown--svg chat-panel-user__dropdown--svg-dot">
@@ -68,28 +66,70 @@
                     </li>
 
                     <li class="chat-panel-user__dropdown--item">
-                        <svg class="chat-panel-user__dropdown--svg chat-panel-user__dropdown--svg-star">
-                            <use xlink:href="img/sprite.svg#icon-star-empty"></use>
-                        </svg>
-                        <span class="chat-panel-user__dropdown--span">Add to Favourites</span>
-                    </li>
-                    <li class="chat-panel-user__dropdown--item">
+                        <!-- pin or unpin -->
                         <svg class="chat-panel-user__dropdown--svg chat-panel-user__dropdown--svg-pin">
-                            <use xlink:href="img/sprite.svg#icon-pin-chat"></use>
+                            <use xlink:href="img/sprite.svg#icon-unpin-chat"></use>
                         </svg>
                         <span class="chat-panel-user__dropdown--span">Pin Chat</span>
                     </li>
                     <li class="chat-panel-user__dropdown--item">
+                        <!-- mute or unmute -->
                         <svg class="chat-panel-user__dropdown--svg chat-panel-user__dropdown--svg-mute">
-                            <use xlink:href="img/sprite.svg#icon-mute-notification"></use>
+                            <use xlink:href="img/sprite.svg#icon-unmute-notification"></use>
                         </svg>
-                        <span class="chat-panel-user__dropdown--span">Mute Chat</span>
+                        <span class="chat-panel-user__dropdown--span">Mute Notifications</span>
+                    </li>
+                    <li class="chat-panel-user__dropdown--item">
+                        <!-- star-fill or star-empty -->
+                        <svg class="chat-panel-user__dropdown--svg chat-panel-user__dropdown--svg-star">
+                            <use xlink:href="img/sprite.svg#icon-star-fill"></use>
+                        </svg>
+                        <span class="chat-panel-user__dropdown--span">Add to Favourites</span>
                     </li>
                     <li class="chat-panel-user__dropdown--item">
                         <svg class="chat-panel-user__dropdown--svg chat-panel-user__dropdown--svg-delete">
                             <use xlink:href="img/sprite.svg#icon-delete"></use>
                         </svg>
-                        <span class="chat-panel-user__dropdown--span">Delete Chat</span>
+                        <span class="chat-panel-user__dropdown--span chat-panel-user__dropdown--span-delete"
+                            >Delete Chat</span
+                        >
+                    </li>
+                </ul>
+            </div>
+            <!-- Chat Profile -->
+            <div class="about-me__dropdown">
+                <div class="about-me__dropdown--tilt"></div>
+                <ul class="about-me__dropdown--list">
+                    <li class="about-me__dropdown--item">
+                        <svg class="about-me__dropdown--svg about-me__dropdown--svg-dot">
+                            <use xlink:href="img/sprite.svg#icon-dot-single--notification"></use>
+                        </svg>
+                        <span class="about-me__dropdown--span">My Profile</span>
+                    </li>
+
+                    <li class="about-me__dropdown--item">
+                        <svg class="about-me__dropdown--svg about-me__dropdown--svg-star">
+                            <use xlink:href="img/sprite.svg#icon-star-empty"></use>
+                        </svg>
+                        <span class="about-me__dropdown--span">Change Profile</span>
+                    </li>
+                    <li class="about-me__dropdown--item">
+                        <svg class="about-me__dropdown--svg about-me__dropdown--svg-pin">
+                            <use xlink:href="img/sprite.svg#icon-pin-chat"></use>
+                        </svg>
+                        <span class="about-me__dropdown--span">Dark Theme</span>
+                    </li>
+                    <li class="about-me__dropdown--item">
+                        <svg class="about-me__dropdown--svg about-me__dropdown--svg-mute">
+                            <use xlink:href="img/sprite.svg#icon-mute-notification"></use>
+                        </svg>
+                        <span class="about-me__dropdown--span">Setting</span>
+                    </li>
+                    <li class="about-me__dropdown--item">
+                        <svg class="about-me__dropdown--svg about-me__dropdown--svg-delete">
+                            <use xlink:href="img/sprite.svg#icon-delete"></use>
+                        </svg>
+                        <span class="about-me__dropdown--span about-me__dropdown--span-delete">Log out</span>
                     </li>
                 </ul>
             </div>
@@ -117,11 +157,11 @@ Send Images/Videos
 Image Download
 
 // Chat
-Last Message Time
+Last Message Time(x)
 Mute Notifications(Done)
-Delete chat
+Delete chat(Done)
 Pin chat(Done)
-Mark as read
+Mark as read(Done)
 
 Date
 Same Message
