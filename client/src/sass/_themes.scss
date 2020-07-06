@@ -77,6 +77,7 @@
                 background-color: $color-grey-dark-1;
                 border-bottom-color: $color-grey-light-2;
             }
+
             &.menu__link--active {
                 border-bottom-color: $color-primary;
                 background-color: $color-grey-dark-1;
@@ -153,11 +154,23 @@
             transition: all 0.2s;
             &:hover {
                 background-color: darken($color-grey-light-3, 35%);
+
+                .chat-panel-user__state {
+                    &--active {
+                        border-color: darken($color-grey-light-3, 35%);
+                    }
+                }
             }
 
             &.chat-panel-user__item--selected {
                 background-color: darken($color-grey-light-3, 42.5%);
+                .chat-panel-user__state {
+                    &--active {
+                        border-color: darken($color-grey-light-3, 42.5%);
+                    }
+                }
             }
+
             &.chat-panel-user__item--active {
             }
         }
@@ -194,16 +207,41 @@
         }
         // Drop Down
         &__dropdown {
-            background-color: #fff;
+            background-color: $color-grey-dark-1;
+            color: lighten($color-grey-dark-1, 50%);
+            border-color: $color-primary;
 
             &--list {
             }
             &--item {
+                &:hover {
+                    background-color: $color-grey-dark-3;
+                }
+
+                &:last-child {
+                    color: #ff337c;
+                }
             }
             &--svg {
+                fill: lighten($color-grey-dark-1, 50%);
+
+                &-dot {
+                    fill: $color-primary;
+                }
+                &-star {
+                    fill: $color-primary;
+                }
+                &-pin {
+                }
+                &-mute {
+                }
+                &-delete {
+                    fill: #ff337c;
+                }
             }
             &--span {
             }
+            // Types
         }
         // State
         &__state {

@@ -108,7 +108,7 @@ const renderUser = () => {
                     Chats
                 </a>
             </li>
-            ${['Active', 'Friends', 'Groups', 'Status'].map(cur => menu__item(cur)).join('')}
+            ${['Favourites', 'Active', 'Friends', 'Groups'].map(cur => menu__item(cur)).join('')}
         </ul>
     </div>
     `;
@@ -235,7 +235,7 @@ const renderUser = () => {
             </li>
             ${chat_panel__item()}
             <!-- Active -->
-            <li class="chat-panel-user__item">
+            <li class="chat-panel-user__item chat-panel-user__item--selected">
             <a href="#" class="chat-panel-user__link">
                 <img src=${faker.image.avatar()} alt="photo" class="chat-panel-user__userphoto" />
                 <div class="chat-panel-user__info">
