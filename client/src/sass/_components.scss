@@ -1,6 +1,8 @@
 // Drop Down
 .about-me,
-.chat-panel-user {
+.chat-panel-user,
+.chat-box-friendmsg,
+.chat-box-usermsg {
     // Drop Down
     &__dropdown {
         position: absolute;
@@ -10,9 +12,9 @@
         border-style: solid;
         overflow: hidden;
         // For Development
-        // visibility: hidden;
-        // opacity: 0;
-        // display: none;
+        visibility: hidden;
+        opacity: 0;
+        display: none;
 
         &--list {
             @include flex();
@@ -32,8 +34,8 @@
             }
         }
         &--svg {
-            height: 1.5rem;
-            width: 1.5rem;
+            height: 1.4rem;
+            width: 1.4rem;
             margin: 0.5rem;
             margin-right: 1.5rem;
             margin-left: 1.5rem;
@@ -42,11 +44,35 @@
         }
     }
 }
+.chat-box-friendmsg {
+    &__dropdown {
+        top: 50%;
+        left: 50%;
+        border-radius: 0.5rem;
+    }
+}
+.chat-box-usermsg {
+    &__dropdown {
+        top: 20%;
+        left: 40%;
+        border-radius: 0.5rem;
+    }
+}
+
 .about-me {
     &__dropdown {
         top: 8.5%;
         right: 10%;
         border-top-right-radius: 0;
+
+        &--svg {
+            &-setting,
+            &-logout {
+                height: 1.2rem;
+                width: 1.2rem;
+                margin-left: 1.6rem;
+            }
+        }
     }
 }
 .chat-panel-user {
@@ -55,9 +81,63 @@
         top: 46%;
         left: 20.5%;
         border-top-left-radius: 0;
-        clip-path: polygon(11.25% 5%, 16% 0, 100% 0, 100% 100%, 0 100%, 0 0, 6.5% 0);
+        // clip-path: polygon(11.25% 5%, 16% 0, 100% 0, 100% 100%, 0 100%, 0 0, 6.5% 0);
+
+        &--svg {
+            &-pin {
+                height: 1.2rem;
+                width: 1.2rem;
+            }
+        }
     }
 }
+// -----------------------------------------
+// Forms
+.user-login {
+    background-color: $color-primary;
+    position: absolute;
+    top: 50%;
+    left: 52.5%;
+    transform: translate(-50%, -50%);
+    border-radius: 0.5rem;
+    padding: 5rem;
+    @include flex();
+    @include direction(column);
+
+    &__title {
+        text-align: center;
+        font-size: $font-size-larger;
+    }
+    &__form {
+        @include flex();
+        @include direction(column);
+        &--group {
+            @include flex();
+            align-items: stretch;
+            @include direction(column);
+            margin: 2rem;
+        }
+
+        &--label {
+        }
+        &--input {
+            padding: 0.5rem 0;
+        }
+        &--btn {
+        }
+    }
+
+    &--cross {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 1rem;
+        width: 1rem;
+        margin: 0.5rem;
+        cursor: pointer;
+    }
+}
+
 // -----------------------------------------
 // Logo Box
 .logo-box {

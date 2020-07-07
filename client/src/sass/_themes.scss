@@ -20,7 +20,9 @@
 
     // Dropdown
     .about-me,
-    .chat-panel-user {
+    .chat-panel-user,
+    .chat-box-friendmsg,
+    .chat-box-usermsg {
         &__dropdown {
             background-color: $color-grey-dark-1;
             color: lighten($color-grey-dark-1, 50%);
@@ -35,10 +37,87 @@
             }
             &--svg {
                 fill: lighten($color-grey-dark-1, 50%);
+            }
 
-                // Types
-                &-dot {
+            &--span {
+                font-size: $font-size-jayesh;
+            }
+        }
+    }
+    .chat-box-friendmsg {
+        &__dropdown {
+            &--svg {
+                &-copy {
+                }
+                &-edit {
+                }
+                &-reply {
+                }
+                &-delete {
+                    fill: $color-light-red;
+                }
+            }
+
+            &--span {
+                &-delete {
+                    color: $color-light-red;
+                }
+            }
+        }
+    }
+    .chat-box-usermsg {
+        &__dropdown {
+            &--svg {
+                &-copy {
+                }
+                &-heart {
                     fill: $color-primary;
+                }
+                &-reply {
+                }
+                &-delete {
+                    fill: $color-light-red;
+                }
+            }
+
+            &--span {
+                &-delete {
+                    color: $color-light-red;
+                }
+            }
+        }
+    }
+
+    .about-me {
+        // Dropdown
+        &__dropdown {
+            &--svg {
+                fill: lighten($color-grey-dark-1, 50%);
+                // Types
+                &-user {
+                }
+                &-theme {
+                }
+                &-setting {
+                }
+                &-logout {
+                    fill: $color-light-red;
+                }
+            }
+            &--span {
+                &-logout {
+                    color: $color-light-red;
+                }
+            }
+        }
+    }
+    .chat-panel-user {
+        // Dropdown
+        &__dropdown {
+            &--svg {
+                fill: lighten($color-grey-dark-1, 50%);
+
+                &-dot {
                 }
                 &-star {
                     fill: $color-primary;
@@ -48,12 +127,12 @@
                 &-mute {
                 }
                 &-delete {
-                    fill: #ff337c;
+                    fill: $color-light-red;
                 }
             }
             &--span {
                 &-delete {
-                    color: #ff337c;
+                    color: $color-light-red;
                 }
             }
         }
@@ -163,9 +242,6 @@
                 background-color: darken($color-grey-light-4, 30%);
             }
         }
-        // Dropdown
-        &__dropdown {
-        }
     }
 
     // Chat Panel
@@ -260,9 +336,6 @@
             &--inactive {
                 fill: transparent;
             }
-        }
-        // Dropdown
-        &__dropdown {
         }
     }
     .chat-panel-ideal,
