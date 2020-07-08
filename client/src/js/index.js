@@ -2,8 +2,12 @@ import faker from 'faker';
 
 const state = {
     currentUser: null,
+    login: {},
+    signup: {},
 };
-import { elements } from './base';
+import { elements, elementStrings } from './base';
+import * as loginView from './views/login';
+import * as signupView from './views/signup';
 
 const renderIdeal = () => {
     let markup;
@@ -316,12 +320,40 @@ const renderUser = () => {
 
     elements.Header.classList.add('user');
 };
+// -----------------------------
+// Controllers
+/*
+const controlForms = event => {
+    // Sign Up
+    if (event.target.matches('.cta__sign-up,.cta__sign-up *')) {
+        console.log('Signed up');
+    }
+    // Log In
+    if (event.target.matches('.cta__log-in,.cta__log-in *')) {
+        console.log('Logged in');
+        // Rendering Login form
+        loginView.renderLoginForm();
+    }
+};
+*/
+// ------------------------------
+// Event Listeners
+const addEventListeners = () => {
+    const btns = document.querySelector(elementStrings.CTA);
+    // btns.addEventListener('click', controlForms);
+
+    const loginBtn = document.querySelector('.cta__log-in');
+    loginBtn.addEventListener('click', loginView.renderLoginForm);
+    const signupBtn = document.querySelector('.cta__sign-up');
+    signupBtn.addEventListener('click', signupView.renderSignupForm);
+};
 
 const init = () => {
     if (state.currentUser) {
         renderUser();
     } else {
         renderIdeal();
+        addEventListeners();
     }
 };
 

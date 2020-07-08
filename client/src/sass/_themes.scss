@@ -117,12 +117,16 @@
     }
 
     // Alert
-    .alert-signup-success,
-    .alert-login-success{
-        background-color: $color-primary;
-    }
-    .alert-error{
-        background-color: $color-light-red;
+    .alert {
+        &--success {
+            background-color: $color-primary;
+        }
+        &--error {
+            background-color: $color-light-red;
+        }
+        &--info {
+            background-color: $color-light-red;
+        }
     }
 
     .chat-panel-user {
@@ -168,16 +172,14 @@
             &--input {
                 border-bottom-color: transparent;
                 background-color: $color-grey-dark-2;
-                color: $color-primary;
-
+                color: $color-white;
                 &::placeholder {
-                    color: $color-primary;
+                    color: lighten($color-grey-dark-2, 50%);
                 }
 
                 &:focus {
-                    // border-bottom-color: green;
                     &:invalid {
-                        border-bottom-color: red;
+                        border-bottom-color: darken($color-light-red, 10%);
                     }
                 }
             }
@@ -398,7 +400,7 @@
         &__state {
             fill: black;
             &--active {
-                fill: #0f0;
+                fill: $color-active;
                 border-color: $color-grey-dark-2;
             }
 
@@ -434,7 +436,7 @@
         p {
         }
         &--svg {
-            fill: red;
+            fill: $color-heart;
         }
     }
     .developers {

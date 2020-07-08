@@ -1,0 +1,33 @@
+<!-- Insert beforeend App -->
+<!-- Login Form -->
+<div class="blur">
+    <div class="user-login">
+        <div class="user-login__title">Log into your account</div>
+        <form class="user-login__form">
+            <div class="user-login__form--group">
+                <label class="user-login__form--label" for="email">Email address</label>
+                <input class="user-login__form--input" id="email" type="email" placeholder="dev@example.com" required />
+            </div>
+
+            <div class="user-login__form--group">
+                <label class="user-login__form--label" for="password">Password</label>
+                <input
+                    class="user-login__form--input"
+                    id="password"
+                    type="password"
+                    placeholder="••••••••"
+                    required
+                    minlength="8"
+                />
+                <span class="user-login__form--forget">Forget password ?</span>
+            </div>
+            <button class="user-login__form--btn">Log In</button>
+        </form>
+        <div class="user-login__cross">
+            <svg class="user-login__cross--svg">
+                <use xlink:href="img/sprite.svg#icon-cross"></use>
+            </svg>
+        </div>
+    </div>
+</div>
+<!-- /Login Form -->

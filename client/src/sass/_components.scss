@@ -94,27 +94,30 @@
 
 //----------------------------------
 // Alert Messages
-.alert-signup-success,
-.alert-login-success,
-.alert-error{
-    position: absolute;
+.alert {
+    position: fixed;
     top: 0%;
-    left: 50%;
+    left: 52.5%;
     transform: translateX(-50%);
-    padding: 2rem;
-    background-color: $color-primary;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 1.6rem 8rem;
     color: $color-grey-dark-2;
     @include flex();
-    z-index: 500000;
+    z-index: 2;
 
-    &__svg{
-        height: 2rem;
-        width: 2rem;
-        margin-right: 1rem;
+    &__svg {
+        height: 1.4rem;
+        width: 1.4rem;
+        margin-right: 1.2rem;
+        &--info {
+            height: 1.6rem;
+            width: 1.6rem;
+        }
     }
-    &__message{
-        font-size: $font-size-regular-2;
-        font-weight: $font-weight-regular;
+    &__message {
+        font-size: $font-size-medium;
+        font-weight: $font-weight-bold;
     }
 }
 
@@ -128,17 +131,19 @@
     height: 100%;
     backdrop-filter: blur(0.2rem);
 }
+
 .user-login,
 .user-signup {
     position: absolute;
     top: 50%;
+    opacity: 1;
     left: 52.5%;
     transform: translate(-50%, -50%);
     border-radius: 0.5rem;
     @include flex();
     @include direction(column);
     letter-spacing: 0.05rem;
-    // For Development
+    animation: TopToDown 1s ease;
 
     &__title {
         text-align: center;
@@ -231,7 +236,7 @@
             margin-left: auto;
             cursor: pointer;
             transition: all 0.2s;
-    
+
             &:hover {
                 text-decoration: underline;
             }
@@ -239,7 +244,6 @@
     }
 }
 .user-signup {
-    display: none;
     &__title {
         margin: 4rem 0 2rem 0;
     }
