@@ -13,4 +13,10 @@ router
     .get(userController.getAllUsers)
     .post(userController.createNewUser);
 
+router
+    .route('/:id')
+    .get(userController.getUserById)
+    .patch(userController.updateUserById)
+    .delete(userController.deleteUserById);
+
 module.exports = router;
