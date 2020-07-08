@@ -115,6 +115,16 @@
             }
         }
     }
+
+    // Alert
+    .alert-signup-success,
+    .alert-login-success{
+        background-color: $color-primary;
+    }
+    .alert-error{
+        background-color: $color-light-red;
+    }
+
     .chat-panel-user {
         // Dropdown
         &__dropdown {

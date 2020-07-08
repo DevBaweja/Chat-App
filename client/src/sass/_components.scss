@@ -91,6 +91,33 @@
         }
     }
 }
+
+//----------------------------------
+// Alert Messages
+.alert-signup-success,
+.alert-login-success,
+.alert-error{
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2rem;
+    background-color: $color-primary;
+    color: $color-grey-dark-2;
+    @include flex();
+    z-index: 500000;
+
+    &__svg{
+        height: 2rem;
+        width: 2rem;
+        margin-right: 1rem;
+    }
+    &__message{
+        font-size: $font-size-regular-2;
+        font-weight: $font-weight-regular;
+    }
+}
+
 // -----------------------------------------
 // Forms
 .blur {
@@ -198,16 +225,16 @@
         &--group {
             margin: 2rem;
         }
-    }
-    &--forget {
-        font-size: $font-size-jayesh;
-        margin: 0.5rem;
-        margin-left: auto;
-        cursor: pointer;
-        transition: all 0.2s;
-
-        &:hover {
-            text-decoration: underline;
+        &--forget {
+            font-size: $font-size-jayesh;
+            margin: 0.5rem;
+            margin-left: auto;
+            cursor: pointer;
+            transition: all 0.2s;
+    
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 }
