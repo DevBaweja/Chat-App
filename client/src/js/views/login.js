@@ -24,7 +24,8 @@ export const renderLoginForm = () => {
             },
         ],
         className: 'user-login',
+        btntext: 'Log In',
     };
 
-    elements.App.insertAdjacentHTML('beforeend', renderForm(form));
+    elements.Forms.insertAdjacentHTML('beforeend', renderForm(form));
 };

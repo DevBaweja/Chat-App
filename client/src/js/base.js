@@ -4,6 +4,7 @@ export const elements = {
     Header: document.querySelector('.header'),
     ChatPanel: document.querySelector('.chat-panel'),
     ChatBox: document.querySelector('.chat-box'),
+    Forms: document.querySelector('.forms'),
 };
 
 export const elementStrings = {
@@ -31,9 +32,9 @@ export const renderForm = form => `
             <div class="${form.className}__title">${form.title}</div>
             <form class="${form.className}__form">
                 ${form.groups.map(group => renderFormGroup(group, form.className)).join('')}
-                <button class="${form.className}__form--btn">Sign Up</button>
+                <button class="${form.className}__form--btn">${form.btntext}</button>
             </form>
-            <div class="${form.className}__cross">
+            <div class="${form.className}__cross user-cross">
                 <svg class="${form.className}__cross--svg">
                     <use xlink:href="img/sprite.svg#icon-cross"></use>
                 </svg>

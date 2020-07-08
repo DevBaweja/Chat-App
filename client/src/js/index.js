@@ -322,30 +322,23 @@ const renderUser = () => {
 };
 // -----------------------------
 // Controllers
-/*
-const controlForms = event => {
-    // Sign Up
-    if (event.target.matches('.cta__sign-up,.cta__sign-up *')) {
-        console.log('Signed up');
-    }
-    // Log In
-    if (event.target.matches('.cta__log-in,.cta__log-in *')) {
-        console.log('Logged in');
-        // Rendering Login form
-        loginView.renderLoginForm();
-    }
-};
-*/
+
 // ------------------------------
 // Event Listeners
 const addEventListeners = () => {
-    const btns = document.querySelector(elementStrings.CTA);
-    // btns.addEventListener('click', controlForms);
-
+    // Log In
     const loginBtn = document.querySelector('.cta__log-in');
     loginBtn.addEventListener('click', loginView.renderLoginForm);
+    // Sign Up
     const signupBtn = document.querySelector('.cta__sign-up');
     signupBtn.addEventListener('click', signupView.renderSignupForm);
+
+    // Forms
+    elements.Forms.addEventListener('click', event => {
+        if (event.target.matches('.blur') || event.target.matches('.user-cross,.user-cross *')) {
+            elements.Forms.innerHTML = '';
+        }
+    });
 };
 
 const init = () => {

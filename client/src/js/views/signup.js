@@ -40,7 +40,8 @@ export const renderSignupForm = () => {
             },
         ],
         className: 'user-signup',
+        btntext: 'Sign Up',
     };
 
-    elements.App.insertAdjacentHTML('beforeend', renderForm(form));
+    elements.Forms.insertAdjacentHTML('beforeend', renderForm(form));
 };

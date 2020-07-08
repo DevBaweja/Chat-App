@@ -123,6 +123,10 @@
 
 // -----------------------------------------
 // Forms
+.forms {
+    height: 0;
+    width: 0;
+}
 .blur {
     position: absolute;
     top: 0;
@@ -144,6 +148,7 @@
     @include direction(column);
     letter-spacing: 0.05rem;
     animation: TopToDown 1s ease;
+    z-index: 1;
 
     &__title {
         text-align: center;
