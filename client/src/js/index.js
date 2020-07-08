@@ -8,6 +8,7 @@ const state = {
 import { elements, elementStrings } from './base';
 import * as loginView from './views/login';
 import * as signupView from './views/signup';
+import * as formsView from './views/forms';
 
 const renderIdeal = () => {
     let markup;
@@ -322,7 +323,12 @@ const renderUser = () => {
 };
 // -----------------------------
 // Controllers
-
+const controlForms = event => {
+    if (event.target.matches('.blur') || event.target.matches('.user-cross,.user-cross *')) {
+        // Clearing Forms
+        formsView.clearForms();
+    }
+};
 // ------------------------------
 // Event Listeners
 const addEventListeners = () => {
@@ -334,11 +340,7 @@ const addEventListeners = () => {
     signupBtn.addEventListener('click', signupView.renderSignupForm);
 
     // Forms
-    elements.Forms.addEventListener('click', event => {
-        if (event.target.matches('.blur') || event.target.matches('.user-cross,.user-cross *')) {
-            elements.Forms.innerHTML = '';
-        }
-    });
+    elements.Forms.addEventListener('click', controlForms);
 };
 
 const init = () => {

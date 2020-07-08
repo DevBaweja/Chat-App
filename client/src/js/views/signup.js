@@ -1,4 +1,5 @@
-import { elements, renderForm } from '../base';
+import { elements } from '../base';
+import { renderForm } from './forms';
 
 export const renderSignupForm = () => {
     const form = {
