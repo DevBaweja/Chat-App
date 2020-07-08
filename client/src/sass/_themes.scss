@@ -244,6 +244,46 @@
         }
     }
 
+    //Login Form
+    .user-login{
+        background-color: $color-primary;
+
+        &__title{
+
+        }
+        &__form{
+
+            &--group{
+
+            }
+            &--lable{
+
+            }
+            &--input{
+                border-bottom-color: transparent;
+                &:focus{
+                    border-bottom-color: #0f0;
+                    &:invalid{
+                        border-bottom-color: red;
+                    }
+                }
+            }
+            &--btn{
+                background-color: $color-grey-dark-2;
+                color: $color-primary;
+            }
+        }
+
+        &__cross{
+            &--svg{
+                fill: $color-grey-dark-2;
+            }
+        }
+
+
+    }
+
+
     // Chat Panel
     .chat-panel {
     }
