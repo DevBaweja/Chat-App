@@ -6,7 +6,7 @@
         background-image: linear-gradient(to right bottom, lighten($color-primary, 2.5%), darken($color-primary, 2.5%));
         position: relative;
     }
-
+    // ---------------------------
     // Layout
     .header {
         @include darkTheme($color-grey-dark-3, 50%);
@@ -18,11 +18,13 @@
         @include darkTheme($color-grey-dark-3, 50%);
     }
 
+    // --------------------------
     // Dropdown
     .about-me,
     .chat-panel-user,
     .chat-box-friendmsg,
     .chat-box-usermsg {
+        // Dropdown
         &__dropdown {
             background-color: $color-grey-dark-1;
             color: lighten($color-grey-dark-1, 50%);
@@ -45,6 +47,7 @@
         }
     }
     .chat-box-friendmsg {
+        // Dropdown
         &__dropdown {
             &--svg {
                 &-copy {
@@ -66,6 +69,7 @@
         }
     }
     .chat-box-usermsg {
+        // Dropdown
         &__dropdown {
             &--svg {
                 &-copy {
@@ -137,6 +141,61 @@
             }
         }
     }
+    // ---------------------------------
+    // Forms
+    // Login Form And Signup Form
+    .user-login,
+    .user-signup {
+        // background-color: $color-primary;
+        background: linear-gradient(to right bottom, $color-svg-light, $color-svg-dark);
+        &__title {
+        }
+        &__form {
+            &--group {
+            }
+            &--label {
+            }
+            &--input {
+                border-bottom-color: transparent;
+                background-color: $color-grey-dark-2;
+                color: $color-primary;
+
+                &::placeholder {
+                    color: $color-primary;
+                }
+
+                &:focus {
+                    // border-bottom-color: green;
+                    &:invalid {
+                        border-bottom-color: red;
+                    }
+                }
+            }
+            &--btn {
+                background-color: $color-grey-dark-1;
+                color: $color-primary;
+                transition: all 0.2s;
+
+                &:hover {
+                    background-color: darken($color-grey-dark-2, 10%);
+                }
+            }
+        }
+
+        &__cross {
+            &--svg {
+                fill: $color-grey-dark-2;
+            }
+        }
+    }
+
+    // Login Form
+    .user-signup {
+    }
+    // Sign up Form
+    .user-login {
+    }
+
     // ----------------------------------
     // Components
     // Logo Box
@@ -243,46 +302,6 @@
             }
         }
     }
-
-    //Login Form
-    .user-login{
-        background-color: $color-primary;
-
-        &__title{
-
-        }
-        &__form{
-
-            &--group{
-
-            }
-            &--lable{
-
-            }
-            &--input{
-                border-bottom-color: transparent;
-                &:focus{
-                    border-bottom-color: #0f0;
-                    &:invalid{
-                        border-bottom-color: red;
-                    }
-                }
-            }
-            &--btn{
-                background-color: $color-grey-dark-2;
-                color: $color-primary;
-            }
-        }
-
-        &__cross{
-            &--svg{
-                fill: $color-grey-dark-2;
-            }
-        }
-
-
-    }
-
 
     // Chat Panel
     .chat-panel {
