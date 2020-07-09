@@ -1,21 +1,26 @@
 import faker from 'faker';
 
-const state = {
-    currentUser: null,
-    login: {},
-    signup: {},
-};
-import { elements, elementStrings } from './base';
-import * as loginView from './views/login';
-import * as signupView from './views/signup';
-import * as formsView from './views/forms';
+// State
+import state from './state';
+// Utils
+import { elements, elementStrings } from './utils/base.util';
+// ---------------------
+// Models
+
+// ---------------------
+// Views
+import * as formsView from './views/forms.view';
+// ---------------------
+// Controllers
+import * as loginController from './controllers/login.controller';
+import * as signupController from './controllers/signup.controller';
 
 const renderIdeal = () => {
     let markup;
 
     markup = `
     <div class="logo-box__name">
-        Chat Fuel
+        #ChatFuel
     </div>
     `;
 
@@ -109,7 +114,7 @@ const renderUser = () => {
     <div class="menu">
         <ul class="menu__list">
             <li class="menu__item">
-                <a href="chats" class="menu__link menu__link--active">
+                <a href="#chats" class="menu__link menu__link--active">
                     Chats
                 </a>
             </li>
@@ -122,9 +127,9 @@ const renderUser = () => {
     markup = `
     <div class="about-me">
     <a href="#" class="about-me__link">
-        <img src=${faker.image.avatar()} alt="user-photo" class="about-me__photo"/>
+        <img src="${faker.image.avatar()}" alt="user-photo" class="about-me__photo"/>
         
-        <span class="about-me__name">${faker.fake('{{name.suffix}} {{name.firstName}} {{name.lastName}}')}</span>
+        <span class="about-me__name">${faker.name.findName()}</span>
     </a>
     </div>
     `;
@@ -134,10 +139,10 @@ const renderUser = () => {
     const chat_panel__item = () => ` 
     <li class="chat-panel-user__item">
     <a href="#" class="chat-panel-user__link">
-        <img src=${faker.image.avatar()} alt="photo" class="chat-panel-user__userphoto" />
+        <img src="${faker.image.avatar()}" alt="photo" class="chat-panel-user__userphoto" />
         <!-- User Info -->
         <div class="chat-panel-user__info">
-            <span class="chat-panel-user__username">${faker.fake('{{name.firstName}} {{name.lastName}}')}</span>
+            <span class="chat-panel-user__username">${faker.name.findName()}</span>
             <div class="chat-panel-user__settings">
                
             </div>
@@ -167,10 +172,10 @@ const renderUser = () => {
             ${chat_panel__item()}
             <li class="chat-panel-user__item">
     <a href="#" class="chat-panel-user__link">
-        <img src=${faker.image.avatar()} alt="photo" class="chat-panel-user__userphoto" />
+        <img src="${faker.image.avatar()}" alt="photo" class="chat-panel-user__userphoto" />
         <!-- User Info -->
         <div class="chat-panel-user__info">
-            <span class="chat-panel-user__username">${faker.fake('{{name.firstName}} {{name.lastName}}')}</span>
+            <span class="chat-panel-user__username">${faker.name.findName()}</span>
             <div class="chat-panel-user__settings">
                
             </div>
@@ -194,9 +199,9 @@ const renderUser = () => {
             <!-- Settings -->
             <li class="chat-panel-user__item">
             <a href="#" class="chat-panel-user__link">
-                <img src=${faker.image.avatar()} alt="photo" class="chat-panel-user__userphoto" />
+                <img src="${faker.image.avatar()}" alt="photo" class="chat-panel-user__userphoto" />
                 <div class="chat-panel-user__info">
-                <span class="chat-panel-user__username">${faker.fake('{{name.firstName}} {{name.lastName}}')}</span>
+                <span class="chat-panel-user__username">${faker.name.findName()}</span>
                 <div class="chat-panel-user__settings">
                 <svg class="chat-panel-user__settings--icons icon-dot-single--notification">
                 <use xlink:href="img/sprite.svg#icon-dot-single--notification"></use>
@@ -223,9 +228,9 @@ const renderUser = () => {
             <!-- Selected -->
             <li class="chat-panel-user__item chat-panel-user__item--selected">
             <a href="#" class="chat-panel-user__link">
-                <img src=${faker.image.avatar()} alt="photo" class="chat-panel-user__userphoto" />
+                <img src="${faker.image.avatar()}" alt="photo" class="chat-panel-user__userphoto" />
                 <div class="chat-panel-user__info">
-                <span class="chat-panel-user__username">${faker.fake('{{name.firstName}} {{name.lastName}}')}</span>
+                <span class="chat-panel-user__username">${faker.name.findName()}</span>
                 <div class="chat-panel-user__settings">
                     
                 </div>
@@ -242,9 +247,9 @@ const renderUser = () => {
             <!-- Active -->
             <li class="chat-panel-user__item chat-panel-user__item--selected">
             <a href="#" class="chat-panel-user__link">
-                <img src=${faker.image.avatar()} alt="photo" class="chat-panel-user__userphoto" />
+                <img src="${faker.image.avatar()}" alt="photo" class="chat-panel-user__userphoto" />
                 <div class="chat-panel-user__info">
-                <span class="chat-panel-user__username">${faker.fake('{{name.firstName}} {{name.lastName}}')}</span>
+                <span class="chat-panel-user__username">${faker.name.findName()}</span>
                 <div class="chat-panel-user__settings">
                     
                 </div>
@@ -309,7 +314,7 @@ const renderUser = () => {
         <div class="chat-box-user__null--container">
             <div class="chat-box-user__null--svg">
                 <svg>
-                <use xlink:href="img/sprite.svg#icon-null"></use>
+                <use xlink:href="img/themes.svg#icon-null-${state.theme}"></use>
                 </svg>
             </div>
             <div class="chat-box-user__null--title">
@@ -320,43 +325,96 @@ const renderUser = () => {
     `;
     elements.ChatBox.insertAdjacentHTML('beforeend', markup);
 
+    markup = `
+    <div class="chat-profile__user">
+        <div class="chat-profile__user-pic">
+            <img src="${faker.image.avatar()}" class="chat-profile__user-pic--img alt=""/>
+            <div class="chat-profile__user-pic--upload">
+                <label class="chat-profile__user-pic--label" for="photo">
+                    <svg  class="chat-profile__user-pic--svg">
+                      <use xlink:href="img/sprite.svg#icon-camera"></use>
+                    </svg>
+                </label>
+                <input class="chat-profile__user-pic--input" type="file" id="photo" name="photo" />
+            </div>
+            <!--
+            <div class="chat-profile__stranger-add--friend">
+                <svg  class="chat-profile__stranger-add--svg">
+                    <use xlink:href="img/sprite.svg#icon-user-plus"></use>
+                </svg>
+            </div> 
+            -->
+            <!--
+            <div class="chat-profile__friend-remove--stranger">
+                <svg  class="chat-profile__friend-remove--svg">
+                    <use xlink:href="img/sprite.svg#icon-user-minus"></use>
+                </svg>
+            </div>
+            -->
+
+            <div class="chat-profile__user-pic--name">${faker.name.findName()}</div>
+        </div>
+            
+        <div class="chat-profile__user-about">
+            <form class="chat-profile__user-about--form">
+                <div class="chat-profile__user-about--group">
+                    <div class="chat-profile__user-about--edit">
+                        <label for="name" class="chat-profile__user-about--label"> Name </label>
+                        <svg class="chat-profile__user-about--svg">
+                            <use xlink:href="img/sprite.svg#icon-edit"></use>
+                        </svg>
+                    </div>
+                    <input type="text" id="name" class="chat-profile__user-about--input" value="${faker.name.findName()}"/> 
+                </div>
+
+                <div class="chat-profile__user-about--group">
+                    <div class="chat-profile__user-about--edit">
+                        <label for="email" class="chat-profile__user-about--label"> Email </label>
+                        <svg class="chat-profile__user-about--svg">
+                            <use xlink:href="img/sprite.svg#icon-edit"></use>
+                        </svg>
+                    </div>
+                    <input type="text" id="email" class="chat-profile__user-about--input" value="${faker.internet.email()}" disabled/>   
+                </div>
+
+                <div class="chat-profile__user-about--group">
+                    <div class="chat-profile__user-about--edit">
+                        <label for="bio" class="chat-profile__user-about--label"> Bio </label>
+                        <svg class="chat-profile__user-about--svg">
+                            <use xlink:href="img/sprite.svg#icon-edit"></use>
+                        </svg>
+                    </div>
+                    <textarea id="bio" class="chat-profile__user-about--input" rows="4"  >
+                    ${faker.lorem.sentence()}
+                    </textarea>
+                    
+                </div>
+
+            </form>
+        </div>
+    </div>`;
+
+    elements.ChatProfile.insertAdjacentHTML('beforeend', markup);
+
     elements.Header.classList.add('user');
-};
-// -----------------------------
-// Controllers
-const controlForms = event => {
-    if (event.target.matches('.blur') || event.target.matches('.user-cross,.user-cross *')) {
-        // Clearing Forms
-        formsView.clearForms();
-    }
-    if (event.target.matches(elementStrings.signupBtn)) {
-        console.log('Sign up');
-        // event.preventDefault();
-        // Getting user inputs
-        const input = signupView.getUserInput();
-        // Checking user inputs
-    }
-    if (event.target.matches(elementStrings.loginBtn)) {
-        console.log('Log in');
-        // event.preventDefault();
-        // Getting user inputs
-        const input = loginView.getUserInput();
-        // Checking user inputs
-        console.log(input);
-    }
 };
 // ------------------------------
 // Event Listeners
 const addIdealListeners = () => {
     // Log In
-    const loginBtn = document.querySelector('.cta__log-in');
-    loginBtn.addEventListener('click', loginView.renderLoginForm);
+    const loginCtaBtn = document.querySelector(elementStrings.loginCtaBtn);
+    loginCtaBtn.addEventListener('click', loginController.controlLoginCta);
     // Sign Up
-    const signupBtn = document.querySelector('.cta__sign-up');
-    signupBtn.addEventListener('click', signupView.renderSignupForm);
+    const signupCtaBtn = document.querySelector(elementStrings.signupCtaBtn);
+    signupCtaBtn.addEventListener('click', signupController.controlSignupCta);
 
-    // Forms
-    elements.Forms.addEventListener('click', controlForms);
+    // Form Closing
+    elements.Forms.addEventListener('click', event => {
+        if (event.target.matches('.blur') || event.target.matches('.user-cross,.user-cross *')) {
+            // Clearing Forms
+            formsView.clearForms();
+        }
+    });
 };
 
 const init = () => {
@@ -366,6 +424,8 @@ const init = () => {
         renderIdeal();
         addIdealListeners();
     }
+
+    elements.App.classList.add(state.theme);
 };
 
 init();

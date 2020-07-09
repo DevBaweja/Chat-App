@@ -25,7 +25,7 @@
     @include grid();
 
     &.user {
-        @include customColumns(1.25fr 2.5fr 1fr);
+        @include customColumns(1.5fr 3fr 1.35fr);
     }
 
     &.ideal {
@@ -37,7 +37,7 @@
 .main {
     grid-area: main;
     @include grid();
-    @include customColumns(1.25fr 2.75fr 1fr);
+    @include customColumns(1.5fr 3fr 1.35fr);
 }
 
 // Footer
@@ -45,23 +45,4 @@
     grid-area: footer;
     @include grid();
     @include customColumns(1fr 1fr);
-}
-
-// ScrollBar
-::-webkit-scrollbar {
-    width: 0.5rem;
-}
-
-::-webkit-scrollbar-track {
-    background-color: $color-grey-dark-2;
-}
-::-webkit-scrollbar-thumb {
-    // background-color: lighten($color-grey-dark-2, 25%);
-    background-color: $color-primary;
-    border-radius: 1rem;
-    transition: all 0.2s;
-}
-::-webkit-scrollbar-thumb:hover {
-    // background-color: lighten($color-grey-dark-2, 40%);
-    background-color: $color-svg-light;
 }

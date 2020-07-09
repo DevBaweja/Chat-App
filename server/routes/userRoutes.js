@@ -2,9 +2,15 @@ const express = require('express');
 // -----------
 // Controllers
 const userController = require('../controllers/userController');
+const authController = require('../controllers/authController');
 
 // Router
 const router = express.Router();
+
+// -----------
+// Alias
+router.post('/signup', authController.signup);
+// router.post('/login', authController.login);
 
 // -----------
 // Routes

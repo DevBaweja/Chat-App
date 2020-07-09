@@ -1,7 +1,7 @@
 // Use these classes on app
 
-// Dark Theme
-.dark {
+@mixin darkThemeColor($color-primary, $color-primary-light, $color-primary-dark) {
+    // Dark Theme
     &.app {
         background-image: linear-gradient(to right bottom, lighten($color-primary, 2.5%), darken($color-primary, 2.5%));
         position: relative;
@@ -161,7 +161,7 @@
     .user-login,
     .user-signup {
         // background-color: $color-primary;
-        background: linear-gradient(to right bottom, $color-svg-light, $color-svg-dark);
+        background: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
         &__title {
         }
         &__form {
@@ -424,10 +424,83 @@
         }
     }
 
+    // Chat Box
     .chat-box {
         @include darkTheme($color-grey-dark-1, 50%);
     }
+    // Chat Profile
     .chat-profile {
+        // User
+        &__user {
+            &-pic,
+            &-about {
+                background-color: $color-grey-dark-1;
+            }
+            // Pic
+            &-pic {
+                &--img {
+                }
+                &--upload {
+                }
+
+                &--label {
+                    background-color: $color-primary;
+                }
+                &--svg {
+                    fill: $color-grey-dark-1;
+                }
+
+                &--input {
+                }
+                &--name {
+                }
+            }
+            // About
+            &-about {
+                &--form {
+                }
+                &--label {
+                }
+                &--edit {
+                }
+                &--input {
+                    background-color: $color-grey-dark-2;
+                    color: lighten($color-grey-dark-2, 70%);
+
+                    &:disabled {
+                        color: lighten($color-grey-dark-2, 60%);
+                        background-color: $color-grey-dark-1;
+                    }
+                }
+                &--svg {
+                    fill: $color-primary;
+                }
+            }
+        }
+
+        // Stranger
+        &__stranger {
+            &-add {
+                &--friend {
+                    background-color: $color-primary;
+                }
+                &--svg {
+                    fill: $color-grey-dark-1;
+                }
+            }
+        }
+
+        // Friend
+        &__friend {
+            &-remove {
+                &--stranger {
+                    background-color: $color-primary;
+                }
+                &--svg {
+                    fill: $color-grey-dark-1;
+                }
+            }
+        }
     }
 
     .copyright {
@@ -440,10 +513,63 @@
         }
     }
     .developers {
-        color: $color-svg-light;
+        color: $color-primary-light;
     }
+
+    // ScrollBar
+    ::-webkit-scrollbar {
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: $color-grey-dark-2;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: $color-primary;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: $color-primary-light;
+    }
+}
+
+.dark {
+    @include darkThemeColor($color-primary, $color-primary-light, $color-primary-dark);
+}
+
+// Change primary color in dark theme
+.dark-green {
+    @include darkThemeColor($color-primary-green, $color-primary-green-light, $color-primary-green-dark);
+}
+.dark-blue {
+    @include darkThemeColor($color-primary-blue, $color-primary-blue-light, $color-primary-blue-dark);
+}
+.dark-purple {
+    @include darkThemeColor($color-primary-purple, $color-primary-purple-light, $color-primary-purple-dark);
+}
+.dark-red {
+    @include darkThemeColor($color-primary-red, $color-primary-red-light, $color-primary-red-dark);
+}
+.dark-yellow {
+    @include darkThemeColor($color-primary-yellow, $color-primary-yellow-light, $color-primary-yellow-dark);
+}
+.dark-grey {
+    @include darkThemeColor($color-grey-light-1, $color-grey-light-2, $color-grey-light-3);
+}
+.dark-white {
+    @include darkThemeColor($color-white, $color-white, $color-white);
 }
 
 // Light Theme
 .light {
+}
+
+// Scrollbar
+:-webkit-scrollbar {
+}
+
+::-webkit-scrollbar-track {
+    background-color: $color-grey-dark-2;
+}
+::-webkit-scrollbar-thumb {
+}
+::-webkit-scrollbar-thumb:hover {
 }
