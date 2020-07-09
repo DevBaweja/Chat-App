@@ -258,6 +258,7 @@ const renderUser = () => {
             </a>
             </li>
             ${chat_panel__item()}
+            ${chat_panel__item()}
         </ul>
     </div>
 
@@ -328,10 +329,25 @@ const controlForms = event => {
         // Clearing Forms
         formsView.clearForms();
     }
+    if (event.target.matches(elementStrings.signupBtn)) {
+        console.log('Sign up');
+        // event.preventDefault();
+        // Getting user inputs
+        const input = signupView.getUserInput();
+        // Checking user inputs
+    }
+    if (event.target.matches(elementStrings.loginBtn)) {
+        console.log('Log in');
+        // event.preventDefault();
+        // Getting user inputs
+        const input = loginView.getUserInput();
+        // Checking user inputs
+        console.log(input);
+    }
 };
 // ------------------------------
 // Event Listeners
-const addEventListeners = () => {
+const addIdealListeners = () => {
     // Log In
     const loginBtn = document.querySelector('.cta__log-in');
     loginBtn.addEventListener('click', loginView.renderLoginForm);
@@ -348,7 +364,7 @@ const init = () => {
         renderUser();
     } else {
         renderIdeal();
-        addEventListeners();
+        addIdealListeners();
     }
 };
 

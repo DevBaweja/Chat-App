@@ -2,8 +2,7 @@
     0% {
         transform: rotate(0deg);
     }
-    50% {
-    }
+
     100% {
         transform: rotate(360deg);
     }
@@ -12,14 +11,14 @@
 @keyframes TopToDown {
     0% {
         top: -50%;
-        opacity: 0;
+        opacity: 0.5;
     }
-    80% {
+    90% {
         top: 55%;
+        opacity: 1;
     }
     100% {
         top: 50%;
-        opacity: 1;
     }
 }
 @keyframes DownToTop {
@@ -27,11 +26,22 @@
         top: 50%;
         opacity: 1;
     }
-    20% {
+    10% {
         top: 55%;
+        opacity: 1;
     }
     100% {
         top: -50%;
         opacity: 0;
+    }
+}
+
+@keyframes blur {
+    0%{
+        backdrop-filter: blur(0);
+    }
+
+    100%{
+        backdrop-filter: blur(0.2rem);
     }
 }

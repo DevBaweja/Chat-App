@@ -1,5 +1,5 @@
-import { elements } from '../base';
-import { renderForm } from './forms';
+import { elements, elementStrings } from '../base';
+import { renderForm, getInput } from './forms';
 
 export const renderSignupForm = () => {
     const form = {
@@ -32,8 +32,8 @@ export const renderSignupForm = () => {
             },
             {
                 type: 'password',
-                for: 'confirm-password',
-                id: 'confirm-password',
+                for: 'passwordConfirm',
+                id: 'passwordConfirm',
                 label: 'Confirm Password',
                 placeholder: '••••••••••••',
                 required: true,
@@ -46,3 +46,5 @@ export const renderSignupForm = () => {
 
     elements.Forms.insertAdjacentHTML('beforeend', renderForm(form));
 };
+
+export const getUserInput = () => getInput(elementStrings.signupInput);
