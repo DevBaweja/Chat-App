@@ -1,4 +1,4 @@
-import { elements } from '../base';
+import { elements } from '../utils/base.util';
 
 export const clearForms = () => (elements.Forms.innerHTML = '');
 

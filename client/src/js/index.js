@@ -1,14 +1,19 @@
 import faker from 'faker';
 
-const state = {
-    currentUser: null,
-    login: {},
-    signup: {},
-};
-import { elements, elementStrings } from './base';
-import * as loginView from './views/login';
-import * as signupView from './views/signup';
-import * as formsView from './views/forms';
+// State
+import state from './state';
+// Utils
+import { elements, elementStrings } from './utils/base.util';
+// ---------------------
+// Models
+
+// ---------------------
+// Views
+import * as formsView from './views/forms.view.';
+// ---------------------
+// Controllers
+import * as loginController from './controllers/login.controller';
+import * as signupController from './controllers/signup.controller';
 
 const renderIdeal = () => {
     let markup;
@@ -321,41 +326,23 @@ const renderUser = () => {
 
     elements.Header.classList.add('user');
 };
-// -----------------------------
-// Controllers
-const controlForms = event => {
-    if (event.target.matches('.blur') || event.target.matches('.user-cross,.user-cross *')) {
-        // Clearing Forms
-        formsView.clearForms();
-    }
-    if (event.target.matches(elementStrings.signupBtn)) {
-        console.log('Sign up');
-        // event.preventDefault();
-        // Getting user inputs
-        const input = signupView.getUserInput();
-        // Checking user inputs
-    }
-    if (event.target.matches(elementStrings.loginBtn)) {
-        console.log('Log in');
-        // event.preventDefault();
-        // Getting user inputs
-        const input = loginView.getUserInput();
-        // Checking user inputs
-        console.log(input);
-    }
-};
 // ------------------------------
 // Event Listeners
 const addIdealListeners = () => {
     // Log In
-    const loginBtn = document.querySelector('.cta__log-in');
-    loginBtn.addEventListener('click', loginView.renderLoginForm);
+    const loginCtaBtn = document.querySelector(elementStrings.loginCtaBtn);
+    loginCtaBtn.addEventListener('click', loginController.controlLoginCta);
     // Sign Up
-    const signupBtn = document.querySelector('.cta__sign-up');
-    signupBtn.addEventListener('click', signupView.renderSignupForm);
+    const signupCtaBtn = document.querySelector(elementStrings.signupCtaBtn);
+    signupCtaBtn.addEventListener('click', signupController.controlSignupCta);
 
-    // Forms
-    elements.Forms.addEventListener('click', controlForms);
+    // Form Closing
+    elements.Forms.addEventListener('click', event => {
+        if (event.target.matches('.blur') || event.target.matches('.user-cross,.user-cross *')) {
+            // Clearing Forms
+            formsView.clearForms();
+        }
+    });
 };
 
 const init = () => {

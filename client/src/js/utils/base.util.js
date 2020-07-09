@@ -13,6 +13,11 @@ export const elements = {
 
 export const elementStrings = {
     CTA: '.cta__btn',
+    loginCtaBtn: '.cta__log-in',
+    signupCtaBtn: '.cta__sign-up',
+    UserForm: '.user__form',
+    signupForm: '.user-signup__form',
+    loginForm: '.user-login__form',
     signupBtn: '.user-signup__form--btn',
     loginBtn: '.user-login__form--btn',
     signupInput: '.user-signup__form--input',

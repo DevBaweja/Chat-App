@@ -1,5 +1,5 @@
-import { elements, elementStrings } from '../base';
-import { renderForm, getInput } from './forms';
+import { elements, elementStrings } from '../utils/base.util';
+import { renderForm, getInput } from './forms.view.';
 
 export const renderSignupForm = () => {
     const form = {
