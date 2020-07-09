@@ -424,10 +424,68 @@
         }
     }
 
+    // Chat Box
     .chat-box {
         @include darkTheme($color-grey-dark-1, 50%);
     }
+    // Chat Profile
     .chat-profile {
+        // User
+        &__user {
+            &-pic,
+            &-description,
+            &-email {
+                background-color: $color-grey-dark-1;
+            }
+            &-pic {
+                &--img {
+                }
+                &--upload {
+                }
+
+                &--label {
+                    background-color: $color-primary;
+                }
+                &--svg {
+                    fill: $color-grey-dark-1;
+                }
+
+                &--input {
+                }
+                &--name {
+                }
+            }
+            &-description {
+                background-color: $color-grey-dark-1;
+            }
+            &-email {
+                background-color: $color-grey-dark-1;
+            }
+        }
+
+        // Stranger
+        &__stranger {
+            &-add {
+                &--friend {
+                    background-color: $color-primary;
+                }
+                &--svg {
+                    fill: $color-grey-dark-1;
+                }
+            }
+        }
+
+        // Friend
+        &__friend {
+            &-remove {
+                &--stranger {
+                    background-color: $color-primary;
+                }
+                &--svg {
+                    fill: $color-grey-dark-1;
+                }
+            }
+        }
     }
 
     .copyright {

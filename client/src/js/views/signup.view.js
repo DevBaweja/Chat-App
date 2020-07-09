@@ -1,5 +1,5 @@
 import { elements, elementStrings } from '../utils/base.util';
-import { renderForm, getInput } from './forms.view.';
+import { renderForm, getInput, prepareUI } from './forms.view';
 
 export const renderSignupForm = () => {
     const form = {
@@ -46,5 +46,7 @@ export const renderSignupForm = () => {
 
     elements.Forms.insertAdjacentHTML('beforeend', renderForm(form));
 };
+
+export const prepareUIForSignup = () => prepareUI(elementStrings.signupBtn);
 
 export const getUserInput = () => getInput(elementStrings.signupInput);

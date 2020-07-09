@@ -5,7 +5,7 @@ class Signup {
         this.email = email;
         this.password = password;
         this.passwordConfirm = passwordConfirm;
-        this.query = `http://localhost:3000/api/v1/users/signup`;
+        this.url = `http://localhost:3000/api/v1/users/signup`;
     }
 
     signupUser = async () => {
@@ -16,7 +16,7 @@ class Signup {
                 password: this.password,
                 passwordConfirm: this.passwordConfirm,
             };
-            const user = await axios.post(this.query, obj);
+            const user = await axios.post(this.url, obj);
             return user;
         } catch (err) {
             console.log('Error', err.message);

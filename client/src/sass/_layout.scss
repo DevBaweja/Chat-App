@@ -25,7 +25,7 @@
     @include grid();
 
     &.user {
-        @include customColumns(1.25fr 2.5fr 1fr);
+        @include customColumns(1.5fr 3fr 1.35fr);
     }
 
     &.ideal {
@@ -37,7 +37,7 @@
 .main {
     grid-area: main;
     @include grid();
-    @include customColumns(1.25fr 2.75fr 1fr);
+    @include customColumns(1.5fr 3fr 1.35fr);
 }
 
 // Footer

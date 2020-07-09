@@ -12,6 +12,9 @@ const controlSignup = async event => {
     event.preventDefault();
 
     console.log('Sign up');
+    // 0) Prepare UI for changes
+    signupView.prepareUIForSignup();
+
     // 1) Getting user inputs
     const inputs = signupView.getUserInput();
     //! 2) Checking user inputs

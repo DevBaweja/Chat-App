@@ -9,7 +9,7 @@ import { elements, elementStrings } from './utils/base.util';
 
 // ---------------------
 // Views
-import * as formsView from './views/forms.view.';
+import * as formsView from './views/forms.view';
 // ---------------------
 // Controllers
 import * as loginController from './controllers/login.controller';
@@ -323,6 +323,42 @@ const renderUser = () => {
     </div>
     `;
     elements.ChatBox.insertAdjacentHTML('beforeend', markup);
+
+    markup = `
+    <div class="chat-profile__user">
+        <div class="chat-profile__user-pic">
+            <img src= ${faker.image.avatar()} class="chat-profile__user-pic--img alt=""/>
+            <div class="chat-profile__user-pic--upload">
+                <label class="chat-profile__user-pic--label" for="photo">
+                    <svg  class="chat-profile__user-pic--svg">
+                      <use xlink:href="img/sprite.svg#icon-camera"></use>
+                    </svg>
+                </label>
+                <input class="chat-profile__user-pic--input" type="file" id="photo" name="photo" />
+            </div>
+            <!--
+            <div class="chat-profile__stranger-add--friend">
+                <svg  class="chat-profile__stranger-add--svg">
+                    <use xlink:href="img/sprite.svg#icon-user-plus"></use>
+                </svg>
+            </div> 
+            -->
+            <!--
+            <div class="chat-profile__friend-remove--stranger">
+                <svg  class="chat-profile__friend-remove--svg">
+                    <use xlink:href="img/sprite.svg#icon-user-minus"></use>
+                </svg>
+            </div>
+            -->
+
+            <div class="chat-profile__user-pic--name">${faker.fake('{{name.firstName}} {{name.lastName}}')}</div>
+        </div>
+            
+        <div class="chat-profile__user-description">Hey, there</div>
+        <div class="chat-profile__user-email">How are you?</div>
+    </div>`;
+
+    elements.ChatProfile.insertAdjacentHTML('beforeend', markup);
 
     elements.Header.classList.add('user');
 };

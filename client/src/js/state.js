@@ -1,5 +1,5 @@
 const state = {
-    currentUser: null,
+    currentUser: {},
     login: null,
     signup: null,
 };

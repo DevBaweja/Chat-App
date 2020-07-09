@@ -45,3 +45,7 @@ export const getInput = className => {
 
     return obj;
 };
+
+export const prepareUI = className => {
+    document.querySelector(className).innerText = 'Loading...';
+};

@@ -432,15 +432,16 @@
     &__reload {
         position: absolute;
         top: 50%;
-        transform: translateY(-50%);
         right: 0;
         height: 1.5rem;
         width: 1.5rem;
         margin-right: 2rem;
         transition: all 1s;
+        backface-visibility: hidden;
+        transform: translateY(-50%) translateZ(0) scale(1) rotate(0deg);
 
         &:hover {
-            transform: translateY(-50%) rotate(360deg);
+            transform: translateY(-50%) translateZ(0) scale(1) rotate(360deg);
         }
     }
 
@@ -631,6 +632,114 @@
 }
 // Chat Profile
 .chat-profile {
+    // User
+    &__user {
+        @include flex();
+        @include direction(column);
+        align-items: stretch;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+
+        &-pic,
+        &-description,
+        &-email {
+            border-radius: 0.5rem;
+            margin: 0.5rem;
+        }
+        &-pic {
+            @include flex();
+            @include direction(column);
+            position: relative;
+
+            &--img {
+                border-radius: 50%;
+                height: 15rem;
+                width: 15rem;
+                margin: 2rem;
+            }
+            &--upload {
+                position: absolute;
+                top: 67.5%;
+                left: 67.5%;
+                transform: translate(-50%, -50%);
+            }
+
+            &--label {
+                @include flex();
+                height: 3.5rem;
+                width: 3.5rem;
+                border-radius: 50%;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            &--svg {
+                height: 2rem;
+                width: 2rem;
+            }
+
+            &--input {
+                // Hiding
+                display: none;
+                visibility: hidden;
+                opacity: 0;
+            }
+            &--name {
+                margin-bottom: 1rem;
+            }
+        }
+        &-description {
+            @include flex();
+        }
+        &-email {
+            @include flex();
+        }
+    }
+
+    // Stranger
+    &__stranger {
+        &-add {
+            &--friend {
+                position: absolute;
+                top: 67.5%;
+                left: 67.5%;
+                transform: translate(-50%, -50%);
+                @include flex();
+                height: 3.5rem;
+                width: 3.5rem;
+                border-radius: 50%;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            &--svg {
+                height: 2rem;
+                width: 2rem;
+            }
+        }
+    }
+    // Friend
+    &__friend {
+        &-remove {
+            &--stranger {
+                position: absolute;
+                top: 67.5%;
+                left: 67.5%;
+                transform: translate(-50%, -50%);
+                @include flex();
+                height: 3.5rem;
+                width: 3.5rem;
+                border-radius: 50%;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            &--svg {
+                height: 2rem;
+                width: 2rem;
+            }
+        }
+    }
 }
 
 .copyright {
