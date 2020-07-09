@@ -8,11 +8,10 @@ import Signup from '../models/Signup';
 import * as signupView from '../views/signup.view';
 
 // Forms
-const controlSignup = event => {
+const controlSignup = async event => {
     event.preventDefault();
 
     console.log('Sign up');
-    // event.preventDefault();
     // 1) Getting user inputs
     const inputs = signupView.getUserInput();
     //! 2) Checking user inputs
@@ -20,8 +19,16 @@ const controlSignup = event => {
 
     // 3) Init signup
     state.signup = new Signup({ ...inputs });
-    console.log(state.signup);
+
+    try {
+        // 4) Making API call
+        const user = await state.signup.signupUser();
+        console.log(user);
+    } catch (err) {
+        console.log('ERROR', err.message);
+    }
 };
+
 // CTA
 export const controlSignupCta = () => {
     // 1) Rendering Signup form

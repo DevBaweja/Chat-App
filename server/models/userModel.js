@@ -23,6 +23,11 @@ const def = {
         required: [true, getMustHave('password')],
         minlength: 8,
     },
+    passwordConfirm: {
+        type: String,
+        required: [true, getMustHave('confirm password')],
+        minlength: 8,
+    },
 };
 const options = {};
 const userSchema = Schema(def, options);

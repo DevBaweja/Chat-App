@@ -20,7 +20,9 @@ const controlLogin = event => {
 
     // 3) Init login
     state.login = new Login({ ...inputs });
-    console.log(state.login);
+
+    // 4) Making API call
+    state.login.loginUser();
 };
 // CTA
 export const controlLoginCta = () => {
