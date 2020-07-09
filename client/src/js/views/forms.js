@@ -33,3 +33,15 @@ export const renderForm = form => `
         </div>
     </div>
 `;
+
+export const getInput = className => {
+    const inputs = Array.from(document.querySelectorAll(className));
+
+    let obj = {};
+
+    inputs.forEach(input => {
+        obj[input.id] = input.value;
+    });
+
+    return obj;
+};

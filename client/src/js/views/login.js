@@ -1,5 +1,5 @@
-import { elements } from '../base';
-import { renderForm } from './forms';
+import { elements, elementStrings } from '../base';
+import { renderForm, getInput } from './forms';
 
 export const renderLoginForm = () => {
     const form = {
@@ -30,3 +30,5 @@ export const renderLoginForm = () => {
 
     elements.Forms.insertAdjacentHTML('beforeend', renderForm(form));
 };
+
+export const getUserInput = () => getInput(elementStrings.loginInput);
