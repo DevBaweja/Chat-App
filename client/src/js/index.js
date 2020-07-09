@@ -114,7 +114,7 @@ const renderUser = () => {
     <div class="menu">
         <ul class="menu__list">
             <li class="menu__item">
-                <a href="chats" class="menu__link menu__link--active">
+                <a href="#chats" class="menu__link menu__link--active">
                     Chats
                 </a>
             </li>
@@ -127,9 +127,9 @@ const renderUser = () => {
     markup = `
     <div class="about-me">
     <a href="#" class="about-me__link">
-        <img src=${faker.image.avatar()} alt="user-photo" class="about-me__photo"/>
+        <img src="${faker.image.avatar()}" alt="user-photo" class="about-me__photo"/>
         
-        <span class="about-me__name">${faker.fake('{{name.suffix}} {{name.firstName}} {{name.lastName}}')}</span>
+        <span class="about-me__name">${faker.name.findName()}</span>
     </a>
     </div>
     `;
@@ -139,10 +139,10 @@ const renderUser = () => {
     const chat_panel__item = () => ` 
     <li class="chat-panel-user__item">
     <a href="#" class="chat-panel-user__link">
-        <img src=${faker.image.avatar()} alt="photo" class="chat-panel-user__userphoto" />
+        <img src="${faker.image.avatar()}" alt="photo" class="chat-panel-user__userphoto" />
         <!-- User Info -->
         <div class="chat-panel-user__info">
-            <span class="chat-panel-user__username">${faker.fake('{{name.firstName}} {{name.lastName}}')}</span>
+            <span class="chat-panel-user__username">${faker.name.findName()}</span>
             <div class="chat-panel-user__settings">
                
             </div>
@@ -172,10 +172,10 @@ const renderUser = () => {
             ${chat_panel__item()}
             <li class="chat-panel-user__item">
     <a href="#" class="chat-panel-user__link">
-        <img src=${faker.image.avatar()} alt="photo" class="chat-panel-user__userphoto" />
+        <img src="${faker.image.avatar()}" alt="photo" class="chat-panel-user__userphoto" />
         <!-- User Info -->
         <div class="chat-panel-user__info">
-            <span class="chat-panel-user__username">${faker.fake('{{name.firstName}} {{name.lastName}}')}</span>
+            <span class="chat-panel-user__username">${faker.name.findName()}</span>
             <div class="chat-panel-user__settings">
                
             </div>
@@ -199,9 +199,9 @@ const renderUser = () => {
             <!-- Settings -->
             <li class="chat-panel-user__item">
             <a href="#" class="chat-panel-user__link">
-                <img src=${faker.image.avatar()} alt="photo" class="chat-panel-user__userphoto" />
+                <img src="${faker.image.avatar()}" alt="photo" class="chat-panel-user__userphoto" />
                 <div class="chat-panel-user__info">
-                <span class="chat-panel-user__username">${faker.fake('{{name.firstName}} {{name.lastName}}')}</span>
+                <span class="chat-panel-user__username">${faker.name.findName()}</span>
                 <div class="chat-panel-user__settings">
                 <svg class="chat-panel-user__settings--icons icon-dot-single--notification">
                 <use xlink:href="img/sprite.svg#icon-dot-single--notification"></use>
@@ -228,9 +228,9 @@ const renderUser = () => {
             <!-- Selected -->
             <li class="chat-panel-user__item chat-panel-user__item--selected">
             <a href="#" class="chat-panel-user__link">
-                <img src=${faker.image.avatar()} alt="photo" class="chat-panel-user__userphoto" />
+                <img src="${faker.image.avatar()}" alt="photo" class="chat-panel-user__userphoto" />
                 <div class="chat-panel-user__info">
-                <span class="chat-panel-user__username">${faker.fake('{{name.firstName}} {{name.lastName}}')}</span>
+                <span class="chat-panel-user__username">${faker.name.findName()}</span>
                 <div class="chat-panel-user__settings">
                     
                 </div>
@@ -247,9 +247,9 @@ const renderUser = () => {
             <!-- Active -->
             <li class="chat-panel-user__item chat-panel-user__item--selected">
             <a href="#" class="chat-panel-user__link">
-                <img src=${faker.image.avatar()} alt="photo" class="chat-panel-user__userphoto" />
+                <img src="${faker.image.avatar()}" alt="photo" class="chat-panel-user__userphoto" />
                 <div class="chat-panel-user__info">
-                <span class="chat-panel-user__username">${faker.fake('{{name.firstName}} {{name.lastName}}')}</span>
+                <span class="chat-panel-user__username">${faker.name.findName()}</span>
                 <div class="chat-panel-user__settings">
                     
                 </div>
@@ -322,12 +322,12 @@ const renderUser = () => {
         </div>
     </div>
     `;
-    elements.ChatBox.insertAdjacentHTML('beforeend', markup);
+    // elements.ChatBox.insertAdjacentHTML('beforeend', markup);
 
     markup = `
     <div class="chat-profile__user">
         <div class="chat-profile__user-pic">
-            <img src= ${faker.image.avatar()} class="chat-profile__user-pic--img alt=""/>
+            <img src="${faker.image.avatar()}" class="chat-profile__user-pic--img alt=""/>
             <div class="chat-profile__user-pic--upload">
                 <label class="chat-profile__user-pic--label" for="photo">
                     <svg  class="chat-profile__user-pic--svg">
@@ -351,11 +351,46 @@ const renderUser = () => {
             </div>
             -->
 
-            <div class="chat-profile__user-pic--name">${faker.fake('{{name.firstName}} {{name.lastName}}')}</div>
+            <div class="chat-profile__user-pic--name">${faker.name.findName()}</div>
         </div>
             
-        <div class="chat-profile__user-description">Hey, there</div>
-        <div class="chat-profile__user-email">How are you?</div>
+        <div class="chat-profile__user-about">
+            <form class="chat-profile__user-about--form">
+                <div class="chat-profile__user-about--group">
+                    <div class="chat-profile__user-about--edit">
+                        <label for="name" class="chat-profile__user-about--label"> Name </label>
+                        <svg class="chat-profile__user-about--svg">
+                            <use xlink:href="img/sprite.svg#icon-edit"></use>
+                        </svg>
+                    </div>
+                    <input type="text" id="name" class="chat-profile__user-about--input" value="${faker.name.findName()}"/> 
+                </div>
+
+                <div class="chat-profile__user-about--group">
+                    <div class="chat-profile__user-about--edit">
+                        <label for="email" class="chat-profile__user-about--label"> Email </label>
+                        <svg class="chat-profile__user-about--svg">
+                            <use xlink:href="img/sprite.svg#icon-edit"></use>
+                        </svg>
+                    </div>
+                    <input type="text" id="email" class="chat-profile__user-about--input" value="${faker.internet.email()}" disabled/>   
+                </div>
+
+                <div class="chat-profile__user-about--group">
+                    <div class="chat-profile__user-about--edit">
+                        <label for="bio" class="chat-profile__user-about--label"> Bio </label>
+                        <svg class="chat-profile__user-about--svg">
+                            <use xlink:href="img/sprite.svg#icon-edit"></use>
+                        </svg>
+                    </div>
+                    <textarea id="bio" class="chat-profile__user-about--input" rows="4"  >
+                    ${faker.lorem.sentence()}
+                    </textarea>
+                    
+                </div>
+
+            </form>
+        </div>
     </div>`;
 
     elements.ChatProfile.insertAdjacentHTML('beforeend', markup);

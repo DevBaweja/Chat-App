@@ -641,11 +641,11 @@
         border-radius: 0.5rem;
 
         &-pic,
-        &-description,
-        &-email {
+        &-about {
             border-radius: 0.5rem;
             margin: 0.5rem;
         }
+        // Pic
         &-pic {
             @include flex();
             @include direction(column);
@@ -686,13 +686,55 @@
             }
             &--name {
                 margin-bottom: 1rem;
+                font-size: $font-size-medium;
+                font-weight: $font-weight-bold;
+                letter-spacing: 0.05rem;
+                word-spacing: 0.1rem;
             }
         }
-        &-description {
-            @include flex();
-        }
-        &-email {
-            @include flex();
+        // About
+        &-about {
+            &--form {
+                @include flex();
+                align-items: stretch;
+                @include direction(column);
+                padding: 1rem;
+            }
+            &--group {
+                @include flex();
+                align-items: stretch;
+                @include direction(column);
+                margin: 1.5rem 0;
+            }
+            &--label {
+                font-size: $font-size-jayesh;
+                margin-bottom: 0.25rem;
+                margin-left: 0.75rem;
+            }
+
+            &--edit {
+                @include flex(space-between);
+            }
+            &--input {
+                flex: 1;
+                padding: 0.75rem;
+                font-size: $font-size-regular-1;
+                border-radius: 0.5rem;
+                border: none;
+                &:focus {
+                    outline: none;
+                }
+            }
+            textarea {
+                font-family: inherit;
+                font-size: $font-size-jayesh;
+            }
+            &--svg {
+                height: 2rem;
+                width: 2rem;
+                margin: 0.2rem;
+                margin-left: 1rem;
+            }
         }
     }
 

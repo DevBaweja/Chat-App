@@ -1,7 +1,7 @@
 // Use these classes on app
 
-// Dark Theme
-.dark {
+@mixin darkThemeColor($color-primary) {
+    // Dark Theme
     &.app {
         background-image: linear-gradient(to right bottom, lighten($color-primary, 2.5%), darken($color-primary, 2.5%));
         position: relative;
@@ -161,7 +161,7 @@
     .user-login,
     .user-signup {
         // background-color: $color-primary;
-        background: linear-gradient(to right bottom, $color-svg-light, $color-svg-dark);
+        background: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
         &__title {
         }
         &__form {
@@ -433,10 +433,10 @@
         // User
         &__user {
             &-pic,
-            &-description,
-            &-email {
+            &-about {
                 background-color: $color-grey-dark-1;
             }
+            // Pic
             &-pic {
                 &--img {
                 }
@@ -455,11 +455,26 @@
                 &--name {
                 }
             }
-            &-description {
-                background-color: $color-grey-dark-1;
-            }
-            &-email {
-                background-color: $color-grey-dark-1;
+            // About
+            &-about {
+                &--form {
+                }
+                &--label {
+                }
+                &--edit {
+                }
+                &--input {
+                    background-color: $color-grey-dark-2;
+                    color: lighten($color-grey-dark-2, 70%);
+
+                    &:disabled {
+                        color: lighten($color-grey-dark-2, 60%);
+                        background-color: $color-grey-dark-1;
+                    }
+                }
+                &--svg {
+                    fill: $color-primary;
+                }
             }
         }
 
@@ -498,8 +513,26 @@
         }
     }
     .developers {
-        color: $color-svg-light;
+        color: $color-primary-light;
     }
+}
+
+.dark {
+    @include darkThemeColor($color-primary);
+}
+
+// Change primary color in dark theme
+.dark-green {
+    @include darkThemeColor($color-primary-1);
+}
+.dark-yellow {
+    // @include darkThemeColor();
+}
+.dark-blue {
+    // @include darkThemeColor();
+}
+.dark-white {
+    // @include darkThemeColor();
 }
 
 // Light Theme
