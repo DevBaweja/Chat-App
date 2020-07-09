@@ -20,7 +20,7 @@ const renderIdeal = () => {
 
     markup = `
     <div class="logo-box__name">
-        Chat Fuel
+        #ChatFuel
     </div>
     `;
 
@@ -313,7 +313,7 @@ const renderUser = () => {
         <div class="chat-box-user__null--container">
             <div class="chat-box-user__null--svg">
                 <svg>
-                <use xlink:href="img/sprite.svg#icon-null"></use>
+                <use xlink:href="img/themes.svg#icon-null-${state.theme}"></use>
                 </svg>
             </div>
             <div class="chat-box-user__null--title">
@@ -322,7 +322,7 @@ const renderUser = () => {
         </div>
     </div>
     `;
-    // elements.ChatBox.insertAdjacentHTML('beforeend', markup);
+    elements.ChatBox.insertAdjacentHTML('beforeend', markup);
 
     markup = `
     <div class="chat-profile__user">
@@ -423,6 +423,8 @@ const init = () => {
         renderIdeal();
         addIdealListeners();
     }
+
+    elements.App.classList.add(state.theme);
 };
 
 init();

@@ -807,3 +807,18 @@
     font-weight: $font-weight-bold;
     text-transform: uppercase;
 }
+
+// --------------------------
+// Scrollbar
+::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    transition: all 0.2s;
+}
+::-webkit-scrollbar-thumb:hover {
+}
