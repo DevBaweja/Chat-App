@@ -737,6 +737,22 @@
                 margin-left: 1rem;
             }
         }
+
+        &--update{
+            align-self: center;
+            border-radius: 2rem;
+            padding: 1rem 2rem;
+            margin: 1.5rem 0;
+            font-size: $font-size-regular-2;
+            font-weight: $font-weight-bold;
+            cursor: pointer;
+            border-width: 0;
+
+            &:focus{
+                outline: none;
+
+            }
+        }
     }
 
     // Stranger

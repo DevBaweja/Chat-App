@@ -392,6 +392,7 @@ const renderUser = () => {
 
             </form>
         </div>
+        <button class="chat-profile__user--update">Save profile</button>
     </div>`;
 
     elements.ChatProfile.insertAdjacentHTML('beforeend', markup);

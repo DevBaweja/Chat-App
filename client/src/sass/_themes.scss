@@ -476,6 +476,15 @@
                     fill: $color-primary;
                 }
             }
+
+            &--update{
+                background-color: $color-primary;
+                color: $color-grey-dark-2;
+
+                &:hover{
+                    background-color: $color-primary-light;
+                }
+            }
         }
 
         // Stranger
