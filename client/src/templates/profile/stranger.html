@@ -1,0 +1,37 @@
+<div class="chat-profile__stranger">
+    <form class="chat-profile__stranger--form">
+        <div class="chat-profile__stranger-pic">
+            <img src="{%IMAGE_URL%}" class="chat-profile__stranger-pic--img" alt="" />
+            <div class="chat-profile__stranger-add--friend">
+                <svg class="chat-profile__stranger-add--svg">
+                    <use xlink:href="img/sprite.svg#icon-user-plus"></use>
+                </svg>
+            </div>
+            <div class="chat-profile__stranger-pic--name">{%NAME%}</div>
+        </div>
+
+        <div class="chat-profile__stranger-about">
+            <div class="chat-profile__stranger-about--group">
+                <div class="chat-profile__stranger-about--edit">
+                    <label for="name" class="chat-profile__stranger-about--label"> Name </label>
+                </div>
+                <input type="text" id="name" class="chat-profile__stranger-about--input" value="{%NAME%}" disabled />
+            </div>
+
+            <div class="chat-profile__stranger-about--group">
+                <div class="chat-profile__stranger-about--edit">
+                    <label for="email" class="chat-profile__stranger-about--label"> Email </label>
+                </div>
+                <input type="text" id="email" class="chat-profile__stranger-about--input" value="{%EMAIL%}" disabled />
+            </div>
+
+            <div class="chat-profile__stranger-about--group">
+                <div class="chat-profile__stranger-about--edit">
+                    <label for="bio" class="chat-profile__stranger-about--label"> Bio </label>
+                </div>
+
+                <textarea id="bio" class="chat-profile__stranger-about--input" rows="4" disabled>{%BIO%}</textarea>
+            </div>
+        </div>
+    </form>
+</div>

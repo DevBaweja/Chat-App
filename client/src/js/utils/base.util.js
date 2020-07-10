@@ -22,4 +22,6 @@ export const elementStrings = {
     loginBtn: '.user-login__form--btn',
     signupInput: '.user-signup__form--input',
     loginInput: '.user-login__form--input',
+    aboutMeDrop: '.about-me__drop',
+    chatPanelDrop: '.chat-panel__drop',
 };

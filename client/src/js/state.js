@@ -1,5 +1,5 @@
 const state = {
-    currentUser: {},
+    user: {},
     login: null,
     signup: null,
     theme: 'dark-red',

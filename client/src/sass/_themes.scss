@@ -42,7 +42,6 @@
             }
 
             &--span {
-                font-size: $font-size-jayesh;
             }
         }
     }
@@ -431,7 +430,9 @@
     // Chat Profile
     .chat-profile {
         // User
-        &__user {
+        &__user,
+        &__stranger,
+        &__friend {
             &-pic,
             &-about {
                 background-color: $color-grey-dark-1;
@@ -440,9 +441,6 @@
             &-pic {
                 &--img {
                 }
-                &--upload {
-                }
-
                 &--label {
                     background-color: $color-primary;
                 }
@@ -450,8 +448,6 @@
                     fill: $color-grey-dark-1;
                 }
 
-                &--input {
-                }
                 &--name {
                 }
             }
@@ -476,17 +472,25 @@
                     fill: $color-primary;
                 }
             }
+        }
+        // User
+        &__user {
+            &-pic {
+                &--upload {
+                }
+                &--input {
+                }
+            }
 
-            &--update{
+            &--update {
                 background-color: $color-primary;
                 color: $color-grey-dark-2;
 
-                &:hover{
+                &:hover {
                     background-color: $color-primary-light;
                 }
             }
         }
-
         // Stranger
         &__stranger {
             &-add {

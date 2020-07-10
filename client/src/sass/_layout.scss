@@ -12,7 +12,8 @@
     width: 100vw;
     overflow: hidden;
     @include grid();
-    grid-template-rows: 6rem minmax(66rem, auto) 3.5rem;
+    // ! Developer Jayesh 66rem
+    grid-template-rows: 6rem minmax(62.5rem, auto) 3.5rem;
     grid-template-areas:
         'header'
         'main'

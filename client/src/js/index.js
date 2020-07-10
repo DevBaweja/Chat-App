@@ -14,6 +14,7 @@ import * as formsView from './views/forms.view';
 // Controllers
 import * as loginController from './controllers/login.controller';
 import * as signupController from './controllers/signup.controller';
+import * as dropdownsController from './controllers/dropdowns.controller';
 
 const renderIdeal = () => {
     let markup;
@@ -124,12 +125,14 @@ const renderUser = () => {
     `;
     elements.Header.insertAdjacentHTML('beforeend', markup);
 
+    const name = faker.name.findName();
+    const image = faker.image.avatar();
     markup = `
     <div class="about-me">
-    <a href="#" class="about-me__link">
-        <img src="${faker.image.avatar()}" alt="user-photo" class="about-me__photo"/>
+    <a href="#" class="about-me__link about-me__drop">
+        <img src="${image}" alt="user-photo" class="about-me__photo"/>
         
-        <span class="about-me__name">${faker.name.findName()}</span>
+        <span class="about-me__name">${name}</span>
     </a>
     </div>
     `;
@@ -149,7 +152,7 @@ const renderUser = () => {
         </div>
         
         <!-- OPTIONS -->
-        <svg class="chat-panel-user__option">
+        <svg class="chat-panel-user__option chat-panel__drop">
             <use xlink:href="img/sprite.svg#icon-chevron-down"></use>
         </svg>
         <!-- ACTIVE -->
@@ -186,7 +189,7 @@ const renderUser = () => {
         </svg>
 
         <!-- OPTION -->
-        <svg class="chat-panel-user__option">
+        <svg class="chat-panel-user__option ">
             <use xlink:href="img/sprite.svg#icon-chevron-down"></use>
         </svg>
        
@@ -327,73 +330,61 @@ const renderUser = () => {
 
     markup = `
     <div class="chat-profile__user">
+    <form class="chat-profile__user--form">
         <div class="chat-profile__user-pic">
-            <img src="${faker.image.avatar()}" class="chat-profile__user-pic--img alt=""/>
+            <img src="${image}" class="chat-profile__user-pic--img" alt="" />
             <div class="chat-profile__user-pic--upload">
                 <label class="chat-profile__user-pic--label" for="photo">
-                    <svg  class="chat-profile__user-pic--svg">
-                      <use xlink:href="img/sprite.svg#icon-camera"></use>
+                    <svg class="chat-profile__user-pic--svg">
+                        <use xlink:href="img/sprite.svg#icon-camera"></use>
                     </svg>
                 </label>
                 <input class="chat-profile__user-pic--input" type="file" id="photo" name="photo" />
             </div>
-            <!--
-            <div class="chat-profile__stranger-add--friend">
-                <svg  class="chat-profile__stranger-add--svg">
-                    <use xlink:href="img/sprite.svg#icon-user-plus"></use>
-                </svg>
-            </div> 
-            -->
-            <!--
-            <div class="chat-profile__friend-remove--stranger">
-                <svg  class="chat-profile__friend-remove--svg">
-                    <use xlink:href="img/sprite.svg#icon-user-minus"></use>
-                </svg>
-            </div>
-            -->
-
-            <div class="chat-profile__user-pic--name">${faker.name.findName()}</div>
+            <div class="chat-profile__user-pic--name">${name}</div>
         </div>
-            
+
         <div class="chat-profile__user-about">
-            <form class="chat-profile__user-about--form">
-                <div class="chat-profile__user-about--group">
-                    <div class="chat-profile__user-about--edit">
-                        <label for="name" class="chat-profile__user-about--label"> Name </label>
-                        <svg class="chat-profile__user-about--svg">
-                            <use xlink:href="img/sprite.svg#icon-edit"></use>
-                        </svg>
-                    </div>
-                    <input type="text" id="name" class="chat-profile__user-about--input" value="${faker.name.findName()}"/> 
+            <div class="chat-profile__user-about--group">
+                <div class="chat-profile__user-about--edit">
+                    <label for="name" class="chat-profile__user-about--label"> Name </label>
+                    <svg class="chat-profile__user-about--svg">
+                        <use xlink:href="img/sprite.svg#icon-edit"></use>
+                    </svg>
+                </div>
+                <input type="text" id="name" class="chat-profile__user-about--input" value="${name}" disabled />
+            </div>
+
+            <div class="chat-profile__user-about--group">
+                <div class="chat-profile__user-about--edit">
+                    <label for="email" class="chat-profile__user-about--label"> Email </label>
+                    <svg class="chat-profile__user-about--svg">
+                        <use xlink:href="img/sprite.svg#icon-edit"></use>
+                    </svg>
+                </div>
+                <input type="text" id="email" class="chat-profile__user-about--input" value="${faker.internet.email()}" disabled />
+            </div>
+
+            <div class="chat-profile__user-about--group">
+                <div class="chat-profile__user-about--edit">
+                    <label for="bio" class="chat-profile__user-about--label"> Bio </label>
+                    <svg class="chat-profile__user-about--svg">
+                        <use xlink:href="img/sprite.svg#icon-edit"></use>
+                    </svg>
                 </div>
 
-                <div class="chat-profile__user-about--group">
-                    <div class="chat-profile__user-about--edit">
-                        <label for="email" class="chat-profile__user-about--label"> Email </label>
-                        <svg class="chat-profile__user-about--svg">
-                            <use xlink:href="img/sprite.svg#icon-edit"></use>
-                        </svg>
-                    </div>
-                    <input type="text" id="email" class="chat-profile__user-about--input" value="${faker.internet.email()}" disabled/>   
-                </div>
-
-                <div class="chat-profile__user-about--group">
-                    <div class="chat-profile__user-about--edit">
-                        <label for="bio" class="chat-profile__user-about--label"> Bio </label>
-                        <svg class="chat-profile__user-about--svg">
-                            <use xlink:href="img/sprite.svg#icon-edit"></use>
-                        </svg>
-                    </div>
-                    <textarea id="bio" class="chat-profile__user-about--input" rows="4"  >
-                    ${faker.lorem.sentence()}
-                    </textarea>
-                    
-                </div>
-
-            </form>
+                <textarea id="bio" class="chat-profile__user-about--input" rows="4" disabled>${faker.hacker.phrase()}</textarea>
+            </div>
         </div>
-        <button class="chat-profile__user--update">Save profile</button>
-    </div>`;
+        <!--
+        <div class="chat-profile__user-save">
+                <button class="chat-profile__user--update">Save profile</button>
+        </div>
+        -->
+    </form>
+</div>
+
+    `;
 
     elements.ChatProfile.insertAdjacentHTML('beforeend', markup);
 
@@ -401,6 +392,10 @@ const renderUser = () => {
 };
 // ------------------------------
 // Event Listeners
+const addUserListener = () => {
+    // Dropdown
+    elements.App.addEventListener('click', dropdownsController.controlDropdowns);
+};
 const addIdealListeners = () => {
     // Log In
     const loginCtaBtn = document.querySelector(elementStrings.loginCtaBtn);
@@ -419,8 +414,9 @@ const addIdealListeners = () => {
 };
 
 const init = () => {
-    if (state.currentUser) {
+    if (state.user) {
         renderUser();
+        addUserListener();
     } else {
         renderIdeal();
         addIdealListeners();

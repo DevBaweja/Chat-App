@@ -1,4 +1,7 @@
-<!-- Chat Panel Dropdown-->
+import { renderDropdowns } from '../dropdowns.view';
+export const renderChatPanelDropdown = () => {
+    const markup = `
+    <!-- Chat Panel Dropdown -->
 <div class="chat-panel-user__dropdown">
     <ul class="chat-panel-user__dropdown--list">
         <li class="chat-panel-user__dropdown--item">
@@ -37,3 +40,6 @@
         </li>
     </ul>
 </div>
+`;
+    renderDropdowns(markup);
+};
