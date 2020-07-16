@@ -18,6 +18,11 @@ const def = {
         lowercase: true,
         validate: [validator.isEmail, getMustHave('valid email')],
     },
+    photo: {
+        type: String,
+        default: 'default.jpg',
+    },
+    role: { type: String },
     password: {
         type: String,
         required: [true, getMustHave('password')],

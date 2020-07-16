@@ -14,7 +14,9 @@ export const controlDropdowns = event => {
     const target = event.target;
 
     // About Me Dropdown
-    if (target.matches(`${elementStrings.aboutMeDrop},${elementStrings.aboutMeDrop} *`)) controlAboutMeDropdown();
+    if (target.matches(`${elementStrings.aboutMeDrop},${elementStrings.aboutMeDrop} *`)) controlAboutMeDropdown(event);
+
     // Chat Panel Dropdown
-    if (target.matches(`${elementStrings.chatPanelDrop},${elementStrings.chatPanelDrop} *`)) controlChatPanelDropdown();
+    if (target.matches(`${elementStrings.chatPanelDrop},${elementStrings.chatPanelDrop} *`))
+        controlChatPanelDropdown(event);
 };

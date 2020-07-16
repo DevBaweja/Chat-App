@@ -1,4 +1,5 @@
 import { renderDropdowns } from '../dropdowns.view';
+
 export const renderChatPanelDropdown = () => {
     const markup = `
     <!-- Chat Panel Dropdown -->

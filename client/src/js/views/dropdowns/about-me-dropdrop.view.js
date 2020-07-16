@@ -1,5 +1,5 @@
 import { renderDropdowns } from '../dropdowns.view';
-export const renderAboutMeDropdown = () => {
+export const renderAboutMeDropdown = ({ top, left }) => {
     const markup = `
     <!-- About Me Dropdown -->
     <div class="about-me__dropdown">
@@ -32,4 +32,7 @@ export const renderAboutMeDropdown = () => {
     </div>    
     `;
     renderDropdowns(markup);
+
+    document.querySelector('.about-me__dropdown').style.top = top;
+    document.querySelector('.about-me__dropdown').style.left = left;
 };
