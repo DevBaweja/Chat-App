@@ -7,7 +7,7 @@
         "start": "webpack --mode development",
         "build": "webpack --mode production",
         "dev": "webpack-dev-server --mode development --open",
-        "postbuild": "npm install"
+        "prebuild": "npm install --only=dev"
     },
     "author": "",
     "license": "ISC",
