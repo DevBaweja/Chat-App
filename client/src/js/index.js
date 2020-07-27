@@ -326,6 +326,36 @@ const renderUser = () => {
         </div>
     </div>
     `;
+
+    markup = `
+    <header class="chat-box__header">
+
+        <div class="chat-box__header--back">
+            <svg class="chat-box__header--back-svg">
+            <use xlink:href="img/sprite.svg#icon-arrow-left"></use>
+            </svg>
+        </div>
+
+        <img src=${faker.image.avatar()} alt="" class="chat-box__header--img" />
+
+        <div class="chat-box__header--content">
+            <div class="chat-box__header--content-name">${faker.name.findName()}</div>
+            <div class="chat-box__header--content-status">online</div>
+        </div>
+
+
+        <div class="chat-box__header--options">
+            <svg class="chat-box__header--options-svg">
+            <use xlink:href="img/sprite.svg#icon-dots-three-vertical"></use>
+            </svg>
+        </div>
+    
+    </header>
+    <main class="chat-box__main" style="background-image: linear-gradient(rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.075)), url('img/bg.jpg')">Main
+    </main>
+    <footer class="chat-box__footer">Footer</footer>
+`;
+
     elements.ChatBox.insertAdjacentHTML('beforeend', markup);
 
     markup = `

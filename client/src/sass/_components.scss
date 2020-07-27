@@ -528,7 +528,7 @@
         margin: 0.5rem;
         opacity: 0;
         visibility: hidden;
-        transition: 0.2s all;
+        transition: all 0.2s;
         &:hover {
             transform: scale(1.25);
         }
@@ -620,6 +620,60 @@
 
 // Chat Box
 .chat-box {
+    display: grid;
+    grid-template-rows: min-content 3fr min-content;
+    &__header {
+        margin-top: 0.5rem;
+        padding: 1rem;
+        @include flex();
+
+        &--back,
+        &--options {
+            @include flex();
+            padding: 1rem;
+            border-radius: 50%;
+            transition: all 0.2s;
+            &:hover {
+                cursor: pointer;
+            }
+            &-svg {
+                height: 1.5rem;
+                width: 1.5rem;
+            }
+        }
+        &--img {
+            height: 4.5rem;
+            width: 4.5rem;
+            margin: 0 1rem;
+            margin-right: 2rem;
+            border-radius: 50%;
+        }
+        &--content {
+            flex: 1;
+            @include flex();
+            @include direction(column);
+            align-items: flex-start;
+            justify-content: space-between;
+            &-name {
+                font-size: $font-size-regular-2;
+                font-weight: $font-weight-regular;
+                letter-spacing: 0.08rem;
+            }
+            &-status {
+                font-size: $font-size-jayesh;
+                font-weight: $font-weight-regular;
+                line-height: 1.2;
+            }
+        }
+    }
+    &__main {
+        padding: 1rem;
+        background-size: contain;
+        background-repeat: repeat;
+    }
+    &__footer {
+        padding: 1rem;
+    }
 }
 
 .chat-box-ideal,

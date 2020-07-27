@@ -393,6 +393,7 @@
             fill: $color-grey-light-2;
             &:hover {
                 fill: $color-grey-light-1;
+                fill: $color-primary;
             }
         }
         // State
@@ -426,6 +427,33 @@
     // Chat Box
     .chat-box {
         @include darkTheme($color-grey-dark-1, 50%);
+        &__header {
+            background-color: $color-grey-dark-1;
+            &--back,
+            &--options {
+                &:hover {
+                    background-color: $color-grey-dark-3;
+                }
+
+                &-svg {
+                    fill: $color-primary;
+                }
+            }
+            &--img {
+            }
+            &--content {
+                &-name {
+                    color: lighten($color-grey-dark-1, 60%);
+                }
+                &-status {
+                    color: lighten($color-grey-dark-1, 40%);
+                }
+            }
+        }
+        &__main {
+        }
+        &__footer {
+        }
     }
     // Chat Profile
     .chat-profile {

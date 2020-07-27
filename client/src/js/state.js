@@ -1,7 +1,7 @@
 const state = {
-    user: null,
+    user: {},
     login: null,
     signup: null,
-    theme: 'dark',
+    theme: 'dark-red',
 };
 export default state;
