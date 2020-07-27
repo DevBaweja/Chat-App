@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
@@ -23,6 +24,9 @@ const app = express();
 
 // CORS
 app.use(cors());
+
+// Serving Static files
+app.use(express.static(path.join(__dirname, '../client/dist')));
 
 // Http Headers
 app.use(helmet());

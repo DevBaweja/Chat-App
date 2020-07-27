@@ -1,5 +1,6 @@
 import { elements, elementStrings } from '../utils/base.util';
 import { renderForm, getInput } from './forms.view';
+import faker from 'faker';
 
 export const renderLoginForm = () => {
     const form = {
@@ -10,7 +11,7 @@ export const renderLoginForm = () => {
                 for: 'email',
                 id: 'email',
                 label: 'Email address',
-                placeholder: 'dev@example.com',
+                placeholder: faker.internet.email(),
                 required: true,
             },
             {

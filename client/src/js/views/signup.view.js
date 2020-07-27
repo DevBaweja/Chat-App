@@ -1,6 +1,6 @@
 import { elements, elementStrings } from '../utils/base.util';
 import { renderForm, getInput, prepareUI } from './forms.view';
-
+import faker from 'faker';
 export const renderSignupForm = () => {
     const form = {
         title: 'Welcome to #ChatFuel',
@@ -10,7 +10,7 @@ export const renderSignupForm = () => {
                 for: 'name',
                 id: 'name',
                 label: 'User Name',
-                placeholder: 'Username',
+                placeholder: faker.name.findName(),
                 required: true,
             },
             {
@@ -18,7 +18,7 @@ export const renderSignupForm = () => {
                 for: 'email',
                 id: 'email',
                 label: 'Email address',
-                placeholder: 'dev@example.com',
+                placeholder: faker.internet.email(),
                 required: true,
             },
             {
