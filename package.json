@@ -7,7 +7,7 @@
         "client": "cd client && npm run dev",
         "server": "cd server && npm run dev",
         "dev": "npm-run-all client server",
-        "postclient": "cd client && npm run build",
+        "postclient": "cd client && npm install --only=dev && npm run build",
         "postserver": "cd server && npm start",
         "build": "npm-run-all postclient postserver",
         "start": "npm install && npm build"
