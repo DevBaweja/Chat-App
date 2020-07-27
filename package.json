@@ -9,7 +9,7 @@
         "dev": "npm-run-all client server",
         "postclient": "cd client && npm run build",
         "postserver": "cd server && npm install",
-        "prebuild": "npm install",
+        "prebuild": "npm install --only=dev",
         "build": "npm-run-all postclient postserver",
         "start": "cd server && npm start"
     },
