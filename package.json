@@ -10,7 +10,7 @@
         "postclient": "cd client && npm run build",
         "postserver": "cd server && npm start",
         "build": "npm-run-all postclient postserver",
-        "start": "npm install && npm start"
+        "start": "npm install && npm build"
     },
     "repository": {
         "type": "git",
