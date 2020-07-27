@@ -9,10 +9,13 @@ const app = require('./app');
 
 // ------------
 // Connecting database
-const DB = process.env.DATABASE_LOCAL.replace(
-    '<PASSWORD>',
-    process.env.DATABASE_PASSWORD
-);
+const DB =
+    process.env.NODE_ENV !== 'development'
+        ? process.env.DATABASE.replace(
+              '<PASSWORD>',
+              process.env.DATABASE_PASSWORD
+          )
+        : process.env.DATABASE_LOCAL;
 
 mongoose
     .connect(DB, {
