@@ -76,7 +76,7 @@ const renderIdeal = () => {
         <div class="chat-box-ideal--container">
             <div class="chat-box-ideal--svg">
                 <svg>
-                <use xlink:href="img/sprite.svg#icon-ideal"></use>
+                <use xlink:href="svg/sprite.svg#icon-ideal"></use>
                 </svg>
             </div>
             <div class="chat-box-ideal--title">
@@ -97,7 +97,7 @@ const renderUser = () => {
         <input type="text" class="search__input" placeholder="Search Friends" />
         <button class="search__button">
             <svg class="search__icon">
-                <use xlink:href="img/sprite.svg#icon-search"></use>
+                <use xlink:href="svg/sprite.svg#icon-search"></use>
             </svg>
         </button>
     </form>
@@ -127,11 +127,10 @@ const renderUser = () => {
     elements.Header.insertAdjacentHTML('beforeend', markup);
 
     const name = faker.name.findName();
-    const image = faker.image.avatar();
     markup = `
     <div class="about-me">
     <div class="about-me__link about-me__drop">
-        <img src="${image}" alt="user-photo" class="about-me__photo"/>
+        <img src="img//avatar/boy.png" alt="user-photo" class="about-me__photo"/>
         
         <span class="about-me__name">${name}</span>
     </div>
@@ -154,11 +153,11 @@ const renderUser = () => {
         
         <!-- OPTIONS -->
         <svg class="chat-panel-user__option chat-panel__drop">
-            <use xlink:href="img/sprite.svg#icon-chevron-down"></use>
+            <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
         </svg>
         <!-- ACTIVE -->
         <svg class="chat-panel-user__state chat-panel-user__state--inactive">
-            <use xlink:href="img/sprite.svg#icon-dot-single--active"></use>
+            <use xlink:href="svg/sprite.svg#icon-dot-single--active"></use>
         </svg>
         
     </div>
@@ -169,7 +168,7 @@ const renderUser = () => {
         <div class="chat-panel-user__title">
             Active Now <span class="chat-panel-user__count">(10)</span>
             <svg class="chat-panel-user__reload">
-                <use xlink:href="img/sprite.svg#icon-spinner"></use>
+                <use xlink:href="svg/sprite.svg#icon-spinner"></use>
             </svg>
         </div>
         <ul class="chat-panel-user__list">
@@ -186,12 +185,12 @@ const renderUser = () => {
         </div>
         <!-- ACTIVE -->
         <svg class="chat-panel-user__state chat-panel-user__state--inactive">
-            <use xlink:href="img/sprite.svg#icon-dot-single--active"></use>
+            <use xlink:href="svg/sprite.svg#icon-dot-single--active"></use>
         </svg>
 
         <!-- OPTION -->
         <svg class="chat-panel-user__option ">
-            <use xlink:href="img/sprite.svg#icon-chevron-down"></use>
+            <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
         </svg>
        
        
@@ -208,22 +207,22 @@ const renderUser = () => {
                 <span class="chat-panel-user__username">${faker.name.findName()}</span>
                 <div class="chat-panel-user__settings">
                 <svg class="chat-panel-user__settings--icons icon-dot-single--notification">
-                <use xlink:href="img/sprite.svg#icon-dot-single--notification"></use>
+                <use xlink:href="svg/sprite.svg#icon-dot-single--notification"></use>
                 </svg>
                 <svg class="chat-panel-user__settings--icons icon-pin-chat">
-                <use xlink:href="img/sprite.svg#icon-pin-chat"></use>
+                <use xlink:href="svg/sprite.svg#icon-pin-chat"></use>
                 </svg>
                 <svg class="chat-panel-user__settings--icons icon-mute-notification">
-                <use xlink:href="img/sprite.svg#icon-mute-notification"></use>
+                <use xlink:href="svg/sprite.svg#icon-mute-notification"></use>
                 </svg> 
                
                 </div>
             </div>
                 <svg class="chat-panel-user__option">
-                    <use xlink:href="img/sprite.svg#icon-chevron-down"></use>
+                    <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
                 </svg>
                 <svg class="chat-panel-user__state chat-panel-user__state--inactive">
-                    <use xlink:href="img/sprite.svg#icon-dot-single--active"></use>
+                    <use xlink:href="svg/sprite.svg#icon-dot-single--active"></use>
                 </svg>
             </div>
             </li>
@@ -240,10 +239,10 @@ const renderUser = () => {
                 </div>
             </div>
                 <svg class="chat-panel-user__option">
-                    <use xlink:href="img/sprite.svg#icon-chevron-down"></use>
+                    <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
                 </svg>
                 <svg class="chat-panel-user__state chat-panel-user__state--inactive">
-                    <use xlink:href="img/sprite.svg#icon-dot-single--active"></use>
+                    <use xlink:href="svg/sprite.svg#icon-dot-single--active"></use>
                 </svg>
             </div>
             </li>
@@ -259,10 +258,10 @@ const renderUser = () => {
                 </div>
             </div>
                 <svg class="chat-panel-user__option">
-                    <use xlink:href="img/sprite.svg#icon-chevron-down"></use>
+                    <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
                 </svg>
                 <svg class="chat-panel-user__state chat-panel-user__state--active">
-                    <use xlink:href="img/sprite.svg#icon-dot-single--active"></use>
+                    <use xlink:href="svg/sprite.svg#icon-dot-single--active"></use>
                 </svg>
             </div>
             </li>
@@ -295,7 +294,7 @@ const renderUser = () => {
         <div class="chat-panel-user__title">
             Active Now <span class="chat-panel-user__count">(10)</span>
             <svg class="chat-panel-user__reload">
-                <use xlink:href="img/sprite.svg#icon-spinner"></use>
+                <use xlink:href="svg/sprite.svg#icon-spinner"></use>
             </svg>
         </div>
         <div class="chat-panel-user__dimmer">
@@ -333,7 +332,7 @@ const renderUser = () => {
 
         <div class="chat-box__header--back">
             <svg class="chat-box__header--back-svg">
-            <use xlink:href="img/sprite.svg#icon-arrow-left"></use>
+            <use xlink:href="svg/sprite.svg#icon-arrow-left"></use>
             </svg>
         </div>
 
@@ -347,12 +346,12 @@ const renderUser = () => {
 
         <div class="chat-box__header--options">
             <svg class="chat-box__header--options-svg">
-            <use xlink:href="img/sprite.svg#icon-dots-three-vertical"></use>
+            <use xlink:href="svg/sprite.svg#icon-dots-three-vertical"></use>
             </svg>
         </div>
     
     </header>
-    <main class="chat-box__main" style="background-image: linear-gradient(rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.075)), url('img/bg.jpg')">Main
+    <main class="chat-box__main" style="background-image: linear-gradient(rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.075)), url('img/background-image/chat-box.jpg')">Main
     </main>
     <footer class="chat-box__footer">Footer</footer>
 `;
@@ -363,11 +362,11 @@ const renderUser = () => {
     <div class="chat-profile__user">
     <form class="chat-profile__user--form">
         <div class="chat-profile__user-pic">
-            <img src="${image}" class="chat-profile__user-pic--img" alt="" />
+            <img src="img//avatar/boy.png" class="chat-profile__user-pic--img" alt="" />
             <div class="chat-profile__user-pic--upload">
                 <label class="chat-profile__user-pic--label" for="photo">
                     <svg class="chat-profile__user-pic--svg">
-                        <use xlink:href="img/sprite.svg#icon-camera"></use>
+                        <use xlink:href="svg/sprite.svg#icon-camera"></use>
                     </svg>
                 </label>
                 <input class="chat-profile__user-pic--input" type="file" id="photo" name="photo" />
@@ -380,7 +379,7 @@ const renderUser = () => {
                 <div class="chat-profile__user-about--edit">
                     <label for="name" class="chat-profile__user-about--label"> Name </label>
                     <svg class="chat-profile__user-about--svg">
-                        <use xlink:href="img/sprite.svg#icon-edit"></use>
+                        <use xlink:href="svg/sprite.svg#icon-edit"></use>
                     </svg>
                 </div>
                 <input type="text" id="name" class="chat-profile__user-about--input" value="${name}" disabled />
@@ -390,7 +389,7 @@ const renderUser = () => {
                 <div class="chat-profile__user-about--edit">
                     <label for="email" class="chat-profile__user-about--label"> Email </label>
                     <svg class="chat-profile__user-about--svg">
-                        <use xlink:href="img/sprite.svg#icon-edit"></use>
+                        <use xlink:href="svg/sprite.svg#icon-edit"></use>
                     </svg>
                 </div>
                 <input type="text" id="email" class="chat-profile__user-about--input" value="${faker.internet.email()}" disabled />
@@ -400,7 +399,7 @@ const renderUser = () => {
                 <div class="chat-profile__user-about--edit">
                     <label for="bio" class="chat-profile__user-about--label"> Bio </label>
                     <svg class="chat-profile__user-about--svg">
-                        <use xlink:href="img/sprite.svg#icon-edit"></use>
+                        <use xlink:href="svg/sprite.svg#icon-edit"></use>
                     </svg>
                 </div>
 
@@ -463,9 +462,9 @@ init();
 
 /* 
 <svg class="chat-panel-user__settings--icons icon-pin-chat">
-<use xlink:href="img/sprite.svg#icon-pin-chat"></use>
+<use xlink:href="svg/sprite.svg#icon-pin-chat"></use>
 </svg>
 <svg class="chat-panel-user__settings--icons icon-mute-notification">
-<use xlink:href="img/sprite.svg#icon-mute-notification"></use>
+<use xlink:href="svg/sprite.svg#icon-mute-notification"></use>
 </svg> 
 */

@@ -27,7 +27,7 @@ export const renderForm = form => `
             </form>
             <div class="${form.className}__cross user-cross">
                 <svg class="${form.className}__cross--svg">
-                    <use xlink:href="img/sprite.svg#icon-cross"></use>
+                    <use xlink:href="svg/sprite.svg#icon-cross"></use>
                 </svg>
             </div>
         </div>
