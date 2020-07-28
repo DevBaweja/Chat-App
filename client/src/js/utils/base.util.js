@@ -34,4 +34,7 @@ export const elementStrings = {
         aboutMeDropdown: '.about-me__dropdown',
         chatPanelDropdown: '.chat-panel__dropdown',
     },
+    items: {
+        aboutMeItem: '.about-me__dropdown--item',
+    },
 };

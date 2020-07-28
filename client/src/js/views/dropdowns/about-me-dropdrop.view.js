@@ -1,28 +1,29 @@
 import { renderDropdowns } from '../dropdowns.view';
+import { elementStrings } from '../../utils/base.util';
 export const renderAboutMeDropdown = ({ coordinate: { top, left } }) => {
     const markup = `
     <!-- About Me Dropdown -->
     <div class="about-me__dropdown">
         <ul class="about-me__dropdown--list">
-            <li class="about-me__dropdown--item">
+            <li class="about-me__dropdown--item" data-type="my-profile">
                 <svg class="about-me__dropdown--svg about-me__dropdown--svg-user">
                     <use xlink:href="svg/sprite.svg#icon-user-circle"></use>
                 </svg>
                 <span class="about-me__dropdown--span">My Profile</span>
             </li>
-            <li class="about-me__dropdown--item">
+            <li class="about-me__dropdown--item" data-type="toggle-theme">
                 <svg class="about-me__dropdown--svg about-me__dropdown--svg-theme">
                     <use xlink:href="svg/sprite.svg#icon-theme"></use>
                 </svg>
                 <span class="about-me__dropdown--span">Dark Theme</span>
             </li>
-            <li class="about-me__dropdown--item">
+            <li class="about-me__dropdown--item" data-type="my-setting">
                 <svg class="about-me__dropdown--svg about-me__dropdown--svg-setting">
                     <use xlink:href="svg/sprite.svg#icon-setting"></use>
                 </svg>
                 <span class="about-me__dropdown--span">My Setting</span>
             </li>
-            <li class="about-me__dropdown--item">
+            <li class="about-me__dropdown--item" data-type="log-out">
                 <svg class="about-me__dropdown--svg about-me__dropdown--svg-logout">
                     <use xlink:href="svg/sprite.svg#icon-logout"></use>
                 </svg>
@@ -33,6 +34,7 @@ export const renderAboutMeDropdown = ({ coordinate: { top, left } }) => {
     `;
     renderDropdowns(markup);
 
-    document.querySelector('.about-me__dropdown').style.top = top;
-    document.querySelector('.about-me__dropdown').style.left = left;
+    const style = document.querySelector(elementStrings.dropdowns.aboutMeDropdown).style;
+    style.top = top;
+    style.left = left;
 };

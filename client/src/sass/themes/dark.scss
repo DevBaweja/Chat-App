@@ -496,10 +496,7 @@
                     }
                 }
                 &--svg {
-                    fill: lighten($color-grey-dark-2, 50%);
-                    &:hover {
-                        fill: $color-primary;
-                    }
+                    fill: $color-primary;
                 }
             }
         }

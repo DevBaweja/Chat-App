@@ -8,6 +8,7 @@
     &__header {
         margin-top: 0.5rem;
         padding: 1rem;
+        border-bottom: 1px solid $color-grey-dark-3;
         @include flex();
 
         &--back,
