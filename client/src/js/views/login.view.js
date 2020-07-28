@@ -32,6 +32,6 @@ export const renderLoginForm = () => {
     elements.Forms.insertAdjacentHTML('beforeend', renderForm(form));
 };
 
-export const prepareUIForLogin = () => prepareUI(elementStrings.loginBtn);
+export const prepareUIForLogin = () => prepareUI(elementStrings.btns.loginBtn);
 
-export const getUserInput = () => getInput(elementStrings.loginInput);
+export const getUserInput = () => getInput(elementStrings.inputs.loginInput);

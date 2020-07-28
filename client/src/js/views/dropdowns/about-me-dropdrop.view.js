@@ -1,5 +1,5 @@
 import { renderDropdowns } from '../dropdowns.view';
-export const renderAboutMeDropdown = ({ top, left }) => {
+export const renderAboutMeDropdown = ({ coordinate: { top, left } }) => {
     const markup = `
     <!-- About Me Dropdown -->
     <div class="about-me__dropdown">
@@ -20,7 +20,7 @@ export const renderAboutMeDropdown = ({ top, left }) => {
                 <svg class="about-me__dropdown--svg about-me__dropdown--svg-setting">
                     <use xlink:href="img/sprite.svg#icon-setting"></use>
                 </svg>
-                <span class="about-me__dropdown--span">Setting</span>
+                <span class="about-me__dropdown--span">My Setting</span>
             </li>
             <li class="about-me__dropdown--item">
                 <svg class="about-me__dropdown--svg about-me__dropdown--svg-logout">

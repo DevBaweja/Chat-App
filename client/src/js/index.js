@@ -130,11 +130,11 @@ const renderUser = () => {
     const image = faker.image.avatar();
     markup = `
     <div class="about-me">
-    <a href="#" class="about-me__link about-me__drop">
+    <div class="about-me__link about-me__drop">
         <img src="${image}" alt="user-photo" class="about-me__photo"/>
         
         <span class="about-me__name">${name}</span>
-    </a>
+    </div>
     </div>
     `;
 
@@ -142,7 +142,7 @@ const renderUser = () => {
 
     const chat_panel__item = () => ` 
     <li class="chat-panel-user__item">
-    <a href="#" class="chat-panel-user__link">
+    <div class="chat-panel-user__link">
         <img src="${faker.image.avatar()}" alt="photo" class="chat-panel-user__userphoto" />
         <!-- User Info -->
         <div class="chat-panel-user__info">
@@ -161,7 +161,7 @@ const renderUser = () => {
             <use xlink:href="img/sprite.svg#icon-dot-single--active"></use>
         </svg>
         
-    </a>
+    </div>
     </li>
     `;
     markup = `
@@ -175,7 +175,7 @@ const renderUser = () => {
         <ul class="chat-panel-user__list">
             ${chat_panel__item()}
             <li class="chat-panel-user__item">
-    <a href="#" class="chat-panel-user__link">
+    <div class="chat-panel-user__link">
         <img src="${faker.image.avatar()}" alt="photo" class="chat-panel-user__userphoto" />
         <!-- User Info -->
         <div class="chat-panel-user__info">
@@ -196,13 +196,13 @@ const renderUser = () => {
        
        
         
-    </a>
+    </div>
     </li>
             ${chat_panel__item()}
 
             <!-- Settings -->
             <li class="chat-panel-user__item">
-            <a href="#" class="chat-panel-user__link">
+            <div class="chat-panel-user__link">
                 <img src="${faker.image.avatar()}" alt="photo" class="chat-panel-user__userphoto" />
                 <div class="chat-panel-user__info">
                 <span class="chat-panel-user__username">${faker.name.findName()}</span>
@@ -225,13 +225,13 @@ const renderUser = () => {
                 <svg class="chat-panel-user__state chat-panel-user__state--inactive">
                     <use xlink:href="img/sprite.svg#icon-dot-single--active"></use>
                 </svg>
-            </a>
+            </div>
             </li>
             ${chat_panel__item()}
 
             <!-- Selected -->
             <li class="chat-panel-user__item chat-panel-user__item--selected">
-            <a href="#" class="chat-panel-user__link">
+            <div class="chat-panel-user__link">
                 <img src="${faker.image.avatar()}" alt="photo" class="chat-panel-user__userphoto" />
                 <div class="chat-panel-user__info">
                 <span class="chat-panel-user__username">${faker.name.findName()}</span>
@@ -245,12 +245,12 @@ const renderUser = () => {
                 <svg class="chat-panel-user__state chat-panel-user__state--inactive">
                     <use xlink:href="img/sprite.svg#icon-dot-single--active"></use>
                 </svg>
-            </a>
+            </div>
             </li>
             ${chat_panel__item()}
             <!-- Active -->
             <li class="chat-panel-user__item chat-panel-user__item--selected">
-            <a href="#" class="chat-panel-user__link">
+            <div class="chat-panel-user__link">
                 <img src="${faker.image.avatar()}" alt="photo" class="chat-panel-user__userphoto" />
                 <div class="chat-panel-user__info">
                 <span class="chat-panel-user__username">${faker.name.findName()}</span>
@@ -264,7 +264,7 @@ const renderUser = () => {
                 <svg class="chat-panel-user__state chat-panel-user__state--active">
                     <use xlink:href="img/sprite.svg#icon-dot-single--active"></use>
                 </svg>
-            </a>
+            </div>
             </li>
             ${chat_panel__item()}
             ${chat_panel__item()}
@@ -432,10 +432,10 @@ const addUserListener = () => {
 };
 const addIdealListeners = () => {
     // Log In
-    const loginCtaBtn = document.querySelector(elementStrings.loginCtaBtn);
+    const loginCtaBtn = document.querySelector(elementStrings.btns.loginCtaBtn);
     loginCtaBtn.addEventListener('click', loginController.controlLoginCta);
     // Sign Up
-    const signupCtaBtn = document.querySelector(elementStrings.signupCtaBtn);
+    const signupCtaBtn = document.querySelector(elementStrings.btns.signupCtaBtn);
     signupCtaBtn.addEventListener('click', signupController.controlSignupCta);
 
     // Form Closing

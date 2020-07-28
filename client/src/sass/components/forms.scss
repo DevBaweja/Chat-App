@@ -12,6 +12,7 @@
     height: 100%;
     animation: blur 1s ease;
     backdrop-filter: blur(0.2rem);
+    cursor: pointer;
 }
 
 .user-login,
@@ -27,6 +28,7 @@
     letter-spacing: 0.05rem;
     animation: TopToDown 1s ease;
     z-index: 1;
+    cursor: initial;
 
     &__title {
         text-align: center;

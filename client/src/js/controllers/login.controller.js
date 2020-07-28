@@ -28,5 +28,5 @@ export const controlLoginCta = () => {
     // 1) Rendering Login form
     loginView.renderLoginForm();
     // 2) Adding event listener to form
-    document.querySelector(elementStrings.loginForm).addEventListener('submit', controlLogin);
+    document.querySelector(elementStrings.forms.loginForm).addEventListener('submit', controlLogin);
 };

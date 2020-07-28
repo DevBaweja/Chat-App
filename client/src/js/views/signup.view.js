@@ -47,6 +47,6 @@ export const renderSignupForm = () => {
     elements.Forms.insertAdjacentHTML('beforeend', renderForm(form));
 };
 
-export const prepareUIForSignup = () => prepareUI(elementStrings.signupBtn);
+export const prepareUIForSignup = () => prepareUI(elementStrings.btns.signupBtn);
 
-export const getUserInput = () => getInput(elementStrings.signupInput);
+export const getUserInput = () => getInput(elementStrings.inputs.signupInput);

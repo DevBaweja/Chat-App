@@ -12,16 +12,26 @@ export const elements = {
 };
 
 export const elementStrings = {
-    CTA: '.cta__btn',
-    loginCtaBtn: '.cta__log-in',
-    signupCtaBtn: '.cta__sign-up',
-    UserForm: '.user__form',
-    signupForm: '.user-signup__form',
-    loginForm: '.user-login__form',
-    signupBtn: '.user-signup__form--btn',
-    loginBtn: '.user-login__form--btn',
-    signupInput: '.user-signup__form--input',
-    loginInput: '.user-login__form--input',
-    aboutMeDrop: '.about-me__drop',
-    chatPanelDrop: '.chat-panel__drop',
+    btns: {
+        loginCtaBtn: '.cta__log-in',
+        signupCtaBtn: '.cta__sign-up',
+        signupBtn: '.user-signup__form--btn',
+        loginBtn: '.user-login__form--btn',
+    },
+    forms: {
+        signupForm: '.user-signup__form',
+        loginForm: '.user-login__form',
+    },
+    inputs: {
+        signupInput: '.user-signup__form--input',
+        loginInput: '.user-login__form--input',
+    },
+    drops: {
+        aboutMeDrop: '.about-me__drop',
+        chatPanelDrop: '.chat-panel__drop',
+    },
+    dropdowns: {
+        aboutMeDropdown: '.about-me__dropdown',
+        chatPanelDropdown: '.chat-panel__dropdown',
+    },
 };

@@ -39,5 +39,5 @@ export const controlSignupCta = () => {
     // 1) Rendering Signup form
     signupView.renderSignupForm();
     // 2) Adding event listener to form
-    document.querySelector(elementStrings.signupForm).addEventListener('submit', controlSignup);
+    document.querySelector(elementStrings.forms.signupForm).addEventListener('submit', controlSignup);
 };
