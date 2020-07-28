@@ -24,8 +24,10 @@ mongoose
         useFindAndModify: false,
         useUnifiedTopology: true,
     })
-    .then(() => {
-        console.log('DB connection successful');
+    .then((con) => {
+        console.log(
+            `DB connection successful to ${con.connection.host}:${con.connection.port}`
+        );
     });
 
 // ------------

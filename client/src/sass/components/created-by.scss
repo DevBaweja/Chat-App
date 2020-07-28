@@ -1,0 +1,19 @@
+// Created By
+.created-by {
+    @include flex(flex-end);
+    margin-right: 1rem;
+    font-size: $font-size-jayesh;
+    word-spacing: 0.2rem;
+    p {
+    }
+    &--svg {
+        margin: 0.5rem;
+        height: 2rem;
+        width: 2rem;
+    }
+}
+.developers {
+    letter-spacing: 0.1rem;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+}

@@ -14,6 +14,7 @@ import * as formsView from './views/forms.view';
 // Controllers
 import * as loginController from './controllers/login.controller';
 import * as signupController from './controllers/signup.controller';
+import * as initController from './controllers/init.controller';
 import * as dropdownsController from './controllers/dropdowns.controller';
 
 const renderIdeal = () => {
@@ -105,9 +106,9 @@ const renderUser = () => {
 
     const menu__item = item => `
     <li class="menu__item">
-        <a href="#${item.toLowerCase()}" class="menu__link">
+        <div href="#${item.toLowerCase()}" class="menu__link">
             ${item}
-        </a>
+        </div>
     </li>
     `;
 
@@ -115,9 +116,9 @@ const renderUser = () => {
     <div class="menu">
         <ul class="menu__list">
             <li class="menu__item">
-                <a href="#chats" class="menu__link menu__link--active">
+                <div href="#chats" class="menu__link menu__link--active">
                     Chats
-                </a>
+                </div>
             </li>
             ${['Favourites', 'Active', 'Friends', 'Groups'].map(cur => menu__item(cur)).join('')}
         </ul>
@@ -423,6 +424,9 @@ const renderUser = () => {
 // ------------------------------
 // Event Listeners
 const addUserListener = () => {
+    // Active Status
+    initController.controlInit();
+    // window.addEventListener('load', initController.controlInit);
     // Dropdown
     elements.App.addEventListener('click', dropdownsController.controlDropdowns);
 };

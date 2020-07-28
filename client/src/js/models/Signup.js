@@ -5,7 +5,8 @@ class Signup {
         this.email = email;
         this.password = password;
         this.passwordConfirm = passwordConfirm;
-        this.url = `${window.location}api/v1/users/signup`;
+        // this.url = `${window.location}api/v1/users/signup`;
+        this.url = `http://localhost:3000/api/v1/users/signup`;
     }
 
     signupUser = async () => {

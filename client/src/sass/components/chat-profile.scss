@@ -1,0 +1,185 @@
+// Chat Profile
+.chat-profile {
+    // User
+    &__user,
+    &__stranger,
+    &__friend {
+        padding: 0.5rem;
+        &--form {
+            @include flex();
+            @include direction(column);
+            align-items: stretch;
+        }
+
+        &-pic,
+        &-about {
+            border-radius: 0.5rem;
+            margin: 0.5rem;
+        }
+        // Pic
+        &-pic {
+            @include flex();
+            @include direction(column);
+            position: relative;
+
+            &--img {
+                border-radius: 50%;
+                height: 15rem;
+                width: 15rem;
+                margin: 2rem;
+            }
+            &--name {
+                margin-bottom: 1rem;
+                font-size: $font-size-medium;
+                font-weight: $font-weight-bold;
+                letter-spacing: 0.05rem;
+                word-spacing: 0.1rem;
+            }
+        }
+        // About
+        &-about {
+            &--group {
+                @include flex();
+                align-items: stretch;
+                @include direction(column);
+                margin: 2rem 1rem;
+            }
+            &--label {
+                font-size: $font-size-jayesh;
+                margin-bottom: 0.25rem;
+                margin-left: 0.75rem;
+            }
+            &--input {
+                flex: 1;
+                padding: 0.75rem;
+                font-size: $font-size-regular-1;
+                border-radius: 0.5rem;
+                border: none;
+                &:focus {
+                    outline: none;
+                }
+            }
+            textarea {
+                font-family: inherit;
+                font-size: $font-size-jayesh;
+                resize: vertical;
+            }
+        }
+    }
+    // User
+    &__user {
+        // Pic
+        &-pic {
+            &--upload {
+                position: absolute;
+                top: 67.5%;
+                left: 67.5%;
+                transform: translate(-50%, -50%);
+            }
+
+            &--label {
+                @include flex();
+                height: 3.5rem;
+                width: 3.5rem;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+            &--svg {
+                height: 2rem;
+                width: 2rem;
+            }
+
+            &--input {
+                // Hiding
+                display: none;
+                visibility: hidden;
+                opacity: 0;
+            }
+        }
+        // About
+        &-about {
+            &--edit {
+                @include flex(space-between);
+            }
+            &--svg {
+                height: 2rem;
+                width: 2rem;
+                margin-bottom: 0.75rem;
+                margin-right: 1rem;
+                transition: all 0.4s;
+                cursor: pointer;
+            }
+        }
+
+        &-save {
+            border-radius: 0.5rem;
+            margin: 0.5rem;
+            @include flex();
+        }
+        &--update {
+            align-self: center;
+            border-radius: 2rem;
+            padding: 1rem 2rem;
+            margin: 1rem 0;
+            font-size: $font-size-regular-2;
+            font-weight: $font-weight-bold;
+            cursor: pointer;
+            border: none;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    // Stranger
+    &__stranger {
+        &-add {
+            &--friend {
+                position: absolute;
+                top: 67.5%;
+                left: 67.5%;
+                transform: translate(-50%, -50%);
+                @include flex();
+                height: 3.5rem;
+                width: 3.5rem;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+            &--svg {
+                height: 2rem;
+                width: 2rem;
+            }
+        }
+
+        &-about {
+            &--edit {
+                @include flex(flex-start);
+            }
+        }
+    }
+    // Friend
+    &__friend {
+        &-remove {
+            &--stranger {
+                position: absolute;
+                top: 67.5%;
+                left: 67.5%;
+                transform: translate(-50%, -50%);
+                @include flex();
+                height: 3.5rem;
+                width: 3.5rem;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+            &--svg {
+                height: 2rem;
+                width: 2rem;
+            }
+        }
+        &-about {
+            &--edit {
+                @include flex(flex-start);
+            }
+        }
+    }
+}

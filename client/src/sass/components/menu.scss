@@ -1,0 +1,32 @@
+// Menu
+.menu {
+    @include flex();
+    align-items: flex-end;
+
+    &__list {
+        @include flex(space-around);
+        list-style: none;
+    }
+
+    &__item {
+        margin-left: 0.1rem;
+        margin-right: 0.1rem;
+
+        @include flex();
+    }
+
+    &__link {
+        text-align: center;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: $font-size-jayesh;
+        font-weight: $font-weight-bolder;
+        padding: 0.5rem 3rem;
+        border-radius: 0.5rem 0.5rem 0 0;
+        border-bottom-width: 0.2rem;
+        border-bottom-style: solid;
+        transition: border-bottom-color 0.4s, background-color 0.4s;
+        letter-spacing: 0.05rem;
+        cursor: pointer;
+    }
+}

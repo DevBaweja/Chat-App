@@ -1,0 +1,139 @@
+// -----------------------------------------
+// Form
+.forms {
+    height: 0;
+    width: 0;
+}
+.blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: blur 1s ease;
+    backdrop-filter: blur(0.2rem);
+}
+
+.user-login,
+.user-signup {
+    position: absolute;
+    top: 50%;
+    opacity: 1;
+    left: 52.5%;
+    transform: translate(-50%, -50%);
+    border-radius: 0.5rem;
+    @include flex();
+    @include direction(column);
+    letter-spacing: 0.05rem;
+    animation: TopToDown 1s ease;
+    z-index: 1;
+
+    &__title {
+        text-align: center;
+        font-size: $font-size-largest;
+        font-weight: $font-weight-bolder;
+    }
+    &__form {
+        @include flex();
+        flex: 1;
+        @include direction(column);
+        &--group {
+            @include flex();
+            @include direction(column);
+        }
+
+        &--label {
+            font-size: $font-size-regular-2;
+            font-weight: $font-weight-bold;
+            margin-bottom: 0.5rem;
+            margin-right: auto;
+        }
+        &--input {
+            width: 35rem;
+            font-size: $font-size-regular-1;
+            font-family: inherit;
+            color: inherit;
+            padding: 1rem 2rem;
+            border-radius: 0.3rem;
+            border: none;
+            border-bottom: 0.3rem solid;
+            transition: all 0.4s;
+            letter-spacing: 0.04rem;
+
+            &:focus {
+                outline: none;
+                border-bottom: 0.3rem solid;
+
+                &:invalid {
+                    border-bottom: 0.3rem solid;
+                }
+            }
+        }
+
+        &--btn {
+            font-weight: $font-weight-bold;
+            font-size: $font-size-regular-2;
+            text-transform: uppercase;
+            letter-spacing: 0.05rem;
+            border: none;
+            padding: 1rem 5rem;
+            margin-top: 3rem;
+            border-radius: 10rem;
+            cursor: pointer;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    &__cross {
+        position: absolute;
+        top: 2%;
+        right: 2%;
+        margin: 0.5rem;
+        cursor: pointer;
+
+        &--svg {
+            height: 1.45rem;
+            width: 1.45rem;
+            transition: all 0.5s;
+            &:hover {
+                transform: rotate(90deg);
+            }
+        }
+    }
+}
+.user-login {
+    &__title {
+        margin: 6rem 0 2rem 0;
+    }
+    &__form {
+        margin: 0 10rem 5rem 10rem;
+        &--group {
+            margin: 2rem;
+        }
+        &--forget {
+            font-size: $font-size-jayesh;
+            margin: 0.5rem;
+            margin-left: auto;
+            cursor: pointer;
+            transition: all 0.2s;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+.user-signup {
+    &__title {
+        margin: 4rem 0 2rem 0;
+    }
+    &__form {
+        margin: 0 10rem 4rem 10rem;
+        &--group {
+            margin: 1rem 2rem;
+        }
+    }
+}

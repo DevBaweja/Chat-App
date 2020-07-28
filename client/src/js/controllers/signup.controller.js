@@ -27,7 +27,9 @@ const controlSignup = async event => {
         // 4) Making API call
         const user = await state.signup.signupUser();
         console.log(user);
+        // 5) Success Alert
     } catch (err) {
+        // Error Alert
         console.log('ERROR', err.message);
     }
 };

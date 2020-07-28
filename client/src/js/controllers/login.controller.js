@@ -12,7 +12,6 @@ const controlLogin = event => {
     event.preventDefault();
 
     console.log('Log in');
-    // event.preventDefault();
     // 1) Getting user inputs
     const inputs = loginView.getUserInput();
     //! 2) Checking user inputs

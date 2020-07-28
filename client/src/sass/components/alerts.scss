@@ -1,0 +1,32 @@
+//----------------------------------
+// Alert
+.alerts {
+    height: 0;
+    width: 0;
+}
+.alert {
+    position: fixed;
+    top: 0%;
+    left: 52.5%;
+    transform: translateX(-50%);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 1.6rem 8rem;
+    color: $color-grey-dark-2;
+    @include flex();
+    z-index: 2;
+
+    &__svg {
+        height: 1.4rem;
+        width: 1.4rem;
+        margin-right: 1.2rem;
+        &--info {
+            height: 1.6rem;
+            width: 1.6rem;
+        }
+    }
+    &__message {
+        font-size: $font-size-medium;
+        font-weight: $font-weight-bold;
+    }
+}
