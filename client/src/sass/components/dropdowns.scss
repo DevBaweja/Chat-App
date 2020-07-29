@@ -83,7 +83,13 @@
         // clip-path: polygon(11.25% 5%, 16% 0, 100% 0, 100% 100%, 0 100%, 0 0, 6.5% 0);
 
         &--svg {
-            &-pin {
+            &-pin,
+            &-mute {
+                height: 1.5rem;
+                width: 1.5rem;
+            }
+            &-unpin,
+            &-unmute {
                 height: 1.2rem;
                 width: 1.2rem;
             }

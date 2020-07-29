@@ -1,6 +1,6 @@
-import { renderDropdowns } from '../dropdowns.view';
+import { renderDropdowns, assignCoordinate } from '../dropdowns.view';
 import { elementStrings } from '../../utils/base.util';
-export const renderAboutMeDropdown = ({ coordinate: { top, left } }) => {
+export const renderAboutMeDropdown = ({ coordinate }) => {
     const markup = `
     <!-- About Me Dropdown -->
     <div class="about-me__dropdown">
@@ -34,7 +34,5 @@ export const renderAboutMeDropdown = ({ coordinate: { top, left } }) => {
     `;
     renderDropdowns(markup);
 
-    const style = document.querySelector(elementStrings.dropdowns.aboutMeDropdown).style;
-    style.top = top;
-    style.left = left;
+    assignCoordinate(elementStrings.dropdowns.aboutMeDropdown, coordinate);
 };

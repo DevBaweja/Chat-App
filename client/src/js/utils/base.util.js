@@ -32,9 +32,10 @@ export const elementStrings = {
     },
     dropdowns: {
         aboutMeDropdown: '.about-me__dropdown',
-        chatPanelDropdown: '.chat-panel__dropdown',
+        chatPanelDropdown: '.chat-panel-user__dropdown',
     },
     items: {
         aboutMeItem: '.about-me__dropdown--item',
+        chatPanelItem: '.chat-panel-user__dropdown--item',
     },
 };

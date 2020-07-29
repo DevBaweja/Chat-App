@@ -6,10 +6,10 @@ import * as aboutMeDropdownView from '../../views/dropdowns/about-me-dropdrop.vi
 
 const controlAboutMeDropdown = event => {
     // 0) Positioning of Dropdown
-    const { top, left } = getCoordinate(event);
+    const coordinate = getCoordinate(event);
 
     // 1) Render Dropdown For About Me
-    aboutMeDropdownView.renderAboutMeDropdown({ coordinate: { top, left } });
+    aboutMeDropdownView.renderAboutMeDropdown({ coordinate });
     // 2) Add Event Listener
     document
         .querySelector(elementStrings.dropdowns.aboutMeDropdown)
