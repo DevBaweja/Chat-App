@@ -12,6 +12,9 @@ export const renderLoginForm = () => {
                 id: 'email',
                 label: 'Email address',
                 placeholder: faker.internet.email(),
+                // For Development
+                value: faker.internet.email(),
+                autocomplete: 'username',
                 required: true,
             },
             {
@@ -20,6 +23,9 @@ export const renderLoginForm = () => {
                 id: 'password',
                 label: 'Password',
                 placeholder: '••••••••••••',
+                // For Development
+                value: 'test1234',
+                autocomplete: 'current-password',
                 required: true,
                 minLength: 8,
                 forget: '<span class="user-login__form--forget">Forget password ?</span>',

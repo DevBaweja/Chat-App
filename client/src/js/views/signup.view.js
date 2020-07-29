@@ -1,5 +1,5 @@
 import { elements, elementStrings } from '../utils/base.util';
-import { renderForm, getInput, prepareUI } from './forms.view';
+import { renderForm, getInput, prepareUI, removeListener } from './forms.view';
 import faker from 'faker';
 export const renderSignupForm = () => {
     const form = {
@@ -11,6 +11,9 @@ export const renderSignupForm = () => {
                 id: 'name',
                 label: 'User Name',
                 placeholder: faker.name.findName(),
+                // For Development
+                value: faker.name.findName(),
+                autocomplete: 'username',
                 required: true,
             },
             {
@@ -19,6 +22,9 @@ export const renderSignupForm = () => {
                 id: 'email',
                 label: 'Email address',
                 placeholder: faker.internet.email(),
+                // For Development
+                value: faker.internet.email(),
+                autocomplete: 'email',
                 required: true,
             },
             {
@@ -27,6 +33,9 @@ export const renderSignupForm = () => {
                 id: 'password',
                 label: 'Password',
                 placeholder: '••••••••••••',
+                // For Development
+                value: 'test1234',
+                autocomplete: 'new-password',
                 required: true,
                 minLength: 8,
             },
@@ -36,6 +45,9 @@ export const renderSignupForm = () => {
                 id: 'passwordConfirm',
                 label: 'Confirm Password',
                 placeholder: '••••••••••••',
+                // For Development
+                value: 'test1234',
+                autocomplete: 'new-password',
                 required: true,
                 minLength: 8,
             },
@@ -48,5 +60,6 @@ export const renderSignupForm = () => {
 };
 
 export const prepareUIForSignup = () => prepareUI(elementStrings.btns.signupBtn);
+export const removeListenerForSignup = () => removeListener(elementStrings.btns.signupBtn);
 
 export const getUserInput = () => getInput(elementStrings.inputs.signupInput);

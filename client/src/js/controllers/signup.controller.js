@@ -14,6 +14,7 @@ const controlSignup = async event => {
     console.log('Sign up');
     // 0) Prepare UI for changes
     signupView.prepareUIForSignup();
+    signupView.removeListenerForSignup();
 
     // 1) Getting user inputs
     const inputs = signupView.getUserInput();

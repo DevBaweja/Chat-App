@@ -38,4 +38,15 @@ export const elementStrings = {
         aboutMeItem: '.about-me__dropdown--item',
         chatPanelItem: '.chat-panel-user__dropdown--item',
     },
+    themes: {
+        dark: 'dark',
+        darkGreen: 'dark-green',
+        darkBlue: 'dark-blue',
+        darkPurple: 'dark-purple',
+        darkRed: 'dark-red',
+        darkYellow: 'dark-yellow',
+        darkGrey: 'dark-grey',
+        darkWhite: 'dark-white',
+    },
+    actions: {},
 };

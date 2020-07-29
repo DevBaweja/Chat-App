@@ -1,7 +1,10 @@
 const state = {
-    user: {},
+    user: null,
     login: null,
     signup: null,
-    theme: 'dark-purple',
+    theme: 'dark',
 };
+// ! For Development
+window.state = state;
+
 export default state;

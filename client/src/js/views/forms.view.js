@@ -10,6 +10,9 @@ const renderFormGroup = (group, className) => `
         id="${group.id}"
         type="${group.type}"
         placeholder="${group.placeholder}"
+        autocomplete="${group.autocomplete}"
+        ${/* For Development */ ''}
+        value="${group.value}"
         minlength="${group.minLength ? group.minLength : '0'}"
         ${group.required ? 'required' : ''}
     />
@@ -21,7 +24,7 @@ export const renderForm = form => `
     <div class="blur">
         <div class="${form.className}">
             <div class="${form.className}__title">${form.title}</div>
-            <form class="${form.className}__form">
+            <form class="${form.className}__form" autocomplete="on">
                 ${form.groups.map(group => renderFormGroup(group, form.className)).join('')}
                 <button class="${form.className}__form--btn">${form.btntext}</button>
             </form>
@@ -47,5 +50,9 @@ export const getInput = className => {
 };
 
 export const prepareUI = className => {
+    // Rendering Loading Text
     document.querySelector(className).innerText = 'Loading...';
+};
+export const removeListener = className => {
+    // document.querySelector(className).removeEventListener('submit');
 };
