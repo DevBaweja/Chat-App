@@ -14,3 +14,11 @@ export const assignCoordinate = (className, coordinate) => {
     const style = document.querySelector(className).style;
     Object.assign(style, coordinate);
 };
+
+// 2 1
+// 3 4
+
+// 1 - top right
+// 2 - top left
+// 3 - bottom left
+// 4 - bottom right
