@@ -3,7 +3,7 @@ import { elementStrings } from '../../utils/base.util';
 // Views
 import * as chatPanelDropdownView from '../../views/dropdowns/chat-panel-dropdown.view';
 // Controllers
-import { getCoordinate } from '../../views/dropdowns.view';
+import { getCoordinate } from '../../views/dropdowns/dropdowns.view';
 
 const controlChatPanelDropdown = event => {
     // 0) Positioning of Dropdown

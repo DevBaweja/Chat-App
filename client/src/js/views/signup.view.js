@@ -1,5 +1,5 @@
 import { elements, elementStrings } from '../utils/base.util';
-import { renderForm, getInput, prepareUI, removeListener } from './forms.view';
+import { renderForm, getInput, prepareUI } from './forms.view';
 import faker from 'faker';
 export const renderSignupForm = () => {
     const form = {
@@ -60,6 +60,5 @@ export const renderSignupForm = () => {
 };
 
 export const prepareUIForSignup = () => prepareUI(elementStrings.btns.signupBtn);
-export const removeListenerForSignup = () => removeListener(elementStrings.btns.signupBtn);
 
 export const getUserInput = () => getInput(elementStrings.inputs.signupInput);

@@ -1,4 +1,4 @@
-import { renderDropdowns, assignCoordinate } from '../dropdowns.view';
+import { renderDropdowns, assignCoordinate } from './dropdowns.view';
 import { elementStrings } from '../../utils/base.util';
 export const renderAboutMeDropdown = ({ coordinate }) => {
     const markup = `

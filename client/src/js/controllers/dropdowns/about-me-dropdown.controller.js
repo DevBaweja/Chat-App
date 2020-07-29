@@ -1,7 +1,7 @@
 // Utils
 import { elementStrings } from '../../utils/base.util';
 // Views
-import { getCoordinate } from '../../views/dropdowns.view';
+import { getCoordinate } from '../../views/dropdowns/dropdowns.view';
 import * as aboutMeDropdownView from '../../views/dropdowns/about-me-dropdrop.view';
 
 const controlAboutMeDropdown = event => {

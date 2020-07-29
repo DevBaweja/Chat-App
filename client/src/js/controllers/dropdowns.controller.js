@@ -5,7 +5,7 @@ import controlAboutMeDropdown from './dropdowns/about-me-dropdown.controller';
 import controlChatPanelDropdown from './dropdowns/chat-panel-dropdown.controller';
 // Models
 // Views
-import * as dropdownsView from '../views/dropdowns.view';
+import * as dropdownsView from '../views/dropdowns/dropdowns.view';
 
 export const controlDropdowns = event => {
     // 0) Preparing UI for changes

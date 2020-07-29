@@ -1,4 +1,4 @@
-import { renderDropdowns, assignCoordinate } from '../dropdowns.view';
+import { renderDropdowns, assignCoordinate } from './dropdowns.view';
 import { elementStrings } from '../../utils/base.util';
 
 export const renderChatPanelDropdown = ({ coordinate }) => {
@@ -47,4 +47,7 @@ export const renderChatPanelDropdown = ({ coordinate }) => {
     renderDropdowns(markup);
 
     assignCoordinate(elementStrings.dropdowns.chatPanelDropdown, coordinate);
+
+    document.querySelector(elementStrings.dropdowns.chatPanelDropdown).style.setProperty('transition', 'all 1s');
+    document.querySelector(elementStrings.dropdowns.chatPanelDropdown).style.setProperty('transform', 'scale(1)');
 };

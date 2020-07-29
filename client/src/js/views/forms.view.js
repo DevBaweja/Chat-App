@@ -50,9 +50,9 @@ export const getInput = className => {
 };
 
 export const prepareUI = className => {
+    const btn = document.querySelector(className);
     // Rendering Loading Text
-    document.querySelector(className).innerText = 'Loading...';
-};
-export const removeListener = className => {
-    // document.querySelector(className).removeEventListener('submit');
+    btn.innerText = 'Loading...';
+    // Disabling button
+    btn.disabled = true;
 };

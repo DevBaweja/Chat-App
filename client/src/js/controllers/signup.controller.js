@@ -14,11 +14,10 @@ const controlSignup = async event => {
     console.log('Sign up');
     // 0) Prepare UI for changes
     signupView.prepareUIForSignup();
-    signupView.removeListenerForSignup();
 
     // 1) Getting user inputs
     const inputs = signupView.getUserInput();
-    //! 2) Checking user inputs
+    // 2) Checking user inputs
     // { name, email, password, passwordConfirm }
 
     // 3) Init signup

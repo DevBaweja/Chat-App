@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
+const bcrypt = require('bcryptjs');
 
 const { Schema } = mongoose;
 
@@ -9,29 +10,45 @@ const getMustHave = (str) => `A user must have ${str}`;
 const def = {
     name: {
         type: String,
-        required: [true, getMustHave('name')],
+        required: { value: true, message: getMustHave('name') },
     },
     email: {
         type: String,
-        required: [true, getMustHave('email')],
-        unique: true,
+        required: { value: true, message: getMustHave('email') },
+        // !For Development
+        // unique: true,
         lowercase: true,
-        validate: [validator.isEmail, getMustHave('valid email')],
+        validate: {
+            validator: validator.isEmail,
+            message: getMustHave('valid email'),
+        },
     },
     photo: {
         type: String,
-        default: 'default.jpg',
+        // default: 'default.jpg',
     },
-    role: { type: String },
+    role: {
+        type: String,
+        default: 'user',
+    },
     password: {
         type: String,
-        required: [true, getMustHave('password')],
+        required: { value: true, message: getMustHave('password') },
         minlength: 8,
+        select: false,
     },
     passwordConfirm: {
         type: String,
-        required: [true, getMustHave('confirm password')],
+        required: { value: true, message: getMustHave('confirm password') },
         minlength: 8,
+        validate: {
+            validator: function (value) {
+                // Value belongs to passwordConfirm
+                // this belongs to document
+                return this.password === this.passwordConfirm;
+            },
+            message: 'Passwords must match',
+        },
     },
 };
 const options = {};
@@ -39,6 +56,12 @@ const userSchema = Schema(def, options);
 
 // -----------
 // Middlewares
+userSchema.pre('save', async function () {
+    // Hashing password
+    this.password = await bcrypt.hash(this.password, 8);
+    this.passwordConfirm = undefined;
+    // Delete passwordConfirm
+});
 
 // -----------
 // Model

@@ -14,7 +14,7 @@ const controlLogin = event => {
     console.log('Log in');
     // 1) Getting user inputs
     const inputs = loginView.getUserInput();
-    //! 2) Checking user inputs
+    // 2) Checking user inputs
     // { email, password }
 
     // 3) Init login
