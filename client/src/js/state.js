@@ -3,6 +3,7 @@ const state = {
     login: null,
     signup: null,
     theme: 'dark-yellow',
+    index: 0,
 };
 // ! For Development
 window.state = state;
