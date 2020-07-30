@@ -34,9 +34,12 @@ export const elementStrings = {
         aboutMeDropdown: '.about-me__dropdown',
         chatPanelDropdown: '.chat-panel-user__dropdown',
     },
+    dropdownItems: {
+        aboutMeDropdownItem: '.about-me__dropdown--item',
+        chatPanelDropdownItem: '.chat-panel-user__dropdown--item',
+    },
     items: {
-        aboutMeItem: '.about-me__dropdown--item',
-        chatPanelItem: '.chat-panel-user__dropdown--item',
+        chatPanelItem: '.chat-panel-user__item',
     },
     themes: {
         dark: 'dark',

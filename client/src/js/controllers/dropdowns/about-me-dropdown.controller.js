@@ -16,7 +16,7 @@ const controlAboutMeDropdown = event => {
         .addEventListener('click', controlAboutMeDropdownItems);
 };
 const controlAboutMeDropdownItems = event => {
-    const item = event.target.closest(elementStrings.items.aboutMeItem);
+    const item = event.target.closest(elementStrings.dropdownItems.aboutMeDropdownItem);
     if (!item) return;
     console.log(item.dataset.type);
 };

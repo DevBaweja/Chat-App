@@ -449,9 +449,73 @@
                 }
             }
         }
+        &__field {
+        }
         &__main {
+            &--container {
+            }
+            &--message {
+                &-in {
+                    background-color: $color-grey-dark-1;
+                    color: lighten($color-grey-dark-1, 50%);
+                    border-color: $color-grey-dark-3;
+                }
+                &-out {
+                    background-color: darken($color-primary, 5%);
+                    color: $color-grey-dark-1;
+                    border-color: $color-primary;
+                }
+            }
         }
         &__footer {
+            &--form {
+            }
+            &--input {
+                background-color: lighten($color-grey-dark-1, 2.5%);
+                color: lighten($color-grey-dark-1, 65%);
+                border-color: $color-primary;
+                caret-color: $color-primary;
+                &:focus {
+                    background-color: $color-grey-dark-1;
+                }
+            }
+
+            &--emoji,
+            &--camera,
+            &--attach,
+            &--send {
+                &:hover {
+                    background-color: $color-primary;
+                }
+                &-svg {
+                    fill: lighten($color-grey-dark-1, 50%);
+                }
+                &:hover > .chat-box__footer--emoji-svg,
+                &:hover > .chat-box__footer--camera-svg,
+                &:hover > .chat-box__footer--attach-svg {
+                    fill: $color-grey-dark-1;
+                }
+            }
+            &--emoji {
+            }
+            &--camera {
+            }
+            &--attach {
+            }
+
+            &--send {
+                background-color: $color-primary;
+
+                &:disabled {
+                    background-color: $color-primary-dark;
+                }
+                &:hover {
+                    background-color: $color-primary-light;
+                }
+                &-svg {
+                    fill: $color-grey-dark-1;
+                }
+            }
         }
     }
     // Chat Profile

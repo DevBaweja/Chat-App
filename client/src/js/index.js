@@ -140,7 +140,7 @@ const renderUser = () => {
     elements.Header.insertAdjacentHTML('beforeend', markup);
 
     const chat_panel__item = () => ` 
-    <li class="chat-panel-user__item">
+    <li class="chat-panel-user__item" data-userId="1234">
     <div class="chat-panel-user__link">
         <img src="${faker.image.avatar()}" alt="photo" class="chat-panel-user__userphoto" />
         <!-- User Info -->
@@ -327,6 +327,20 @@ const renderUser = () => {
     </div>
     `;
 
+    const messageIn = () => `
+    <div class="chat-box__main--message">
+        <div class="chat-box__main--message-in">
+            <span>${faker.lorem.sentence().trim()}</span>
+        </div>
+    </div>
+    `;
+    const messageOut = () => `
+    <div class="chat-box__main--message">
+        <div class="chat-box__main--message-out">
+            <span>${faker.lorem.sentence().trim()}</span>
+        </div>
+    </div>
+    `;
     markup = `
     <header class="chat-box__header">
 
@@ -351,9 +365,53 @@ const renderUser = () => {
         </div>
     
     </header>
-    <main class="chat-box__main" style="background-image: linear-gradient(rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.075)), url('img/background-image/chat-box.jpg')">Main
-    </main>
-    <footer class="chat-box__footer">Footer</footer>
+    <div class="chat-box__field" style="background-image: linear-gradient(rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.075)), url('img/background-image/chat-box.jpg')">
+        <main class="chat-box__main">
+            <div class="chat-box__main--container">
+                ${messageIn()}
+                ${messageOut()}
+                ${messageIn()}
+                ${messageOut()}
+                ${messageIn()}
+                ${messageIn()}
+                ${messageOut()}
+                ${messageIn()}
+                ${messageOut()}
+                ${messageOut()}
+                ${messageIn()}
+                ${messageOut()}
+                
+            </div>
+        </main>
+        <footer class="chat-box__footer">
+            <form class="chat-box__footer--form"> 
+                <div class="chat-box__footer--container">
+                    <div class="chat-box__footer--emoji">
+                        <svg class="chat-box__footer--emoji-svg">
+                            <use xlink:href="svg/sprite.svg#icon-emoji"></use>
+                        </svg>
+                    </div>
+                    <textarea rows="1" type="text" class="chat-box__footer--input" spellcheck="false"></textarea>
+                    <div class="chat-box__footer--attach">
+                        <svg class="chat-box__footer--attach-svg">
+                            <use xlink:href="svg/sprite.svg#icon-attach"></use>
+                        </svg>
+                    </div>
+                    <div class="chat-box__footer--camera">
+                        <svg class="chat-box__footer--camera-svg">
+                            <use xlink:href="svg/sprite.svg#icon-camera"></use>
+                        </svg>
+                    </div>
+                </div>
+                <button class="chat-box__footer--send">
+                    <svg class="chat-box__footer--send-svg">
+                        <use xlink:href="svg/sprite.svg#icon-send"></use>
+                    </svg>
+                </button>
+            </form>
+        </footer>
+    </div>
+ 
 `;
 
     elements.ChatBox.insertAdjacentHTML('beforeend', markup);

@@ -18,7 +18,6 @@
         border-style: solid;
         transition: all 0.2s;
         position: relative;
-        cursor: pointer;
     }
     &__span {
         margin: 0 0.5rem;
@@ -37,7 +36,7 @@
         transition: all 1s;
         backface-visibility: hidden;
         transform: translateY(-50%) translateZ(0) scale(1) rotate(0deg);
-
+        cursor: pointer;
         &:hover {
             transform: translateY(-50%) translateZ(0) scale(1) rotate(360deg);
         }
@@ -50,8 +49,8 @@
         list-style: none;
         margin-right: 1rem;
         padding: 1rem;
-        overflow-y: scroll;
         overflow-x: hidden;
+        overflow-y: scroll;
         font-size: $font-size-regular-1;
     }
     &__item {
