@@ -9,13 +9,13 @@ import { elements, elementStrings } from './utils/base.util';
 
 // ---------------------
 // Views
-import * as formsView from './views/forms.view';
 // ---------------------
 // Controllers
-import * as loginController from './controllers/login.controller';
-import * as signupController from './controllers/signup.controller';
-import * as initController from './controllers/init.controller';
-import * as dropdownsController from './controllers/dropdowns.controller';
+import * as formController from './controllers/auth/form.controller';
+import * as loginController from './controllers/auth/login.controller';
+import * as signupController from './controllers/auth/signup.controller';
+import * as initController from './controllers/init/init.controller';
+import * as dropdownsController from './controllers/dropdowns/dropdowns.controller';
 
 const renderIdeal = () => {
     let markup;
@@ -106,7 +106,7 @@ const renderUser = () => {
 
     const menu__item = item => `
     <li class="menu__item">
-        <div href="#${item.toLowerCase()}" class="menu__link">
+        <div class="menu__link" role="button" data-goTo="${item.toLowerCase()}">
             ${item}
         </div>
     </li>
@@ -116,7 +116,7 @@ const renderUser = () => {
     <div class="menu">
         <ul class="menu__list">
             <li class="menu__item">
-                <div href="#chats" class="menu__link menu__link--active">
+                <div class="menu__link menu__link--active" role="button" data-goTo="chats">
                     Chats
                 </div>
             </li>
@@ -141,7 +141,7 @@ const renderUser = () => {
 
     const chat_panel__item = () => ` 
     <li class="chat-panel-user__item" data-userId="1234">
-    <div class="chat-panel-user__link">
+    <div class="chat-panel-user__link" role="button">
         <img src="${faker.image.avatar()}" alt="photo" class="chat-panel-user__userphoto" />
         <!-- User Info -->
         <div class="chat-panel-user__info">
@@ -174,7 +174,7 @@ const renderUser = () => {
         <ul class="chat-panel-user__list">
             ${chat_panel__item()}
             <li class="chat-panel-user__item">
-    <div class="chat-panel-user__link">
+    <div class="chat-panel-user__link" role="button">
         <img src="${faker.image.avatar()}" alt="photo" class="chat-panel-user__userphoto" />
         <!-- User Info -->
         <div class="chat-panel-user__info">
@@ -201,7 +201,7 @@ const renderUser = () => {
 
             <!-- Settings -->
             <li class="chat-panel-user__item">
-            <div class="chat-panel-user__link">
+            <div class="chat-panel-user__link" role="button">
                 <img src="${faker.image.avatar()}" alt="photo" class="chat-panel-user__userphoto" />
                 <div class="chat-panel-user__info">
                 <span class="chat-panel-user__username">${faker.name.findName()}</span>
@@ -230,7 +230,7 @@ const renderUser = () => {
 
             <!-- Selected -->
             <li class="chat-panel-user__item chat-panel-user__item--selected">
-            <div class="chat-panel-user__link">
+            <div class="chat-panel-user__link" role="button">
                 <img src="${faker.image.avatar()}" alt="photo" class="chat-panel-user__userphoto" />
                 <div class="chat-panel-user__info">
                 <span class="chat-panel-user__username">${faker.name.findName()}</span>
@@ -249,7 +249,7 @@ const renderUser = () => {
             ${chat_panel__item()}
             <!-- Active -->
             <li class="chat-panel-user__item chat-panel-user__item--selected">
-            <div class="chat-panel-user__link">
+            <div class="chat-panel-user__link" role="button">
                 <img src="${faker.image.avatar()}" alt="photo" class="chat-panel-user__userphoto" />
                 <div class="chat-panel-user__info">
                 <span class="chat-panel-user__username">${faker.name.findName()}</span>
@@ -328,90 +328,113 @@ const renderUser = () => {
     `;
 
     const messageIn = () => `
-    <div class="chat-box-user__main--message">
-        <div class="chat-box-user__main--message-in">
-            <span>${faker.lorem.sentence().trim()}</span>
+    <li class="chat-box-user__main--item">
+        <div class="chat-box-user__main--message">
+            <div class="chat-box-user__main--message-in">
+                <span>${faker.lorem.sentence().trim()}</span>
+            </div>
         </div>
-    </div>
+    </li>
     `;
     const messageOut = () => `
-    <div class="chat-box-user__main--message">
-        <div class="chat-box-user__main--message-out">
-            <span>${faker.lorem.sentence().trim()}</span>
+    <li class="chat-box-user__main--item">
+        <div class="chat-box-user__main--message">
+            <div class="chat-box-user__main--message-out">
+                <span>${faker.lorem.sentence().trim()}</span>
+            </div>
         </div>
-    </div>
+    </li>
+
     `;
     markup = `
-    <header class="chat-box-user__header">
+    <div class="chat-box-user">
+        <header class="chat-box-user__header">
 
-        <div class="chat-box-user__header--back">
-            <svg class="chat-box-user__header--back-svg">
-            <use xlink:href="svg/sprite.svg#icon-arrow-left"></use>
-            </svg>
-        </div>
-
-        <img src=${faker.image.avatar()} alt="" class="chat-box-user__header--img" />
-
-        <div class="chat-box-user__header--content">
-            <div class="chat-box-user__header--content-name">${faker.name.findName()}</div>
-            <div class="chat-box-user__header--content-status">online</div>
-        </div>
-
-
-        <div class="chat-box-user__header--options">
-            <svg class="chat-box-user__header--options-svg">
-            <use xlink:href="svg/sprite.svg#icon-dots-three-vertical"></use>
-            </svg>
-        </div>
-    
-    </header>
-    <div class="chat-box-user__field" style="background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), url('img/background-image/chat-box-user.jpg')">
-        <main class="chat-box-user__main">
-            <div class="chat-box-user__main--container">
-                ${messageIn()}
-                ${messageOut()}
-                ${messageIn()}
-                ${messageOut()}
-                ${messageIn()}
-                ${messageIn()}
-                ${messageOut()}
-                ${messageIn()}
-                ${messageOut()}
-                ${messageOut()}
-                ${messageIn()}
-                ${messageOut()}
-                
+            <div class="chat-box-user__header--back">
+                <svg class="chat-box-user__header--back-svg">
+                <use xlink:href="svg/sprite.svg#icon-arrow-left"></use>
+                </svg>
             </div>
-        </main>
-        <footer class="chat-box-user__footer">
-            <form class="chat-box-user__footer--form"> 
-                <div class="chat-box-user__footer--container">
-                    <div class="chat-box-user__footer--emoji">
-                        <svg class="chat-box-user__footer--emoji-svg">
-                            <use xlink:href="svg/sprite.svg#icon-emoji"></use>
-                        </svg>
-                    </div>
-                    <textarea rows="1" type="text" class="chat-box-user__footer--input" spellcheck="false"></textarea>
-                    <div class="chat-box-user__footer--attach">
-                        <svg class="chat-box-user__footer--attach-svg">
-                            <use xlink:href="svg/sprite.svg#icon-attach"></use>
-                        </svg>
-                    </div>
-                    <div class="chat-box-user__footer--camera">
-                        <svg class="chat-box-user__footer--camera-svg">
-                            <use xlink:href="svg/sprite.svg#icon-camera"></use>
-                        </svg>
-                    </div>
+
+            <img src=${faker.image.avatar()} alt="" class="chat-box-user__header--img" />
+
+            <div class="chat-box-user__header--content">
+                <div class="chat-box-user__header--content-name">${faker.name.findName()}</div>
+                <div class="chat-box-user__header--content-status">online</div>
+            </div>
+
+
+            <div class="chat-box-user__header--options">
+                <svg class="chat-box-user__header--options-svg">
+                <use xlink:href="svg/sprite.svg#icon-dots-three-vertical"></use>
+                </svg>
+            </div>
+        
+        </header>
+        <div class="chat-box-user__field" style="background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), url('img/background-image/chat-box-user.jpg')">
+            <main class="chat-box-user__main">
+                <div class="chat-box-user__main--container">
+                    <ul class="chat-box-user__main--list">
+                        ${messageIn()}
+                        ${messageOut()}
+                        ${messageIn()}
+                        ${messageOut()}
+                        ${messageIn()}
+                        ${messageIn()}
+                        ${messageOut()}
+                        ${messageIn()}
+                        ${messageOut()}
+                        ${messageOut()}
+                        ${messageIn()}
+                        ${messageOut()}
+                        ${messageIn()}
+                        ${messageIn()}
+                        ${messageOut()}
+                        ${messageIn()}
+                        ${messageOut()}
+                        ${messageOut()}
+                        ${messageIn()}
+                        ${messageOut()}
+                        ${messageIn()}
+                        ${messageIn()}
+                        ${messageOut()}
+                        ${messageIn()}
+                        ${messageOut()}
+                        ${messageOut()}
+                        ${messageIn()}
+                        ${messageOut()}
+                    </ul>
                 </div>
-                <button class="chat-box-user__footer--send">
-                    <svg class="chat-box-user__footer--send-svg">
-                        <use xlink:href="svg/sprite.svg#icon-send"></use>
-                    </svg>
-                </button>
-            </form>
-        </footer>
+            </main>
+            <footer class="chat-box-user__footer">
+                <form class="chat-box-user__footer--form"> 
+                    <div class="chat-box-user__footer--container">
+                        <div class="chat-box-user__footer--emoji">
+                            <svg class="chat-box-user__footer--emoji-svg">
+                                <use xlink:href="svg/sprite.svg#icon-emoji"></use>
+                            </svg>
+                        </div>
+                        <textarea rows="1" type="text" class="chat-box-user__footer--input" spellcheck="false" placeholder="Type a message"></textarea>
+                        <div class="chat-box-user__footer--attach">
+                            <svg class="chat-box-user__footer--attach-svg">
+                                <use xlink:href="svg/sprite.svg#icon-attach"></use>
+                            </svg>
+                        </div>
+                        <div class="chat-box-user__footer--camera">
+                            <svg class="chat-box-user__footer--camera-svg">
+                                <use xlink:href="svg/sprite.svg#icon-camera"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <button class="chat-box-user__footer--send">
+                        <svg class="chat-box-user__footer--send-svg">
+                            <use xlink:href="svg/sprite.svg#icon-send"></use>
+                        </svg>
+                    </button>
+                </form>
+            </footer>
+        </div>
     </div>
- 
 `;
 
     elements.ChatBox.insertAdjacentHTML('beforeend', markup);
@@ -494,14 +517,8 @@ const addIdealListeners = () => {
     // Sign Up
     const signupCtaBtn = document.querySelector(elementStrings.btns.signupCtaBtn);
     signupCtaBtn.addEventListener('click', signupController.controlSignupCta);
-
     // Form Closing
-    elements.Forms.addEventListener('click', event => {
-        if (event.target.matches('.blur') || event.target.matches('.user-cross,.user-cross *')) {
-            // Clearing Forms
-            formsView.clearForms();
-        }
-    });
+    elements.Forms.addEventListener('click', formController.controlForm);
 };
 
 const init = () => {

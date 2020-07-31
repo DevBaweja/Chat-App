@@ -338,7 +338,7 @@
         }
 
         &__item {
-            border-top: 0.1rem solid darken($color-grey-light-3, 35%);
+            border-top-color: darken($color-grey-light-3, 35%);
             border-bottom-color: darken($color-grey-light-3, 35%);
             transition: all 0.2s;
             &:hover {
@@ -425,11 +425,13 @@
 
     // Chat Box
     .chat-box {
+        border-color: $color-grey-dark-3;
     }
     .chat-box-user {
         @include darkTheme($color-grey-dark-1, 50%);
         &__header {
             background-color: $color-grey-dark-1;
+            border-bottom-color: $color-grey-dark-3;
             &--back,
             &--options {
                 &:hover {
@@ -479,6 +481,9 @@
                 caret-color: $color-primary;
                 &:focus {
                     background-color: $color-grey-dark-1;
+                    box-shadow: 0 0 1rem lighten($color-grey-dark-1, 25%);
+                }
+                &:placeholder {
                 }
             }
 
@@ -492,9 +497,9 @@
                 &-svg {
                     fill: lighten($color-grey-dark-1, 50%);
                 }
-                &:hover > .chat-box__footer--emoji-svg,
-                &:hover > .chat-box__footer--camera-svg,
-                &:hover > .chat-box__footer--attach-svg {
+                &:hover > .chat-box-user__footer--emoji-svg,
+                &:hover > .chat-box-user__footer--camera-svg,
+                &:hover > .chat-box-user__footer--attach-svg {
                     fill: $color-grey-dark-1;
                 }
             }
@@ -513,6 +518,7 @@
                 }
                 &:hover {
                     background-color: $color-primary-light;
+                    box-shadow: 0 0 1rem lighten($color-grey-dark-1, 25%);
                 }
                 &-svg {
                     fill: $color-grey-dark-1;

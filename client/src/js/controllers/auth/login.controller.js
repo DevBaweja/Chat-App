@@ -1,11 +1,11 @@
 // State
-import state from '../state';
+import state from '../../state';
 // Utils
-import { elementStrings } from '../utils/base.util';
+import { elementStrings } from '../../utils/base.util';
 // Models
-import Login from '../models/Login';
+import Login from '../../models/Login';
 // Views
-import * as loginView from '../views/login.view';
+import * as loginView from '../../views/auth/login.view';
 
 // Forms
 const controlLogin = event => {

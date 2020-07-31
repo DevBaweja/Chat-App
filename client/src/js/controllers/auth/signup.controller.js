@@ -1,11 +1,11 @@
 // State
-import state from '../state';
+import state from '../../state';
 // Utils
-import { elementStrings } from '../utils/base.util';
+import { elementStrings } from '../../utils/base.util';
 // Models
-import Signup from '../models/Signup';
+import Signup from '../../models/Signup';
 // Views
-import * as signupView from '../views/signup.view';
+import * as signupView from '../../views/auth/signup.view';
 
 // Forms
 const controlSignup = async event => {

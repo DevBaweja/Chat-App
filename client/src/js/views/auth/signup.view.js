@@ -1,4 +1,4 @@
-import { elements, elementStrings } from '../utils/base.util';
+import { elements, elementStrings } from '../../utils/base.util';
 import { renderForm, getInput, prepareUI } from './forms.view';
 import faker from 'faker';
 export const renderSignupForm = () => {

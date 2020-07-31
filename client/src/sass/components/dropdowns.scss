@@ -26,7 +26,6 @@
             @include direction(column);
             align-items: stretch;
             padding: 1rem 0;
-            list-style: none;
         }
         &--item {
             @include flex(flex-start);

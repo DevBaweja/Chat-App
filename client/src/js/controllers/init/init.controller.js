@@ -1,5 +1,5 @@
 // Model
-import Init from '../models/Init';
+import Init from '../../models/Init';
 // Views
 
 export const controlInit = () => {

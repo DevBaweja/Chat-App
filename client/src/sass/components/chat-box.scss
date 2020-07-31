@@ -1,17 +1,18 @@
 // Chat Box
 .chat-box {
+    border-left: 0.15rem solid;
+    border-right: 0.15rem solid;
 }
 
 .chat-box-user {
     display: grid;
-    grid-template-rows: min-content 3fr min-content;
-    border-left: 1px solid $color-grey-dark-3;
-    border-right: 1px solid $color-grey-dark-3;
+    // ! For Development
+    grid-template-rows: min-content 56rem;
 
     &__header {
         margin-top: 0.5rem;
         padding: 1rem;
-        border-bottom: 1px solid $color-grey-dark-3;
+        border-bottom: 0.1rem solid;
         @include flex();
 
         &--back,
@@ -63,7 +64,7 @@
     &__main {
         flex: 1;
         // ! For Development
-        max-height: 47.5rem;
+        height: 47.5rem;
         padding: 1rem;
         @include flex();
         @include direction(column);
@@ -78,6 +79,16 @@
             padding: 0 2rem;
             padding-right: 2.5rem;
         }
+        &--list,
+        &--item {
+        }
+        &--list {
+        }
+        &--item {
+        }
+        // Types
+        &--date {
+        }
         &--message {
             flex: 1;
             @include flex();
@@ -89,13 +100,15 @@
                 max-width: 65%;
                 padding: 0.75rem 2rem;
                 border-radius: 0.75rem;
-                border: 1px solid;
+                border: 0.1rem solid;
                 font-size: $font-size-regular-1;
+                line-height: 1.4;
             }
 
             &-in {
                 align-self: flex-start;
                 border-top-left-radius: 0;
+                font-weight: $font-weight-regular;
             }
             &-out {
                 align-self: flex-end;
@@ -118,7 +131,7 @@
         &--input {
             flex: 1;
             border-radius: 2.5rem;
-            border: 1px solid;
+            border: 0.1rem solid;
             padding: 1rem 0;
             padding-left: 5rem;
             padding-right: 10rem;
@@ -131,6 +144,12 @@
                 display: none;
             }
         }
+        &--input:focus ~ &--camera,
+        &--input:focus ~ &--attach {
+            opacity: 1;
+            visibility: visible;
+        }
+
         &--emoji,
         &--camera,
         &--attach,
@@ -149,6 +168,12 @@
                 transition: all 0.4s;
             }
         }
+        &--emoji,
+        &--camera,
+        &--attach {
+            // opacity: 0;
+            // visibility: hidden;
+        }
         &--emoji {
             margin-right: -4rem;
         }
@@ -164,10 +189,10 @@
             height: 5.25rem;
             width: 5.25rem;
             margin-right: 1rem;
-            padding-left: 0.4rem;
             &-svg {
-                height: 2.25rem;
-                width: 2.25rem;
+                padding-left: 0.4rem;
+                height: 2.5rem;
+                width: 2.5rem;
             }
         }
     }

@@ -46,7 +46,6 @@
         // Height of List
         // ! Developer Jayesh 60rem
         max-height: 55rem;
-        list-style: none;
         margin-right: 1rem;
         padding: 1rem;
         overflow-x: hidden;
@@ -55,8 +54,8 @@
     }
     &__item {
         margin: 0.25rem 0;
-        border-bottom-width: 0.1rem;
-        border-bottom-style: solid;
+        border-top: 0.1rem solid;
+        border-bottom: 0.1rem solid;
         border-radius: 0.2rem;
         position: relative;
     }
