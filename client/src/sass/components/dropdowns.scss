@@ -6,8 +6,8 @@
 }
 .about-me,
 .chat-panel-user,
-.chat-box-friendmsg,
-.chat-box-usermsg {
+.chat-box-user-in,
+.chat-box-user-out {
     // Drop Down
     &__dropdown {
         position: absolute;
@@ -101,14 +101,14 @@
         }
     }
 }
-.chat-box-friendmsg {
+.chat-box-user-in {
     &__dropdown {
         top: 50%;
         left: 50%;
         border-radius: 0.5rem;
     }
 }
-.chat-box-usermsg {
+.chat-box-user-out {
     &__dropdown {
         top: 20%;
         left: 40%;

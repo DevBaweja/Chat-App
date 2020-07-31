@@ -332,6 +332,11 @@ const renderUser = () => {
     <li class="chat-box-user__main--item">
         <div class="chat-box-user__main--message">
             <div class="chat-box-user__main--message-in">
+                <div class="chat-box-user__drop-in">
+                    <svg class="chat-box-user__drop-in--svg">
+                        <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
+                    </svg>
+                </div>
                 <span>${faker.lorem.sentence().trim()}</span>
             </div>
         </div>
@@ -341,6 +346,11 @@ const renderUser = () => {
     <li class="chat-box-user__main--item">
         <div class="chat-box-user__main--message">
             <div class="chat-box-user__main--message-out">
+                <div class="chat-box-user__drop-out">
+                    <svg class="chat-box-user__drop-out--svg">
+                        <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
+                    </svg>
+                </div>
                 <span>${faker.lorem.sentence().trim()}</span>
             </div>
         </div>
@@ -416,6 +426,11 @@ const renderUser = () => {
                             </svg>
                         </div>
                         <textarea rows="1" type="text" class="chat-box-user__footer--input" spellcheck="false" placeholder="Type a message"></textarea>
+                        <div class="chat-box-user__footer--location">
+                            <svg class="chat-box-user__footer--location-svg">
+                                <use xlink:href="svg/sprite.svg#icon-location"></use>
+                            </svg>
+                        </div>
                         <div class="chat-box-user__footer--attach">
                             <svg class="chat-box-user__footer--attach-svg">
                                 <use xlink:href="svg/sprite.svg#icon-attach"></use>

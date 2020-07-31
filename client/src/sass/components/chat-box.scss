@@ -6,7 +6,6 @@
 
 .chat-box-user {
     display: grid;
-    // ! For Development
     grid-template-rows: min-content 56rem;
 
     &__header {
@@ -63,7 +62,6 @@
     }
     &__main {
         flex: 1;
-        // ! For Development
         height: 47.5rem;
         padding: 1rem;
         @include flex();
@@ -94,6 +92,7 @@
             @include flex();
             @include direction(column);
             margin: 0.5rem 0;
+            position: relative;
 
             &-in,
             &-out {
@@ -103,6 +102,13 @@
                 border: 0.1rem solid;
                 font-size: $font-size-regular-1;
                 line-height: 1.4;
+                &:hover .chat-box-user__drop {
+                    &-in,
+                    &-out {
+                        visibility: visible;
+                        opacity: 1;
+                    }
+                }
             }
 
             &-in {
@@ -126,33 +132,35 @@
         &--container {
             @include flex();
             flex: 1;
-            margin: 0 2rem;
+            margin: 0 1rem;
+            margin-right: 2rem;
         }
         &--input {
             flex: 1;
             border-radius: 2.5rem;
             border: 0.1rem solid;
-            padding: 1rem 0;
-            padding-left: 5rem;
-            padding-right: 10rem;
+            padding: 1rem 2rem;
             resize: none;
             font-size: $font-size-regular-2;
             font-family: inherit;
-            transition: all 0.2s;
+            transition: all 0.4s;
+            margin: 0 0.5rem;
 
+            &:focus {
+                padding-left: 5rem;
+                padding-right: 13.5rem;
+                margin-left: -4rem;
+                margin-right: -12rem;
+            }
             &::-webkit-scrollbar {
                 display: none;
             }
         }
-        &--input:focus ~ &--camera,
-        &--input:focus ~ &--attach {
-            opacity: 1;
-            visibility: visible;
-        }
 
         &--emoji,
-        &--camera,
+        &--location,
         &--attach,
+        &--camera,
         &--send {
             height: 3.5rem;
             width: 3.5rem;
@@ -168,20 +176,15 @@
                 transition: all 0.4s;
             }
         }
-        &--emoji,
-        &--camera,
-        &--attach {
-            // opacity: 0;
-            // visibility: hidden;
-        }
         &--emoji {
-            margin-right: -4rem;
+        }
+        &--location {
+        }
+        &--attach {
         }
         &--camera {
         }
-        &--attach {
-            margin-left: -8rem;
-        }
+
         &--send {
             cursor: pointer;
             transition: all 0.2s;
@@ -194,6 +197,33 @@
                 height: 2.5rem;
                 width: 2.5rem;
             }
+        }
+    }
+    // Drop
+    &__drop {
+        &-in,
+        &-out {
+            position: absolute;
+            top: 0;
+            height: 2.5rem;
+            width: 2.5rem;
+            border-radius: 50%;
+            @include flex();
+            margin: 0.2rem;
+            transition: all 0.2s;
+            opacity: 0;
+            visibility: hidden;
+            cursor: pointer;
+            &--svg {
+                height: 2rem;
+                width: 2rem;
+            }
+        }
+        &-in {
+            left: 0;
+        }
+        &-out {
+            right: 0;
         }
     }
 }

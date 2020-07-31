@@ -21,8 +21,8 @@
     // Dropdown
     .about-me,
     .chat-panel-user,
-    .chat-box-friendmsg,
-    .chat-box-usermsg {
+    .chat-box-user-in,
+    .chat-box-user-out {
         // Dropdown
         &__dropdown {
             background-color: $color-grey-dark-1;
@@ -44,7 +44,7 @@
             }
         }
     }
-    .chat-box-friendmsg {
+    .chat-box-user-in {
         // Dropdown
         &__dropdown {
             &--svg {
@@ -66,7 +66,7 @@
             }
         }
     }
-    .chat-box-usermsg {
+    .chat-box-user-out {
         // Dropdown
         &__dropdown {
             &--svg {
@@ -466,7 +466,7 @@
                 }
                 &-out {
                     background-color: darken($color-primary, 5%);
-                    color: $color-grey-dark-3;
+                    color: $color-grey-dark-1;
                     border-color: $color-primary;
                 }
             }
@@ -488,8 +488,9 @@
             }
 
             &--emoji,
-            &--camera,
+            &--location,
             &--attach,
+            &--camera,
             &--send {
                 &:hover {
                     background-color: $color-primary;
@@ -499,15 +500,19 @@
                 }
                 &:hover > .chat-box-user__footer--emoji-svg,
                 &:hover > .chat-box-user__footer--camera-svg,
-                &:hover > .chat-box-user__footer--attach-svg {
+                &:hover > .chat-box-user__footer--attach-svg,
+                &:hover > .chat-box-user__footer--location-svg {
                     fill: $color-grey-dark-1;
                 }
             }
+
             &--emoji {
             }
-            &--camera {
+            &--location {
             }
             &--attach {
+            }
+            &--camera {
             }
 
             &--send {
@@ -521,6 +526,23 @@
                     box-shadow: 0 0 1rem lighten($color-grey-dark-1, 25%);
                 }
                 &-svg {
+                    fill: $color-grey-dark-1;
+                }
+            }
+        }
+        // Drop
+        &__drop {
+            &-in {
+                background-color: $color-grey-dark-1;
+                box-shadow: 0.2rem 0.2rem 1rem 0.1rem $color-grey-dark-1;
+                &--svg {
+                    fill: darken($color-primary, 5%);
+                }
+            }
+            &-out {
+                background-color: darken($color-primary, 5%);
+                box-shadow: -0.2rem 0.2rem 0.5rem 0.1rem darken($color-primary, 5%);
+                &--svg {
                     fill: $color-grey-dark-1;
                 }
             }
