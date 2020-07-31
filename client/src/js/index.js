@@ -76,7 +76,7 @@ const renderIdeal = () => {
         <div class="chat-box-ideal--container">
             <div class="chat-box-ideal--svg">
                 <svg>
-                <use xlink:href="svg/sprite.svg#icon-ideal"></use>
+                <use xlink:href="svg/themes/ideal.svg#icon-ideal-${state.theme}"></use>
                 </svg>
             </div>
             <div class="chat-box-ideal--title">
@@ -317,7 +317,7 @@ const renderUser = () => {
         <div class="chat-box-null--container">
             <div class="chat-box-null--svg">
                 <svg>
-                <use xlink:href="img/themes.svg#icon-null-${state.theme}"></use>
+                    <use xlink:href="svg/themes/null.svg#icon-null-${state.theme}"></use>
                 </svg>
             </div>
             <div class="chat-box-null--title">
@@ -326,6 +326,7 @@ const renderUser = () => {
         </div>
     </div>
     `;
+    // elements.ChatBox.insertAdjacentHTML('beforeend', markup);
 
     const messageIn = () => `
     <li class="chat-box-user__main--item">
@@ -506,6 +507,7 @@ const renderUser = () => {
 const addUserListener = () => {
     // Active Status
     initController.controlInit();
+
     // window.addEventListener('load', initController.controlInit);
     // Dropdown
     elements.App.addEventListener('click', dropdownsController.controlDropdowns);

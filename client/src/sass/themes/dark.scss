@@ -365,7 +365,7 @@
         }
 
         &__link {
-            color: lighten($color-grey-dark-2, 50%);
+            color: lighten($color-grey-dark-2, 65%);
         }
 
         &__userphoto {
@@ -461,12 +461,12 @@
             &--message {
                 &-in {
                     background-color: $color-grey-dark-1;
-                    color: lighten($color-grey-dark-1, 50%);
+                    color: lighten($color-grey-dark-1, 55%);
                     border-color: $color-grey-dark-3;
                 }
                 &-out {
                     background-color: darken($color-primary, 5%);
-                    color: $color-grey-dark-1;
+                    color: $color-grey-dark-3;
                     border-color: $color-primary;
                 }
             }
