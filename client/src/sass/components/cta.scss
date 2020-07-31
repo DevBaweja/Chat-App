@@ -20,10 +20,6 @@
         border-style: solid;
         transition: all 0.2s;
         cursor: pointer;
-
-        &:focus {
-            outline: none;
-        }
     }
 
     &__sign-up {

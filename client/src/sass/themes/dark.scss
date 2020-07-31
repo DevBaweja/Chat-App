@@ -409,7 +409,7 @@
         }
     }
     .chat-panel-ideal,
-    .chat-panel-user__null {
+    .chat-panel-null {
         &__title {
             background-color: $color-grey-dark-3;
         }
@@ -425,6 +425,8 @@
 
     // Chat Box
     .chat-box {
+    }
+    .chat-box-user {
         @include darkTheme($color-grey-dark-1, 50%);
         &__header {
             background-color: $color-grey-dark-1;

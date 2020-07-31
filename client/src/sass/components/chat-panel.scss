@@ -61,7 +61,6 @@
         position: relative;
     }
     &__link {
-        text-decoration: none;
         padding: 0.75rem 0;
         @include flex();
 
@@ -140,7 +139,7 @@
     }
 }
 .chat-panel-ideal,
-.chat-panel-user__null {
+.chat-panel-null {
     @include flex(flex-start);
     @include direction(column);
     align-items: stretch;

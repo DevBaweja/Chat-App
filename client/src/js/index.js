@@ -274,13 +274,13 @@ const renderUser = () => {
     elements.ChatPanel.insertAdjacentHTML('beforeend', markup);
 
     const chat_panel_user = () => `
-    <div class="chat-panel-user__null__dimmer--item">
-        <div class="chat-panel-user__null__dimmer--circle">
+    <div class="chat-panel-null__dimmer--item">
+        <div class="chat-panel-null__dimmer--circle">
             <svg viewBox="0 0 50 50">
                 <circle></circle>
             </svg>
         </div>
-        <div class="chat-panel-user__null__dimmer--rect">
+        <div class="chat-panel-null__dimmer--rect">
             <svg viewBox="0 0 180 40">
                 <rect></rect>
             </svg>
@@ -290,7 +290,7 @@ const renderUser = () => {
 
     // No users
     markup = `
-    <div class="chat-panel-user__null">
+    <div class="chat-panel-null">
         <div class="chat-panel-user__title">
             Active Now <span class="chat-panel-user__count">(10)</span>
             <svg class="chat-panel-user__reload">
@@ -313,14 +313,14 @@ const renderUser = () => {
     // elements.ChatPanel.insertAdjacentHTML('beforeend', markup);
 
     markup = `
-    <div class="chat-box-user__null">
-        <div class="chat-box-user__null--container">
-            <div class="chat-box-user__null--svg">
+    <div class="chat-box-null">
+        <div class="chat-box-null--container">
+            <div class="chat-box-null--svg">
                 <svg>
                 <use xlink:href="img/themes.svg#icon-null-${state.theme}"></use>
                 </svg>
             </div>
-            <div class="chat-box-user__null--title">
+            <div class="chat-box-null--title">
                 No one's around to play with Wumpus.
             </div>
         </div>
@@ -328,46 +328,46 @@ const renderUser = () => {
     `;
 
     const messageIn = () => `
-    <div class="chat-box__main--message">
-        <div class="chat-box__main--message-in">
+    <div class="chat-box-user__main--message">
+        <div class="chat-box-user__main--message-in">
             <span>${faker.lorem.sentence().trim()}</span>
         </div>
     </div>
     `;
     const messageOut = () => `
-    <div class="chat-box__main--message">
-        <div class="chat-box__main--message-out">
+    <div class="chat-box-user__main--message">
+        <div class="chat-box-user__main--message-out">
             <span>${faker.lorem.sentence().trim()}</span>
         </div>
     </div>
     `;
     markup = `
-    <header class="chat-box__header">
+    <header class="chat-box-user__header">
 
-        <div class="chat-box__header--back">
-            <svg class="chat-box__header--back-svg">
+        <div class="chat-box-user__header--back">
+            <svg class="chat-box-user__header--back-svg">
             <use xlink:href="svg/sprite.svg#icon-arrow-left"></use>
             </svg>
         </div>
 
-        <img src=${faker.image.avatar()} alt="" class="chat-box__header--img" />
+        <img src=${faker.image.avatar()} alt="" class="chat-box-user__header--img" />
 
-        <div class="chat-box__header--content">
-            <div class="chat-box__header--content-name">${faker.name.findName()}</div>
-            <div class="chat-box__header--content-status">online</div>
+        <div class="chat-box-user__header--content">
+            <div class="chat-box-user__header--content-name">${faker.name.findName()}</div>
+            <div class="chat-box-user__header--content-status">online</div>
         </div>
 
 
-        <div class="chat-box__header--options">
-            <svg class="chat-box__header--options-svg">
+        <div class="chat-box-user__header--options">
+            <svg class="chat-box-user__header--options-svg">
             <use xlink:href="svg/sprite.svg#icon-dots-three-vertical"></use>
             </svg>
         </div>
     
     </header>
-    <div class="chat-box__field" style="background-image: linear-gradient(rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.075)), url('img/background-image/chat-box.jpg')">
-        <main class="chat-box__main">
-            <div class="chat-box__main--container">
+    <div class="chat-box-user__field" style="background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), url('img/background-image/chat-box-user.jpg')">
+        <main class="chat-box-user__main">
+            <div class="chat-box-user__main--container">
                 ${messageIn()}
                 ${messageOut()}
                 ${messageIn()}
@@ -383,28 +383,28 @@ const renderUser = () => {
                 
             </div>
         </main>
-        <footer class="chat-box__footer">
-            <form class="chat-box__footer--form"> 
-                <div class="chat-box__footer--container">
-                    <div class="chat-box__footer--emoji">
-                        <svg class="chat-box__footer--emoji-svg">
+        <footer class="chat-box-user__footer">
+            <form class="chat-box-user__footer--form"> 
+                <div class="chat-box-user__footer--container">
+                    <div class="chat-box-user__footer--emoji">
+                        <svg class="chat-box-user__footer--emoji-svg">
                             <use xlink:href="svg/sprite.svg#icon-emoji"></use>
                         </svg>
                     </div>
-                    <textarea rows="1" type="text" class="chat-box__footer--input" spellcheck="false"></textarea>
-                    <div class="chat-box__footer--attach">
-                        <svg class="chat-box__footer--attach-svg">
+                    <textarea rows="1" type="text" class="chat-box-user__footer--input" spellcheck="false"></textarea>
+                    <div class="chat-box-user__footer--attach">
+                        <svg class="chat-box-user__footer--attach-svg">
                             <use xlink:href="svg/sprite.svg#icon-attach"></use>
                         </svg>
                     </div>
-                    <div class="chat-box__footer--camera">
-                        <svg class="chat-box__footer--camera-svg">
+                    <div class="chat-box-user__footer--camera">
+                        <svg class="chat-box-user__footer--camera-svg">
                             <use xlink:href="svg/sprite.svg#icon-camera"></use>
                         </svg>
                     </div>
                 </div>
-                <button class="chat-box__footer--send">
-                    <svg class="chat-box__footer--send-svg">
+                <button class="chat-box-user__footer--send">
+                    <svg class="chat-box-user__footer--send-svg">
                         <use xlink:href="svg/sprite.svg#icon-send"></use>
                     </svg>
                 </button>
@@ -440,7 +440,7 @@ const renderUser = () => {
                         <use xlink:href="svg/sprite.svg#icon-edit"></use>
                     </svg>
                 </div>
-                <input type="text" id="name" class="chat-profile__user-about--input" value="${name}" disabled />
+                <input type="text" id="name" class="chat-profile__user-about--input" value="${name}" />
             </div>
 
             <div class="chat-profile__user-about--group">

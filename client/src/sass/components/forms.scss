@@ -63,7 +63,6 @@
             letter-spacing: 0.04rem;
 
             &:focus {
-                outline: none;
                 border-bottom: 0.3rem solid;
 
                 &:invalid {
@@ -82,10 +81,6 @@
             margin-top: 3rem;
             border-radius: 10rem;
             cursor: pointer;
-
-            &:focus {
-                outline: none;
-            }
             &:disabled {
                 cursor: not-allowed;
             }

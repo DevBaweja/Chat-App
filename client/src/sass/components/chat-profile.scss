@@ -55,9 +55,6 @@
                 font-size: $font-size-regular-1;
                 border-radius: 0.5rem;
                 border: none;
-                &:focus {
-                    outline: none;
-                }
             }
             textarea {
                 font-family: inherit;
@@ -125,10 +122,6 @@
             font-weight: $font-weight-bold;
             cursor: pointer;
             border: none;
-
-            &:focus {
-                outline: none;
-            }
         }
     }
     // Stranger
