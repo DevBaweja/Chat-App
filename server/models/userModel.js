@@ -11,6 +11,7 @@ const def = {
     name: {
         type: String,
         required: { value: true, message: getMustHave('name') },
+        trim: true,
     },
     email: {
         type: String,
@@ -49,6 +50,10 @@ const def = {
             },
             message: 'Passwords must match',
         },
+    },
+    createAt: {
+        type: Date,
+        default: Date.now(),
     },
 };
 const options = {};
