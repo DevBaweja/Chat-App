@@ -327,6 +327,7 @@ const renderUser = () => {
     </div>
     `;
     // elements.ChatBox.insertAdjacentHTML('beforeend', markup);
+    const date = '2020-08-01T00:00:00.000+00:00';
 
     const messageIn = () => `
     <li class="chat-box-user__main--item">
@@ -337,11 +338,19 @@ const renderUser = () => {
                         <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
                     </svg>
                 </div>
-                <span>${faker.lorem.sentence().trim()}</span>
+                <span class="chat-box-user__main--message-in-span">${faker.lorem.sentence().trim()}</span>
+                <span class="chat-box-user__main--message-in-info">
+                    ${new Date(date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}
+                </span>
             </div>
         </div>
     </li>
     `;
+    const reg = new RegExp(
+        '([a-zA-Z0-9]+://)?([a-zA-Z0-9_]+:[a-zA-Z0-9_]+@)?([a-zA-Z0-9.-]+\\.[A-Za-z]{2,4})(:[0-9]+)?(/.*)?'
+    );
+    console.log(reg.test('https://web.whatsapp.com'));
+    console.log('https://web.whatsapp.com'.match(reg));
     const messageOut = () => `
     <li class="chat-box-user__main--item">
         <div class="chat-box-user__main--message">
@@ -351,7 +360,11 @@ const renderUser = () => {
                         <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
                     </svg>
                 </div>
-                <span>${faker.lorem.sentence().trim()}</span>
+                <span class="chat-box-user__main--message-out-span">${faker.lorem.sentence().trim()}
+                </span>
+                <span class="chat-box-user__main--message-out-info">
+                    ${new Date(date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}
+                </span>
             </div>
         </div>
     </li>
@@ -384,6 +397,15 @@ const renderUser = () => {
         </header>
         <div class="chat-box-user__field" style="background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), url('img/background-image/chat-box-user.jpg')">
             <main class="chat-box-user__main">
+                <div class="chat-box-user__main--date-fix">
+                    <span class="chat-box-user__main--date-fix-span">${new Date(date).toLocaleDateString([], {
+                        dateStyle: 'long',
+                        // weekday: 'short',
+                        // month: 'short',
+                        // year: 'numeric',
+                        // day: 'numeric',
+                    })}</span>
+                </div>
                 <div class="chat-box-user__main--container">
                     <ul class="chat-box-user__main--list">
                         ${messageIn()}
@@ -404,16 +426,43 @@ const renderUser = () => {
                         ${messageIn()}
                         ${messageOut()}
                         ${messageOut()}
-                        ${messageIn()}
+                        <li class="chat-box-user__main--item">
+                            <div class="chat-box-user__main--message">
+                                <div class="chat-box-user__main--date">
+                                    <span class="chat-box-user__main--date-span">${new Date(date).toLocaleDateString(
+                                        [],
+                                        {
+                                            dateStyle: 'long',
+                                            // weekday: 'short',
+                                            // month: 'short',
+                                            // year: 'numeric',
+                                            // day: 'numeric',
+                                        }
+                                    )}</span>
+                                </div>
+                            </div>
+                        </li>
                         ${messageOut()}
-                        ${messageIn()}
-                        ${messageIn()}
-                        ${messageOut()}
-                        ${messageIn()}
-                        ${messageOut()}
-                        ${messageOut()}
-                        ${messageIn()}
-                        ${messageOut()}
+                        <li class="chat-box-user__main--item">
+                        <div class="chat-box-user__main--message">
+                            <div class="chat-box-user__main--message-out">
+                                <div class="chat-box-user__drop-out">
+                                    <svg class="chat-box-user__drop-out--svg">
+                                        <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
+                                    </svg>
+                                </div>
+                                <span class="chat-box-user__main--message-out-span">Hi
+                                </span>
+                                <span class="chat-box-user__main--message-out-info">
+                                    ${new Date(date).toLocaleTimeString([], {
+                                        hour: '2-digit',
+                                        minute: '2-digit',
+                                        hour12: true,
+                                    })}
+                                </span>
+                            </div>
+                        </div>
+                    </li>
                     </ul>
                 </div>
             </main>

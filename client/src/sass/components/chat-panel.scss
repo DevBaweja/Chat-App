@@ -54,10 +54,11 @@
     }
     &__item {
         margin: 0.25rem 0;
-        border-top: 0.1rem solid;
-        border-bottom: 0.1rem solid;
         border-radius: 0.2rem;
         position: relative;
+        &--selected {
+            border-left: 0.35rem solid;
+        }
     }
     &__link {
         padding: 0.75rem 0;

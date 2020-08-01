@@ -64,8 +64,8 @@ const userSchema = Schema(def, options);
 userSchema.pre('save', async function () {
     // Hashing password
     this.password = await bcrypt.hash(this.password, 8);
-    this.passwordConfirm = undefined;
     // Delete passwordConfirm
+    this.passwordConfirm = undefined;
 });
 
 // -----------

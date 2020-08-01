@@ -2,7 +2,7 @@ const state = {
     user: {},
     login: null,
     signup: null,
-    theme: 'dark-green',
+    theme: 'dark-red',
     index: 0,
     chatBox: {},
     chatPanel: {},

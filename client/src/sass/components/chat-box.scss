@@ -62,46 +62,88 @@
     }
     &__main {
         flex: 1;
-        height: 47.5rem;
         padding: 1rem;
         @include flex();
         @include direction(column);
         align-items: stretch;
         justify-content: flex-end;
+        position: relative;
         &--container {
             @include flex();
             @include direction(column);
             align-items: stretch;
-            overflow-x: hidden;
-            overflow-y: scroll;
-            padding: 0 2rem;
-            padding-right: 2.5rem;
         }
+
         &--list,
         &--item {
         }
         &--list {
+            // ! For Development
+            max-height: 47.5rem;
+            padding: 0 2rem;
+            padding-right: 2.5rem;
+            overflow-x: hidden;
+            overflow-y: scroll;
         }
         &--item {
         }
         // Types
+        &--date,
+        &--date-fix {
+            &-span {
+                padding: 0.5rem 2rem;
+                border-radius: 0.5rem;
+                font-size: $font-size-jayesh;
+                border-bottom: 0.1rem solid;
+            }
+        }
         &--date {
+            margin: 1rem 0;
+            &-span {
+            }
+        }
+        &--date-fix {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, 50%);
+            z-index: 2;
+            // !For Development
+            visibility: hidden;
+            opacity: 0;
+            &-span {
+            }
         }
         &--message {
             flex: 1;
             @include flex();
             @include direction(column);
             margin: 0.5rem 0;
-            position: relative;
 
             &-in,
             &-out {
                 max-width: 65%;
                 padding: 0.75rem 2rem;
+                padding-bottom: 2rem;
+                padding-right: 2.5rem;
                 border-radius: 0.75rem;
                 border: 0.1rem solid;
                 font-size: $font-size-regular-1;
                 line-height: 1.4;
+                position: relative;
+
+                &-span {
+                    // word-break: break-all;
+                    // hyphens: auto;
+                }
+                &-info {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    margin: 0.5rem;
+                    font-size: $font-size-small;
+                }
+                // For Drop
                 &:hover .chat-box-user__drop {
                     &-in,
                     &-out {
@@ -114,12 +156,21 @@
             &-in {
                 align-self: flex-start;
                 border-top-left-radius: 0;
-                font-weight: $font-weight-regular;
+                &-span {
+                    font-weight: $font-weight-regular;
+                }
+                &-info {
+                }
             }
             &-out {
                 align-self: flex-end;
                 border-top-right-radius: 0;
-                font-weight: $font-weight-bold;
+                padding-left: 1.5rem;
+                &-span {
+                    font-weight: $font-weight-bold;
+                }
+                &-info {
+                }
             }
         }
     }
@@ -213,6 +264,7 @@
             transition: all 0.2s;
             opacity: 0;
             visibility: hidden;
+            z-index: 1;
             cursor: pointer;
             &--svg {
                 height: 2rem;

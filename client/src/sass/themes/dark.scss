@@ -338,8 +338,6 @@
         }
 
         &__item {
-            border-top-color: darken($color-grey-light-3, 35%);
-            border-bottom-color: darken($color-grey-light-3, 35%);
             transition: all 0.2s;
             &:hover {
                 background-color: darken($color-grey-light-3, 35%);
@@ -353,6 +351,8 @@
 
             &.chat-panel-user__item--selected {
                 background-color: darken($color-grey-light-3, 42.5%);
+                border-color: $color-primary;
+
                 .chat-panel-user__state {
                     &--active {
                         border-color: darken($color-grey-light-3, 42.5%);
@@ -463,11 +463,32 @@
                     background-color: $color-grey-dark-1;
                     color: lighten($color-grey-dark-1, 55%);
                     border-color: $color-grey-dark-3;
+                    &-span {
+                        color: lighten($color-grey-dark-1, 55%);
+                    }
                 }
                 &-out {
                     background-color: darken($color-primary, 5%);
                     color: $color-grey-dark-1;
                     border-color: $color-primary;
+                    &-span {
+                        color: $color-grey-dark-1;
+                    }
+                }
+            }
+            &--date,
+            &--date-fix {
+                &-span {
+                    background-color: $color-grey-dark-1;
+                    border-color: $color-primary;
+                }
+            }
+            &--date {
+                &-span {
+                }
+            }
+            &--date-fix {
+                &-span {
                 }
             }
         }
