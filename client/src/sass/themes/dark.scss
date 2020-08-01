@@ -116,6 +116,12 @@
 
     // Alert
     .alert {
+        &__message {
+            fill: $color-grey-dark-1;
+        }
+        &__svg {
+            fill: $color-grey-dark-1;
+        }
         &--success {
             background-color: $color-primary;
         }
@@ -349,18 +355,22 @@
                 }
             }
 
-            &.chat-panel-user__item--selected {
+            &--selected {
                 background-color: darken($color-grey-light-3, 42.5%);
                 border-color: $color-primary;
-
+                &:hover {
+                    background-color: darken($color-grey-light-3, 42.5%);
+                    .chat-panel-user__state {
+                        &--active {
+                            border-color: darken($color-grey-light-3, 42.5%);
+                        }
+                    }
+                }
                 .chat-panel-user__state {
                     &--active {
                         border-color: darken($color-grey-light-3, 42.5%);
                     }
                 }
-            }
-
-            &.chat-panel-user__item--active {
             }
         }
 
@@ -397,7 +407,6 @@
         }
         // State
         &__state {
-            fill: black;
             &--active {
                 fill: $color-active;
                 border-color: $color-grey-dark-2;
@@ -685,6 +694,8 @@
         background-color: $color-primary-light;
     }
 }
+
+// @include darkThemeColor($color-primary, $color-primary-light, $color-primary-dark);
 
 .dark {
     @include darkThemeColor($color-primary, $color-primary-light, $color-primary-dark);

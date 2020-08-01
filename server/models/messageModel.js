@@ -20,14 +20,14 @@ const def = {
     },
     to: {},
     from: {},
-    sendAt: {
+    sentAt: {
         type: Date,
         default: Date.now(),
     },
-    receivedAt: {
+    deliveredAt: {
         type: Date,
     },
-    deliveredAt: {
+    seenAt: {
         type: Date,
     },
     createAt: {

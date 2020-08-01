@@ -93,6 +93,13 @@ const renderIdeal = () => {
 const renderUser = () => {
     let markup;
     markup = `
+    <div class="logo-box__name">
+        #ChatFuel
+    </div>
+    `;
+    elements.LogoBox.insertAdjacentHTML('beforeend', markup);
+
+    markup = `
     <form class="search">
         <input type="text" class="search__input" placeholder="Search Friends" />
         <button class="search__button">
@@ -102,7 +109,8 @@ const renderUser = () => {
         </button>
     </form>
     `;
-    elements.LogoBox.insertAdjacentHTML('beforeend', markup);
+
+    elements.Header.insertAdjacentHTML('beforeend', markup);
 
     const menu__item = item => `
     <li class="menu__item">
@@ -124,7 +132,9 @@ const renderUser = () => {
         </ul>
     </div>
     `;
-    elements.Header.insertAdjacentHTML('beforeend', markup);
+    markup = `
+    <div class="menu"></div>
+    `;
 
     const name = faker.name.findName();
     markup = `
@@ -221,7 +231,7 @@ const renderUser = () => {
                 <svg class="chat-panel-user__option">
                     <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
                 </svg>
-                <svg class="chat-panel-user__state chat-panel-user__state--inactive">
+                <svg class="chat-panel-user__state chat-panel-user__state--active">
                     <use xlink:href="svg/sprite.svg#icon-dot-single--active"></use>
                 </svg>
             </div>
@@ -363,7 +373,13 @@ const renderUser = () => {
                 <span class="chat-box-user__main--message-out-span">${faker.lorem.sentence().trim()}
                 </span>
                 <span class="chat-box-user__main--message-out-info">
+                    <span class="chat-box-user__main--message-out-info--time">
                     ${new Date(date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}
+                    </span>
+                    <!-- sent, delivered, seen -->
+                    <svg class="chat-box-user__main--message-out-info--svg chat-box-user__main--message-out-info--svg-sent">
+                        <use xlink:href="svg/sprite.svg#icon-delivered"></use>
+                    </svg>
                 </span>
             </div>
         </div>
@@ -433,10 +449,6 @@ const renderUser = () => {
                                         [],
                                         {
                                             dateStyle: 'long',
-                                            // weekday: 'short',
-                                            // month: 'short',
-                                            // year: 'numeric',
-                                            // day: 'numeric',
                                         }
                                     )}</span>
                                 </div>
@@ -454,11 +466,17 @@ const renderUser = () => {
                                 <span class="chat-box-user__main--message-out-span">Hi
                                 </span>
                                 <span class="chat-box-user__main--message-out-info">
-                                    ${new Date(date).toLocaleTimeString([], {
-                                        hour: '2-digit',
-                                        minute: '2-digit',
-                                        hour12: true,
-                                    })}
+                                    <span class="chat-box-user__main--message-out-info--time">
+                                        ${new Date(date).toLocaleTimeString([], {
+                                            hour: '2-digit',
+                                            minute: '2-digit',
+                                            hour12: true,
+                                        })}
+                                    </span>
+                                    <!-- sent, delivered, seen -->
+                                    <svg class="chat-box-user__main--message-out-info--svg chat-box-user__main--message-out-info--svg-sent">
+                                        <use xlink:href="svg/sprite.svg#icon-delivered"></use>
+                                    </svg>
                                 </span>
                             </div>
                         </div>
@@ -503,7 +521,12 @@ const renderUser = () => {
 `;
 
     elements.ChatBox.insertAdjacentHTML('beforeend', markup);
-
+    setTimeout(() => {
+        const chatBoxList = document.querySelector('.chat-box-user__main--list');
+        chatBoxList.scrollTop = chatBoxList.scrollHeight - chatBoxList.scrollTop;
+    }, 1000);
+    // chatBoxList.scrollTop = chatBoxList.scrollHeight;
+    // console.log(chatBoxList.scrollTop);
     markup = `
     <div class="chat-profile__user">
     <form class="chat-profile__user--form">

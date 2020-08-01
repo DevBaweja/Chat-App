@@ -4,12 +4,14 @@
     line-height: 1.6;
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    // ! For Developement
     overflow: hidden;
     @include flex();
 }
 
 .container {
     width: 100vw;
+    // ! For Developement
     overflow: hidden;
     @include grid();
     // ! Developer Jayesh 66rem

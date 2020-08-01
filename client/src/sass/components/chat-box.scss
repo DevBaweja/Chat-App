@@ -2,6 +2,7 @@
 .chat-box {
     border: 0.15rem solid;
     border-bottom: 0;
+    border-top: 0;
 }
 
 .chat-box-user {
@@ -128,7 +129,7 @@
                 padding-right: 2.5rem;
                 border-radius: 0.75rem;
                 border: 0.1rem solid;
-                font-size: $font-size-regular-1;
+                font-size: $font-size-jayesh;
                 line-height: 1.4;
                 position: relative;
 
@@ -142,6 +143,7 @@
                     right: 0;
                     margin: 0.5rem;
                     font-size: $font-size-small;
+                    @include flex();
                 }
                 // For Drop
                 &:hover .chat-box-user__drop {
@@ -165,11 +167,14 @@
             &-out {
                 align-self: flex-end;
                 border-top-right-radius: 0;
-                padding-left: 1.5rem;
                 &-span {
                     font-weight: $font-weight-bold;
                 }
                 &-info {
+                    &--svg {
+                        height: 1.5rem;
+                        width: 1.5rem;
+                    }
                 }
             }
         }
@@ -243,6 +248,9 @@
             height: 5.25rem;
             width: 5.25rem;
             margin-right: 1rem;
+            // ! For Development
+            // backdrop-filter: blur(1px);
+            z-index: 5;
             &-svg {
                 padding-left: 0.4rem;
                 height: 2.5rem;
