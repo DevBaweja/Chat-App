@@ -58,6 +58,11 @@ export const mode = {
         empty: 'empty',
         recentChat: 'recent-chat',
     },
+    chatBox: {
+        ideal: 'ideal',
+        empty: 'empty',
+        user: 'user',
+    },
     chatProfile: {
         myProfile: 'my-profile',
     },
