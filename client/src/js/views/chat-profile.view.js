@@ -1,5 +1,8 @@
 import { elements } from '../utils/base.util';
 import faker from 'faker';
+
+export const clearChatProfile = () => (elements.ChatProfile.innerHTML = '');
+
 export const renderMyProfile = () => {
     const name = faker.name.findName();
     const markup = `

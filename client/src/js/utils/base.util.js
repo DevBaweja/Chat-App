@@ -52,10 +52,22 @@ export const elementStrings = {
         darkWhite: 'dark-white',
     },
 };
-
+export const mode = {
+    chatPanel: {
+        ideal: 'ideal',
+        empty: 'empty',
+        recentChat: 'recent-chat',
+    },
+    chatProfile: {
+        myProfile: 'my-profile',
+    },
+};
 export const actions = {
     aboutMe: {
         toggleTheme: 'toggle-theme',
         myProfile: 'my-profile',
     },
+};
+export const io = {
+    events: {},
 };

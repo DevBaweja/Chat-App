@@ -1,5 +1,5 @@
 // Utils
-import { elementStrings, actions } from '../../utils/base.util';
+import { elementStrings, mode, actions } from '../../utils/base.util';
 // Controllers
 import * as themeController from '../theme/theme.controller';
 import * as chatProfileController from '../chat-profile.controller';
@@ -39,8 +39,7 @@ const toggleTheme = () => {
 
 const myProfile = () => {
     // Loading
-    // chatProfile Controller
-    chatProfileController.myProfile();
+    chatProfileController.controlChatProfile({ mode: mode.chatProfile.myProfile });
 };
 
 export default controlAboutMeDropdown;
