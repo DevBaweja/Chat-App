@@ -1,12 +1,11 @@
 // Utils
 import { elementStrings, actions } from '../../utils/base.util';
-import state from '../../state';
+// Controllers
+import * as themeController from '../theme/theme.controller';
+import * as chatProfileController from '../chat-profile.controller';
 // Views
 import { getCoordinate } from '../../views/dropdowns/dropdowns.view';
 import * as aboutMeDropdownView from '../../views/dropdowns/about-me-dropdrop.view';
-
-import * as themeView from '../../views/theme/theme.view';
-import * as chatProfileView from '../../views/chat-profile.view';
 
 const controlAboutMeDropdown = event => {
     // 0) Positioning of Dropdown
@@ -34,17 +33,14 @@ const controlAboutMeDropdownItems = event => {
 };
 
 const toggleTheme = () => {
-    // Remove theme
-    themeView.clearTheme(state.theme.theme);
-    // Change theme
-    state.theme.changeTheme('dark-green');
-    // Render theme
-    themeView.renderTheme(state.theme.theme);
+    // chatProfile Controller
+    themeController.toggleTheme();
 };
 
 const myProfile = () => {
     // Loading
-    chatProfileView.renderMyProfile();
+    // chatProfile Controller
+    chatProfileController.myProfile();
 };
 
 export default controlAboutMeDropdown;

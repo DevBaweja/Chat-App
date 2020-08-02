@@ -10,3 +10,11 @@ export const controlTheme = () => {
     // Render it to App
     themeView.renderTheme(state.theme.theme);
 };
+
+export const toggleTheme = () => {
+    themeView.clearTheme(state.theme.theme);
+    // Change theme
+    state.theme.changeTheme('dark-green');
+    // Render theme
+    themeView.renderTheme(state.theme.theme);
+};
