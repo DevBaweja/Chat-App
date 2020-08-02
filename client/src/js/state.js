@@ -1,9 +1,9 @@
 const state = {
+    theme: null,
     user: {},
+    init: null,
     login: null,
     signup: null,
-    theme: 'dark-green',
-    index: 0,
     chatBox: {},
     chatPanel: {},
     chatProfile: {},

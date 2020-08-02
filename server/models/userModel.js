@@ -61,7 +61,9 @@ const userSchema = Schema(def, options);
 
 // -----------
 // Middlewares
-userSchema.pre('save', async function () {
+userSchema.pre('save', async function (next) {
+    if (!this.isModified('password')) return next();
+
     // Hashing password
     this.password = await bcrypt.hash(this.password, 8);
     // Delete passwordConfirm

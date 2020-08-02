@@ -28,6 +28,7 @@
         "faker": "^4.1.0",
         "gender-detection": "^0.1.0",
         "scss-config-webpack-plugin": "^2.0.0",
-        "semantic-ui-css": "^2.4.1"
+        "semantic-ui-css": "^2.4.1",
+        "socket.io-client": "^2.3.0"
     }
 }

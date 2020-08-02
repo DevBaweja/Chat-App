@@ -51,5 +51,11 @@ export const elementStrings = {
         darkGrey: 'dark-grey',
         darkWhite: 'dark-white',
     },
-    actions: {},
+};
+
+export const actions = {
+    aboutMe: {
+        toggleTheme: 'toggle-theme',
+        myProfile: 'my-profile',
+    },
 };

@@ -6,5 +6,4 @@ class Theme {
         this.theme = newTheme;
     }
 }
-// state.theme = new Theme('dark');
-// state.theme.changeTheme('dark-light')
+export default Theme;

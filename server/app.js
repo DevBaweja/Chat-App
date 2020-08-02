@@ -6,6 +6,7 @@ const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
+const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const compression = require('compression');
 
@@ -46,6 +47,8 @@ app.use(
         limit: '10kb',
     })
 );
+// Cookie Parser
+app.use(cookieParser());
 
 // Data Sanitization against NoSql query injection
 app.use(mongoSanitize());
@@ -68,6 +71,7 @@ if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 // User Middlewares
 app.use((req, res, next) => {
     if (process.env.NODE_ENV === 'development') console.log('Incoming Request');
+    console.log(req.cookies);
     next();
 });
 app.use((req, res, next) => {

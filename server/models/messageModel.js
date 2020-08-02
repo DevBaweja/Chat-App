@@ -9,7 +9,10 @@ const getMustHave = (str) => `A message must have ${str}`;
 const def = {
     type: {
         type: String,
-        enum: ['text', 'image', 'audio', 'video'],
+        enum: {
+            values: ['text', 'image', 'audio', 'video'],
+            message: 'Type must be text, image, audio or video',
+        },
         default: 'text',
         required: { value: true, message: getMustHave('a type.') },
     },

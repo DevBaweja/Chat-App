@@ -1,11 +1,18 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
+process.on('uncaughtException', (err) => {
+    console.log('Uncaught Exception');
+    console.log(err.name, err.message);
+    process.exit(1);
+});
+
 // ------------
 // Loading env variables
 dotenv.config({ path: './config.env' });
 
 const app = require('./app');
+const socket = require('./socket');
 
 // ------------
 // Connecting database
@@ -33,6 +40,16 @@ mongoose
 // ------------
 // Port
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log(`App is served at http://localhost:${PORT}`);
+});
+const io = socket.init(server);
+io.on('connection', () => console.log('Connection Established'));
+
+process.on('unhandledRejection', (err) => {
+    console.log('Unhandled Rejection');
+    console.log(err.name, err.message);
+    server.close(() => {
+        process.exit(1);
+    });
 });

@@ -16,7 +16,7 @@
         "prefer-destructuring": ["warn", { "object": true, "array": false }],
         "no-unused-vars": [
             "warn",
-            { "argsIgnorePattern": "req|res|next|val|err|con|doc" }
+            { "argsIgnorePattern": "req|res|next|val|err|con|doc|socket" }
         ],
         "no-undef": "warn",
         "no-dupe-keys": "warn",
