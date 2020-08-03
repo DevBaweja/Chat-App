@@ -16,7 +16,7 @@ export const controlChatPanel = info => {
         case mode.chatPanel.empty:
             empty();
             break;
-        case mode.chatPanel.recentChat:
+        case mode.chatPanel.user.recentChat:
             recentChat();
             break;
     }

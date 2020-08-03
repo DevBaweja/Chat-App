@@ -1,9 +1,10 @@
 // Views
-import * as formsView from '../../views/auth/forms.view';
+import * as formView from '../../views/auth/form.view';
+
 export const controlForm = event => {
     const { target } = event;
     if (target.matches('.blur') || target.matches('.user-cross,.user-cross *')) {
         // Clearing Forms
-        formsView.clearForms();
+        formView.clearForm();
     }
 };

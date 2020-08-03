@@ -1,5 +1,5 @@
 import { elements, elementStrings } from '../../utils/base.util';
-import { renderForm, getInput } from './forms.view';
+import { renderForm, getInput } from './form.view';
 import faker from 'faker';
 
 export const renderLoginForm = () => {

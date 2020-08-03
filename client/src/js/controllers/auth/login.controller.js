@@ -7,7 +7,15 @@ import Login from '../../models/Login';
 // Views
 import * as loginView from '../../views/auth/login.view';
 
-// Forms
+// CTA
+export const controlLoginCta = () => {
+    // 1) Rendering Login form
+    loginView.renderLoginForm();
+    // 2) Adding event listener to form
+    document.querySelector(elementStrings.forms.loginForm).addEventListener('submit', controlLogin);
+};
+
+// Form
 const controlLogin = event => {
     event.preventDefault();
 
@@ -22,11 +30,4 @@ const controlLogin = event => {
 
     // 4) Making API call
     state.login.loginUser();
-};
-// CTA
-export const controlLoginCta = () => {
-    // 1) Rendering Login form
-    loginView.renderLoginForm();
-    // 2) Adding event listener to form
-    document.querySelector(elementStrings.forms.loginForm).addEventListener('submit', controlLogin);
 };

@@ -1,6 +1,7 @@
 // Search
 .search {
     @include flex();
+    // ! For Development
     width: 24rem;
     &__input {
         font-size: $font-size-regular-1;

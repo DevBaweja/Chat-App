@@ -7,7 +7,15 @@ import Signup from '../../models/Signup';
 // Views
 import * as signupView from '../../views/auth/signup.view';
 
-// Forms
+// CTA
+export const controlSignupCta = () => {
+    // 1) Rendering Signup form
+    signupView.renderSignupForm();
+    // 2) Adding event listener to form
+    document.querySelector(elementStrings.forms.signupForm).addEventListener('submit', controlSignup);
+};
+
+// Form
 const controlSignup = async event => {
     event.preventDefault();
 
@@ -32,12 +40,4 @@ const controlSignup = async event => {
         // Error Alert
         console.log('ERROR', err.message);
     }
-};
-
-// CTA
-export const controlSignupCta = () => {
-    // 1) Rendering Signup form
-    signupView.renderSignupForm();
-    // 2) Adding event listener to form
-    document.querySelector(elementStrings.forms.signupForm).addEventListener('submit', controlSignup);
 };

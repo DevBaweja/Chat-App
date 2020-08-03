@@ -53,10 +53,16 @@ export const elementStrings = {
     },
 };
 export const mode = {
+    header: {
+        ideal: 'ideal',
+        user: 'user',
+    },
     chatPanel: {
         ideal: 'ideal',
         empty: 'empty',
-        recentChat: 'recent-chat',
+        user: {
+            recentChat: 'recent-chat',
+        },
     },
     chatBox: {
         ideal: 'ideal',

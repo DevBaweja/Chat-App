@@ -86,7 +86,7 @@ export const renderEmpty = () => {
 
 export const renderRecentChat = () => {
     const chat_panel__item = () => ` 
-    <li class="chat-panel-user__item" data-userId="1234">
+    <li class="chat-panel-user__item" data-userId="1234" draggable="true">
     <div class="chat-panel-user__link" role="button">
         <img src="${faker.image.avatar()}" alt="photo" class="chat-panel-user__userphoto" />
         <!-- User Info -->
