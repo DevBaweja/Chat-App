@@ -7,11 +7,11 @@ export const clearChatBox = () => (elements.ChatBox.innerHTML = '');
 export const renderDrag = ({ user }) => {
     const markup = `
     <div class="chat-box-drag">
-        <div class="chat-box-drag__container">
-            <svg class="chat-box-drag__svg">
+        <div class="chat-box-drag--container">
+            <svg class="chat-box-drag--svg">
                 <use xlink:href="svg/sprite.svg#icon-drag"></use>
             </svg>
-            <div class="chat-box-drag__content">Drop here to start chat with ${user}.</div>
+            <div class="chat-box-drag--content">Drop here to start chat with ${user}.</div>
         </div>
     </div>
     `;
@@ -93,7 +93,7 @@ export const renderUser = () => {
                     ${new Date(date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}
                     </span>
                     <!-- sent, delivered, seen -->
-                    <svg class="chat-box-user__main--message-out-info--svg chat-box-user__main--message-out-info--svg-sent">
+                    <svg class="chat-box-user__main--message-out-info--svg chat-box-user__main--message-out-info--svg-delivered">
                         <use xlink:href="svg/sprite.svg#icon-delivered"></use>
                     </svg>
                 </span>
@@ -179,7 +179,7 @@ export const renderUser = () => {
                                         <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
                                     </svg>
                                 </div>
-                                <span class="chat-box-user__main--message-out-span">Hi
+                                <span class="chat-box-user__main--message-out-span">.
                                 </span>
                                 <span class="chat-box-user__main--message-out-info">
                                     <span class="chat-box-user__main--message-out-info--time">
@@ -190,8 +190,8 @@ export const renderUser = () => {
                                         })}
                                     </span>
                                     <!-- sent, delivered, seen -->
-                                    <svg class="chat-box-user__main--message-out-info--svg chat-box-user__main--message-out-info--svg-sent">
-                                        <use xlink:href="svg/sprite.svg#icon-delivered"></use>
+                                    <svg class="chat-box-user__main--message-out-info--svg chat-box-user__main--message-out-info--svg-seen">
+                                        <use xlink:href="svg/sprite.svg#icon-seen"></use>
                                     </svg>
                                 </span>
                             </div>

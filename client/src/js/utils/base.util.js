@@ -28,6 +28,11 @@ export const elementStrings = {
     drops: {
         aboutMeDrop: '.about-me__drop',
         chatPanelDrop: '.chat-panel__drop',
+        chatBoxDrop: {
+            in: 'chat-box-user__drop-in',
+            out: 'chat-box-user__drop-in',
+            options: 'chat-box-user__header--options',
+        },
     },
     dropdowns: {
         aboutMeDropdown: '.about-me__dropdown',
@@ -55,6 +60,21 @@ export const elementStrings = {
         darkYellow: 'dark-yellow',
         darkGrey: 'dark-grey',
         darkWhite: 'dark-white',
+    },
+    chatBox: {
+        header: {
+            back: '.chat-box-user__header--back',
+            img: 'chat-box-user__header--img',
+            name: 'chat-box-user__header--content-name',
+        },
+        footer: {
+            emoji: 'chat-box-user__footer--emoji',
+            location: 'chat-box-user__footer--location',
+            attach: 'chat-box-user__footer--attach',
+            camera: 'chat-box-user__footer--camera',
+            input: 'chat-box-user__footer--input',
+            send: 'chat-box-user__footer--send',
+        },
     },
 };
 export const mode = {

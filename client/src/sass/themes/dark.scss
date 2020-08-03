@@ -483,6 +483,11 @@
                     &-span {
                         color: $color-grey-dark-1;
                     }
+                    &-info {
+                        &--svg {
+                            fill: lighten($color-grey-dark-1, 15%);
+                        }
+                    }
                 }
             }
             &--date,
@@ -579,7 +584,7 @@
         }
     }
     .chat-box-drag {
-        &__svg {
+        &--svg {
             fill: lighten($color-grey-dark-1, 50%);
         }
     }

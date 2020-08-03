@@ -1,6 +1,6 @@
 import state from '../state';
 // Utils
-import { elements, elementStrings, mode } from '../utils/base.util';
+import { elementStrings, mode } from '../utils/base.util';
 // Models
 import ChatBox from '../models/ChatBox';
 // Views
@@ -40,6 +40,10 @@ const empty = () => {
 const user = ({ data }) => {
     // Render User
     chatBoxView.renderUser();
+    // Add Event Listeners
+    document.querySelector(elementStrings.chatBox.header.back).addEventListener('click', () => {
+        controlChatBox({ mode: mode.chatBox.empty });
+    });
 };
 const drag = ({ data }) => {
     // Render Drag
@@ -52,6 +56,7 @@ const drag = ({ data }) => {
     });
     dropable.addEventListener('drop', event => {
         const user = event.dataTransfer.getData('user');
+        // Model
         if (user) controlChatBox({ mode: mode.chatBox.user });
     });
 };
