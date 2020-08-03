@@ -8,8 +8,9 @@ import * as loginController from './auth/login.controller';
 import * as signupController from './auth/signup.controller';
 
 export const controlHeader = info => {
+    // Prepare UI
+    headerView.clearHeader();
     // Render Logo
-
     headerView.renderLogo();
 
     switch (info.mode) {
@@ -24,7 +25,7 @@ export const controlHeader = info => {
 const ideal = () => {
     // Render Ideal
     headerView.renderIdeal();
-    elements.Header.classList.add('ideal');
+    headerView.toggleClass('ideal');
 
     // Adding Event Listeners
     // Form Closing
@@ -40,5 +41,5 @@ const ideal = () => {
 const user = () => {
     // Render User
     headerView.renderUser();
-    elements.Header.classList.add('user');
+    headerView.toggleClass('user');
 };

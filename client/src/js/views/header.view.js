@@ -1,14 +1,26 @@
 import { elements } from '../utils/base.util';
 import faker from 'faker';
 
+export const clearHeader = () => (elements.Header.innerHTML = '');
+
+export const toggleClass = className => {
+    // Removing class
+    // Adding class
+    elements.Header.classList.add(className);
+};
 export const renderLogo = () => {
     const markup = `
-    <div class="logo-box__name">
-        #ChatFuel
+    <div class="logo-box">
+        <svg class="logo-box__svg">
+           <use xlink:href="svg/sprite.svg#icon-chat"></use>
+        </svg>
+        <div class="logo-box__name">
+            #ChatFuel
+        </div>
     </div>
     `;
 
-    elements.LogoBox.insertAdjacentHTML('beforeend', markup);
+    elements.Header.insertAdjacentHTML('beforeend', markup);
 };
 export const renderIdeal = () => {
     const markup = `

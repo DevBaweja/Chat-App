@@ -1,7 +1,6 @@
 export const elements = {
     App: document.querySelector('.app'),
     Header: document.querySelector('.header'),
-    LogoBox: document.querySelector('.logo-box'),
     ChatPanel: document.querySelector('.chat-panel'),
     ChatBox: document.querySelector('.chat-box'),
     ChatProfile: document.querySelector('.chat-profile'),
