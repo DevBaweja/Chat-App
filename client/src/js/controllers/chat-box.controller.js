@@ -1,3 +1,4 @@
+import state from '../state';
 // Utils
 import { mode } from '../utils/base.util';
 // Models
@@ -6,6 +7,10 @@ import ChatBox from '../models/ChatBox';
 import * as chatBoxView from '../views/chat-box.view';
 
 export const controlChatBox = info => {
+    // Init Chat Box
+    if (!state.chatBox) state.chatBox = new ChatBox({ mode: info.mode });
+    state.chatBox.setMode(info.mode);
+
     // Prepare UI
     chatBoxView.clearChatBox();
 

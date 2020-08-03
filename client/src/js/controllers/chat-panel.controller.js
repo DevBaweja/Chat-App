@@ -1,3 +1,4 @@
+import state from '../state';
 // Utils
 import { mode } from '../utils/base.util';
 // Models
@@ -6,6 +7,10 @@ import ChatPanel from '../models/ChatPanel';
 import * as chatPanelView from '../views/chat-panel.view';
 
 export const controlChatPanel = info => {
+    // Init Chat Panel
+    if (!state.chatPanel) state.chatPanel = new ChatPanel({ mode: info.mode });
+    state.chatPanel.setMode(info.mode);
+    
     // Prepare UI
     chatPanelView.clearChatPanel();
 

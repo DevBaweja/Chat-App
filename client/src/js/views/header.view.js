@@ -1,3 +1,4 @@
+import state from '../state';
 import { elements } from '../utils/base.util';
 import faker from 'faker';
 
@@ -5,8 +6,11 @@ export const clearHeader = () => (elements.Header.innerHTML = '');
 
 export const toggleClass = className => {
     // Removing class
+    elements.Header.classList.remove(state.header.className);
+    // Changing state
+    state.header.className = className;
     // Adding class
-    elements.Header.classList.add(className);
+    elements.Header.classList.add(state.header.className);
 };
 export const renderLogo = () => {
     const markup = `

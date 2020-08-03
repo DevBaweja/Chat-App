@@ -7,7 +7,7 @@ export const controlInit = async () => {
     console.log('Initializing App');
 
     // 1) Initializing init
-    state.init = new Init();
+    if (!state.init) state.init = new Init();
 
     try {
         const io = await state.init.establishConnection();

@@ -14,7 +14,6 @@ const controlChatPanelDropdown = event => {
     const userId = chatPanelView.getUserId(event);
     console.log(userId);
     // 0) Get User Info
-    // state.chatPanel = new ChatPanel();
     // const data  = state.chatPanel.getUserInfo(userId)
 
     // 1) Render Dropdown For About Me

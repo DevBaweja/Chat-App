@@ -26,7 +26,7 @@ const controlLogin = event => {
     // { email, password }
 
     // 3) Init login
-    state.login = new Login({ ...inputs });
+    if (!state.login) state.login = new Login({ ...inputs });
 
     // 4) Making API call
     state.login.loginUser();

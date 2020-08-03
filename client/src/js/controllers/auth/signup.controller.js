@@ -29,7 +29,7 @@ const controlSignup = async event => {
     // { name, email, password, passwordConfirm }
 
     // 3) Init signup
-    state.signup = new Signup({ ...inputs });
+    if (!state.signup) state.signup = new Signup({ ...inputs });
 
     try {
         // 4) Making API call

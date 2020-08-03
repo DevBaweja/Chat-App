@@ -1,12 +1,13 @@
 const state = {
     theme: null,
-    user: {},
+    user: null,
     init: null,
     login: null,
     signup: null,
-    chatBox: {},
-    chatPanel: {},
-    chatProfile: {},
+    header: null,
+    chatBox: null,
+    chatPanel: null,
+    chatProfile: null,
 };
 // ! For Development
 window.state = state;
