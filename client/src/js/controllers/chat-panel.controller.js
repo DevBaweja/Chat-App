@@ -43,8 +43,15 @@ const recentChat = () => {
     const list = document.querySelector(elementStrings.lists.chatPanelList);
     // Drag
     list.addEventListener('dragstart', event => {
-        const user = chatPanelView.getUser(event);
-        if (!user) return;
+        // Getting item
+        const item = chatPanelView.getItem(event);
+        if (!item) return;
+        // Getting user
+        const user = chatPanelView.getUser(item);
+        // Remove Selected
+        chatPanelView.removeSelected();
+        // Add Selected
+        chatPanelView.addSelected(item);
         // Saving user
         event.dataTransfer.setData('user', user);
         // Drag Mode of chat box
@@ -53,9 +60,16 @@ const recentChat = () => {
     list.addEventListener('dragend', event => {});
     // Click
     list.addEventListener('click', event => {
+        // Getting item
+        const item = chatPanelView.getItem(event);
+        if (!item) return;
         // Getting user
-        const user = chatPanelView.getUser(event);
+        const user = chatPanelView.getUser(item);
         if (!user) return;
+        // Remove Selected
+        chatPanelView.removeSelected();
+        // Add Selected
+        chatPanelView.addSelected(item);
         // User Mode of chat box
         chatBoxController.controlChatBox({ mode: mode.chatBox.user, data: { user: user } });
     });

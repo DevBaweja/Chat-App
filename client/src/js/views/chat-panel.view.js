@@ -3,13 +3,23 @@ import faker from 'faker';
 
 export const clearChatPanel = () => (elements.ChatPanel.innerHTML = '');
 
-export const getUser = event => {
+export const getItem = event => {
     const item = event.target.closest(elementStrings.items.chatPanelItem);
-    if (!item) return;
+    return item;
+};
+export const getUser = item => {
     const { user } = item.dataset;
     return user;
 };
-
+export const addSelected = item => {
+    item.classList.add(elementStrings.selects.chatPanelItem);
+};
+export const removeSelected = () => {
+    const items = Array.from(document.querySelectorAll(elementStrings.items.chatPanelItem));
+    items.forEach(item => {
+        item.classList.remove(elementStrings.selects.chatPanelItem);
+    });
+};
 export const renderIdeal = () => {
     const chat_panel_ideal = () => `
     <div class="chat-panel-ideal__dimmer--item">

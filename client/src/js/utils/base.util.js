@@ -29,9 +29,9 @@ export const elementStrings = {
         aboutMeDrop: '.about-me__drop',
         chatPanelDrop: '.chat-panel__drop',
         chatBoxDrop: {
-            in: 'chat-box-user__drop-in',
-            out: 'chat-box-user__drop-in',
-            options: 'chat-box-user__header--options',
+            in: '.chat-box-user__drop-in',
+            out: '.chat-box-user__drop-in',
+            options: '.chat-box-user__header--options',
         },
     },
     dropdowns: {
@@ -50,6 +50,9 @@ export const elementStrings = {
     },
     items: {
         chatPanelItem: '.chat-panel-user__item',
+    },
+    selects: {
+        chatPanelItem: 'chat-panel-user__item--selected',
     },
     themes: {
         dark: 'dark',
