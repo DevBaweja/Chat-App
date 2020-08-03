@@ -37,6 +37,12 @@ export const elementStrings = {
         aboutMeDropdownItem: '.about-me__dropdown--item',
         chatPanelDropdownItem: '.chat-panel-user__dropdown--item',
     },
+    drags: {
+        chatPanelDrag: '.chat-box-drag',
+    },
+    lists: {
+        chatPanelList: '.chat-panel-user__list',
+    },
     items: {
         chatPanelItem: '.chat-panel-user__item',
     },
@@ -67,6 +73,7 @@ export const mode = {
         ideal: 'ideal',
         empty: 'empty',
         user: 'user',
+        drag: 'drag',
     },
     chatProfile: {
         myProfile: 'my-profile',

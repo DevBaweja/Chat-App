@@ -2,7 +2,7 @@ class ChatPanel {
     constructor({ mode }) {
         this.mode = mode;
     }
-    getUserInfo(userId) {
+    getUserInfo(user) {
         return {};
     }
     setMode(mode) {

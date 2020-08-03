@@ -578,6 +578,11 @@
             }
         }
     }
+    .chat-box-drag {
+        &__svg {
+            fill: lighten($color-grey-dark-1, 50%);
+        }
+    }
     // Chat Profile
     .chat-profile {
         // User

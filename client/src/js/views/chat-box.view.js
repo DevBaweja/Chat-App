@@ -4,6 +4,20 @@ import faker from 'faker';
 
 export const clearChatBox = () => (elements.ChatBox.innerHTML = '');
 
+export const renderDrag = ({ user }) => {
+    const markup = `
+    <div class="chat-box-drag">
+        <div class="chat-box-drag__container">
+            <svg class="chat-box-drag__svg">
+                <use xlink:href="svg/sprite.svg#icon-drag"></use>
+            </svg>
+            <div class="chat-box-drag__content">Drop here to start chat with ${user}.</div>
+        </div>
+    </div>
+    `;
+    elements.ChatBox.insertAdjacentHTML('beforeend', markup);
+};
+
 export const renderEmpty = () => {
     const markup = `
     <div class="chat-box-null">

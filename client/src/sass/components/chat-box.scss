@@ -311,3 +311,23 @@
         margin-top: 2rem;
     }
 }
+.chat-box-null {
+}
+.chat-box-drag {
+    height: 100%;
+    width: 100%;
+    @include flex();
+    &__container {
+        @include flex();
+        @include direction(column);
+    }
+    &__svg {
+        height: 10rem;
+        width: 10rem;
+    }
+    &__content {
+        margin: 2rem 0;
+        font-size: $font-size-larger;
+        font-style: italic;
+    }
+}

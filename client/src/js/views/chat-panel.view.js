@@ -3,10 +3,11 @@ import faker from 'faker';
 
 export const clearChatPanel = () => (elements.ChatPanel.innerHTML = '');
 
-export const getUserId = event => {
+export const getUser = event => {
     const item = event.target.closest(elementStrings.items.chatPanelItem);
-    const { userid: userId } = item.dataset;
-    return userId;
+    if (!item) return;
+    const { user } = item.dataset;
+    return user;
 };
 
 export const renderIdeal = () => {
@@ -86,7 +87,7 @@ export const renderEmpty = () => {
 
 export const renderRecentChat = () => {
     const chat_panel__item = () => ` 
-    <li class="chat-panel-user__item" data-userId="1234" draggable="true">
+    <li class="chat-panel-user__item" data-user="1234" draggable="true">
     <div class="chat-panel-user__link" role="button">
         <img src="${faker.image.avatar()}" alt="photo" class="chat-panel-user__userphoto" />
         <!-- User Info -->
@@ -119,7 +120,7 @@ export const renderRecentChat = () => {
         </div>
         <ul class="chat-panel-user__list">
             ${chat_panel__item()}
-            <li class="chat-panel-user__item">
+            <li class="chat-panel-user__item" data-user="1234" draggable="true">
     <div class="chat-panel-user__link" role="button">
         <img src="${faker.image.avatar()}" alt="photo" class="chat-panel-user__userphoto" />
         <!-- User Info -->
@@ -146,7 +147,7 @@ export const renderRecentChat = () => {
             ${chat_panel__item()}
 
             <!-- Settings -->
-            <li class="chat-panel-user__item">
+            <li class="chat-panel-user__item" data-user="1234" draggable="true">
             <div class="chat-panel-user__link" role="button">
                 <img src="${faker.image.avatar()}" alt="photo" class="chat-panel-user__userphoto" />
                 <div class="chat-panel-user__info">
@@ -175,7 +176,7 @@ export const renderRecentChat = () => {
             ${chat_panel__item()}
 
             <!-- Selected -->
-            <li class="chat-panel-user__item chat-panel-user__item--selected">
+            <li class="chat-panel-user__item chat-panel-user__item--selected" data-user="1234" draggable="true">
             <div class="chat-panel-user__link" role="button">
                 <img src="${faker.image.avatar()}" alt="photo" class="chat-panel-user__userphoto" />
                 <div class="chat-panel-user__info">
@@ -194,7 +195,7 @@ export const renderRecentChat = () => {
             </li>
             ${chat_panel__item()}
             <!-- Active -->
-            <li class="chat-panel-user__item chat-panel-user__item--selected">
+            <li class="chat-panel-user__item chat-panel-user__item--selected" data-user="1234" draggable="true">
             <div class="chat-panel-user__link" role="button">
                 <img src="${faker.image.avatar()}" alt="photo" class="chat-panel-user__userphoto" />
                 <div class="chat-panel-user__info">

@@ -35,7 +35,7 @@ const init = () => {
     // Chat Panel
     chatPanelController.controlChatPanel({ mode: mode.chatPanel.user.recentChat });
     // Chat Box
-    chatBoxController.controlChatBox({ mode: mode.chatBox.user });
+    chatBoxController.controlChatBox({ mode: mode.chatBox.ideal });
 
     // Chat Profile
     chatProfileController.controlChatProfile({ mode: mode.chatProfile.myProfile });
