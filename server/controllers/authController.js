@@ -89,10 +89,40 @@ exports.protect = catchAsync(async (req, res, next) => {
         );
     // Verification token
     const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
-    console.log(decoded);
+
     // Check if user still exists
-
+    const user = await User.findById(decoded.id);
+    if (!user)
+        return next(
+            new AppError(
+                'The user belonging to this token does no longer exist.',
+                401
+            )
+        );
     // Check if user changed password after token was issued
+    if (user.changedPasswordAfter(decoded.iat))
+        return next(
+            new AppError(
+                'User recently changed password! Please log in again.',
+                401
+            )
+        );
 
+    req.user = user;
+    // Grant access to protected route
     next();
 });
+
+exports.restrictTo = (...roles) => {
+    return (req, res, next) => {
+        if (!roles.includes(req.user.role)) {
+            return next(
+                new AppError(
+                    'You do not have permission to perform this action.',
+                    403
+                )
+            );
+        }
+        next();
+    };
+};
