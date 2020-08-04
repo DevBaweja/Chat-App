@@ -8,7 +8,7 @@ import * as chatProfileView from '../views/chat-profile.view';
 
 export const controlChatProfile = info => {
     // Init Chat Profile
-    if (!state.chatProfile) state.chatProfile = new ChatProfile({ mode: info.mode });
+    if (!state.chatProfile) state.chatProfile = new ChatProfile(info);
     state.chatProfile.setMode(info.mode);
 
     // Prepare UI

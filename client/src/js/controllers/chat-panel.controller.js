@@ -10,7 +10,7 @@ import * as chatPanelView from '../views/chat-panel.view';
 
 export const controlChatPanel = info => {
     // Init Chat Panel
-    if (!state.chatPanel) state.chatPanel = new ChatPanel({ mode: info.mode });
+    if (!state.chatPanel) state.chatPanel = new ChatPanel(info);
     state.chatPanel.setMode(info.mode);
 
     // Prepare UI
@@ -56,10 +56,13 @@ const recentChat = () => {
     list.addEventListener('dragend', event => {
         if (state.chatBox.mode === mode.chatBox.drag)
             // User Mode is chat box
-            chatBoxController.controlChatBox({ mode: mode.chatBox.user, data: { user: 'previous' } });
+            chatBoxController.controlChatBox({ mode: mode.chatBox.user, data: { user: 'id' } });
     });
     // Click
     list.addEventListener('click', event => {
+        const { target } = event;
+        // Don't do anything in case of drop
+        if (target.matches(`${elementStrings.drops.chatPanelDrop}, ${elementStrings.drops.chatPanelDrop} *`)) return;
         // Getting item
         const item = chatPanelView.getItem(event);
         if (!item) return;

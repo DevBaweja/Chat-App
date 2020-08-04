@@ -1,5 +1,5 @@
 class Theme {
-    constructor(mode) {
+    constructor({ mode }) {
         this.mode = mode;
     }
     setMode(mode) {

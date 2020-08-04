@@ -9,7 +9,7 @@ import * as chatBoxView from '../views/chat-box.view';
 
 export const controlChatBox = info => {
     // Init Chat Box
-    if (!state.chatBox) state.chatBox = new ChatBox({ mode: info.mode });
+    if (!state.chatBox) state.chatBox = new ChatBox(info);
     state.chatBox.setMode(info.mode);
 
     // Prepare UI

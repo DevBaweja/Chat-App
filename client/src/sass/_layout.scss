@@ -20,6 +20,10 @@
         'header'
         'main'
         'footer';
+    // ! For Developement
+    @media only screen and (max-width: 1440px) {
+        grid-template-rows: 6rem minmax(66rem, auto) 3.5rem;
+    }
 }
 
 // Header

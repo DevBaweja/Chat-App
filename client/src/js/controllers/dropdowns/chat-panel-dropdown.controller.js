@@ -11,8 +11,8 @@ const controlChatPanelDropdown = event => {
     const coordinate = DropdownView.getCoordinate(event);
 
     // 0) Getting User Id
-    const user = chatPanelView.getUser(event);
-    console.log(user);
+    const item = chatPanelView.getItem(event);
+    const user = chatPanelView.getUser(item);
     // 0) Get User Info
     // const data  = state.chatPanel.getUserInfo(user)
 

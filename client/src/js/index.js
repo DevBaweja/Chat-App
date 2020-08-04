@@ -25,7 +25,7 @@ const addListeners = () => {
 };
 
 const init = () => {
-    // Active Status
+    // Check User
     initController.controlInit();
     // Theme
     themeController.controlTheme({ mode: mode.theme.dark });

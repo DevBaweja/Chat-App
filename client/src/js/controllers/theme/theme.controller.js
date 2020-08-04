@@ -9,7 +9,7 @@ import * as themeView from '../../views/theme/theme.view';
 
 export const controlTheme = info => {
     // Init Theme
-    if (!state.theme) state.theme = new Theme(info.mode);
+    if (!state.theme) state.theme = new Theme(info);
     // Prepare UI
     themeView.clearTheme(state.theme.mode);
 
