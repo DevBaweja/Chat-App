@@ -71,6 +71,17 @@ userSchema.pre('save', async function (next) {
 });
 
 // -----------
+// Methods
+// These will be calles on doc
+// Since password is select false so we would not have this.password
+userSchema.methods.correctPassword = async function (
+    candidatePassword,
+    userPassword
+) {
+    return await bcrypt.compare(candidatePassword, userPassword);
+};
+
+// -----------
 // Model
 const User = mongoose.model('User', userSchema);
 

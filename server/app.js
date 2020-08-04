@@ -71,7 +71,6 @@ if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 // User Middlewares
 app.use((req, res, next) => {
     if (process.env.NODE_ENV === 'development') console.log('Incoming Request');
-    console.log(req.cookies);
     next();
 });
 app.use((req, res, next) => {
