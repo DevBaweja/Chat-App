@@ -1,30 +1,15 @@
-import state from '../state';
 import { elements } from '../utils/base.util';
 import faker from 'faker';
 
 export const clearChatBox = () => (elements.ChatBox.innerHTML = '');
 
-export const renderDrag = ({ user }) => {
-    const markup = `
-    <div class="chat-box-drag">
-        <div class="chat-box-drag--container">
-            <svg class="chat-box-drag--svg">
-                <use xlink:href="svg/sprite.svg#icon-drag"></use>
-            </svg>
-            <div class="chat-box-drag--content">Drop here to start chat with ${user}.</div>
-        </div>
-    </div>
-    `;
-    elements.ChatBox.insertAdjacentHTML('beforeend', markup);
-};
-
-export const renderEmpty = () => {
+export const renderEmpty = ({ theme }) => {
     const markup = `
     <div class="chat-box-null">
         <div class="chat-box-null--container">
             <div class="chat-box-null--svg">
                 <svg>
-                    <use xlink:href="svg/themes/null.svg#icon-null-${state.theme.theme}"></use>
+                    <use xlink:href="svg/themes/null.svg#icon-null-${theme}"></use>
                 </svg>
             </div>
             <div class="chat-box-null--title">
@@ -35,13 +20,13 @@ export const renderEmpty = () => {
     `;
     elements.ChatBox.insertAdjacentHTML('beforeend', markup);
 };
-export const renderIdeal = () => {
+export const renderIdeal = ({ theme }) => {
     const markup = `
     <div class="chat-box-ideal">
         <div class="chat-box-ideal--container">
             <div class="chat-box-ideal--svg">
                 <svg>
-                <use xlink:href="svg/themes/ideal.svg#icon-ideal-${state.theme.theme}"></use>
+                <use xlink:href="svg/themes/ideal.svg#icon-ideal-${theme}"></use>
                 </svg>
             </div>
             <div class="chat-box-ideal--title">
@@ -240,7 +225,21 @@ export const renderUser = () => {
     setTimeout(() => {
         const chatBoxList = document.querySelector('.chat-box-user__main--list');
         chatBoxList.scrollTop = chatBoxList.scrollHeight - chatBoxList.scrollTop;
-    }, 1000);
+    }, 100);
     // chatBoxList.scrollTop = chatBoxList.scrollHeight;
     // console.log(chatBoxList.scrollTop);
+};
+
+export const renderDrag = ({ user }) => {
+    const markup = `
+    <div class="chat-box-drag">
+        <div class="chat-box-drag--container">
+            <svg class="chat-box-drag--svg">
+                <use xlink:href="svg/sprite.svg#icon-drag"></use>
+            </svg>
+            <div class="chat-box-drag--content">Drop here to start chat with ${user}.</div>
+        </div>
+    </div>
+    `;
+    elements.ChatBox.insertAdjacentHTML('beforeend', markup);
 };

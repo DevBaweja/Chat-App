@@ -33,12 +33,10 @@ const controlAboutMeDropdownItems = event => {
 };
 
 const toggleTheme = () => {
-    // chatProfile Controller
-    themeController.toggleTheme();
+    themeController.controlTheme({ mode: mode.theme.darkBlue });
 };
 
 const myProfile = () => {
-    // Loading
     chatProfileController.controlChatProfile({ mode: mode.chatProfile.myProfile });
 };
 

@@ -51,33 +51,26 @@ export const elementStrings = {
     items: {
         chatPanelItem: '.chat-panel-user__item',
     },
-    selects: {
-        chatPanelItem: 'chat-panel-user__item--selected',
-    },
-    themes: {
-        dark: 'dark',
-        darkGreen: 'dark-green',
-        darkBlue: 'dark-blue',
-        darkPurple: 'dark-purple',
-        darkRed: 'dark-red',
-        darkYellow: 'dark-yellow',
-        darkGrey: 'dark-grey',
-        darkWhite: 'dark-white',
-    },
     chatBox: {
         header: {
             back: '.chat-box-user__header--back',
-            img: 'chat-box-user__header--img',
-            name: 'chat-box-user__header--content-name',
+            img: '.chat-box-user__header--img',
+            name: '.chat-box-user__header--content-name',
         },
         footer: {
-            emoji: 'chat-box-user__footer--emoji',
-            location: 'chat-box-user__footer--location',
-            attach: 'chat-box-user__footer--attach',
-            camera: 'chat-box-user__footer--camera',
-            input: 'chat-box-user__footer--input',
-            send: 'chat-box-user__footer--send',
+            emoji: '.chat-box-user__footer--emoji',
+            location: '.chat-box-user__footer--location',
+            attach: '.chat-box-user__footer--attach',
+            camera: '.chat-box-user__footer--camera',
+            input: '.chat-box-user__footer--input',
+            send: '.chat-box-user__footer--send',
         },
+    },
+};
+
+export const elementClasses = {
+    selected: {
+        chatPanelItem: 'chat-panel-user__item--selected',
     },
 };
 export const mode = {
@@ -100,6 +93,16 @@ export const mode = {
     },
     chatProfile: {
         myProfile: 'my-profile',
+    },
+    theme: {
+        dark: 'dark',
+        darkGreen: 'dark-green',
+        darkBlue: 'dark-blue',
+        darkPurple: 'dark-purple',
+        darkRed: 'dark-red',
+        darkYellow: 'dark-yellow',
+        darkGrey: 'dark-grey',
+        darkWhite: 'dark-white',
     },
 };
 export const actions = {

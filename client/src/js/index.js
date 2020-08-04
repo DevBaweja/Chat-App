@@ -28,7 +28,7 @@ const init = () => {
     // Active Status
     initController.controlInit();
     // Theme
-    themeController.controlTheme();
+    themeController.controlTheme({ mode: mode.theme.dark });
 
     // Header
     headerController.controlHeader({ mode: mode.header.user });

@@ -16,10 +16,10 @@ export const controlChatBox = info => {
 
     switch (info.mode) {
         case mode.chatBox.ideal:
-            ideal();
+            ideal(info);
             break;
         case mode.chatBox.empty:
-            empty();
+            empty(info);
             break;
         case mode.chatBox.user:
             user(info);
@@ -29,20 +29,20 @@ export const controlChatBox = info => {
             break;
     }
 };
-const ideal = () => {
+const ideal = ({ data }) => {
     // Render Ideal
-    chatBoxView.renderIdeal();
+    chatBoxView.renderIdeal(data);
 };
-const empty = () => {
+const empty = ({ data }) => {
     // Render Empty
-    chatBoxView.renderEmpty();
+    chatBoxView.renderEmpty(data);
 };
 const user = ({ data }) => {
     // Render User
     chatBoxView.renderUser();
     // Add Event Listeners
     document.querySelector(elementStrings.chatBox.header.back).addEventListener('click', () => {
-        controlChatBox({ mode: mode.chatBox.empty });
+        controlChatBox({ mode: mode.chatBox.empty, data: { theme: state.theme.mode } });
     });
 };
 const drag = ({ data }) => {

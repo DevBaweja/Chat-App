@@ -1,9 +1,9 @@
 class Theme {
-    constructor(theme) {
-        this.theme = theme;
+    constructor(mode) {
+        this.mode = mode;
     }
-    changeTheme(newTheme) {
-        this.theme = newTheme;
+    setMode(mode) {
+        this.mode = mode;
     }
 }
 export default Theme;
