@@ -48,16 +48,16 @@ const recentChat = () => {
         if (!item) return;
         // Getting user
         const user = chatPanelView.getUser(item);
-        // Remove Selected
-        chatPanelView.removeSelected();
-        // Add Selected
-        chatPanelView.addSelected(item);
         // Saving user
         event.dataTransfer.setData('user', user);
         // Drag Mode of chat box
         chatBoxController.controlChatBox({ mode: mode.chatBox.drag, data: { user: user } });
     });
-    list.addEventListener('dragend', event => {});
+    list.addEventListener('dragend', event => {
+        if (state.chatBox.mode === mode.chatBox.drag)
+            // User Mode is chat box
+            chatBoxController.controlChatBox({ mode: mode.chatBox.user, data: { user: 'previous' } });
+    });
     // Click
     list.addEventListener('click', event => {
         // Getting item

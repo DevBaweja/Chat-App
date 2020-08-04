@@ -4,6 +4,7 @@ import { elementStrings, mode } from '../utils/base.util';
 // Models
 import ChatBox from '../models/ChatBox';
 // Views
+import * as chatPanelView from '../views/chat-panel.view';
 import * as chatBoxView from '../views/chat-box.view';
 
 export const controlChatBox = info => {
@@ -58,5 +59,11 @@ const drag = ({ data }) => {
         const user = event.dataTransfer.getData('user');
         // Model
         if (user) controlChatBox({ mode: mode.chatBox.user });
+        // Remove Selected
+        chatPanelView.removeSelected();
+        // Getting Item
+        const item = document.querySelector(`${elementStrings.items.chatPanelItem}[data-user="${user}"]`);
+        // Add Selected
+        chatPanelView.addSelected(item);
     });
 };
