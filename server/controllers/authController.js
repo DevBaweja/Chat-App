@@ -30,12 +30,19 @@ const createSendToken = (user, statusCode, req, res) => {
         },
     });
 };
+
+// Sign up
 exports.signup = catchAsync(async (req, res, next) => {
     const newUser = await User.create(req.body);
+
+    // Delete password
+    newUser.password = undefined;
+
     // Send json web token
     createSendToken(newUser, 201, req, res);
 });
 
+// Log In
 exports.login = catchAsync(async (req, res, next) => {
     const { email, password } = req.body;
 
@@ -64,6 +71,7 @@ exports.login = catchAsync(async (req, res, next) => {
     createSendToken(user, 201, req, res);
 });
 
+// Protect
 exports.protect = catchAsync(async (req, res, next) => {
     let token;
     // Getting token from headers or cookies
@@ -113,6 +121,7 @@ exports.protect = catchAsync(async (req, res, next) => {
     next();
 });
 
+// Restrict To
 exports.restrictTo = (...roles) => {
     return (req, res, next) => {
         if (!roles.includes(req.user.role)) {

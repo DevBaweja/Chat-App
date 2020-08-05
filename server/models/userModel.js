@@ -16,8 +16,7 @@ const def = {
     email: {
         type: String,
         required: { value: true, message: getMustHave('email') },
-        // !For Development
-        // unique: true,
+        unique: true,
         lowercase: true,
         validate: {
             validator: validator.isEmail,
@@ -73,8 +72,6 @@ userSchema.pre('save', async function (next) {
 
 // -----------
 // Methods
-// These will be calles on doc
-// Since password is select false so we would not have this.password
 userSchema.methods.correctPassword = async function (
     candidatePassword,
     userPassword
