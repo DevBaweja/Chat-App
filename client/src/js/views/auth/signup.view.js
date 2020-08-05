@@ -56,7 +56,7 @@ export const renderSignupForm = () => {
         btntext: 'Sign Up',
     };
 
-    elements.Forms.insertAdjacentHTML('beforeend', renderForm(form));
+    document.querySelector(elements.Forms).insertAdjacentHTML('beforeend', renderForm(form));
 };
 
 export const prepareUIForSignup = () => prepareUI(elementStrings.btns.signupBtn);

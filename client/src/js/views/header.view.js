@@ -2,15 +2,15 @@ import state from '../state';
 import { elements } from '../utils/base.util';
 import faker from 'faker';
 
-export const clearHeader = () => (elements.Header.innerHTML = '');
+export const clearHeader = () => (document.querySelector(elements.Header).innerHTML = '');
 
 export const toggleClass = className => {
     // Removing class
-    elements.Header.classList.remove(state.header.className);
+    document.querySelector(elements.Header).classList.remove(state.header.className);
     // Changing state
     state.header.className = className;
     // Adding class
-    elements.Header.classList.add(state.header.className);
+    document.querySelector(elements.Header).classList.add(state.header.className);
 };
 export const renderLogo = () => {
     const markup = `
@@ -24,7 +24,7 @@ export const renderLogo = () => {
     </div>
     `;
 
-    elements.Header.insertAdjacentHTML('beforeend', markup);
+    document.querySelector(elements.Header).insertAdjacentHTML('beforeend', markup);
 };
 export const renderIdeal = () => {
     const markup = `
@@ -36,7 +36,7 @@ export const renderIdeal = () => {
     </div>
     `;
 
-    elements.Header.insertAdjacentHTML('beforeend', markup);
+    document.querySelector(elements.Header).insertAdjacentHTML('beforeend', markup);
 };
 
 export const renderUser = () => {
@@ -52,7 +52,7 @@ export const renderUser = () => {
     </form>
     `;
 
-    elements.Header.insertAdjacentHTML('beforeend', markup);
+    document.querySelector(elements.Header).insertAdjacentHTML('beforeend', markup);
 
     markup = `
     <div class="about-me">
@@ -63,5 +63,5 @@ export const renderUser = () => {
     </div>
     </div>
     `;
-    elements.Header.insertAdjacentHTML('beforeend', markup);
+    document.querySelector(elements.Header).insertAdjacentHTML('beforeend', markup);
 };

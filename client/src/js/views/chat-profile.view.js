@@ -1,7 +1,7 @@
 import { elements } from '../utils/base.util';
 import faker from 'faker';
 
-export const clearChatProfile = () => (elements.ChatProfile.innerHTML = '');
+export const clearChatProfile = () => (document.querySelector(elements.ChatProfile).innerHTML = '');
 
 export const renderStranger = () => {
     const name = faker.name.findName();
@@ -45,7 +45,7 @@ export const renderStranger = () => {
     </div>
     `;
 
-    elements.ChatProfile.insertAdjacentHTML('beforeend', markup);
+    document.querySelector(elements.ChatProfile).insertAdjacentHTML('beforeend', markup);
 };
 
 export const renderFriend = () => {
@@ -90,7 +90,7 @@ export const renderFriend = () => {
         </form>
     </div>`;
 
-    elements.ChatProfile.insertAdjacentHTML('beforeend', markup);
+    document.querySelector(elements.ChatProfile).insertAdjacentHTML('beforeend', markup);
 };
 
 export const renderUser = () => {
@@ -151,5 +151,12 @@ export const renderUser = () => {
 
     `;
 
-    elements.ChatProfile.insertAdjacentHTML('beforeend', markup);
+    document.querySelector(elements.ChatProfile).insertAdjacentHTML('beforeend', markup);
+};
+
+export const renderSetting = () => {
+    const markup = `
+    `;
+
+    document.querySelector(elements.ChatProfile).insertAdjacentHTML('beforeend', markup);
 };

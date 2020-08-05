@@ -1,7 +1,7 @@
 import { elements } from '../utils/base.util';
 import faker from 'faker';
 
-export const clearChatBox = () => (elements.ChatBox.innerHTML = '');
+export const clearChatBox = () => (document.querySelector(elements.ChatBox).innerHTML = '');
 
 export const renderEmpty = ({ theme }) => {
     const markup = `
@@ -18,7 +18,7 @@ export const renderEmpty = ({ theme }) => {
         </div>
     </div>
     `;
-    elements.ChatBox.insertAdjacentHTML('beforeend', markup);
+    document.querySelector(elements.ChatBox).insertAdjacentHTML('beforeend', markup);
 };
 export const renderIdeal = ({ theme }) => {
     const markup = `
@@ -35,7 +35,7 @@ export const renderIdeal = ({ theme }) => {
         </div>
     </div>
     `;
-    elements.ChatBox.insertAdjacentHTML('beforeend', markup);
+    document.querySelector(elements.ChatBox).insertAdjacentHTML('beforeend', markup);
 };
 export const renderUser = () => {
     const date = '2020-08-01T00:00:00.000+00:00';
@@ -221,7 +221,7 @@ export const renderUser = () => {
     </div>
 `;
 
-    elements.ChatBox.insertAdjacentHTML('beforeend', markup);
+    document.querySelector(elements.ChatBox).insertAdjacentHTML('beforeend', markup);
     setTimeout(() => {
         const chatBoxList = document.querySelector('.chat-box-user__main--list');
         chatBoxList.scrollTop = chatBoxList.scrollHeight - chatBoxList.scrollTop;
@@ -241,5 +241,5 @@ export const renderDrag = ({ user }) => {
         </div>
     </div>
     `;
-    elements.ChatBox.insertAdjacentHTML('beforeend', markup);
+    document.querySelector(elements.ChatBox).insertAdjacentHTML('beforeend', markup);
 };

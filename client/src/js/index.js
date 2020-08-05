@@ -21,11 +21,11 @@ import * as chatProfileController from './controllers/chat-profile.controller';
 
 const addListeners = () => {
     // Dropdown
-    elements.App.addEventListener('click', dropdownsController.controlDropdowns);
+    document.querySelector(elements.App).addEventListener('click', dropdownsController.controlDropdowns);
 };
 
 const init = () => {
-    // Check User
+    // Init
     initController.controlInit();
     // Theme
     themeController.controlTheme({ mode: mode.theme.dark });
@@ -38,7 +38,7 @@ const init = () => {
     chatBoxController.controlChatBox({ mode: mode.chatBox.user });
 
     // Chat Profile
-    chatProfileController.controlChatProfile({ mode: mode.chatProfile.user });
+    chatProfileController.controlChatProfile({ mode: mode.chatProfile.setting });
 
     addListeners();
 };

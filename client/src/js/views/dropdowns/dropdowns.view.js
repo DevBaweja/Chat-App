@@ -1,8 +1,8 @@
 import { elements } from '../../utils/base.util';
 
-export const clearDropdowns = () => (elements.Dropdowns.innerHTML = '');
+export const clearDropdowns = () => (document.querySelector(elements.Dropdowns).innerHTML = '');
 
-export const renderDropdowns = markup => (elements.Dropdowns.innerHTML = markup);
+export const renderDropdowns = markup => (document.querySelector(elements.Dropdowns).innerHTML = markup);
 // top - Y, left - X
 // clientX|Y, screenX|Y, pageX|Y, x|y
 export const getCoordinate = ({ x, y }) => ({

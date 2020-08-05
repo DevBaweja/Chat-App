@@ -36,7 +36,7 @@ const ideal = () => {
 
     // Adding Event Listeners
     // Form Closing
-    elements.Forms.addEventListener('click', formController.controlForm);
+    document.querySelector(elements.Forms).addEventListener('click', formController.controlForm);
 
     // Log In
     const loginCtaBtn = document.querySelector(elementStrings.btns.loginCtaBtn);

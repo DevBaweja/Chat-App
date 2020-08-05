@@ -1,6 +1,6 @@
 import { elements } from '../../utils/base.util';
 
-export const clearForm = () => (elements.Forms.innerHTML = '');
+export const clearForm = () => (document.querySelector(elements.Forms).innerHTML = '');
 
 const renderFormGroup = (group, className) => `
 <div class="${className}__form--group">

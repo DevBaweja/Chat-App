@@ -1,13 +1,13 @@
 export const elements = {
-    App: document.querySelector('.app'),
-    Header: document.querySelector('.header'),
-    ChatPanel: document.querySelector('.chat-panel'),
-    ChatBox: document.querySelector('.chat-box'),
-    ChatProfile: document.querySelector('.chat-profile'),
+    App: '.app',
+    Header: '.header',
+    ChatPanel: '.chat-panel',
+    ChatBox: '.chat-box',
+    ChatProfile: '.chat-profile',
 
-    Forms: document.querySelector('.forms'),
-    Alerts: document.querySelector('.alerts'),
-    Dropdowns: document.querySelector('.dropdowns'),
+    Forms: '.forms',
+    Alerts: '.alerts',
+    Dropdowns: '.dropdowns',
 };
 
 export const elementStrings = {

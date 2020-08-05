@@ -24,6 +24,9 @@ export const controlChatProfile = info => {
         case mode.chatProfile.user:
             user();
             break;
+        case mode.chatProfile.setting:
+            setting();
+            break;
     }
 };
 
@@ -42,5 +45,11 @@ const friend = () => {
 const user = () => {
     // Render Profile
     chatProfileView.renderUser();
+    // Add Event Listeners
+};
+
+const setting = () => {
+    // Render Setting
+    chatProfileView.renderSetting();
     // Add Event Listeners
 };

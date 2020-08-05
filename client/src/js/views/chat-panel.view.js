@@ -1,7 +1,7 @@
 import { elementStrings, elementClasses, elements } from '../utils/base.util';
 import faker from 'faker';
 
-export const clearChatPanel = () => (elements.ChatPanel.innerHTML = '');
+export const clearChatPanel = () => (document.querySelector(elements.ChatPanel).innerHTML = '');
 
 export const getItem = event => {
     const item = event.target.closest(elementStrings.items.chatPanelItem);
@@ -51,7 +51,7 @@ export const renderIdeal = () => {
         </div>
     </div>
 `;
-    elements.ChatPanel.insertAdjacentHTML('beforeend', markup);
+    document.querySelector(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
 };
 
 export const renderEmpty = () => {
@@ -92,7 +92,7 @@ export const renderEmpty = () => {
     </div>
     `;
 
-    elements.ChatPanel.insertAdjacentHTML('beforeend', markup);
+    document.querySelector(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
 };
 
 export const renderRecentChat = () => {
@@ -228,5 +228,5 @@ export const renderRecentChat = () => {
     </div>
 
     `;
-    elements.ChatPanel.insertAdjacentHTML('beforeend', markup);
+    document.querySelector(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
 };

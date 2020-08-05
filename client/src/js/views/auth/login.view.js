@@ -35,7 +35,7 @@ export const renderLoginForm = () => {
         btntext: 'Log In',
     };
 
-    elements.Forms.insertAdjacentHTML('beforeend', renderForm(form));
+    document.querySelector(elements.Forms).insertAdjacentHTML('beforeend', renderForm(form));
 };
 
 export const prepareUIForLogin = () => prepareUI(elementStrings.btns.loginBtn);
