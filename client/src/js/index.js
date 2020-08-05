@@ -38,7 +38,7 @@ const init = () => {
     chatBoxController.controlChatBox({ mode: mode.chatBox.user });
 
     // Chat Profile
-    chatProfileController.controlChatProfile({ mode: mode.chatProfile.myProfile });
+    chatProfileController.controlChatProfile({ mode: mode.chatProfile.user });
 
     addListeners();
 };

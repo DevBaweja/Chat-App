@@ -15,13 +15,32 @@ export const controlChatProfile = info => {
     chatProfileView.clearChatProfile();
 
     switch (info.mode) {
-        case mode.chatProfile.myProfile:
-            myProfile();
+        case mode.chatProfile.stranger:
+            stranger();
+            break;
+        case mode.chatProfile.friend:
+            friend();
+            break;
+        case mode.chatProfile.user:
+            user();
             break;
     }
 };
-const myProfile = () => {
+
+const stranger = () => {
+    // Render Stranger
+    chatProfileView.renderStranger();
+    // Add Event Listeners
+};
+
+const friend = () => {
+    // Render Friend
+    chatProfileView.renderFriend();
+    // Add Event Listeners
+};
+
+const user = () => {
     // Render Profile
-    chatProfileView.renderMyProfile();
+    chatProfileView.renderUser();
     // Add Event Listeners
 };

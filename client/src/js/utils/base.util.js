@@ -92,7 +92,9 @@ export const mode = {
         drag: 'drag',
     },
     chatProfile: {
-        myProfile: 'my-profile',
+        user: 'user',
+        friend: 'friend',
+        stranger: 'stranger',
     },
     theme: {
         dark: 'dark',
