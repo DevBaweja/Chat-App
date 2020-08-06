@@ -1,7 +1,7 @@
 // State
 import state from '../../state';
 // Utils
-import { elementStrings } from '../../utils/base.util';
+import { elementStrings, select } from '../../utils/base.util';
 // Models
 import Login from '../../models/Login';
 // Views
@@ -12,7 +12,7 @@ export const controlLoginCta = () => {
     // 1) Rendering Login form
     loginView.renderLoginForm();
     // 2) Adding event listener to form
-    document.querySelector(elementStrings.forms.loginForm).addEventListener('submit', controlLogin);
+    select(elementStrings.forms.loginForm).addEventListener('submit', controlLogin);
 };
 
 // Form

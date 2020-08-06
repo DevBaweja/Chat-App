@@ -1,16 +1,16 @@
 import state from '../state';
-import { elements } from '../utils/base.util';
+import { elements, select } from '../utils/base.util';
 import faker from 'faker';
 
-export const clearHeader = () => (document.querySelector(elements.Header).innerHTML = '');
+export const clearHeader = () => (select(elements.Header).innerHTML = '');
 
 export const toggleClass = className => {
     // Removing class
-    document.querySelector(elements.Header).classList.remove(state.header.className);
+    select(elements.Header).classList.remove(state.header.className);
     // Changing state
     state.header.className = className;
     // Adding class
-    document.querySelector(elements.Header).classList.add(state.header.className);
+    select(elements.Header).classList.add(state.header.className);
 };
 export const renderLogo = () => {
     const markup = `
@@ -24,7 +24,7 @@ export const renderLogo = () => {
     </div>
     `;
 
-    document.querySelector(elements.Header).insertAdjacentHTML('beforeend', markup);
+    select(elements.Header).insertAdjacentHTML('beforeend', markup);
 };
 export const renderIdeal = () => {
     const markup = `
@@ -36,7 +36,7 @@ export const renderIdeal = () => {
     </div>
     `;
 
-    document.querySelector(elements.Header).insertAdjacentHTML('beforeend', markup);
+    select(elements.Header).insertAdjacentHTML('beforeend', markup);
 };
 
 export const renderUser = () => {
@@ -51,7 +51,7 @@ export const renderUser = () => {
         </button>
     </form>
     `;
-    document.querySelector(elements.Header).insertAdjacentHTML('beforeend', markup);
+    select(elements.Header).insertAdjacentHTML('beforeend', markup);
 
     const menu__item = item => `
     <li class="menu__item">
@@ -73,7 +73,7 @@ export const renderUser = () => {
         </ul>
     </div>`;
 
-    // document.querySelector(elements.Header).insertAdjacentHTML('beforeend', markup);
+    // select(elements.Header).insertAdjacentHTML('beforeend', markup);
 
     markup = `
     <div class="about-me">
@@ -84,5 +84,5 @@ export const renderUser = () => {
     </div>
     </div>
     `;
-    document.querySelector(elements.Header).insertAdjacentHTML('beforeend', markup);
+    select(elements.Header).insertAdjacentHTML('beforeend', markup);
 };

@@ -1,6 +1,6 @@
 import state from '../state';
 // Utils
-import { elementStrings, mode } from '../utils/base.util';
+import { elementStrings, mode, select } from '../utils/base.util';
 // Controllers
 import * as chatBoxController from '../controllers/chat-box.controller';
 // Models
@@ -40,7 +40,7 @@ const recentChat = () => {
     // Render Recent Chat
     chatPanelView.renderRecentChat();
     // Add Event Listeners
-    const list = document.querySelector(elementStrings.lists.chatPanelList);
+    const list = select(elementStrings.lists.chatPanelList);
     // Drag
     list.addEventListener('dragstart', event => {
         // Getting item

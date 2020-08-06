@@ -1,6 +1,6 @@
-import { elements } from '../../utils/base.util';
+import { elements, select, selectAll } from '../../utils/base.util';
 
-export const clearForm = () => (document.querySelector(elements.Forms).innerHTML = '');
+export const clearForm = () => (select(elements.Forms).innerHTML = '');
 
 const renderFormGroup = (group, className) => `
 <div class="${className}__form--group">
@@ -38,7 +38,7 @@ export const renderForm = form => `
 `;
 
 export const getInput = className => {
-    const inputs = Array.from(document.querySelectorAll(className));
+    const inputs = selectAll(className);
 
     let obj = {};
 
@@ -50,7 +50,7 @@ export const getInput = className => {
 };
 
 export const prepareUI = className => {
-    const btn = document.querySelector(className);
+    const btn = select(className);
     // Rendering Loading Text
     btn.innerText = 'Loading...';
     // Disabling button

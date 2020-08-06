@@ -1,7 +1,7 @@
-import { elements } from '../../utils/base.util';
+import { elements, select } from '../../utils/base.util';
 export const renderTheme = theme => {
-    document.querySelector(elements.App).classList.add(theme);
+    select(elements.App).classList.add(theme);
 };
 export const clearTheme = theme => {
-    document.querySelector(elements.App).classList.remove(theme);
+    select(elements.App).classList.remove(theme);
 };

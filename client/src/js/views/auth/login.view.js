@@ -1,4 +1,4 @@
-import { elements, elementStrings } from '../../utils/base.util';
+import { elements, elementStrings, select } from '../../utils/base.util';
 import { renderForm, getInput } from './form.view';
 import faker from 'faker';
 
@@ -35,7 +35,7 @@ export const renderLoginForm = () => {
         btntext: 'Log In',
     };
 
-    document.querySelector(elements.Forms).insertAdjacentHTML('beforeend', renderForm(form));
+    select(elements.Forms).insertAdjacentHTML('beforeend', renderForm(form));
 };
 
 export const prepareUIForLogin = () => prepareUI(elementStrings.btns.loginBtn);

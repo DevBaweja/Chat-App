@@ -15,4 +15,4 @@ let markup; const menu__item = item => `
         ${['Favourites', 'Active', 'Friends', 'Groups'].map(cur => menu__item(cur)).join('')}
     </ul>
 </div>
-`; document.querySelector(elements.Header).insertAdjacentHTML('beforeend', markup);
+`; select(elements.Header).insertAdjacentHTML('beforeend', markup);

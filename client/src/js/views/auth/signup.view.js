@@ -1,4 +1,4 @@
-import { elements, elementStrings } from '../../utils/base.util';
+import { elements, elementStrings, select } from '../../utils/base.util';
 import { renderForm, getInput, prepareUI } from './form.view';
 import faker from 'faker';
 export const renderSignupForm = () => {
@@ -56,7 +56,7 @@ export const renderSignupForm = () => {
         btntext: 'Sign Up',
     };
 
-    document.querySelector(elements.Forms).insertAdjacentHTML('beforeend', renderForm(form));
+    select(elements.Forms).insertAdjacentHTML('beforeend', renderForm(form));
 };
 
 export const prepareUIForSignup = () => prepareUI(elementStrings.btns.signupBtn);

@@ -1,6 +1,6 @@
 import state from '../state';
 // Utils
-import { elements, elementStrings, mode } from '../utils/base.util';
+import { elements, elementStrings, mode, select } from '../utils/base.util';
 // Models
 import Header from '../models/Header';
 // Views
@@ -36,13 +36,13 @@ const ideal = () => {
 
     // Adding Event Listeners
     // Form Closing
-    document.querySelector(elements.Forms).addEventListener('click', formController.controlForm);
+    select(elements.Forms).addEventListener('click', formController.controlForm);
 
     // Log In
-    const loginCtaBtn = document.querySelector(elementStrings.btns.loginCtaBtn);
+    const loginCtaBtn = select(elementStrings.btns.loginCtaBtn);
     loginCtaBtn.addEventListener('click', loginController.controlLoginCta);
     // Sign Up
-    const signupCtaBtn = document.querySelector(elementStrings.btns.signupCtaBtn);
+    const signupCtaBtn = select(elementStrings.btns.signupCtaBtn);
     signupCtaBtn.addEventListener('click', signupController.controlSignupCta);
 };
 const user = () => {

@@ -1,7 +1,7 @@
-import { elementStrings, elementClasses, elements } from '../utils/base.util';
+import { elementStrings, elementClasses, elements, select,selectAll } from '../utils/base.util';
 import faker from 'faker';
 
-export const clearChatPanel = () => (document.querySelector(elements.ChatPanel).innerHTML = '');
+export const clearChatPanel = () => (select(elements.ChatPanel).innerHTML = '');
 
 export const getItem = event => {
     const item = event.target.closest(elementStrings.items.chatPanelItem);
@@ -15,7 +15,7 @@ export const addSelected = item => {
     item.classList.add(elementClasses.selected.chatPanelItem);
 };
 export const removeSelected = () => {
-    const items = Array.from(document.querySelectorAll(elementStrings.items.chatPanelItem));
+    const items = selectAll(elementStrings.items.chatPanelItem);
     items.forEach(item => {
         item.classList.remove(elementClasses.selected.chatPanelItem);
     });
@@ -51,7 +51,7 @@ export const renderIdeal = () => {
         </div>
     </div>
 `;
-    document.querySelector(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
+    select(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
 };
 
 export const renderEmpty = () => {
@@ -92,7 +92,7 @@ export const renderEmpty = () => {
     </div>
     `;
 
-    document.querySelector(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
+    select(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
 };
 
 export const renderRecentChat = () => {
@@ -228,5 +228,5 @@ export const renderRecentChat = () => {
     </div>
 
     `;
-    document.querySelector(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
+    select(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
 };

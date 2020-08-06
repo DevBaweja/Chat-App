@@ -1,8 +1,8 @@
-import { elements } from '../../utils/base.util';
+import { elements, select } from '../../utils/base.util';
 
-export const clearDropdowns = () => (document.querySelector(elements.Dropdowns).innerHTML = '');
+export const clearDropdowns = () => (select(elements.Dropdowns).innerHTML = '');
 
-export const renderDropdowns = markup => (document.querySelector(elements.Dropdowns).innerHTML = markup);
+export const renderDropdowns = markup => (select(elements.Dropdowns).innerHTML = markup);
 // top - Y, left - X
 // clientX|Y, screenX|Y, pageX|Y, x|y
 export const getCoordinate = ({ x, y }) => ({
@@ -11,7 +11,7 @@ export const getCoordinate = ({ x, y }) => ({
 });
 
 export const assignCoordinate = (className, coordinate) => {
-    const style = document.querySelector(className).style;
+    const style = select(className).style;
     Object.assign(style, coordinate);
 };
 

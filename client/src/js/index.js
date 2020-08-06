@@ -1,9 +1,5 @@
-import faker from 'faker';
-
-// State
-import state from './state';
 // Utils
-import { elements, mode } from './utils/base.util';
+import { elements, mode, select } from './utils/base.util';
 // ---------------------
 // Models
 // ---------------------
@@ -22,10 +18,12 @@ import * as App from './App';
 
 const addListeners = () => {
     // Dropdown
-    document.querySelector(elements.App).addEventListener('click', dropdownsController.controlDropdowns);
+    select(elements.App).addEventListener('click', dropdownsController.controlDropdowns);
 };
 
 const init = () => {
+    // document.documentElement.style.setProperty('--dev', 'pink');
+    console.log(getComputedStyle(document.documentElement).getPropertyValue('--dev'));
     // App
     App.render();
     // Init

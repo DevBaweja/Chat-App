@@ -1,6 +1,6 @@
 import state from '../state';
 // Utils
-import { elementStrings, mode } from '../utils/base.util';
+import { elementStrings, mode, select } from '../utils/base.util';
 // Models
 import ChatBox from '../models/ChatBox';
 // Views
@@ -42,7 +42,7 @@ const user = ({ data }) => {
     // Render User
     chatBoxView.renderUser();
     // Add Event Listeners
-    document.querySelector(elementStrings.chatBox.header.back).addEventListener('click', () => {
+    select(elementStrings.chatBox.header.back).addEventListener('click', () => {
         controlChatBox({ mode: mode.chatBox.empty, data: { theme: state.theme.mode } });
     });
 };
@@ -51,7 +51,7 @@ const drag = ({ data }) => {
     chatBoxView.renderDrag(data);
     // Add Event Listeners
     // To make it dropable elements
-    const dropable = document.querySelector(elementStrings.drags.chatPanelDrag);
+    const dropable = select(elementStrings.drags.chatPanelDrag);
     dropable.addEventListener('dragover', event => {
         event.preventDefault();
     });
@@ -62,7 +62,7 @@ const drag = ({ data }) => {
         // Remove Selected
         chatPanelView.removeSelected();
         // Getting Item
-        const item = document.querySelector(`${elementStrings.items.chatPanelItem}[data-user="${user}"]`);
+        const item = select(`${elementStrings.items.chatPanelItem}[data-user="${user}"]`);
         // Add Selected
         chatPanelView.addSelected(item);
     });
