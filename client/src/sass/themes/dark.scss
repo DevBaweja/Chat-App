@@ -233,28 +233,28 @@
     // Search
     .search {
         &__input {
-            background-color: darken($color-grey-light-4, 15%);
-            color: $color-grey-light-1;
+            background-color: lighten($color-grey-dark-3, 10%);
+            color: lighten($color-grey-dark-3, 50%);
 
             &::placeholder {
-                color: $color-grey-light-4;
+                color: lighten($color-grey-dark-3, 30%);
             }
 
             &:focus {
-                background-color: darken($color-grey-light-4, 30%);
+                background-color: darken($color-grey-dark-3, 7.5%);
             }
         }
 
         &__button {
-            background-color: darken($color-grey-light-4, 15%);
+            background-color: lighten($color-grey-dark-3, 10%);
         }
 
         &__input:focus + .search__button {
-            background-color: darken($color-grey-light-4, 30%);
+            background-color: darken($color-grey-dark-3, 7.5%);
         }
 
         &__icon {
-            fill: lighten($color-grey-light-4, 10%);
+            fill: lighten($color-grey-dark-3, 40%);
         }
 
         &__input:focus + .search__button .search__icon {
@@ -271,12 +271,11 @@
 
         &__link {
             color: lighten($color-grey-dark-3, 50%);
-            background-color: darken($color-grey-light-4, 30%);
+            background-color: $color-grey-dark-2;
             border-bottom-color: transparent;
 
             &:hover {
                 background-color: $color-grey-dark-1;
-                border-bottom-color: $color-grey-light-2;
             }
 
             &.menu__link--active {
@@ -318,10 +317,9 @@
     .about-me {
         &__link {
             color: inherit;
-            background-color: darken($color-grey-light-4, 15%);
-
+            background-color: lighten($color-grey-dark-3, 10%);
             &:hover {
-                background-color: darken($color-grey-light-4, 30%);
+                background-color: darken($color-grey-dark-3, 7.5%);
             }
         }
     }
@@ -332,16 +330,14 @@
 
     .chat-panel-user {
         &__title {
-            color: lighten($color-grey-light-2, 20%);
-
-            background-color: darken($color-grey-light-3, 42.5%);
-            border-color: darken($color-grey-light-3, 40%);
+            color: lighten($color-grey-dark-2, 65%);
+            background-color: $color-grey-dark-1;
         }
         &__count {
-            color: lighten($color-grey-light-2, 10%);
+            color: lighten($color-grey-dark-2, 50%);
         }
         &__reload {
-            fill: $color-grey-light-1;
+            fill: lighten($color-grey-dark-2, 55%);
             &:hover {
                 fill: $color-primary;
             }
@@ -353,29 +349,29 @@
         &__item {
             transition: all 0.2s;
             &:hover {
-                background-color: darken($color-grey-light-3, 35%);
+                background-color: lighten($color-grey-dark-1, 10%);
 
                 .chat-panel-user__state {
                     &--active {
-                        border-color: darken($color-grey-light-3, 35%);
+                        border-color: lighten($color-grey-dark-1, 10%);
                     }
                 }
             }
 
             &--selected {
-                background-color: darken($color-grey-light-3, 42.5%);
+                background-color: $color-grey-dark-1;
                 border-color: $color-primary;
                 &:hover {
-                    background-color: darken($color-grey-light-3, 42.5%);
+                    background-color: $color-grey-dark-1;
                     .chat-panel-user__state {
                         &--active {
-                            border-color: darken($color-grey-light-3, 42.5%);
+                            border-color: $color-grey-dark-1;
                         }
                     }
                 }
                 .chat-panel-user__state {
                     &--active {
-                        border-color: darken($color-grey-light-3, 42.5%);
+                        border-color: $color-grey-dark-1;
                     }
                 }
             }
@@ -394,7 +390,7 @@
         // Settings
         &__settings {
             &--icons {
-                fill: $color-grey-light-2;
+                fill: lighten($color-grey-dark-2, 40%);
             }
         }
         .icon-pin-chat {
@@ -406,9 +402,8 @@
         }
         // Option
         &__option {
-            fill: $color-grey-light-2;
+            fill: lighten($color-grey-dark-2, 60%);
             &:hover {
-                fill: $color-grey-light-1;
                 fill: $color-primary;
             }
         }
@@ -735,7 +730,7 @@
     @include darkThemeColor($color-primary-yellow, $color-primary-yellow-light, $color-primary-yellow-dark);
 }
 .dark-grey {
-    @include darkThemeColor($color-grey-light-1, $color-grey-light-2, $color-grey-light-3);
+    @include darkThemeColor($color-primary-grey, $color-primary-grey-light, $color-primary-grey-dark);
 }
 .dark-white {
     @include darkThemeColor($color-white, $color-white, $color-white);

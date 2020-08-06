@@ -11,12 +11,14 @@
         padding: 0.5rem 4rem 0.5rem 1.5rem;
         width: 100%;
         margin-left: 1rem;
+        transition: all 0.2s;
     }
 
     &__button {
         margin-left: -3rem;
         border: none;
         cursor: pointer;
+        transition: all 0.2s;
     }
 
     &__icon {
