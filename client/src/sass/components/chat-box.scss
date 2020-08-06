@@ -33,6 +33,7 @@
             margin: 0 1rem;
             margin-right: 2rem;
             border-radius: 50%;
+            cursor: pointer;
         }
         &--content {
             flex: 1;
@@ -248,7 +249,6 @@
         }
 
         &--send {
-            cursor: pointer;
             transition: all 0.2s;
             border-radius: 50%;
             height: 5.25rem;

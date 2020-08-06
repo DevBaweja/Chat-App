@@ -30,8 +30,8 @@ export const renderIdeal = () => {
     const markup = `
     <div class="cta">
         <div class="cta__btn">
-            <button class="cta__sign-up cta__action">Sign Up</button>
-            <button class="cta__log-in cta__action">Log In</button>
+            <button class="cta__sign-up cta__action" title="Create your new account">Sign Up</button>
+            <button class="cta__log-in cta__action" title="Already Registered? Log in">Log In</button>
         </div>
     </div>
     `;
@@ -44,7 +44,7 @@ export const renderUser = () => {
     markup = `
     <form class="search">
         <input type="text" class="search__input" placeholder="Search Friends" />
-        <button class="search__button">
+        <button class="search__button" title="Search Friends">
             <svg class="search__icon">
                 <use xlink:href="svg/sprite.svg#icon-search"></use>
             </svg>
@@ -56,8 +56,8 @@ export const renderUser = () => {
 
     markup = `
     <div class="about-me">
-    <div class="about-me__link about-me__drop">
-        <img src="img//avatar/boy.png" alt="user-photo" class="about-me__photo"/>
+    <div class="about-me__link about-me__drop" title="User Options">
+        <img src="img/avatar/boy.png" alt="user-photo" class="about-me__photo"/>
         
         <span class="about-me__name">${faker.name.findName()}</span>
     </div>

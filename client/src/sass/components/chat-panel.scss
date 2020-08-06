@@ -57,6 +57,8 @@
         margin: 0.25rem 0;
         border-radius: 0.2rem;
         position: relative;
+        cursor: pointer;
+
         &--selected {
             border-left: 0.35rem solid;
         }
@@ -64,8 +66,6 @@
     &__link {
         padding: 0.75rem 0;
         @include flex();
-
-        cursor: pointer;
     }
     &__userphoto {
         margin: 0.5rem 1rem;
@@ -134,7 +134,7 @@
     }
     //
 
-    &__link:hover &__option {
+    &__item:hover &__option {
         opacity: 1;
         visibility: visible;
     }

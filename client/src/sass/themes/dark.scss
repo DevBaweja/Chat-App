@@ -1,5 +1,12 @@
+// Remove light
+
 // Dark Theme
 @mixin darkThemeColor($color-primary, $color-primary-light, $color-primary-dark) {
+    // Base
+    body {
+        background-color: $color-grey-dark-1;
+    }
+
     // Dark Theme
     &.app {
         background-image: linear-gradient(to right bottom, lighten($color-primary, 2.5%), darken($color-primary, 2.5%));

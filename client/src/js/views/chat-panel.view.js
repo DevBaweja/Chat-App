@@ -74,8 +74,8 @@ export const renderEmpty = () => {
     const markup = `
     <div class="chat-panel-null">
         <div class="chat-panel-user__title">
-            Active Now <span class="chat-panel-user__count">(0)</span>
-            <svg class="chat-panel-user__reload">
+            Active Now <span class="chat-panel-user__count" title="#">(0)</span>
+            <svg class="chat-panel-user__reload" title="Reload">
                 <use xlink:href="svg/sprite.svg#icon-spinner"></use>
             </svg>
         </div>
@@ -109,7 +109,7 @@ export const renderRecentChat = () => {
         </div>
         
         <!-- OPTIONS -->
-        <svg class="chat-panel-user__option chat-panel__drop">
+        <svg class="chat-panel-user__option chat-panel__drop title="Chat Options">
             <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
         </svg>
         <!-- ACTIVE -->
@@ -146,7 +146,7 @@ export const renderRecentChat = () => {
         </svg>
 
         <!-- OPTION -->
-        <svg class="chat-panel-user__option ">
+        <svg class="chat-panel-user__option chat-panel__drop " title="Chat Options">
             <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
         </svg>
        
@@ -163,19 +163,19 @@ export const renderRecentChat = () => {
                 <div class="chat-panel-user__info">
                 <span class="chat-panel-user__username">${faker.name.findName()}</span>
                 <div class="chat-panel-user__settings">
-                <svg class="chat-panel-user__settings--icons icon-dot-single--notification">
+                <svg class="chat-panel-user__settings--icons icon-dot-single--notification" title="Unread Messages">
                 <use xlink:href="svg/sprite.svg#icon-dot-single--notification"></use>
                 </svg>
-                <svg class="chat-panel-user__settings--icons icon-pin-chat">
+                <svg class="chat-panel-user__settings--icons icon-pin-chat" title="Chat Pinned">
                 <use xlink:href="svg/sprite.svg#icon-pin-chat"></use>
                 </svg>
-                <svg class="chat-panel-user__settings--icons icon-mute-notification">
+                <svg class="chat-panel-user__settings--icons icon-mute-notification" title="Chat Muted">
                 <use xlink:href="svg/sprite.svg#icon-mute-notification"></use>
                 </svg> 
                
                 </div>
             </div>
-                <svg class="chat-panel-user__option">
+                <svg class="chat-panel-user__option chat-panel__drop" title="Chat Options">
                     <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
                 </svg>
                 <svg class="chat-panel-user__state chat-panel-user__state--active">
@@ -195,7 +195,7 @@ export const renderRecentChat = () => {
                     
                 </div>
             </div>
-                <svg class="chat-panel-user__option">
+                <svg class="chat-panel-user__option chat-panel__drop" title="Chat Options">
                     <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
                 </svg>
                 <svg class="chat-panel-user__state chat-panel-user__state--inactive">
@@ -214,7 +214,7 @@ export const renderRecentChat = () => {
                     
                 </div>
             </div>
-                <svg class="chat-panel-user__option">
+                <svg class="chat-panel-user__option chat-panel__drop" title="Chat Options">
                     <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
                 </svg>
                 <svg class="chat-panel-user__state chat-panel-user__state--active">

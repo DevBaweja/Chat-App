@@ -21,14 +21,14 @@ const renderFormGroup = (group, className) => `
 `;
 
 export const renderForm = form => `
-    <div class="blur">
-        <div class="${form.className}">
+    <div class="blur" title="Go back">
+        <div class="${form.className}" title="">
             <div class="${form.className}__title">${form.title}</div>
             <form class="${form.className}__form" autocomplete="on">
                 ${form.groups.map(group => renderFormGroup(group, form.className)).join('')}
                 <button class="${form.className}__form--btn">${form.btntext}</button>
             </form>
-            <div class="${form.className}__cross user-cross">
+            <div class="${form.className}__cross user-cross" title="Go back">
                 <svg class="${form.className}__cross--svg">
                     <use xlink:href="svg/sprite.svg#icon-cross"></use>
                 </svg>

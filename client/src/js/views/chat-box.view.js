@@ -44,7 +44,7 @@ export const renderUser = () => {
     <li class="chat-box-user__main--item">
         <div class="chat-box-user__main--message">
             <div class="chat-box-user__main--message-in">
-                <div class="chat-box-user__drop-in">
+                <div class="chat-box-user__drop-in" title="Message Options">
                     <svg class="chat-box-user__drop-in--svg">
                         <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
                     </svg>
@@ -66,7 +66,7 @@ export const renderUser = () => {
     <li class="chat-box-user__main--item">
         <div class="chat-box-user__main--message">
             <div class="chat-box-user__main--message-out">
-                <div class="chat-box-user__drop-out">
+                <div class="chat-box-user__drop-out" title="Message Options">
                     <svg class="chat-box-user__drop-out--svg">
                         <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
                     </svg>
@@ -78,7 +78,7 @@ export const renderUser = () => {
                     ${new Date(date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}
                     </span>
                     <!-- sent, delivered, seen -->
-                    <svg class="chat-box-user__main--message-out-info--svg chat-box-user__main--message-out-info--svg-delivered">
+                    <svg class="chat-box-user__main--message-out-info--svg chat-box-user__main--message-out-info--svg-delivered" title="Delivered">
                         <use xlink:href="svg/sprite.svg#icon-delivered"></use>
                     </svg>
                 </span>
@@ -91,21 +91,21 @@ export const renderUser = () => {
     <div class="chat-box-user">
         <header class="chat-box-user__header">
 
-            <div class="chat-box-user__header--back">
+            <div class="chat-box-user__header--back" title="Go back">
                 <svg class="chat-box-user__header--back-svg">
                 <use xlink:href="svg/sprite.svg#icon-arrow-left"></use>
                 </svg>
             </div>
 
-            <img src=${faker.image.avatar()} alt="" class="chat-box-user__header--img" />
+            <img src=${faker.image.avatar()} alt="" class="chat-box-user__header--img" title="View Profile"/>
 
             <div class="chat-box-user__header--content">
-                <div class="chat-box-user__header--content-name">${faker.name.findName()}</div>
+                <div class="chat-box-user__header--content-name" title="View Profile">${faker.name.findName()}</div>
                 <div class="chat-box-user__header--content-status">online</div>
             </div>
 
 
-            <div class="chat-box-user__header--options">
+            <div class="chat-box-user__header--options" title="User Options">
                 <svg class="chat-box-user__header--options-svg">
                 <use xlink:href="svg/sprite.svg#icon-dots-three-vertical"></use>
                 </svg>
@@ -114,7 +114,7 @@ export const renderUser = () => {
         </header>
         <div class="chat-box-user__field" style="background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), url('img/background-image/chat-box-user.jpg')">
             <main class="chat-box-user__main">
-                <div class="chat-box-user__main--date-fix">
+                <div class="chat-box-user__main--date-fix" title="Conversation Date">
                     <span class="chat-box-user__main--date-fix-span">${new Date(date).toLocaleDateString([], {
                         dateStyle: 'long',
                         // weekday: 'short',
@@ -145,7 +145,7 @@ export const renderUser = () => {
                         ${messageOut()}
                         <li class="chat-box-user__main--item">
                             <div class="chat-box-user__main--message">
-                                <div class="chat-box-user__main--date">
+                                <div class="chat-box-user__main--date" title="Conversation Date">
                                     <span class="chat-box-user__main--date-span">${new Date(date).toLocaleDateString(
                                         [],
                                         {
@@ -159,7 +159,7 @@ export const renderUser = () => {
                         <li class="chat-box-user__main--item">
                         <div class="chat-box-user__main--message">
                             <div class="chat-box-user__main--message-out">
-                                <div class="chat-box-user__drop-out">
+                                <div class="chat-box-user__drop-out" title="Message Options">
                                     <svg class="chat-box-user__drop-out--svg">
                                         <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
                                     </svg>
@@ -175,7 +175,7 @@ export const renderUser = () => {
                                         })}
                                     </span>
                                     <!-- sent, delivered, seen -->
-                                    <svg class="chat-box-user__main--message-out-info--svg chat-box-user__main--message-out-info--svg-seen">
+                                    <svg class="chat-box-user__main--message-out-info--svg chat-box-user__main--message-out-info--svg-seen" title="Seen">
                                         <use xlink:href="svg/sprite.svg#icon-seen"></use>
                                     </svg>
                                 </span>
@@ -188,29 +188,29 @@ export const renderUser = () => {
             <footer class="chat-box-user__footer">
                 <form class="chat-box-user__footer--form"> 
                     <div class="chat-box-user__footer--container">
-                        <div class="chat-box-user__footer--emoji">
+                        <div class="chat-box-user__footer--emoji" title="Add Emoji">
                             <svg class="chat-box-user__footer--emoji-svg">
                                 <use xlink:href="svg/sprite.svg#icon-emoji"></use>
                             </svg>
                         </div>
                         <textarea rows="1" type="text" class="chat-box-user__footer--input" spellcheck="false" placeholder="Type a message"></textarea>
-                        <div class="chat-box-user__footer--location">
+                        <div class="chat-box-user__footer--location" title="Send Location">
                             <svg class="chat-box-user__footer--location-svg">
                                 <use xlink:href="svg/sprite.svg#icon-location"></use>
                             </svg>
                         </div>
-                        <div class="chat-box-user__footer--attach">
+                        <div class="chat-box-user__footer--attach" title="Attach File">
                             <svg class="chat-box-user__footer--attach-svg">
                                 <use xlink:href="svg/sprite.svg#icon-attach"></use>
                             </svg>
                         </div>
-                        <div class="chat-box-user__footer--camera">
+                        <div class="chat-box-user__footer--camera" title="View Camera">
                             <svg class="chat-box-user__footer--camera-svg">
                                 <use xlink:href="svg/sprite.svg#icon-camera"></use>
                             </svg>
                         </div>
                     </div>
-                    <button class="chat-box-user__footer--send">
+                    <button class="chat-box-user__footer--send" title="Send Message">
                         <svg class="chat-box-user__footer--send-svg">
                             <use xlink:href="svg/sprite.svg#icon-send"></use>
                         </svg>

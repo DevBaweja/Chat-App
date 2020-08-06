@@ -1,4 +1,4 @@
-const render = () => {
+export const render = () => {
     const markup = `
     <div class="app">
         <div class="container">

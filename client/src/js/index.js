@@ -6,7 +6,6 @@ import state from './state';
 import { elements, mode } from './utils/base.util';
 // ---------------------
 // Models
-
 // ---------------------
 // Views
 // ---------------------
@@ -18,6 +17,8 @@ import * as dropdownsController from './controllers/dropdowns/dropdowns.controll
 import * as chatPanelController from './controllers/chat-panel.controller';
 import * as chatBoxController from './controllers/chat-box.controller';
 import * as chatProfileController from './controllers/chat-profile.controller';
+// App
+import * as App from './App';
 
 const addListeners = () => {
     // Dropdown
@@ -25,6 +26,8 @@ const addListeners = () => {
 };
 
 const init = () => {
+    // App
+    App.render();
     // Init
     initController.controlInit();
     // Theme

@@ -28,7 +28,7 @@ export const renderLoginForm = () => {
                 autocomplete: 'current-password',
                 required: true,
                 minLength: 8,
-                forget: '<span class="user-login__form--forget">Forget password ?</span>',
+                forget: `<span class="user-login__form--forget" title="Cann't remember your password">Forget password ?</span>`,
             },
         ],
         className: 'user-login',
