@@ -30,13 +30,17 @@ export const elementStrings = {
         chatPanelDrop: '.chat-panel__drop',
         chatBoxDrop: {
             in: '.chat-box-user__drop-in',
-            out: '.chat-box-user__drop-in',
+            out: '.chat-box-user__drop-out',
             options: '.chat-box-user__header--options',
         },
     },
     dropdowns: {
         aboutMeDropdown: '.about-me__dropdown',
         chatPanelDropdown: '.chat-panel-user__dropdown',
+        chatBoxDropdown: {
+            in: '.chat-box-user-in__dropdown',
+            out: '.chat-box-user-out__dropdown',
+        },
     },
     dropdownItems: {
         aboutMeDropdownItem: '.about-me__dropdown--item',

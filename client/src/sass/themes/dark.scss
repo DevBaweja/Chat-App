@@ -60,13 +60,13 @@ body {
             &-reply {
             }
             &-delete {
-                fill: $color-light-red;
+                fill: $color-danger;
             }
         }
 
         &--span {
             &-delete {
-                color: $color-light-red;
+                color: $color-danger;
             }
         }
     }
@@ -83,13 +83,13 @@ body {
             &-reply {
             }
             &-delete {
-                fill: $color-light-red;
+                fill: $color-danger;
             }
         }
 
         &--span {
             &-delete {
-                color: $color-light-red;
+                color: $color-danger;
             }
         }
     }
@@ -108,12 +108,12 @@ body {
             &-setting {
             }
             &-logout {
-                fill: $color-light-red;
+                fill: $color-danger;
             }
         }
         &--span {
             &-logout {
-                color: $color-light-red;
+                color: $color-danger;
             }
         }
     }
@@ -131,10 +131,10 @@ body {
         background-color: $color-primary;
     }
     &--error {
-        background-color: $color-light-red;
+        background-color: $color-danger;
     }
     &--info {
-        background-color: $color-light-red;
+        background-color: $color-danger;
     }
 }
 
@@ -154,12 +154,12 @@ body {
             &-mute {
             }
             &-delete {
-                fill: $color-light-red;
+                fill: $color-danger;
             }
         }
         &--span {
             &-delete {
-                color: $color-light-red;
+                color: $color-danger;
             }
         }
     }
@@ -188,7 +188,7 @@ body {
 
             &:focus {
                 &:invalid {
-                    border-bottom-color: darken($color-light-red, 10%);
+                    border-bottom-color: darken($color-danger, 10%);
                 }
             }
         }

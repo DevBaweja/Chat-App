@@ -1,5 +1,5 @@
 // Utils
-import { elementStrings, mode, actions } from '../../utils/base.util';
+import { elementStrings, select, mode, actions } from '../../utils/base.util';
 // Controllers
 import * as themeController from '../theme/theme.controller';
 import * as chatProfileController from '../chat-profile.controller';
@@ -14,9 +14,7 @@ const controlAboutMeDropdown = event => {
     // 1) Render Dropdown For About Me
     aboutMeDropdownView.renderAboutMeDropdown({ coordinate });
     // 2) Add Event Listener
-    document
-        .querySelector(elementStrings.dropdowns.aboutMeDropdown)
-        .addEventListener('click', controlAboutMeDropdownItems);
+    select(elementStrings.dropdowns.aboutMeDropdown).addEventListener('click', controlAboutMeDropdownItems);
 };
 const controlAboutMeDropdownItems = event => {
     const item = event.target.closest(elementStrings.dropdownItems.aboutMeDropdownItem);

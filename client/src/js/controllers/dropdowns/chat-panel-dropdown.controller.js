@@ -1,14 +1,14 @@
 // Utils
-import { elementStrings } from '../../utils/base.util';
+import { elementStrings,select } from '../../utils/base.util';
 
 // Views
 import * as chatPanelView from '../../views/chat-panel.view';
 import * as chatPanelDropdownView from '../../views/dropdowns/chat-panel-dropdown.view';
-import * as DropdownView from '../../views/dropdowns/dropdowns.view';
+import { getCoordinate } from '../../views/dropdowns/dropdowns.view';
 
 const controlChatPanelDropdown = event => {
     // 0) Positioning of Dropdown
-    const coordinate = DropdownView.getCoordinate(event);
+    const coordinate = getCoordinate(event);
 
     // 0) Getting User Id
     const item = chatPanelView.getItem(event);
@@ -20,8 +20,7 @@ const controlChatPanelDropdown = event => {
     // data
     chatPanelDropdownView.renderChatPanelDropdown({ coordinate });
     // 2) Add Event Listener
-    document
-        .querySelector(elementStrings.dropdowns.chatPanelDropdown)
+    select(elementStrings.dropdowns.chatPanelDropdown)
         .addEventListener('click', controlAboutMeDropdownItems);
 };
 
