@@ -1,5 +1,5 @@
 // Utils
-import { elementStrings } from '../../utils/base.util';
+import { elementStrings, select } from '../../utils/base.util';
 // Views
 import { getCoordinate } from '../../views/dropdowns/dropdowns.view';
 import * as chatBoxDropdownView from '../../views/dropdowns/chat-box-dropdown.view';
