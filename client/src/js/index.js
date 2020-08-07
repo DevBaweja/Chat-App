@@ -22,8 +22,6 @@ const addListeners = () => {
 };
 
 const init = () => {
-    // document.documentElement.style.setProperty('--dev', 'pink');
-    console.log(getComputedStyle(document.documentElement).getPropertyValue('--dev'));
     // App
     App.render();
     // Init
