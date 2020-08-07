@@ -37,7 +37,7 @@ const toggleTheme = () => {
 };
 
 const myProfile = () => {
-    chatProfileController.controlChatProfile({ mode: mode.chatProfile.myProfile });
+    chatProfileController.controlChatProfile({ mode: mode.chatProfile.user });
 };
 
 export default controlAboutMeDropdown;

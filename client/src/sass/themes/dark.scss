@@ -1,735 +1,702 @@
 // Dark Theme
-@mixin darkThemeColor($color-primary, $color-primary-light, $color-primary-dark) {
-    // Base
-    body {
-        background-color: $color-grey-dark-1;
-    }
 
-    // Dark Theme
-    &.app {
-        background-image: linear-gradient(to right bottom, lighten($color-primary, 2.5%), darken($color-primary, 2.5%));
-        position: relative;
-    }
-    // ---------------------------
-    // Layout
-    .header {
-        @include darkTheme($color-grey-dark-3, 50%);
-    }
-    .main {
-        @include darkTheme($color-grey-dark-2, 50%);
-    }
-    .footer {
-        @include darkTheme($color-grey-dark-3, 50%);
-    }
+// Base
+body {
+    background-color: $color-grey-dark-1;
+}
 
-    // --------------------------
+// Dark Theme
+.app {
+    background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+    position: relative;
+}
+// ---------------------------
+// Layout
+.header {
+    @include darkTheme($color-grey-dark-3, 50%);
+}
+.main {
+    @include darkTheme($color-grey-dark-2, 50%);
+}
+.footer {
+    @include darkTheme($color-grey-dark-3, 50%);
+}
+
+// --------------------------
+// Dropdown
+.about-me,
+.chat-panel-user,
+.chat-box-user-in,
+.chat-box-user-out {
     // Dropdown
-    .about-me,
-    .chat-panel-user,
-    .chat-box-user-in,
-    .chat-box-user-out {
-        // Dropdown
-        &__dropdown {
-            background-color: $color-grey-dark-1;
-            color: lighten($color-grey-dark-1, 50%);
-            border-color: $color-primary;
+    &__dropdown {
+        background-color: $color-grey-dark-1;
+        color: lighten($color-grey-dark-1, 50%);
+        border-color: $color-primary;
 
-            &--list {
+        &--list {
+        }
+        &--item {
+            &:hover {
+                background-color: $color-grey-dark-3;
             }
-            &--item {
-                &:hover {
-                    background-color: $color-grey-dark-3;
-                }
-            }
-            &--svg {
-                fill: lighten($color-grey-dark-1, 50%);
-            }
+        }
+        &--svg {
+            fill: lighten($color-grey-dark-1, 50%);
+        }
 
-            &--span {
+        &--span {
+        }
+    }
+}
+.chat-box-user-in {
+    // Dropdown
+    &__dropdown {
+        &--svg {
+            &-copy {
+            }
+            &-edit {
+            }
+            &-reply {
+            }
+            &-delete {
+                fill: $color-light-red;
+            }
+        }
+
+        &--span {
+            &-delete {
+                color: $color-light-red;
             }
         }
     }
-    .chat-box-user-in {
-        // Dropdown
-        &__dropdown {
-            &--svg {
-                &-copy {
-                }
-                &-edit {
-                }
-                &-reply {
-                }
-                &-delete {
-                    fill: $color-light-red;
-                }
+}
+.chat-box-user-out {
+    // Dropdown
+    &__dropdown {
+        &--svg {
+            &-copy {
             }
+            &-heart {
+                fill: $color-primary;
+            }
+            &-reply {
+            }
+            &-delete {
+                fill: $color-light-red;
+            }
+        }
 
-            &--span {
-                &-delete {
-                    color: $color-light-red;
-                }
+        &--span {
+            &-delete {
+                color: $color-light-red;
             }
         }
     }
-    .chat-box-user-out {
-        // Dropdown
-        &__dropdown {
-            &--svg {
-                &-copy {
-                }
-                &-heart {
-                    fill: $color-primary;
-                }
-                &-reply {
-                }
-                &-delete {
-                    fill: $color-light-red;
-                }
-            }
+}
 
-            &--span {
-                &-delete {
-                    color: $color-light-red;
-                }
+.about-me {
+    // Dropdown
+    &__dropdown {
+        &--svg {
+            fill: lighten($color-grey-dark-1, 50%);
+            // Types
+            &-user {
+            }
+            &-theme {
+            }
+            &-setting {
+            }
+            &-logout {
+                fill: $color-light-red;
+            }
+        }
+        &--span {
+            &-logout {
+                color: $color-light-red;
             }
         }
     }
+}
 
-    .about-me {
-        // Dropdown
-        &__dropdown {
-            &--svg {
-                fill: lighten($color-grey-dark-1, 50%);
-                // Types
-                &-user {
-                }
-                &-theme {
-                }
-                &-setting {
-                }
-                &-logout {
-                    fill: $color-light-red;
-                }
+// Alert
+.alert {
+    &__message {
+        fill: $color-grey-dark-1;
+    }
+    &__svg {
+        fill: $color-grey-dark-1;
+    }
+    &--success {
+        background-color: $color-primary;
+    }
+    &--error {
+        background-color: $color-light-red;
+    }
+    &--info {
+        background-color: $color-light-red;
+    }
+}
+
+.chat-panel-user {
+    // Dropdown
+    &__dropdown {
+        &--svg {
+            fill: lighten($color-grey-dark-1, 50%);
+
+            &-dot {
             }
-            &--span {
-                &-logout {
-                    color: $color-light-red;
-                }
+            &-star {
+                fill: $color-primary;
+            }
+            &-pin {
+            }
+            &-mute {
+            }
+            &-delete {
+                fill: $color-light-red;
+            }
+        }
+        &--span {
+            &-delete {
+                color: $color-light-red;
             }
         }
     }
-
-    // Alert
-    .alert {
-        &__message {
-            fill: $color-grey-dark-1;
-        }
-        &__svg {
-            fill: $color-grey-dark-1;
-        }
-        &--success {
-            background-color: $color-primary;
-        }
-        &--error {
-            background-color: $color-light-red;
-        }
-        &--info {
-            background-color: $color-light-red;
-        }
+}
+// ---------------------------------
+// Forms
+// Login Form And Signup Form
+.user-login,
+.user-signup {
+    // background-color: $color-primary;
+    background: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+    &__title {
     }
-
-    .chat-panel-user {
-        // Dropdown
-        &__dropdown {
-            &--svg {
-                fill: lighten($color-grey-dark-1, 50%);
-
-                &-dot {
-                }
-                &-star {
-                    fill: $color-primary;
-                }
-                &-pin {
-                }
-                &-mute {
-                }
-                &-delete {
-                    fill: $color-light-red;
-                }
-            }
-            &--span {
-                &-delete {
-                    color: $color-light-red;
-                }
-            }
+    &__form {
+        &--group {
         }
-    }
-    // ---------------------------------
-    // Forms
-    // Login Form And Signup Form
-    .user-login,
-    .user-signup {
-        // background-color: $color-primary;
-        background: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
-        &__title {
+        &--label {
         }
-        &__form {
-            &--group {
-            }
-            &--label {
-            }
-            &--input {
-                border-bottom-color: transparent;
-                background-color: $color-grey-dark-2;
-                color: $color-white;
-                &::placeholder {
-                    color: lighten($color-grey-dark-2, 50%);
-                }
-
-                &:focus {
-                    &:invalid {
-                        border-bottom-color: darken($color-light-red, 10%);
-                    }
-                }
-            }
-            &--btn {
-                background-color: $color-grey-dark-1;
-                color: $color-primary;
-                transition: all 0.2s;
-
-                &:hover {
-                    background-color: darken($color-grey-dark-2, 10%);
-                }
-            }
-        }
-
-        &__cross {
-            &--svg {
-                fill: $color-grey-dark-2;
-            }
-        }
-    }
-
-    // Login Form
-    .user-signup {
-    }
-    // Sign up Form
-    .user-login {
-    }
-
-    // ----------------------------------
-    // Components
-    // Logo Box
-    .logo-box {
-        &__svg {
-            fill: $color-primary;
-        }
-        &__name {
+        &--input {
+            border-bottom-color: transparent;
+            background-color: $color-grey-dark-2;
             color: $color-white;
-        }
-    }
-    // Search
-    .search {
-        &__input {
-            background-color: lighten($color-grey-dark-3, 10%);
-            color: lighten($color-grey-dark-3, 50%);
-
             &::placeholder {
-                color: lighten($color-grey-dark-3, 30%);
+                color: lighten($color-grey-dark-2, 50%);
             }
 
             &:focus {
-                background-color: darken($color-grey-dark-3, 7.5%);
+                &:invalid {
+                    border-bottom-color: darken($color-light-red, 10%);
+                }
             }
         }
+        &--btn {
+            background-color: $color-grey-dark-1;
+            color: $color-primary;
+            transition: all 0.2s;
 
-        &__button {
-            background-color: lighten($color-grey-dark-3, 10%);
+            &:hover {
+                background-color: darken($color-grey-dark-2, 10%);
+            }
+        }
+    }
+
+    &__cross {
+        &--svg {
+            fill: $color-grey-dark-2;
+        }
+    }
+}
+
+// Login Form
+.user-signup {
+}
+// Sign up Form
+.user-login {
+}
+
+// ----------------------------------
+// Components
+// Logo Box
+.logo-box {
+    &__svg {
+        fill: $color-primary;
+    }
+    &__name {
+        color: $color-white;
+    }
+}
+// Search
+.search {
+    &__input {
+        background-color: lighten($color-grey-dark-3, 10%);
+        color: lighten($color-grey-dark-3, 50%);
+
+        &::placeholder {
+            color: lighten($color-grey-dark-3, 30%);
         }
 
-        &__input:focus + .search__button {
+        &:focus {
             background-color: darken($color-grey-dark-3, 7.5%);
         }
+    }
 
-        &__icon {
-            fill: lighten($color-grey-dark-3, 40%);
+    &__button {
+        background-color: lighten($color-grey-dark-3, 10%);
+    }
+
+    &__input:focus + .search__button {
+        background-color: darken($color-grey-dark-3, 7.5%);
+    }
+
+    &__icon {
+        fill: lighten($color-grey-dark-3, 40%);
+    }
+
+    &__input:focus + &__button &__icon {
+        fill: $color-primary;
+    }
+}
+// Menu
+.menu {
+    &__list {
+    }
+
+    &__item {
+    }
+
+    &__link {
+        color: lighten($color-grey-dark-3, 50%);
+        background-color: $color-grey-dark-2;
+        border-bottom-color: transparent;
+
+        &:hover {
+            background-color: $color-grey-dark-1;
         }
 
-        &__input:focus + .search__button .search__icon {
+        &--active {
+            border-bottom-color: $color-primary;
+            background-color: $color-grey-dark-1;
+        }
+    }
+}
+
+// CTA
+.cta {
+    &__btn {
+    }
+
+    &__action {
+        border-color: $color-primary;
+        &:hover {
+            border-color: $color-primary-light;
+        }
+    }
+
+    &__sign-up {
+        background-color: $color-primary;
+        color: $color-grey-dark-3;
+
+        &:hover {
+            background-color: $color-primary-light;
+        }
+    }
+    &__log-in {
+        background-color: $color-grey-dark-3;
+        color: $color-primary;
+        &:hover {
+            color: $color-primary-light;
+        }
+    }
+}
+
+.about-me {
+    &__link {
+        color: inherit;
+        background-color: lighten($color-grey-dark-3, 10%);
+        &:hover {
+            background-color: darken($color-grey-dark-3, 7.5%);
+        }
+    }
+}
+
+// Chat Panel
+.chat-panel {
+}
+
+.chat-panel-user {
+    &__title {
+        color: lighten($color-grey-dark-2, 65%);
+        background-color: $color-grey-dark-1;
+    }
+    &__count {
+        color: lighten($color-grey-dark-2, 50%);
+    }
+    &__reload {
+        fill: lighten($color-grey-dark-2, 55%);
+        &:hover {
             fill: $color-primary;
         }
     }
-    // Menu
-    .menu {
-        &__list {
-        }
 
-        &__item {
-        }
-
-        &__link {
-            color: lighten($color-grey-dark-3, 50%);
-            background-color: $color-grey-dark-2;
-            border-bottom-color: transparent;
-
-            &:hover {
-                background-color: $color-grey-dark-1;
-            }
-
-            &.menu__link--active {
-                border-bottom-color: $color-primary;
-                background-color: $color-grey-dark-1;
-            }
-        }
+    &__list {
     }
 
-    // CTA
-    .cta {
-        &__btn {
+    &__item {
+        transition: all 0.2s;
+        &:hover {
+            background-color: lighten($color-grey-dark-1, 10%);
+
+            .chat-panel-user__state {
+                &--active {
+                    border-color: lighten($color-grey-dark-1, 10%);
+                }
+            }
         }
 
-        &__action {
+        &--selected {
+            background-color: $color-grey-dark-1;
             border-color: $color-primary;
             &:hover {
-                border-color: lighten($color-primary, 10%);
-            }
-        }
-
-        &__sign-up {
-            background-color: $color-primary;
-            color: $color-grey-dark-3;
-
-            &:hover {
-                background-color: lighten($color-primary, 10%);
-            }
-        }
-        &__log-in {
-            background-color: $color-grey-dark-3;
-            color: $color-primary;
-            &:hover {
-                color: lighten($color-primary, 10%);
-            }
-        }
-    }
-
-    .about-me {
-        &__link {
-            color: inherit;
-            background-color: lighten($color-grey-dark-3, 10%);
-            &:hover {
-                background-color: darken($color-grey-dark-3, 7.5%);
-            }
-        }
-    }
-
-    // Chat Panel
-    .chat-panel {
-    }
-
-    .chat-panel-user {
-        &__title {
-            color: lighten($color-grey-dark-2, 65%);
-            background-color: $color-grey-dark-1;
-        }
-        &__count {
-            color: lighten($color-grey-dark-2, 50%);
-        }
-        &__reload {
-            fill: lighten($color-grey-dark-2, 55%);
-            &:hover {
-                fill: $color-primary;
-            }
-        }
-
-        &__list {
-        }
-
-        &__item {
-            transition: all 0.2s;
-            &:hover {
-                background-color: lighten($color-grey-dark-1, 10%);
-
-                .chat-panel-user__state {
-                    &--active {
-                        border-color: lighten($color-grey-dark-1, 10%);
-                    }
-                }
-            }
-
-            &--selected {
                 background-color: $color-grey-dark-1;
-                border-color: $color-primary;
-                &:hover {
-                    background-color: $color-grey-dark-1;
-                    .chat-panel-user__state {
-                        &--active {
-                            border-color: $color-grey-dark-1;
-                        }
-                    }
-                }
                 .chat-panel-user__state {
                     &--active {
                         border-color: $color-grey-dark-1;
                     }
                 }
             }
-        }
-
-        &__link {
-            color: lighten($color-grey-dark-2, 65%);
-        }
-
-        &__userphoto {
-        }
-        &__info {
-        }
-        &__username {
-        }
-        // Settings
-        &__settings {
-            &--icons {
-                fill: lighten($color-grey-dark-2, 40%);
+            .chat-panel-user__state {
+                &--active {
+                    border-color: $color-grey-dark-1;
+                }
             }
         }
-        .icon-pin-chat {
+    }
+
+    &__link {
+        color: lighten($color-grey-dark-2, 65%);
+    }
+
+    &__userphoto {
+    }
+    &__info {
+    }
+    &__username {
+    }
+    // Settings
+    &__settings {
+        &--icons {
+            fill: lighten($color-grey-dark-2, 40%);
         }
-        .icon-mute-notification {
-        }
-        .icon-dot-single--notification {
+    }
+    .icon-pin-chat {
+    }
+    .icon-mute-notification {
+    }
+    .icon-dot-single--notification {
+        fill: $color-primary;
+    }
+    // Option
+    &__option {
+        fill: lighten($color-grey-dark-2, 60%);
+        &:hover {
             fill: $color-primary;
         }
-        // Option
-        &__option {
-            fill: lighten($color-grey-dark-2, 60%);
+    }
+    // State
+    &__state {
+        &--active {
+            fill: $color-active;
+            border-color: $color-grey-dark-2;
+        }
+
+        &--inactive {
+            fill: transparent;
+        }
+    }
+}
+.chat-panel-ideal,
+.chat-panel-null {
+    &__title {
+        background-color: $color-grey-dark-3;
+    }
+    &__dimmer {
+        &--circle {
+            fill: $color-grey-dark-3;
+        }
+        &--rect {
+            fill: $color-grey-dark-3;
+        }
+    }
+}
+
+// Chat Box
+.chat-box {
+    border-color: $color-grey-dark-3;
+}
+.chat-box-user {
+    @include darkTheme($color-grey-dark-1, 50%);
+    &__header {
+        background-color: $color-grey-dark-1;
+        border-bottom-color: $color-grey-dark-3;
+        &--back,
+        &--options {
             &:hover {
+                background-color: $color-grey-dark-3;
+            }
+
+            &-svg {
                 fill: $color-primary;
             }
         }
-        // State
-        &__state {
-            &--active {
-                fill: $color-active;
-                border-color: $color-grey-dark-2;
+        &--img {
+        }
+        &--content {
+            &-name {
+                color: lighten($color-grey-dark-1, 60%);
             }
-
-            &--inactive {
-                fill: transparent;
+            &-status {
+                color: lighten($color-grey-dark-1, 40%);
             }
         }
     }
-    .chat-panel-ideal,
-    .chat-panel-null {
-        &__title {
-            background-color: $color-grey-dark-3;
-        }
-        &__dimmer {
-            &--circle {
-                fill: $color-grey-dark-3;
-            }
-            &--rect {
-                fill: $color-grey-dark-3;
-            }
-        }
+    &__field {
     }
-
-    // Chat Box
-    .chat-box {
-        border-color: $color-grey-dark-3;
-    }
-    .chat-box-user {
-        @include darkTheme($color-grey-dark-1, 50%);
-        &__header {
-            background-color: $color-grey-dark-1;
-            border-bottom-color: $color-grey-dark-3;
-            &--back,
-            &--options {
-                &:hover {
-                    background-color: $color-grey-dark-3;
-                }
-
-                &-svg {
-                    fill: $color-primary;
-                }
-            }
-            &--img {
-            }
-            &--content {
-                &-name {
-                    color: lighten($color-grey-dark-1, 60%);
-                }
-                &-status {
-                    color: lighten($color-grey-dark-1, 40%);
-                }
-            }
+    &__main {
+        &--container {
         }
-        &__field {
-        }
-        &__main {
-            &--container {
-            }
-            &--message {
-                &-in {
-                    background-color: $color-grey-dark-1;
-                    color: lighten($color-grey-dark-1, 55%);
-                    border-color: $color-grey-dark-3;
-                    &-span {
-                        color: lighten($color-grey-dark-1, 55%);
-                    }
-                }
-                &-out {
-                    background-color: darken($color-primary, 5%);
-                    color: $color-grey-dark-1;
-                    border-color: $color-primary;
-                    &-span {
-                        color: $color-grey-dark-1;
-                    }
-                    &-info {
-                        &--svg {
-                            fill: lighten($color-grey-dark-1, 15%);
-                        }
-                    }
-                }
-            }
-            &--date,
-            &--date-fix {
-                &-span {
-                    background-color: $color-grey-dark-1;
-                    border-color: $color-primary;
-                }
-            }
-            &--date {
-                &-span {
-                }
-            }
-            &--date-fix {
-                &-span {
-                }
-            }
-        }
-        &__footer {
-            &--form {
-            }
-            &--input {
-                background-color: lighten($color-grey-dark-1, 2.5%);
-                color: lighten($color-grey-dark-1, 65%);
-                border-color: $color-primary;
-                caret-color: $color-primary;
-                &:focus {
-                    background-color: $color-grey-dark-1;
-                    box-shadow: 0 0 1rem lighten($color-grey-dark-1, 25%);
-                }
-                &:placeholder {
-                }
-            }
-
-            &--emoji,
-            &--location,
-            &--attach,
-            &--camera,
-            &--send {
-                &:hover {
-                    background-color: $color-primary;
-                }
-                &-svg {
-                    fill: lighten($color-grey-dark-1, 50%);
-                }
-                &:hover > .chat-box-user__footer--emoji-svg,
-                &:hover > .chat-box-user__footer--camera-svg,
-                &:hover > .chat-box-user__footer--attach-svg,
-                &:hover > .chat-box-user__footer--location-svg {
-                    fill: $color-grey-dark-1;
-                }
-            }
-
-            &--emoji {
-            }
-            &--location {
-            }
-            &--attach {
-            }
-            &--camera {
-            }
-
-            &--send {
-                background-color: $color-primary;
-
-                &:disabled {
-                    background-color: $color-primary-dark;
-                }
-                &:hover {
-                    background-color: $color-primary-light;
-                    box-shadow: 0 0 1rem lighten($color-grey-dark-1, 25%);
-                }
-                &-svg {
-                    fill: $color-grey-dark-1;
-                }
-            }
-        }
-        // Drop
-        &__drop {
+        &--message {
             &-in {
                 background-color: $color-grey-dark-1;
-                box-shadow: 0.2rem 0.2rem 1rem 0.1rem $color-grey-dark-1;
-                &--svg {
-                    fill: darken($color-primary, 5%);
+                color: lighten($color-grey-dark-1, 55%);
+                border-color: $color-grey-dark-3;
+                &-span {
+                    color: lighten($color-grey-dark-1, 55%);
                 }
             }
             &-out {
-                background-color: darken($color-primary, 5%);
-                box-shadow: -0.2rem 0.2rem 0.5rem 0.1rem darken($color-primary, 5%);
-                &--svg {
-                    fill: $color-grey-dark-1;
+                background-color: $color-primary;
+                color: $color-grey-dark-1;
+                border-color: $color-primary;
+                &-span {
+                    color: $color-grey-dark-1;
                 }
-            }
-        }
-    }
-    .chat-box-drag {
-        &--svg {
-            fill: lighten($color-grey-dark-1, 50%);
-        }
-    }
-    // Chat Profile
-    .chat-profile {
-        // User
-        &__user,
-        &__stranger,
-        &__friend {
-            &-pic,
-            &-about {
-                background-color: $color-grey-dark-1;
-            }
-            // Pic
-            &-pic {
-                &--img {
-                }
-                &--label {
-                    background-color: $color-primary;
-                }
-                &--svg {
-                    fill: $color-grey-dark-1;
-                }
-
-                &--name {
-                }
-            }
-            // About
-            &-about {
-                &--form {
-                }
-                &--label {
-                }
-                &--edit {
-                }
-                &--input {
-                    background-color: $color-grey-dark-2;
-                    color: lighten($color-grey-dark-2, 70%);
-
-                    &:disabled {
-                        color: lighten($color-grey-dark-2, 60%);
-                        background-color: $color-grey-dark-1;
+                &-info {
+                    &--svg {
+                        fill: lighten($color-grey-dark-1, 15%);
                     }
                 }
-                &--svg {
-                    fill: $color-primary;
-                }
             }
         }
-        // User
-        &__user {
-            &-pic {
-                &--upload {
-                }
-                &--input {
-                }
+        &--date,
+        &--date-fix {
+            &-span {
+                background-color: $color-grey-dark-1;
+                border-color: $color-primary;
             }
+        }
+        &--date {
+            &-span {
+            }
+        }
+        &--date-fix {
+            &-span {
+            }
+        }
+    }
+    &__footer {
+        &--form {
+        }
+        &--input {
+            background-color: lighten($color-grey-dark-1, 2.5%);
+            color: lighten($color-grey-dark-1, 65%);
+            border-color: $color-primary;
+            caret-color: $color-primary;
+            &:focus {
+                background-color: $color-grey-dark-1;
+                box-shadow: 0 0 1rem lighten($color-grey-dark-1, 25%);
+            }
+            &:placeholder {
+            }
+        }
 
-            &--update {
+        &--emoji,
+        &--location,
+        &--attach,
+        &--camera,
+        &--send {
+            &:hover {
                 background-color: $color-primary;
-                color: $color-grey-dark-2;
-
-                &:hover {
-                    background-color: $color-primary-light;
-                }
             }
-        }
-        // Stranger
-        &__stranger {
-            &-add {
-                &--friend {
-                    background-color: $color-primary;
-                }
-                &--svg {
-                    fill: $color-grey-dark-1;
-                }
+            &-svg {
+                fill: lighten($color-grey-dark-1, 50%);
+            }
+            &:hover > &-svg {
+                fill: $color-grey-dark-1;
             }
         }
 
-        // Friend
-        &__friend {
-            &-remove {
-                &--stranger {
-                    background-color: $color-primary;
+        &--emoji {
+        }
+        &--location {
+        }
+        &--attach {
+        }
+        &--camera {
+        }
+
+        &--send {
+            background-color: $color-primary;
+
+            &:disabled {
+                background-color: $color-primary-dark;
+            }
+            &:hover {
+                background-color: $color-primary-light;
+                box-shadow: 0 0 1rem lighten($color-grey-dark-1, 25%);
+            }
+            &-svg {
+                fill: $color-grey-dark-1;
+            }
+        }
+    }
+    // Drop
+    &__drop {
+        &-in {
+            background-color: $color-grey-dark-1;
+            box-shadow: 0.2rem 0.2rem 1rem 0.1rem $color-grey-dark-1;
+            &--svg {
+                fill: $color-primary;
+            }
+        }
+        &-out {
+            background-color: $color-primary;
+            box-shadow: -0.2rem 0.2rem 0.5rem 0.1rem $color-primary;
+            &--svg {
+                fill: $color-grey-dark-1;
+            }
+        }
+    }
+}
+.chat-box-drag {
+    &--svg {
+        fill: lighten($color-grey-dark-1, 50%);
+    }
+}
+// Chat Profile
+.chat-profile {
+    // User
+    &__user,
+    &__stranger,
+    &__friend {
+        &-pic,
+        &-about {
+            background-color: $color-grey-dark-1;
+        }
+        // Pic
+        &-pic {
+            &--img {
+            }
+            &--label {
+                background-color: $color-primary;
+            }
+            &--svg {
+                fill: $color-grey-dark-1;
+            }
+
+            &--name {
+            }
+        }
+        // About
+        &-about {
+            &--form {
+            }
+            &--label {
+            }
+            &--edit {
+            }
+            &--input {
+                background-color: $color-grey-dark-2;
+                color: lighten($color-grey-dark-2, 70%);
+
+                &:disabled {
+                    color: lighten($color-grey-dark-2, 60%);
+                    background-color: $color-grey-dark-1;
                 }
-                &--svg {
-                    fill: $color-grey-dark-1;
-                }
+            }
+            &--svg {
+                fill: $color-primary;
+            }
+        }
+    }
+    // User
+    &__user {
+        &-pic {
+            &--upload {
+            }
+            &--input {
+            }
+        }
+
+        &--update {
+            background-color: $color-primary;
+            color: $color-grey-dark-2;
+
+            &:hover {
+                background-color: $color-primary-light;
+            }
+        }
+    }
+    // Stranger
+    &__stranger {
+        &-add {
+            &--friend {
+                background-color: $color-primary;
+            }
+            &--svg {
+                fill: $color-grey-dark-1;
             }
         }
     }
 
-    .copyright {
-    }
-    .created-by {
-        p {
+    // Friend
+    &__friend {
+        &-remove {
+            &--stranger {
+                background-color: $color-primary;
+            }
+            &--svg {
+                fill: $color-grey-dark-1;
+            }
         }
-        &--svg {
-            fill: $color-heart;
-        }
-    }
-    .developers {
-        color: $color-primary-light;
-    }
-
-    // ScrollBar
-    ::-webkit-scrollbar {
-    }
-
-    ::-webkit-scrollbar-track {
-        background-color: $color-grey-dark-2;
-    }
-    ::-webkit-scrollbar-thumb {
-        background-color: $color-primary;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-        background-color: $color-primary-light;
     }
 }
 
-// @include darkThemeColor($color-primary, $color-primary-light, $color-primary-dark);
-
-.dark {
-    @include darkThemeColor($color-primary, $color-primary-light, $color-primary-dark);
+.copyright {
+}
+.created-by {
+    p {
+    }
+    &--svg {
+        fill: $color-heart;
+    }
+}
+.developers {
+    color: $color-primary-light;
 }
 
-// Change primary color in dark theme
-.dark-green {
-    @include darkThemeColor($color-primary-green, $color-primary-green-light, $color-primary-green-dark);
+// ScrollBar
+::-webkit-scrollbar {
 }
-.dark-blue {
-    @include darkThemeColor($color-primary-blue, $color-primary-blue-light, $color-primary-blue-dark);
+
+::-webkit-scrollbar-track {
+    background-color: $color-grey-dark-2;
 }
-.dark-purple {
-    @include darkThemeColor($color-primary-purple, $color-primary-purple-light, $color-primary-purple-dark);
+::-webkit-scrollbar-thumb {
+    background-color: $color-primary;
 }
-.dark-red {
-    @include darkThemeColor($color-primary-red, $color-primary-red-light, $color-primary-red-dark);
-}
-.dark-yellow {
-    @include darkThemeColor($color-primary-yellow, $color-primary-yellow-light, $color-primary-yellow-dark);
-}
-.dark-grey {
-    @include darkThemeColor($color-primary-grey, $color-primary-grey-light, $color-primary-grey-dark);
-}
-.dark-white {
-    @include darkThemeColor($color-white, $color-white, $color-white);
+::-webkit-scrollbar-thumb:hover {
+    background-color: $color-primary-light;
 }

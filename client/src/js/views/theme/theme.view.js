@@ -1,7 +1,6 @@
-import { elements, select } from '../../utils/base.util';
 export const renderTheme = theme => {
-    select(elements.App).classList.add(theme);
+    document.documentElement.setAttribute('data-theme', theme);
 };
 export const clearTheme = theme => {
-    select(elements.App).classList.remove(theme);
+    document.documentElement.removeAttribute('data-theme');
 };
