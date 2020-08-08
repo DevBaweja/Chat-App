@@ -592,6 +592,7 @@ body {
     &__stranger,
     &__friend {
         &-pic,
+        &-avatar,
         &-about {
             background-color: $color-grey-dark-1;
         }
@@ -646,6 +647,12 @@ body {
 
             &:hover {
                 background-color: $color-primary-light;
+            }
+        }
+
+        &-avatar {
+            &--icon {
+                background-color: $color-primary;
             }
         }
     }

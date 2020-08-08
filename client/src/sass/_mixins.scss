@@ -1,3 +1,4 @@
+// Flex
 @mixin flex($justify: center) {
     display: flex;
     align-items: center;
@@ -8,6 +9,7 @@
     flex-direction: $direction;
 }
 
+// Grid
 @mixin grid() {
     display: grid;
 }

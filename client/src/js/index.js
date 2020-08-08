@@ -27,17 +27,18 @@ const init = () => {
     // Init
     initController.controlInit();
     // Theme
-    themeController.controlTheme({ mode: mode.theme.dark });
+    themeController.controlTheme({ mode: mode.theme.darkGrey });
 
     // Header
     headerController.controlHeader({ mode: mode.header.user });
     // Chat Panel
     chatPanelController.controlChatPanel({ mode: mode.chatPanel.user.recentChat });
     // Chat Box
-    chatBoxController.controlChatBox({ mode: mode.chatBox.user });
+    chatBoxController.controlChatBox({ mode: mode.chatBox.user, data: { theme: state.theme.mode } });
 
     // Chat Profile
     chatProfileController.controlChatProfile({ mode: mode.chatProfile.setting });
+    chatProfileController.controlChatProfile({ mode: mode.chatProfile.user });
 
     addListeners();
 };

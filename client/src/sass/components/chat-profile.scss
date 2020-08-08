@@ -4,7 +4,10 @@
     &__user,
     &__stranger,
     &__friend {
-        padding: 0.5rem;
+        margin: 0.5rem;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        max-height: 60rem;
         &--form {
             @include flex();
             @include direction(column);
@@ -12,6 +15,7 @@
         }
 
         &-pic,
+        &-avatar,
         &-about {
             border-radius: 0.5rem;
             margin: 0.5rem;
@@ -91,6 +95,49 @@
                 display: none;
                 visibility: hidden;
                 opacity: 0;
+            }
+        }
+        // Avatar
+        &-avatar {
+            @include flex();
+            @include direction(column);
+            align-items: stretch;
+            padding: 0.75rem 0;
+            &--label {
+                font-size: $font-size-jayesh;
+                margin-left: 2rem;
+                margin-bottom: 0.5rem;
+            }
+            &--container {
+                @include flex(space-evenly);
+                margin: 0.5rem 0;
+            }
+            &--group {
+                @include flex();
+                cursor: pointer;
+                position: relative;
+            }
+            &--icon {
+                visibility: hidden;
+                position: absolute;
+                top: 60%;
+                left: 60%;
+                height: 2rem;
+                width: 2rem;
+                border-radius: 50%;
+                @include flex();
+                &-selected {
+                    visibility: visible;
+                }
+            }
+            &--svg {
+                height: 1rem;
+                width: 1rem;
+            }
+            &--img {
+                border-radius: 50%;
+                height: 4rem;
+                width: 4rem;
             }
         }
         // About

@@ -1,5 +1,5 @@
 // Utils
-import { elementStrings,select } from '../../utils/base.util';
+import { elementStrings, select } from '../../utils/base.util';
 
 // Views
 import * as chatPanelView from '../../views/chat-panel.view';
@@ -20,12 +20,11 @@ const controlChatPanelDropdown = event => {
     // data
     chatPanelDropdownView.renderChatPanelDropdown({ coordinate });
     // 2) Add Event Listener
-    select(elementStrings.dropdowns.chatPanelDropdown)
-        .addEventListener('click', controlAboutMeDropdownItems);
+    select(elementStrings.dropdowns.chatPanelDropdown).addEventListener('click', controlAboutMeDropdownItems);
 };
 
-const controlAboutMeDropdownItems = event => {
-    const item = event.target.closest(elementStrings.dropdownItems.chatPanelDropdownItem);
+const controlAboutMeDropdownItems = ({ target }) => {
+    const item = target.closest(elementStrings.dropdownItems.chatPanelDropdownItem);
     if (!item) return;
     console.log(item.dataset.type);
 };

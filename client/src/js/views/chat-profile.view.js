@@ -99,7 +99,7 @@ export const renderUser = () => {
     <div class="chat-profile__user">
     <form class="chat-profile__user--form">
         <div class="chat-profile__user-pic">
-            <img src="img//avatar/boy.png" class="chat-profile__user-pic--img" alt="" />
+            <img src="img/avatar/boy.png" class="chat-profile__user-pic--img" alt="" />
             <div class="chat-profile__user-pic--upload">
                 <label class="chat-profile__user-pic--label" for="photo" title="Change profile pic">
                     <svg class="chat-profile__user-pic--svg">
@@ -110,7 +110,45 @@ export const renderUser = () => {
             </div>
             <div class="chat-profile__user-pic--name">${name}</div>
         </div>
-
+        <div class="chat-profile__user-avatar">
+            <div class="chat-profile__user-avatar--label">
+                Choose your avatar
+            </div>
+            <div class="chat-profile__user-avatar--container">
+                <div class="chat-profile__user-avatar--group" title="Boy">
+                    <img src="img/avatar/boy.png" alt="" class="chat-profile__user-avatar--img"/>
+                    <div class="chat-profile__user-avatar--icon chat-profile__user-avatar--icon-selected">
+                        <svg class="chat-profile__user-avatar--svg">
+                            <use xlink:href="svg/sprite.svg#icon-avatar"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="chat-profile__user-avatar--group" title="Girl">
+                    <img src="img/avatar/girl.png" alt="" class="chat-profile__user-avatar--img"/>
+                    <div class="chat-profile__user-avatar--icon">
+                        <svg class="chat-profile__user-avatar--svg">
+                            <use xlink:href="svg/sprite.svg#icon-avatar"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="chat-profile__user-avatar--group" title="Men">
+                    <img src="img/avatar/men.png" alt="" class="chat-profile__user-avatar--img"/> 
+                    <div class="chat-profile__user-avatar--icon">
+                        <svg class="chat-profile__user-avatar--svg">
+                            <use xlink:href="svg/sprite.svg#icon-avatar"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="chat-profile__user-avatar--group" title="Women">
+                    <img src="img/avatar/women.png" alt="" class="chat-profile__user-avatar--img"/> 
+                    <div class="chat-profile__user-avatar--icon">
+                        <svg class="chat-profile__user-avatar--svg">
+                            <use xlink:href="svg/sprite.svg#icon-avatar"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="chat-profile__user-about">
             <div class="chat-profile__user-about--group">
                 <div class="chat-profile__user-about--edit">

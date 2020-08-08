@@ -56,7 +56,10 @@ const recentChat = () => {
     list.addEventListener('dragend', event => {
         if (state.chatBox.mode === mode.chatBox.drag)
             // User Mode is chat box
-            chatBoxController.controlChatBox({ mode: mode.chatBox.user, data: { user: 'id' } });
+            chatBoxController.controlChatBox({
+                mode: mode.chatBox.user,
+                data: { user: 'id', theme: state.theme.mode },
+            });
     });
     // Click
     list.addEventListener('click', event => {
@@ -74,6 +77,6 @@ const recentChat = () => {
         // Add Selected
         chatPanelView.addSelected(item);
         // User Mode of chat box
-        chatBoxController.controlChatBox({ mode: mode.chatBox.user, data: { user: user } });
+        chatBoxController.controlChatBox({ mode: mode.chatBox.user, data: { user: user, theme: state.theme.mode } });
     });
 };

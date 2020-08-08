@@ -99,6 +99,7 @@ export const mode = {
         user: 'user',
         friend: 'friend',
         stranger: 'stranger',
+        setting: 'setting',
     },
     theme: {
         dark: 'dark',

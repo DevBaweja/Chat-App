@@ -7,8 +7,8 @@
 // Themes
 [data-theme='dark'] {
     --color-primary: #01c0c8;
-    --color-primary-dark: #31f3fa;
-    --color-primary-light: #087d81;
+    --color-primary-light: #31f3fa;
+    --color-primary-dark: #087d81;
 }
 [data-theme='dark-green'] {
     --color-primary: #61f761;
@@ -91,9 +91,9 @@ $color-grey-light-3: #888;
 $color-grey-light-4: #6f6f6f;
 
 // Dark
-$color-grey-dark-1: #1a1a1a;
-$color-grey-dark-2: #222;
-$color-grey-dark-3: #333;
+$color-grey-dark-1: #111;
+$color-grey-dark-2: #1a1a1a;
+$color-grey-dark-3: #2a2a2a;
 
 // Shadows
 $shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.1);

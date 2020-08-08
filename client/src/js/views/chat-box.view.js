@@ -37,9 +37,20 @@ export const renderIdeal = ({ theme }) => {
     `;
     select(elements.ChatBox).insertAdjacentHTML('beforeend', markup);
 };
-export const renderUser = () => {
+export const renderUser = ({ theme }) => {
     const date = '2020-08-01T00:00:00.000+00:00';
 
+    const color = {
+        'dark-1': 'rgba(0,0,0,0.4)',
+        'dark-2': 'rgba(0,0,0,0.1)',
+        'dark-3': 'rgba(255, 255, 255, 0.035)',
+        'dark-4': 'rgba(255,255,255,0.085)',
+        'dark-5': 'rgba(255,255,255,0.05)',
+        'dark-6': 'rgba(255,255,255,0.01)',
+        'dark-7': 'rgba(255,255,255,0.08)',
+        'dark-8': 'rgba(0,0,0,0.6)',
+        'dark-9': 'rgba(0,0,0,0.6)',
+    };
     const messageIn = () => `
     <li class="chat-box-user__main--item">
         <div class="chat-box-user__main--message">
@@ -112,15 +123,15 @@ export const renderUser = () => {
             </div>
         
         </header>
-        <div class="chat-box-user__field" style="background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), url('img/background-image/chat-box-user.jpg')">
+        <div class="chat-box-user__field" style="background-image: linear-gradient(to right bottom,
+            ${color['dark-1']},
+            ${color['dark-1']}),
+        url('img/background-image/dark-1.jpg');">
+        
             <main class="chat-box-user__main">
                 <div class="chat-box-user__main--date-fix" title="Conversation Date">
                     <span class="chat-box-user__main--date-fix-span">${new Date(date).toLocaleDateString([], {
                         dateStyle: 'long',
-                        // weekday: 'short',
-                        // month: 'short',
-                        // year: 'numeric',
-                        // day: 'numeric',
                     })}</span>
                 </div>
                 <div class="chat-box-user__main--container">
