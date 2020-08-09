@@ -101,7 +101,7 @@ body {
         &--svg {
             fill: lighten($color-grey-dark-1, 50%);
             // Types
-            &-user {
+            &-profile {
             }
             &-theme {
             }
@@ -144,14 +144,18 @@ body {
         &--svg {
             fill: lighten($color-grey-dark-1, 50%);
 
-            &-dot {
+            &-read,
+            &-unread {
             }
-            &-star {
+            &-add,
+            &-remove {
                 fill: $color-primary;
             }
-            &-pin {
+            &-pin,
+            &-unpin {
             }
-            &-mute {
+            &-mute,
+            &-unmute {
             }
             &-delete {
                 fill: $color-danger;

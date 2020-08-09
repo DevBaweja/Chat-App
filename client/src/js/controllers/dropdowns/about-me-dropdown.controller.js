@@ -21,20 +21,20 @@ const controlAboutMeDropdownItems = event => {
     if (!item) return;
     const { type } = item.dataset;
     switch (type) {
-        case actions.aboutMe.toggleTheme:
-            toggleTheme();
+        case actions.aboutMe.theme:
+            theme();
             break;
-        case actions.aboutMe.myProfile:
-            myProfile();
+        case actions.aboutMe.profile:
+            profile();
             break;
     }
 };
 
-const toggleTheme = () => {
+const theme = () => {
     themeController.controlTheme({ mode: mode.theme.darkBlue });
 };
 
-const myProfile = () => {
+const profile = () => {
     chatProfileController.controlChatProfile({ mode: mode.chatProfile.user });
 };
 
