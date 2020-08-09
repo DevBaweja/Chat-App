@@ -38,9 +38,9 @@ const empty = ({ data }) => {
     // Render Empty
     chatBoxView.renderEmpty(data);
 };
-const user = () => {
+const user = ({ data }) => {
     // Render User
-    chatBoxView.renderUser();
+    chatBoxView.renderUser(data);
     // Add Event Listeners
     select(elementStrings.chatBox.header.back).addEventListener('click', () => {
         controlChatBox({ mode: mode.chatBox.empty, data: { color: state.theme.color } });

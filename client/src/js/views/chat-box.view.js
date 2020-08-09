@@ -37,10 +37,10 @@ export const renderIdeal = ({ color }) => {
     `;
     select(elements.ChatBox).insertAdjacentHTML('beforeend', markup);
 };
-export const renderUser = () => {
+export const renderUser = ({ theme }) => {
     const date = '2020-08-01T00:00:00.000+00:00';
 
-    const color = {
+    const type = {
         'dark-1': 'rgba(0,0,0,0.4)',
         'dark-2': 'rgba(0,0,0,0.1)',
         'dark-3': 'rgba(255, 255, 255, 0.035)',
@@ -50,8 +50,9 @@ export const renderUser = () => {
         'dark-7': 'rgba(255,255,255,0.08)',
         'dark-8': 'rgba(0,0,0,0.6)',
         'dark-9': 'rgba(0,0,0,0.6)',
-        'light-1': 'rgba(0,0,0,0)',
+        'light-1': 'rgba(0,0,0,0.06)',
     };
+    const current = `${theme}-1`;
     const messageIn = () => `
     <li class="chat-box-user__main--item">
         <div class="chat-box-user__main--message">
@@ -125,9 +126,9 @@ export const renderUser = () => {
         
         </header>
         <div class="chat-box-user__field" style="background-image: linear-gradient(to right bottom,
-            ${color['dark-1']},
-            ${color['dark-1']}),
-        url('img/background-image/dark-1.jpg');">
+            ${type[current]},
+            ${type[current]}),
+        url('img/background-image/${current}.jpg');">
         
             <main class="chat-box-user__main">
                 <div class="chat-box-user__main--date-fix" title="Conversation Date">

@@ -188,7 +188,7 @@
             &--input {
                 border-bottom-color: transparent;
                 background-color: $color-grey-2;
-                color: $color-white;
+                @include adjust($color-grey-1, 50%, $theme, color);
                 &::placeholder {
                     @include adjust($color-grey-2, 50%, $theme, color);
                 }
@@ -232,7 +232,7 @@
             fill: $color-primary;
         }
         &__name {
-            color: $color-white;
+            color: $color-primary;
         }
     }
     // Search

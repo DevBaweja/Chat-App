@@ -9,5 +9,13 @@ class Theme {
     setColor(color) {
         this.color = color;
     }
+    toggleMode() {
+        switch (this.mode) {
+            case 'light':
+                return 'dark';
+            case 'dark':
+                return 'light';
+        }
+    }
 }
 export default Theme;

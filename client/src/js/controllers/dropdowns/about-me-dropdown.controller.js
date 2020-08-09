@@ -1,3 +1,4 @@
+import state from '../../state';
 // Utils
 import { elementStrings, select, mode, actions } from '../../utils/base.util';
 // Controllers
@@ -41,7 +42,7 @@ const controlAboutMeDropdownItems = event => {
 // Actions
 const theme = () => {
     console.log('Theme');
-    themeController.controlTheme({ mode: mode.theme.dark, color: mode.theme.color.grey });
+    themeController.controlTheme({ mode: state.theme.toggleMode() });
 };
 
 const profile = () => {
