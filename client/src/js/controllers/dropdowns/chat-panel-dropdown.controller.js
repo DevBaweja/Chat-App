@@ -1,5 +1,5 @@
 // Utils
-import { elementStrings, select } from '../../utils/base.util';
+import { elementStrings, select, actions } from '../../utils/base.util';
 
 // Views
 import * as chatPanelView from '../../views/chat-panel.view';
@@ -23,10 +23,68 @@ const controlChatPanelDropdown = event => {
     select(elementStrings.dropdowns.chatPanelDropdown).addEventListener('click', controlAboutMeDropdownItems);
 };
 
+// Items
 const controlAboutMeDropdownItems = ({ target }) => {
     const item = target.closest(elementStrings.dropdownItems.chatPanelDropdownItem);
-    if (!item) return;
-    console.log(item.dataset.type);
+    const { type } = item.dataset;
+    switch (type) {
+        case actions.chatPanel.read:
+            read();
+            break;
+        case actions.chatPanel.unread:
+            unread();
+            break;
+        case actions.chatPanel.pin:
+            pin();
+            break;
+        case actions.chatPanel.unpin:
+            unpin();
+            break;
+        case actions.chatPanel.mute:
+            mute();
+            break;
+        case actions.chatPanel.unmute:
+            unmute();
+            break;
+        case actions.chatPanel.add:
+            add();
+            break;
+        case actions.chatPanel.remove:
+            remove();
+            break;
+        case actions.chatPanel.delete:
+            deleteChat();
+            break;
+    }
+};
+
+// Actions
+const read = () => {
+    console.log('Read');
+};
+const unread = () => {
+    console.log('Unread');
+};
+const pin = () => {
+    console.log('Pin');
+};
+const unpin = () => {
+    console.log('Unpin');
+};
+const mute = () => {
+    console.log('Mute');
+};
+const unmute = () => {
+    console.log('Unmute');
+};
+const add = () => {
+    console.log('Add');
+};
+const remove = () => {
+    console.log('Remove');
+};
+const deleteChat = () => {
+    console.log('Delete');
 };
 
 export default controlChatPanelDropdown;

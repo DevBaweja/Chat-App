@@ -1,5 +1,5 @@
-import { renderDropdowns, assignCoordinate } from './dropdowns.view';
-import { elementStrings, elementClasses } from '../../utils/base.util';
+import { renderDropdowns } from './dropdowns.view';
+import { elementClasses } from '../../utils/base.util';
 
 export const renderMessageOutDropdown = ({ coordinate }) => {
     const data = {

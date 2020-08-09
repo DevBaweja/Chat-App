@@ -16,26 +16,44 @@ const controlAboutMeDropdown = event => {
     // 2) Add Event Listener
     select(elementStrings.dropdowns.aboutMeDropdown).addEventListener('click', controlAboutMeDropdownItems);
 };
+
+// Items
 const controlAboutMeDropdownItems = event => {
     const item = event.target.closest(elementStrings.dropdownItems.aboutMeDropdownItem);
     if (!item) return;
     const { type } = item.dataset;
     switch (type) {
+        case actions.aboutMe.profile:
+            profile();
+            break;
         case actions.aboutMe.theme:
             theme();
             break;
-        case actions.aboutMe.profile:
-            profile();
+        case actions.aboutMe.setting:
+            setting();
+            break;
+        case actions.aboutMe.logout:
+            logout();
             break;
     }
 };
 
+// Actions
 const theme = () => {
+    console.log('Theme');
     themeController.controlTheme({ mode: mode.theme.darkBlue });
 };
 
 const profile = () => {
+    console.log('Profile');
     chatProfileController.controlChatProfile({ mode: mode.chatProfile.user });
+};
+
+const setting = () => {
+    console.log('Setting');
+};
+const logout = () => {
+    console.log('Logout');
 };
 
 export default controlAboutMeDropdown;

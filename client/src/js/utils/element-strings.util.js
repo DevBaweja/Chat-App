@@ -33,6 +33,10 @@ const elementStrings = {
     dropdownItems: {
         aboutMeDropdownItem: '.about-me__dropdown--item',
         chatPanelDropdownItem: '.chat-panel-user__dropdown--item',
+        chatBoxDropdownItem: {
+            in: '.chat-box-user-in__dropdown--item',
+            out: '.chat-box-user-out__dropdown--item',
+        },
     },
     drags: {
         chatPanelDrag: '.chat-box-drag',

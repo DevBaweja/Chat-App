@@ -5,9 +5,25 @@ const actions = {
         setting: 'setting',
         logout: 'logout',
     },
-    chatPanel: {},
+    chatPanel: {
+        read: 'read',
+        unread: 'unread',
+        pin: 'pin',
+        unpin: 'unpin',
+        mute: 'mute',
+        unmute: 'unmute',
+        add: 'add',
+        remove: 'remove',
+        delete: 'delete',
+    },
     chatBox: {
-        in: {},
+        in: {
+            copy: 'copy',
+            like: 'like',
+            unlike: 'unlike',
+            reply: 'reply',
+            delete: 'delete',
+        },
         out: {
             copy: 'copy',
             edit: 'edit',

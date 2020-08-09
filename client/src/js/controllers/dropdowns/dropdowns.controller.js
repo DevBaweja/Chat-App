@@ -4,9 +4,9 @@ import { elementStrings } from '../../utils/base.util';
 import controlAboutMeDropdown from './about-me-dropdown.controller';
 import controlChatPanelDropdown from './chat-panel-dropdown.controller';
 import {
-    controlMessageOutDropdown,
-    controlMessageInDropdown,
-    controlOptionsDropdown,
+    controlChatBoxOutDropdown,
+    controlChatBoxInDropdown,
+    controlChatBoxOptionsDropdown,
 } from './chat-box-dropdown.controller';
 
 // Models
@@ -30,21 +30,21 @@ export const controlDropdowns = event => {
             controlChatPanelDropdown(event);
             break;
 
-        // Message Out Dropdown
+        // Chat Box Out Dropdown
         case target.matches(`${elementStrings.drops.chatBoxDrop.out},${elementStrings.drops.chatBoxDrop.out} *`):
-            controlMessageOutDropdown(event);
+            controlChatBoxOutDropdown(event);
             break;
 
-        // Message In Dropdown
+        // Chat Box In Dropdown
         case target.matches(`${elementStrings.drops.chatBoxDrop.in},${elementStrings.drops.chatBoxDrop.in} *`):
-            controlMessageInDropdown(event);
+            controlChatBoxInDropdown(event);
             break;
 
         // Chat Box Option Dropdown
         case target.matches(
             `${elementStrings.drops.chatBoxDrop.options},${elementStrings.drops.chatBoxDrop.options} *`
         ):
-            controlOptionsDropdown(event);
+            controlChatBoxOptionsDropdown(event);
             break;
     }
 };
