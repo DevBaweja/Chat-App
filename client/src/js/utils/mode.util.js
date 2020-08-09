@@ -24,13 +24,16 @@ const mode = {
     },
     theme: {
         dark: 'dark',
-        darkGreen: 'dark-green',
-        darkBlue: 'dark-blue',
-        darkPurple: 'dark-purple',
-        darkRed: 'dark-red',
-        darkYellow: 'dark-yellow',
-        darkGrey: 'dark-grey',
-        darkWhite: 'dark-white',
+        light: 'light',
+        color: {
+            green: 'green',
+            blue: 'blue',
+            purple: 'purple',
+            red: 'red',
+            yellow: 'yellow',
+            grey: 'grey',
+            white: 'white',
+        },
     },
 };
 export default mode;

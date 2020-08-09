@@ -41,7 +41,7 @@ const controlAboutMeDropdownItems = event => {
 // Actions
 const theme = () => {
     console.log('Theme');
-    themeController.controlTheme({ mode: mode.theme.darkBlue });
+    themeController.controlTheme({ mode: mode.theme.dark, color: mode.theme.color.grey });
 };
 
 const profile = () => {

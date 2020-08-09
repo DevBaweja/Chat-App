@@ -12,12 +12,15 @@ export const controlTheme = info => {
     if (!state.theme) state.theme = new Theme(info);
     // Prepare UI
     themeView.clearTheme();
+    themeView.clearColor();
 
     // Changing Data
     state.theme.setMode(info.mode);
+    state.theme.setColor(info.color);
 
     // Render it to App
     themeView.renderTheme(state.theme.mode);
+    themeView.renderColor(state.theme.color);
 
     // SVG
     controlSvg();
@@ -27,5 +30,5 @@ const controlSvg = () => {
     if (!state.chatBox) return;
     const valids = [mode.chatBox.ideal, mode.chatBox.empty];
     const isValid = valids.find(valid => valid === state.chatBox.mode);
-    if (isValid) chatBoxController.controlChatBox({ mode: state.chatBox.mode, data: { theme: state.theme.mode } });
+    if (isValid) chatBoxController.controlChatBox({ mode: state.chatBox.mode, data: { color: state.theme.color } });
 };

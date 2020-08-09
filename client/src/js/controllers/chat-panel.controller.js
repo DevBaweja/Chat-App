@@ -58,7 +58,7 @@ const recentChat = () => {
             // User Mode is chat box
             chatBoxController.controlChatBox({
                 mode: mode.chatBox.user,
-                data: { user: 'id', theme: state.theme.mode },
+                data: { user: 'id' },
             });
     });
     // Click
@@ -77,6 +77,6 @@ const recentChat = () => {
         // Add Selected
         chatPanelView.addSelected(item);
         // User Mode of chat box
-        chatBoxController.controlChatBox({ mode: mode.chatBox.user, data: { user: user, theme: state.theme.mode } });
+        chatBoxController.controlChatBox({ mode: mode.chatBox.user, data: { user: user, color: state.theme.color } });
     });
 };

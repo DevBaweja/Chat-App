@@ -38,12 +38,12 @@ const empty = ({ data }) => {
     // Render Empty
     chatBoxView.renderEmpty(data);
 };
-const user = ({ data }) => {
+const user = () => {
     // Render User
-    chatBoxView.renderUser(data);
+    chatBoxView.renderUser();
     // Add Event Listeners
     select(elementStrings.chatBox.header.back).addEventListener('click', () => {
-        controlChatBox({ mode: mode.chatBox.empty, data: { theme: state.theme.mode } });
+        controlChatBox({ mode: mode.chatBox.empty, data: { color: state.theme.color } });
     });
 };
 const drag = ({ data }) => {
@@ -58,7 +58,7 @@ const drag = ({ data }) => {
     dropable.addEventListener('drop', event => {
         const user = event.dataTransfer.getData('user');
         // Model
-        if (user) controlChatBox({ mode: mode.chatBox.user, data: { theme: state.theme.mode } });
+        if (user) controlChatBox({ mode: mode.chatBox.user });
         // Remove Selected
         chatPanelView.removeSelected();
         // Getting Item

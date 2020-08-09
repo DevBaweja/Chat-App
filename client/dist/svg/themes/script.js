@@ -76,7 +76,7 @@ Object.keys(colors).forEach(key => {
         newTemplate = newTemplate.replace(reg, colors[key][type]);
     }
 
-    if (key !== 'dark') newTemplate = newTemplate.replace(`icon-${filename}-dark`, `icon-${filename}-dark-${key}`);
+    newTemplate = newTemplate.replace(`icon-${filename}`, `icon-${filename}-${key}`);
 
     str += newTemplate;
 });

@@ -3,13 +3,13 @@ import faker from 'faker';
 
 export const clearChatBox = () => (select(elements.ChatBox).innerHTML = '');
 
-export const renderEmpty = ({ theme }) => {
+export const renderEmpty = ({ color }) => {
     const markup = `
     <div class="chat-box-null">
         <div class="chat-box-null--container">
             <div class="chat-box-null--svg">
                 <svg>
-                    <use xlink:href="svg/themes/null.svg#icon-null-${theme}"></use>
+                    <use xlink:href="svg/themes/null.svg#icon-null-${color}"></use>
                 </svg>
             </div>
             <div class="chat-box-null--title">
@@ -20,13 +20,13 @@ export const renderEmpty = ({ theme }) => {
     `;
     select(elements.ChatBox).insertAdjacentHTML('beforeend', markup);
 };
-export const renderIdeal = ({ theme }) => {
+export const renderIdeal = ({ color }) => {
     const markup = `
     <div class="chat-box-ideal">
         <div class="chat-box-ideal--container">
             <div class="chat-box-ideal--svg">
                 <svg>
-                <use xlink:href="svg/themes/ideal.svg#icon-ideal-${theme}"></use>
+                <use xlink:href="svg/themes/ideal.svg#icon-ideal-${color}"></use>
                 </svg>
             </div>
             <div class="chat-box-ideal--title">
@@ -37,7 +37,7 @@ export const renderIdeal = ({ theme }) => {
     `;
     select(elements.ChatBox).insertAdjacentHTML('beforeend', markup);
 };
-export const renderUser = ({ theme }) => {
+export const renderUser = () => {
     const date = '2020-08-01T00:00:00.000+00:00';
 
     const color = {
@@ -104,7 +104,7 @@ export const renderUser = ({ theme }) => {
 
             <div class="chat-box-user__header--back" title="Go back">
                 <svg class="chat-box-user__header--back-svg">
-                <use xlink:href="svg/sprite.svg#icon-arrow-left"></use>
+                <use xlink:href="svg/sprite.svg#icon-back"></use>
                 </svg>
             </div>
 

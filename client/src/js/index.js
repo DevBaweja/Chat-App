@@ -27,14 +27,14 @@ const init = () => {
     // Init
     initController.controlInit();
     // Theme
-    themeController.controlTheme({ mode: mode.theme.darkGrey });
+    themeController.controlTheme({ mode: mode.theme.dark, color: mode.theme.color.red });
 
     // Header
     headerController.controlHeader({ mode: mode.header.user });
     // Chat Panel
     chatPanelController.controlChatPanel({ mode: mode.chatPanel.user.recentChat });
     // Chat Box
-    chatBoxController.controlChatBox({ mode: mode.chatBox.user, data: { theme: state.theme.mode } });
+    chatBoxController.controlChatBox({ mode: mode.chatBox.user });
 
     // Chat Profile
     chatProfileController.controlChatProfile({ mode: mode.chatProfile.setting });
