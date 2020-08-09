@@ -28,6 +28,7 @@ const init = () => {
     initController.controlInit();
     // Theme
     themeController.controlTheme({ mode: mode.theme.dark, color: mode.theme.color.red });
+    themeController.controlTheme({ mode: mode.theme.dark, color: mode.theme.color.green });
 
     // Header
     headerController.controlHeader({ mode: mode.header.user });

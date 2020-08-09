@@ -22,13 +22,11 @@
     grid-template-columns: $args;
 }
 
-// Dark Theme
-@mixin darkTheme($color, $lighten) {
-    background-color: $color;
-    color: lighten($color, $lighten);
-}
-
-@mixin lightTheme($color, $darken) {
-    background-color: $color;
-    color: darken($color, $darken);
+@mixin adjust($color, $percent: 50%, $theme: dark, $set: color) {
+    @if $theme == dark {
+        #{$set}: lighten($color, $percent);
+    }
+    @if $theme == light {
+        #{$set}: darken($color, $percent);
+    }
 }

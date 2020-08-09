@@ -4,7 +4,8 @@
     --color-primary-light: #087d81;
 }
 
-// Themes
+// ------------------------
+// Colors
 [data-color='green'] {
     --color-primary: #61f761;
     --color-primary-light: #91f991;
@@ -45,6 +46,18 @@ $color-primary: var(--color-primary);
 $color-primary-light: var(--color-primary-light);
 $color-primary-dark: var(--color-primary-dark);
 
+// --------------------------
+// Themes
+// Dark
+$color-grey-dark-1: #111;
+$color-grey-dark-2: #1a1a1a;
+$color-grey-dark-3: #2a2a2a;
+
+// Light
+$color-grey-light-1: #bbb;
+$color-grey-light-2: #a2a2a2;
+$color-grey-light-3: #888;
+
 // ----------------------------
 // Common Theme
 
@@ -53,7 +66,7 @@ $color-black: #000;
 $color-success: #20bf6b;
 $color-danger: #dc143c;
 $color-active: #0f0;
-$color-heart: red;
+$color-heart: #f00;
 
 // Font Weights
 // Available - 300,400,600,700
@@ -76,23 +89,6 @@ $font-size-large: 2rem;
 $font-size-larger: 2.2rem;
 $font-size-largest: 2.5rem;
 
-// ------------------------------
-// Dark Theme
-
-// Light
-$color-grey-light-1: #bbb;
-$color-grey-light-2: #a2a2a2;
-$color-grey-light-3: #888;
-$color-grey-light-4: #6f6f6f;
-
-// Dark
-$color-grey-dark-1: #111;
-$color-grey-dark-2: #1a1a1a;
-$color-grey-dark-3: #2a2a2a;
-
 // Shadows
 $shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.1);
 $shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
-
-// ------------------------------
-// Light Theme

@@ -13,7 +13,7 @@ export const renderAboutMeDropdown = ({ coordinate }) => {
             },
             {
                 type: 'setting',
-                text: 'My Settings',
+                text: 'Settings',
             },
             {
                 type: 'logout',

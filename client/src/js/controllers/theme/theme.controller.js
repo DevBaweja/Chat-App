@@ -11,12 +11,12 @@ export const controlTheme = info => {
     // Init Theme
     if (!state.theme) state.theme = new Theme(info);
     // Prepare UI
-    themeView.clearTheme();
+    themeView.clearTheme(state.theme.mode);
     themeView.clearColor();
 
     // Changing Data
-    state.theme.setMode(info.mode);
-    state.theme.setColor(info.color);
+    state.theme.setMode(info.mode || state.theme.mode);
+    state.theme.setColor(info.color || state.theme.color);
 
     // Render it to App
     themeView.renderTheme(state.theme.mode);
@@ -24,6 +24,8 @@ export const controlTheme = info => {
 
     // SVG
     controlSvg();
+    // ! For Development
+    window.controlTheme = controlTheme;
 };
 
 const controlSvg = () => {
