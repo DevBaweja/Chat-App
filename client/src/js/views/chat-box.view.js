@@ -50,6 +50,7 @@ export const renderUser = () => {
         'dark-7': 'rgba(255,255,255,0.08)',
         'dark-8': 'rgba(0,0,0,0.6)',
         'dark-9': 'rgba(0,0,0,0.6)',
+        'light-1': 'rgba(0,0,0,0)',
     };
     const messageIn = () => `
     <li class="chat-box-user__main--item">

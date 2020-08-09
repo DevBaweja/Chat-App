@@ -18,11 +18,11 @@
     }
     .main {
         background-color: $color-grey-2;
-        color: lighten($color-grey-2, 50%);
+        @include adjust($color-grey-2, 50%, $theme, color);
     }
     .footer {
         background-color: $color-grey-3;
-        color: lighten($color-grey-3, 50%);
+        @include adjust($color-grey-3, 50%, $theme, color);
     }
 
     // --------------------------
@@ -34,7 +34,7 @@
         // Dropdown
         &__dropdown {
             background-color: $color-grey-1;
-            color: lighten($color-grey-1, 50%);
+            @include adjust($color-grey-1, 50%, $theme, color);
             border-color: $color-primary;
 
             &--list {
@@ -45,7 +45,7 @@
                 }
             }
             &--svg {
-                fill: lighten($color-grey-1, 50%);
+                @include adjust($color-grey-3, 50%, $theme, fill);
             }
 
             &--span {
@@ -102,7 +102,7 @@
         // Dropdown
         &__dropdown {
             &--svg {
-                fill: lighten($color-grey-1, 50%);
+                @include adjust($color-grey-3, 50%, $theme, fill);
                 // Types
                 &-profile {
                 }
@@ -145,7 +145,7 @@
         // Dropdown
         &__dropdown {
             &--svg {
-                fill: lighten($color-grey-1, 50%);
+                @include adjust($color-grey-3, 50%, $theme, fill);
 
                 &-read,
                 &-unread {
@@ -190,7 +190,7 @@
                 background-color: $color-grey-2;
                 color: $color-white;
                 &::placeholder {
-                    color: lighten($color-grey-2, 50%);
+                    @include adjust($color-grey-2, 50%, $theme, color);
                 }
                 &:focus {
                     border-bottom-color: transparent;
@@ -238,11 +238,11 @@
     // Search
     .search {
         &__input {
-            background-color: lighten($color-grey-3, 10%);
-            color: lighten($color-grey-3, 50%);
+            @include adjust($color-grey-3, 10%, $theme, background-color);
+            @include adjust($color-grey-3, 50%, $theme, color);
 
             &::placeholder {
-                color: lighten($color-grey-3, 30%);
+                @include adjust($color-grey-3, 30%, $theme, color);
             }
 
             &:focus {
@@ -251,7 +251,7 @@
         }
 
         &__button {
-            background-color: lighten($color-grey-3, 10%);
+            @include adjust($color-grey-3, 10%, $theme, background-color);
         }
 
         &__input:focus + .search__button {
@@ -259,10 +259,10 @@
         }
 
         &__icon {
-            fill: lighten($color-grey-3, 40%);
+            @include adjust($color-grey-3, 40%, $theme, fill);
         }
 
-        &__input:focus + &__button &__icon {
+        &__input:focus + .search__button .search__icon {
             fill: $color-primary;
         }
     }
@@ -275,7 +275,7 @@
         }
 
         &__link {
-            color: lighten($color-grey-3, 50%);
+            @include adjust($color-grey-3, 50%, $theme, color);
             background-color: $color-grey-2;
             border-bottom-color: transparent;
 
@@ -322,7 +322,7 @@
     .about-me {
         &__link {
             color: inherit;
-            background-color: lighten($color-grey-3, 10%);
+            @include adjust($color-grey-3, 10%, $theme, background-color);
             &:hover {
                 background-color: $color-grey-2;
             }
@@ -335,14 +335,14 @@
 
     .chat-panel-user {
         &__title {
-            color: lighten($color-grey-2, 65%);
+            @include adjust($color-grey-2, 65%, $theme, color);
             background-color: $color-grey-1;
         }
         &__count {
-            color: lighten($color-grey-2, 50%);
+            @include adjust($color-grey-2, 50%, $theme, color);
         }
         &__reload {
-            fill: lighten($color-grey-2, 55%);
+            @include adjust($color-grey-2, 55%, $theme, fill);
             &:hover {
                 fill: $color-primary;
             }
@@ -354,11 +354,11 @@
         &__item {
             transition: all 0.2s;
             &:hover {
-                background-color: lighten($color-grey-1, 10%);
+                @include adjust($color-grey-1, 10%, $theme, background-color);
 
                 .chat-panel-user__state {
                     &--active {
-                        border-color: lighten($color-grey-1, 10%);
+                        @include adjust($color-grey-1, 10%, $theme, border-color);
                     }
                 }
             }
@@ -383,7 +383,7 @@
         }
 
         &__link {
-            color: lighten($color-grey-2, 65%);
+            @include adjust($color-grey-2, 65%, $theme, color);
         }
 
         &__userphoto {
@@ -395,7 +395,7 @@
         // Settings
         &__settings {
             &--icons {
-                fill: lighten($color-grey-2, 40%);
+                @include adjust($color-grey-2, 40%, $theme, fill);
             }
         }
         .icon-pin-chat {
@@ -407,7 +407,7 @@
         }
         // Option
         &__option {
-            fill: lighten($color-grey-2, 60%);
+            @include adjust($color-grey-2, 60%, $theme, fill);
             &:hover {
                 fill: $color-primary;
             }
@@ -445,7 +445,7 @@
     }
     .chat-box-user {
         background-color: $color-grey-1;
-        color: lighten($color-grey-1, 50%);
+        @include adjust($color-grey-1, 50%, $theme, color);
         &__header {
             background-color: $color-grey-1;
             border-bottom-color: $color-grey-3;
@@ -463,10 +463,10 @@
             }
             &--content {
                 &-name {
-                    color: lighten($color-grey-1, 60%);
+                    @include adjust($color-grey-1, 60%, $theme, color);
                 }
                 &-status {
-                    color: lighten($color-grey-1, 40%);
+                    @include adjust($color-grey-1, 40%, $theme, color);
                 }
             }
         }
@@ -478,10 +478,10 @@
             &--message {
                 &-in {
                     background-color: $color-grey-1;
-                    color: lighten($color-grey-1, 55%);
+                    @include adjust($color-grey-1, 55%, $theme, color);
                     border-color: $color-grey-3;
                     &-span {
-                        color: lighten($color-grey-1, 55%);
+                        @include adjust($color-grey-1, 55%, $theme, color);
                     }
                 }
                 &-out {
@@ -493,7 +493,7 @@
                     }
                     &-info {
                         &--svg {
-                            fill: lighten($color-grey-1, 15%);
+                            @include adjust($color-grey-1, 15%, $theme, fill);
                         }
                     }
                 }
@@ -518,15 +518,15 @@
             &--form {
             }
             &--input {
-                background-color: lighten($color-grey-1, 2.5%);
-                color: lighten($color-grey-1, 65%);
+                @include adjust($color-grey-1, 2.5%, $theme, background-color);
+                @include adjust($color-grey-1, 65%, $theme, color);
                 border-color: $color-primary;
                 caret-color: $color-primary;
                 &:focus {
                     background-color: $color-grey-1;
-                    box-shadow: 0 0 1rem lighten($color-grey-1, 25%);
+                    box-shadow: 0 0 0.5rem $color-white;
                 }
-                &:placeholder {
+                &::placeholder {
                 }
             }
 
@@ -539,9 +539,13 @@
                     background-color: $color-primary;
                 }
                 &-svg {
-                    fill: lighten($color-grey-1, 50%);
+                    @include adjust($color-grey-3, 50%, $theme, fill);
                 }
-                &:hover > &-svg {
+                // xxx
+                &:hover > .chat-box-user__footer--emoji-svg,
+                &:hover > .chat-box-user__footer--location-svg,
+                &:hover > .chat-box-user__footer--attach-svg,
+                &:hover > .chat-box-user__footer--camera-svg {
                     fill: $color-grey-1;
                 }
             }
@@ -563,7 +567,7 @@
                 }
                 &:hover {
                     background-color: $color-primary-light;
-                    box-shadow: 0 0 1rem lighten($color-grey-1, 25%);
+                    box-shadow: 0 0 0.5rem $color-white;
                 }
                 &-svg {
                     fill: $color-grey-1;
@@ -590,7 +594,7 @@
     }
     .chat-box-drag {
         &--svg {
-            fill: lighten($color-grey-1, 50%);
+            @include adjust($color-grey-3, 50%, $theme, fill);
         }
     }
     // Chat Profile
@@ -628,10 +632,10 @@
                 }
                 &--input {
                     background-color: $color-grey-2;
-                    color: lighten($color-grey-2, 70%);
+                    @include adjust($color-grey-2, 70%, $theme, color);
 
                     &:disabled {
-                        color: lighten($color-grey-2, 60%);
+                        @include adjust($color-grey-2, 60%, $theme, color);
                         background-color: $color-grey-1;
                     }
                 }
@@ -717,6 +721,7 @@
     }
 }
 
+// Themes
 .dark {
     @include theme($color-grey-dark-1, $color-grey-dark-2, $color-grey-dark-3, dark);
 }
