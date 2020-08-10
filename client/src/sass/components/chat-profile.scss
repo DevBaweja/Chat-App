@@ -224,7 +224,58 @@
 
     // Ideal
     // Null
+
     // Setting
     &__setting {
+        margin: 0.5rem;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        // ! For Development
+        max-height: 60rem;
+        @include flex();
+        @include direction(column);
+        align-items: stretch;
+
+        &--list {
+            @include flex();
+            @include direction(column);
+            align-items: stretch;
+        }
+        &--item {
+            @include flex();
+            @include direction(column);
+            align-items: stretch;
+            margin: 0.5rem;
+
+            & .chat-profile__setting--content {
+                display: none;
+            }
+
+            &-active .chat-profile__setting--content {
+                display: block;
+            }
+            &-active .chat-profile__setting--svg {
+                transform: rotate(180deg);
+            }
+        }
+        &--title {
+            @include flex(space-between);
+            padding: 0.5rem;
+            font-size: $font-size-regular-1;
+            letter-spacing: 0.02rem;
+            cursor: pointer;
+        }
+        &--span {
+        }
+        &--svg {
+            height: 1.5rem;
+            width: 1.5rem;
+        }
+
+        // Content
+        &--content {
+            font-size: $font-size-regular-1;
+            padding: 0.5rem 1rem;
+        }
     }
 }

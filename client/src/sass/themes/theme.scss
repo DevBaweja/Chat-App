@@ -694,6 +694,29 @@
                 }
             }
         }
+        // Setting
+        &__setting {
+            &--list {
+            }
+            &--item {
+            }
+            &--title {
+                @include adjust($color-grey-1, 60%, $theme, color);
+            }
+            &--span {
+            }
+            &--svg {
+                @include adjust($color-grey-1, 60%, $theme, fill);
+
+                &-active {
+                }
+            }
+
+            &--content {
+                @include adjust($color-grey-1, 50%, $theme, color);
+                background-color: $color-grey-1;
+            }
+        }
     }
 
     .copyright {

@@ -3,6 +3,7 @@ import state from '../state';
 import { elementStrings, mode, select } from '../utils/base.util';
 // Controllers
 import * as chatBoxController from '../controllers/chat-box.controller';
+import * as backgroundImageController from '../controllers/background-image.controller';
 // Models
 import ChatPanel from '../models/ChatPanel';
 // Views
@@ -60,6 +61,10 @@ const recentChat = () => {
                 mode: mode.chatBox.user,
                 data: { user: 'id' },
             });
+        // Changing background
+        backgroundImageController.controlBackgroundImage({
+            mode: mode.background[state.theme.mode][1],
+        });
     });
     // Click
     list.addEventListener('click', event => {
@@ -77,6 +82,13 @@ const recentChat = () => {
         // Add Selected
         chatPanelView.addSelected(item);
         // User Mode of chat box
-        chatBoxController.controlChatBox({ mode: mode.chatBox.user, data: { user: user } });
+        chatBoxController.controlChatBox({
+            mode: mode.chatBox.user,
+            data: { user: user },
+        });
+        // Changing background
+        backgroundImageController.controlBackgroundImage({
+            mode: mode.background[state.theme.mode][1],
+        });
     });
 };

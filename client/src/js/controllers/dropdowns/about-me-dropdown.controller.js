@@ -53,6 +53,8 @@ const profile = () => {
 
 const setting = () => {
     console.log('Setting');
+    if (state.chatProfile.mode === mode.chatProfile.setting) return;
+    chatProfileController.controlChatProfile({ mode: mode.chatProfile.setting });
 };
 const logout = () => {
     console.log('Logout');
