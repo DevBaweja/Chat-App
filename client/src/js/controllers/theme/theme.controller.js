@@ -2,6 +2,7 @@ import state from '../../state';
 import { mode } from '../../utils/base.util';
 // Controllers
 import * as chatBoxController from '../../controllers/chat-box.controller';
+import * as backgroundImageController from '../../controllers/background-image.controller';
 // Models
 import Theme from '../../models/Theme';
 // Views
@@ -24,6 +25,8 @@ export const controlTheme = info => {
 
     // SVG
     controlSvg();
+    // Image
+    controlImage();
     // ! For Development
     window.controlTheme = controlTheme;
 };
@@ -37,4 +40,11 @@ const controlSvg = () => {
             mode: state.chatBox.mode,
             data: { color: state.theme.color },
         });
+};
+
+const controlImage = () => {
+    if (!state.chatBox) return;
+    const valids = [mode.chatBox.user];
+    const isValid = valids.find(valid => valid === state.chatBox.mode);
+    if (isValid) backgroundImageController.controlBackgroundImage({ mode: mode.background[state.theme.mode][1] });
 };
