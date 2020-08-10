@@ -125,6 +125,7 @@
         &--active {
             border-width: 0.35rem;
             border-style: solid;
+            transition: all 0.2s;
         }
 
         &--inactive {

@@ -13,6 +13,7 @@ import * as initController from './controllers/init/init.controller';
 import * as dropdownsController from './controllers/dropdowns/dropdowns.controller';
 import * as chatPanelController from './controllers/chat-panel.controller';
 import * as chatBoxController from './controllers/chat-box.controller';
+import * as backgroundImageController from './controllers/background-image.controller';
 import * as chatProfileController from './controllers/chat-profile.controller';
 // App
 import * as App from './App';
@@ -28,18 +29,19 @@ const init = () => {
     // Init
     initController.controlInit();
     // Theme
-    themeController.controlTheme({ mode: mode.theme.light, color: mode.theme.color.red });
+    themeController.controlTheme({ mode: mode.theme.dark, color: mode.theme.color.red });
 
     // Header
     headerController.controlHeader({ mode: mode.header.user });
     // Chat Panel
     chatPanelController.controlChatPanel({ mode: mode.chatPanel.user.recentChat });
     // Chat Box
-    chatBoxController.controlChatBox({ mode: mode.chatBox.user, data: { theme: state.theme.mode } });
+    chatBoxController.controlChatBox({ mode: mode.chatBox.user });
+    // Background Image
+    backgroundImageController.controlBackgroundImage({ mode: mode.background.dark[1] });
 
     // Chat Profile
     chatProfileController.controlChatProfile({ mode: mode.chatProfile.setting });
-    chatProfileController.controlChatProfile({ mode: mode.chatProfile.user });
 
     addListeners();
 };

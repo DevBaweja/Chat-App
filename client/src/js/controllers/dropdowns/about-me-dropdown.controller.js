@@ -47,6 +47,7 @@ const theme = () => {
 
 const profile = () => {
     console.log('Profile');
+    if (state.chatProfile.mode === mode.chatProfile.user) return;
     chatProfileController.controlChatProfile({ mode: mode.chatProfile.user });
 };
 

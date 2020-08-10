@@ -30,11 +30,11 @@ export const controlTheme = info => {
 
 const controlSvg = () => {
     if (!state.chatBox) return;
-    const valids = [mode.chatBox.ideal, mode.chatBox.empty, mode.chatBox.user];
+    const valids = [mode.chatBox.ideal, mode.chatBox.empty];
     const isValid = valids.find(valid => valid === state.chatBox.mode);
     if (isValid)
         chatBoxController.controlChatBox({
             mode: state.chatBox.mode,
-            data: { color: state.theme.color, theme: state.theme.mode },
+            data: { color: state.theme.color },
         });
 };

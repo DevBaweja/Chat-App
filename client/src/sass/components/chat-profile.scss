@@ -1,6 +1,5 @@
 // Chat Profile
 .chat-profile {
-    // User
     &__user,
     &__stranger,
     &__friend {
@@ -221,5 +220,11 @@
                 @include flex(flex-start);
             }
         }
+    }
+
+    // Ideal
+    // Null
+    // Setting
+    &__setting {
     }
 }

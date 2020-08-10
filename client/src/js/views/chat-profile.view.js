@@ -194,7 +194,23 @@ export const renderUser = () => {
 
 export const renderSetting = () => {
     const markup = `
-    `;
+    <div class="chat-profile__setting">
+        <ul class="chat-profile__setting--list">
+            <li class="chat-profile__setting--list" data-type="color">
+                <div class="chat-profile__setting--title">
+                    <span class="chat-profile__setting--span">
+                        Change Color
+                    </span>
+                    <svg>
+                        <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
+                    </svg>
+                </div>
+                <div class="chat-profile__setting--content">
+                    
+                </div>
+            </li>
+        </ul>
+    </div>`;
 
     select(elements.ChatProfile).insertAdjacentHTML('beforeend', markup);
 };

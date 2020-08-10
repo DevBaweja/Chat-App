@@ -77,6 +77,6 @@ const recentChat = () => {
         // Add Selected
         chatPanelView.addSelected(item);
         // User Mode of chat box
-        chatBoxController.controlChatBox({ mode: mode.chatBox.user, data: { user: user, color: state.theme.color } });
+        chatBoxController.controlChatBox({ mode: mode.chatBox.user, data: { user: user } });
     });
 };

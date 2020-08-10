@@ -53,6 +53,7 @@ const elementStrings = {
             img: '.chat-box-user__header--img',
             name: '.chat-box-user__header--content-name',
         },
+        background: '.chat-box-user__field',
         footer: {
             emoji: '.chat-box-user__footer--emoji',
             location: '.chat-box-user__footer--location',

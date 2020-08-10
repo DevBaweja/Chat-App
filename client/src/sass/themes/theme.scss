@@ -666,6 +666,9 @@
                 &--icon {
                     background-color: $color-primary;
                 }
+                &--svg {
+                    fill: $color-grey-2;
+                }
             }
         }
         // Stranger
