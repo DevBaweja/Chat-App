@@ -1,6 +1,8 @@
 import state from '../state';
 // Utils
 import { elementStrings, mode, select } from '../utils/base.util';
+// Controllers
+import * as backgroundImageController from './background-image.controller';
 // Models
 import ChatBox from '../models/ChatBox';
 // Views
@@ -41,6 +43,10 @@ const empty = ({ data }) => {
 const user = ({ data }) => {
     // Render User
     chatBoxView.renderUser(data);
+    // Render Background Image
+    backgroundImageController.controlBackgroundImage({
+        mode: mode.background[state.theme.mode][1],
+    });
     // Add Event Listeners
     select(elementStrings.chatBox.header.back).addEventListener('click', () => {
         controlChatBox({ mode: mode.chatBox.empty, data: { color: state.theme.color } });

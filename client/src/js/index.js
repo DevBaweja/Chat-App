@@ -11,6 +11,7 @@ import * as themeController from './controllers/theme/theme.controller';
 import * as headerController from './controllers/header.controller';
 import * as initController from './controllers/init/init.controller';
 import * as dropdownsController from './controllers/dropdowns/dropdowns.controller';
+import * as alertsController from './controllers/alerts/alerts.controller';
 import * as chatPanelController from './controllers/chat-panel.controller';
 import * as chatBoxController from './controllers/chat-box.controller';
 import * as backgroundImageController from './controllers/background-image.controller';
@@ -29,7 +30,7 @@ const init = () => {
     // Init
     initController.controlInit();
     // Theme
-    themeController.controlTheme({ mode: mode.theme.dark, color: mode.theme.color.red });
+    themeController.controlTheme({ mode: mode.theme.dark, color: mode.theme.color.purple });
 
     // Header
     headerController.controlHeader({ mode: mode.header.user });
@@ -42,6 +43,9 @@ const init = () => {
 
     // Chat Profile
     chatProfileController.controlChatProfile({ mode: mode.chatProfile.setting });
+
+    // Alerts
+    alertsController.controlAlerts({ mode: mode.alert.request.received });
 
     addListeners();
 };

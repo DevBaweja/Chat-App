@@ -202,12 +202,23 @@
             flex: 1;
             border-radius: 2.5rem;
             border: 0.1rem solid;
-            padding: 1rem 2rem;
+            padding: 1.25rem 2rem;
             resize: none;
             font-size: $font-size-regular-2;
             font-family: inherit;
             transition: all 0.4s;
             margin: 0 0.5rem;
+            line-height: 1.2;
+            outline: none;
+            // ! For Development
+            max-height: 10rem;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            cursor: text;
+            // text-overflow: ellipsis;
+            // display: -webkit-box;
+            // -webkit-line-clamp: 2; /* number of lines to show */
+            // -webkit-box-orient: vertical;
 
             &:focus {
                 padding-left: 5rem;
@@ -215,8 +226,9 @@
                 margin-left: -4rem;
                 margin-right: -12rem;
             }
-            &::-webkit-scrollbar {
-                display: none;
+            // Placeholder
+            &:empty::before {
+                content: attr(data-placeholder);
             }
         }
 

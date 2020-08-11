@@ -51,7 +51,7 @@ export const renderUser = () => {
         </button>
     </form>
     `;
-    select(elements.Header).insertAdjacentHTML('beforeend', markup);
+    // select(elements.Header).insertAdjacentHTML('beforeend', markup);
 
     const menu__item = item => `
     <li class="menu__item">
@@ -73,7 +73,11 @@ export const renderUser = () => {
         </ul>
     </div>`;
 
-    // select(elements.Header).insertAdjacentHTML('beforeend', markup);
+    markup = `
+    <div class="menu">
+    </div>
+    `;
+    select(elements.Header).insertAdjacentHTML('beforeend', markup);
 
     markup = `
     <div class="about-me">

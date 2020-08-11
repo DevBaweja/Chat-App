@@ -124,16 +124,17 @@
 
     // Alert
     .alert {
+        color: $color-white;
         &__message {
-            fill: $color-grey-1;
+            color: $color-white;
         }
         &__svg {
-            fill: $color-grey-1;
+            fill: $color-white;
         }
         &--success {
             background-color: $color-primary;
         }
-        &--error {
+        &--failure {
             background-color: $color-danger;
         }
         &--info {
@@ -526,7 +527,9 @@
                     background-color: $color-grey-1;
                     box-shadow: 0 0 0.5rem $color-white;
                 }
-                &::placeholder {
+                // Instead of ::placeholder
+                &:empty::before {
+                    @include adjust($color-grey-1, 40%, $theme, color);
                 }
             }
 

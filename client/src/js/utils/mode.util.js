@@ -51,5 +51,29 @@ const mode = {
             1: 'light-1',
         },
     },
+    alert: {
+        login: {
+            success: 'login-success',
+            failure: 'login-failure',
+        },
+        signup: {
+            success: 'signup-success',
+            failure: 'signup-failure',
+        },
+        updateProfile: {
+            success: 'updateProfile-success',
+            failure: 'updateProfile-failure',
+        },
+        logout: {
+            success: 'logout-success',
+        },
+        request: {
+            sent: {
+                success: 'sent-success',
+                failure: 'sent-failure',
+            },
+            received: 'request-received',
+        },
+    },
 };
 export default mode;

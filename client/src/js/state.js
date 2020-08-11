@@ -8,7 +8,8 @@ const state = {
     chatBox: null,
     chatPanel: null,
     chatProfile: null,
-    BackgroundImage: null,
+    backgroundImage: null,
+    alert: null,
 };
 // ! For Development
 window.state = state;
