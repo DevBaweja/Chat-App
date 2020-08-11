@@ -202,7 +202,7 @@ export const renderSetting = () => {
                         Appearance
                     </span>
                     <svg class="chat-profile__setting--svg">
-                        <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
+                        <use xlink:href="svg/sprite.svg#icon-down"></use>
                     </svg>
                 </div>
                 <div class="chat-profile__setting--content">
@@ -217,7 +217,7 @@ export const renderSetting = () => {
                         Notifications
                     </span>
                     <svg class="chat-profile__setting--svg">
-                        <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
+                        <use xlink:href="svg/sprite.svg#icon-down"></use>
                     </svg>
                 </div>
                 <div class="chat-profile__setting--content">
@@ -230,7 +230,7 @@ export const renderSetting = () => {
                         Privacy
                     </span>
                     <svg class="chat-profile__setting--svg">
-                        <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
+                        <use xlink:href="svg/sprite.svg#icon-down"></use>
                     </svg>
                 </div>
                 <div class="chat-profile__setting--content">
@@ -247,7 +247,7 @@ export const renderSetting = () => {
                         Account
                     </span>
                     <svg class="chat-profile__setting--svg">
-                        <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
+                        <use xlink:href="svg/sprite.svg#icon-down"></use>
                     </svg>
                 </div>
                 <div class="chat-profile__setting--content">

@@ -1,4 +1,3 @@
-import state from './state';
 // Utils
 import { elements, mode, select } from './utils/base.util';
 // ---------------------
@@ -45,7 +44,7 @@ const init = () => {
     chatProfileController.controlChatProfile({ mode: mode.chatProfile.setting });
 
     // Alerts
-    alertsController.controlAlerts({ mode: mode.alert.request.received });
+    alertsController.controlAlerts({ mode: mode.alert.login.success });
 
     addListeners();
 };

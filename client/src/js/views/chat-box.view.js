@@ -45,7 +45,7 @@ export const renderUser = () => {
             <div class="chat-box-user__main--message-in">
                 <div class="chat-box-user__drop-in" title="Message Options">
                     <svg class="chat-box-user__drop-in--svg">
-                        <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
+                        <use xlink:href="svg/sprite.svg#icon-down"></use>
                     </svg>
                 </div>
                 <span class="chat-box-user__main--message-in-span">${faker.lorem.sentence().trim()}</span>
@@ -67,7 +67,7 @@ export const renderUser = () => {
             <div class="chat-box-user__main--message-out">
                 <div class="chat-box-user__drop-out" title="Message Options">
                     <svg class="chat-box-user__drop-out--svg">
-                        <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
+                        <use xlink:href="svg/sprite.svg#icon-down"></use>
                     </svg>
                 </div>
                 <span class="chat-box-user__main--message-out-span">${faker.lorem.sentence().trim()}
@@ -106,7 +106,7 @@ export const renderUser = () => {
 
             <div class="chat-box-user__header--options" title="User Options">
                 <svg class="chat-box-user__header--options-svg">
-                <use xlink:href="svg/sprite.svg#icon-dots-three-vertical"></use>
+                <use xlink:href="svg/sprite.svg#icon-dots"></use>
                 </svg>
             </div>
         
@@ -156,7 +156,7 @@ export const renderUser = () => {
                             <div class="chat-box-user__main--message-out">
                                 <div class="chat-box-user__drop-out" title="Message Options">
                                     <svg class="chat-box-user__drop-out--svg">
-                                        <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
+                                        <use xlink:href="svg/sprite.svg#icon-down"></use>
                                     </svg>
                                 </div>
                                 <span class="chat-box-user__main--message-out-span">.

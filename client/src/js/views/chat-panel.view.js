@@ -110,11 +110,11 @@ export const renderRecentChat = () => {
         
         <!-- OPTIONS -->
         <svg class="chat-panel-user__option chat-panel__drop title="Chat Options">
-            <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
+            <use xlink:href="svg/sprite.svg#icon-down"></use>
         </svg>
         <!-- ACTIVE -->
         <svg class="chat-panel-user__state chat-panel-user__state--inactive">
-            <use xlink:href="svg/sprite.svg#icon-dot-single--active"></use>
+            <use xlink:href="svg/sprite.svg#icon-dot"></use>
         </svg>
         
     </div>
@@ -142,12 +142,12 @@ export const renderRecentChat = () => {
         </div>
         <!-- ACTIVE -->
         <svg class="chat-panel-user__state chat-panel-user__state--inactive">
-            <use xlink:href="svg/sprite.svg#icon-dot-single--active"></use>
+            <use xlink:href="svg/sprite.svg#icon-dot"></use>
         </svg>
 
         <!-- OPTION -->
         <svg class="chat-panel-user__option chat-panel__drop " title="Chat Options">
-            <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
+            <use xlink:href="svg/sprite.svg#icon-down"></use>
         </svg>
        
        
@@ -176,10 +176,10 @@ export const renderRecentChat = () => {
                 </div>
             </div>
                 <svg class="chat-panel-user__option chat-panel__drop" title="Chat Options">
-                    <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
+                    <use xlink:href="svg/sprite.svg#icon-down"></use>
                 </svg>
                 <svg class="chat-panel-user__state chat-panel-user__state--active">
-                    <use xlink:href="svg/sprite.svg#icon-dot-single--active"></use>
+                    <use xlink:href="svg/sprite.svg#icon-dot"></use>
                 </svg>
             </div>
             </li>
@@ -196,10 +196,10 @@ export const renderRecentChat = () => {
                 </div>
             </div>
                 <svg class="chat-panel-user__option chat-panel__drop" title="Chat Options">
-                    <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
+                    <use xlink:href="svg/sprite.svg#icon-down"></use>
                 </svg>
                 <svg class="chat-panel-user__state chat-panel-user__state--inactive">
-                    <use xlink:href="svg/sprite.svg#icon-dot-single--active"></use>
+                    <use xlink:href="svg/sprite.svg#icon-dot"></use>
                 </svg>
             </div>
             </li>
@@ -215,10 +215,10 @@ export const renderRecentChat = () => {
                 </div>
             </div>
                 <svg class="chat-panel-user__option chat-panel__drop" title="Chat Options">
-                    <use xlink:href="svg/sprite.svg#icon-chevron-down"></use>
+                    <use xlink:href="svg/sprite.svg#icon-down"></use>
                 </svg>
                 <svg class="chat-panel-user__state chat-panel-user__state--active">
-                    <use xlink:href="svg/sprite.svg#icon-dot-single--active"></use>
+                    <use xlink:href="svg/sprite.svg#icon-dot"></use>
                 </svg>
             </div>
             </li>
