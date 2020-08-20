@@ -39,7 +39,7 @@ const def = {
     seenAt: {
         type: Date,
     },
-    createAt: {
+    createdAt: {
         type: Date,
         default: Date.now(),
     },

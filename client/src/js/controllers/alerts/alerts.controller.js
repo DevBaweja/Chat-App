@@ -14,7 +14,7 @@ export const controlAlerts = info => {
 
     switch (info.mode) {
         case mode.alert.login.success:
-            loginSuccess();
+            loginSuccess(info);
             break;
         case mode.alert.login.failure:
             loginFailure();
@@ -49,9 +49,9 @@ export const controlAlerts = info => {
     state.alert.setTimer(alertsView.clearAlerts);
 };
 
-const loginSuccess = () => {
+const loginSuccess = ({ data: { user } }) => {
     const data = {
-        text: 'Logged in successfully.',
+        text: `Logged in successfully as ${user}.`,
         type: 'success',
     };
     alertsView.renderAlerts(data);

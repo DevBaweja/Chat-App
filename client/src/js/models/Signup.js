@@ -13,6 +13,14 @@ class Signup {
         this.url = `${url[state.mode]}api/v1/users/signup`;
     }
 
+    setUserInput = ({ name, email, password, passwordConfirm }) => {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.passwordConfirm = passwordConfirm;
+        this.photo = this.getPhoto();
+    };
+
     getPhoto = () => {
         const ext = 'png';
         const photo = detect(this.name);
@@ -34,8 +42,10 @@ class Signup {
                 passwordConfirm: this.passwordConfirm,
                 photo: this.photo,
             };
+
             this.data = await axios.post(this.url, obj);
             this.parseData();
+            console.log(this.data);
             return this.data;
         } catch (err) {
             throw err;

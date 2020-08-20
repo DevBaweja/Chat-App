@@ -49,6 +49,9 @@ const user = ({ data }) => {
     });
     // Add Event Listeners
     select(elementStrings.chatBox.header.back).addEventListener('click', () => {
+        // Remove Selected
+        chatPanelView.removeSelected();
+        // Render Empty
         controlChatBox({ mode: mode.chatBox.empty });
     });
 };

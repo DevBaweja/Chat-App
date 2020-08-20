@@ -56,3 +56,11 @@ export const prepareUI = className => {
     // Disabling button
     btn.disabled = true;
 };
+
+export const initialUI = (className, text) => {
+    const btn = select(className);
+    // Rendering Text
+    btn.innerText = text;
+    // Enabling button
+    btn.disabled = false;
+};

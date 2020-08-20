@@ -51,7 +51,7 @@ const def = {
         },
     },
     passwordChangedAt: Date,
-    createAt: {
+    createdAt: {
         type: Date,
         default: Date.now(),
     },
