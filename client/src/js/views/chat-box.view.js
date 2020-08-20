@@ -3,7 +3,7 @@ import faker from 'faker';
 
 export const clearChatBox = () => (select(elements.ChatBox).innerHTML = '');
 
-export const renderEmpty = ({ color }) => {
+export const renderEmpty = color => {
     const markup = `
     <div class="chat-box-null">
         <div class="chat-box-null--container">
@@ -20,7 +20,7 @@ export const renderEmpty = ({ color }) => {
     `;
     select(elements.ChatBox).insertAdjacentHTML('beforeend', markup);
 };
-export const renderIdeal = ({ color }) => {
+export const renderIdeal = color => {
     const markup = `
     <div class="chat-box-ideal">
         <div class="chat-box-ideal--container">

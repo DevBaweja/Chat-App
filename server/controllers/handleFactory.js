@@ -48,7 +48,7 @@ exports.deleteOne = (Model) =>
         });
     });
 
-exports.getAll = (Model) =>
+exports.getAll = (Model, options) =>
     catchAsync(async (req, res, next) => {
         const features = new APIFeatures(Model.find(), req.query)
             .filter()
@@ -56,7 +56,19 @@ exports.getAll = (Model) =>
             .limitFields()
             .paginate();
 
-        const doc = await features.query;
+        let { query } = features;
+
+        if (options) {
+            // Populating fields
+            if (options.populateOptions) {
+                const { populateOptions } = options;
+                populateOptions.forEach((field) => {
+                    query = query.populate(field);
+                });
+            }
+        }
+
+        const doc = await query;
         // Send Response
         res.status(200).json({
             status: 'success',

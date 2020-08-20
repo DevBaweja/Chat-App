@@ -2,6 +2,7 @@ const express = require('express');
 // -----------
 // Controllers
 const messageController = require('../controllers/messageController');
+const authController = require('../controllers/authController');
 
 // Router
 const router = express.Router();
@@ -9,6 +10,7 @@ const router = express.Router();
 // -----------
 // Alias
 
+router.use(authController.protect, authController.restrictTo('admin'));
 // -----------
 // Routes
 router

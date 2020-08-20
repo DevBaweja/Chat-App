@@ -1,7 +1,9 @@
 // State
 import state from '../../state';
 // Utils
-import { elementStrings, select } from '../../utils/base.util';
+import { elementStrings, select, mode } from '../../utils/base.util';
+// Controllers
+import * as alertsController from '../alerts/alerts.controller';
 // Models
 import Signup from '../../models/Signup';
 // Views
@@ -33,11 +35,17 @@ const controlSignup = async event => {
 
     try {
         // 4) Making API call
-        const user = await state.signup.signupUser();
-        console.log(user);
+        const data = await state.signup.signupUser();
+        // !For Development
+        // Token Assign
+        state.token = data.token;
+        // Getting User
+        const { user } = data.data;
         // 5) Success Alert
+        alertsController.controlAlerts({ mode: mode.alert.signup.success, data: { user: user.name } });
     } catch (err) {
         // Error Alert
         console.log('ERROR', err.message);
+        alertsController.controlAlerts({ mode: mode.alert.signup.failure });
     }
 };

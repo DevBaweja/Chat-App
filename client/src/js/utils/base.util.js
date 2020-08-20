@@ -1,3 +1,4 @@
+import url from './url.util';
 import elements from './elements.util';
 import elementStrings from './element-strings.util';
 import elementClasses from './element-classes.util';
@@ -6,4 +7,4 @@ import actions from './actions.util';
 import io from './io.util';
 import { select, selectAll } from './selector.util';
 
-export { elements, elementStrings, elementClasses, mode, actions, io, select, selectAll };
+export { url, elements, elementStrings, elementClasses, mode, actions, io, select, selectAll };

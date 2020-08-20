@@ -75,6 +75,7 @@ exports.login = catchAsync(async (req, res, next) => {
 exports.protect = catchAsync(async (req, res, next) => {
     let token;
     // Getting token from headers or cookies
+    // Development
     if (
         req.headers.authorization &&
         req.headers.authorization.startsWith('Bearer')

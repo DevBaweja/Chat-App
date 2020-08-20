@@ -21,8 +21,14 @@ const def = {
         trim: true,
         required: { value: true, message: getMustHave('a content.') },
     },
-    to: {},
-    from: {},
+    from: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+    },
+    to: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+    },
     sentAt: {
         type: Date,
         default: Date.now(),
@@ -44,7 +50,18 @@ const messageSchema = Schema(def, options);
 
 // --------
 // Middlewares
-
+messageSchema.pre(/^find/, function () {
+    // Populate from
+    this.populate({
+        path: 'from',
+        select: 'photo name',
+    });
+    // Populate to
+    this.populate({
+        path: 'to',
+        select: 'photo name',
+    });
+});
 // ---------
 // Model
 const Message = mongoose.model('Message', messageSchema);

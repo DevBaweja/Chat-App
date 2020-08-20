@@ -20,7 +20,7 @@ export const controlAlerts = info => {
             loginFailure();
             break;
         case mode.alert.signup.success:
-            signupSuccess();
+            signupSuccess(info);
             break;
         case mode.alert.signup.failure:
             signupFailure();
@@ -65,9 +65,9 @@ const loginFailure = () => {
     alertsView.renderAlerts(data);
 };
 
-const signupSuccess = () => {
+const signupSuccess = ({ data: { user } }) => {
     const data = {
-        text: 'You have been successfully registered as xyz',
+        text: `You have been successfully registered as ${user}`,
         type: 'success',
     };
     alertsView.renderAlerts(data);

@@ -10,6 +10,7 @@ const state = {
     chatProfile: null,
     backgroundImage: null,
     alert: null,
+    mode: 'development',
 };
 // ! For Development
 window.state = state;

@@ -38,7 +38,6 @@ const controlSvg = () => {
     if (isValid)
         chatBoxController.controlChatBox({
             mode: state.chatBox.mode,
-            data: { color: state.theme.color },
         });
 };
 

@@ -1,3 +1,5 @@
+import state from '../state';
+import { url } from '../utils/base.util';
 import axios from 'axios';
 import { detect } from 'gender-detection';
 
@@ -8,8 +10,7 @@ class Signup {
         this.password = password;
         this.passwordConfirm = passwordConfirm;
         this.photo = this.getPhoto();
-        // this.url = `${window.location}api/v1/users/signup`;
-        this.url = `http://localhost:3000/api/v1/users/signup`;
+        this.url = `${url[state.mode]}api/v1/users/signup`;
     }
 
     getPhoto = () => {
@@ -17,6 +18,11 @@ class Signup {
         const photo = detect(this.name);
         if (photo === 'unknown') return `default.${ext}`;
         return `${photo}.${ext}`;
+    };
+
+    parseData = () => {
+        const { data } = this.data;
+        this.data = data;
     };
 
     signupUser = async () => {
@@ -28,10 +34,11 @@ class Signup {
                 passwordConfirm: this.passwordConfirm,
                 photo: this.photo,
             };
-            const user = await axios.post(this.url, obj);
-            return user;
+            this.data = await axios.post(this.url, obj);
+            this.parseData();
+            return this.data;
         } catch (err) {
-            console.log('Error', err.message);
+            throw err;
         }
     };
 }

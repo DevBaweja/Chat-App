@@ -32,13 +32,13 @@ export const controlChatBox = info => {
             break;
     }
 };
-const ideal = ({ data }) => {
+const ideal = () => {
     // Render Ideal
-    chatBoxView.renderIdeal(data);
+    chatBoxView.renderIdeal(state.theme.color);
 };
-const empty = ({ data }) => {
+const empty = () => {
     // Render Empty
-    chatBoxView.renderEmpty(data);
+    chatBoxView.renderEmpty(state.theme.color);
 };
 const user = ({ data }) => {
     // Render User
@@ -49,7 +49,7 @@ const user = ({ data }) => {
     });
     // Add Event Listeners
     select(elementStrings.chatBox.header.back).addEventListener('click', () => {
-        controlChatBox({ mode: mode.chatBox.empty, data: { color: state.theme.color } });
+        controlChatBox({ mode: mode.chatBox.empty });
     });
 };
 const drag = ({ data }) => {

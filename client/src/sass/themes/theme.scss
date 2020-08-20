@@ -134,10 +134,10 @@
         &--success {
             background-color: $color-primary;
         }
-        &--failure {
-            background-color: $color-danger;
-        }
         &--info {
+            background-color: $color-primary;
+        }
+        &--failure {
             background-color: $color-danger;
         }
     }
@@ -188,8 +188,8 @@
             }
             &--input {
                 border-bottom-color: transparent;
-                background-color: $color-grey-2;
-                @include adjust($color-grey-1, 50%, $theme, color);
+                background-color: $color-grey-3;
+                @include adjust($color-grey-2, 80%, $theme, color);
                 &::placeholder {
                     @include adjust($color-grey-2, 50%, $theme, color);
                 }
@@ -201,12 +201,12 @@
                 }
             }
             &--btn {
-                background-color: $color-grey-2;
+                background-color: $color-grey-3;
                 color: $color-primary;
                 transition: all 0.2s;
 
                 &:hover {
-                    background-color: $color-grey-1;
+                    background-color: $color-grey-2;
                 }
             }
         }
