@@ -40,6 +40,7 @@ export const renderIdeal = () => {
 };
 
 export const renderUser = () => {
+    console.log(user);
     let markup;
     markup = `
     <form class="search">

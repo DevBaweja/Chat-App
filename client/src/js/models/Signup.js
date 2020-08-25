@@ -43,9 +43,13 @@ class Signup {
                 photo: this.photo,
             };
 
-            this.data = await axios.post(this.url, obj);
+            this.data = await axios({
+                method: 'POST',
+                url: this.url,
+                data: obj,
+            });
+
             this.parseData();
-            console.log(this.data);
             return this.data;
         } catch (err) {
             throw err;

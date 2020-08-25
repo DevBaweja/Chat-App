@@ -22,11 +22,15 @@ class Login {
     loginUser = async () => {
         try {
             const obj = { email: this.email, password: this.password };
-            this.data = await axios.post(this.url, obj);
+            this.data = await axios({
+                method: 'POST',
+                url: this.url,
+                data: obj,
+            });
+
             this.parseData();
             return this.data;
         } catch (err) {
-            console.log(err);
             throw err;
         }
     };

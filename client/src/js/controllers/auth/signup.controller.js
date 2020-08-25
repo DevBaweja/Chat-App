@@ -4,11 +4,14 @@ import state from '../../state';
 import { elementStrings, select, mode } from '../../utils/base.util';
 // Controllers
 import * as alertsController from '../alerts/alerts.controller';
+import * as headerController from '../header.controller';
+import * as chatPanelController from '../chat-panel.controller';
+import * as chatBoxController from '../chat-box.controller';
 // Models
 import Signup from '../../models/Signup';
 // Views
 import * as signupView from '../../views/auth/signup.view';
-
+import * as formView from '../../views/auth/form.view';
 // CTA
 export const controlSignupCta = () => {
     // 1) Rendering Signup form
@@ -38,6 +41,7 @@ const controlSignup = async event => {
     try {
         // 4) Making API call
         const data = await state.signup.signupUser();
+        console.log(data);
         switch (data.status) {
             case 'success':
                 {
@@ -47,9 +51,17 @@ const controlSignup = async event => {
                     // Getting User
                     const { user } = data.data;
                     // 5) Success Alert
-                    alertsController.controlAlerts({ mode: mode.alert.signup.success, data: { user: user.name } });
+                    alertsController.controlAlerts({ mode: mode.alert.signup.success, data: { user } });
+                    // 7) Clear form
+                    formView.clearForm();
+                    // 6) Empty State of header, chat panel, chat box
+                    // headerController.controlHeader({ mode: mode.header.user, data: { user } });
+                    chatPanelController.controlChatPanel({ mode: mode.chatPanel.empty });
+                    chatBoxController.controlChatBox({ mode: mode.chatBox.empty });
                 }
                 break;
+            case 'error': {
+            }
         }
     } catch (err) {
         console.log('ERROR', err.message);

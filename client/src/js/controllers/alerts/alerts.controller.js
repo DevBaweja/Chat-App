@@ -45,8 +45,10 @@ export const controlAlerts = info => {
             break;
     }
 
-    // Clearing after timeout
+    // Clearing UI after timeout
     state.alert.setTimer(alertsView.clearAlerts);
+    // Clearing data after timeout
+    state.alert.setTimer(() => (state.theme = null));
 };
 
 const loginSuccess = ({ data: { user } }) => {
@@ -67,7 +69,7 @@ const loginFailure = () => {
 
 const signupSuccess = ({ data: { user } }) => {
     const data = {
-        text: `You have been successfully registered as ${user}`,
+        text: `You have been successfully registered as ${user.name}`,
         type: 'success',
     };
     alertsView.renderAlerts(data);

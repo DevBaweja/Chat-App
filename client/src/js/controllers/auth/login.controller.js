@@ -40,13 +40,21 @@ const controlLogin = async event => {
     try {
         // 4) Making API call
         const data = await state.login.loginUser();
-        // !For Development
-        // Token Assign
-        state.token = data.token;
-        // Getting User
-        const { user } = data.data;
-        // 5) Success Alert
-        alertsController.controlAlerts({ mode: mode.alert.login.success, data: { user: user.name } });
+        switch (data.status) {
+            case 'success':
+                {
+                    // !For Development
+                    // Token Assign
+                    state.token = data.token;
+                    // Getting User
+                    const { user } = data.data;
+                    // 5) Success Alert
+                    alertsController.controlAlerts({ mode: mode.alert.login.success, data: { user: user.name } });
+                }
+                break;
+            case 'error': {
+            }
+        }
     } catch (err) {
         console.log('ERROR', err.message);
         // 0) Error Alert
