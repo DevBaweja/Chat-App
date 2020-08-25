@@ -55,10 +55,12 @@ const mode = {
         login: {
             success: 'login-success',
             failure: 'login-failure',
+            validate: {},
         },
         signup: {
             success: 'signup-success',
             failure: 'signup-failure',
+            validate: {},
         },
         updateProfile: {
             success: 'updateProfile-success',

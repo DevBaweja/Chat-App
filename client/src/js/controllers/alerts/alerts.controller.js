@@ -1,3 +1,5 @@
+import state from '../../state';
+// Utils
 import { mode } from '../../utils/base.util';
 // Models
 import Alert from '../../models/Alert';
@@ -48,12 +50,14 @@ export const controlAlerts = info => {
     // Clearing UI after timeout
     state.alert.setTimer(alertsView.clearAlerts);
     // Clearing data after timeout
-    state.alert.setTimer(() => (state.theme = null));
+    state.alert.setTimer(() => (state.alert = null));
 };
 
-const loginSuccess = ({ data: { user } }) => {
+const loginSuccess = () => {
+    // Getting user from state
+    const { user } = state;
     const data = {
-        text: `Logged in successfully as ${user}.`,
+        text: `Logged in successfully as ${user.name}.`,
         type: 'success',
     };
     alertsView.renderAlerts(data);
@@ -61,7 +65,7 @@ const loginSuccess = ({ data: { user } }) => {
 
 const loginFailure = () => {
     const data = {
-        text: 'Incorrect email or password!',
+        text: 'There was problem in logging in.',
         type: 'failure',
     };
     alertsView.renderAlerts(data);

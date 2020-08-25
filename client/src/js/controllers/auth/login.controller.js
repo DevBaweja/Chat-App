@@ -4,10 +4,15 @@ import state from '../../state';
 import { elementStrings, select, mode } from '../../utils/base.util';
 // Controllers
 import * as alertsController from '../alerts/alerts.controller';
+import * as headerController from '../header.controller';
+import * as chatPanelController from '../chat-panel.controller';
+import * as chatBoxController from '../chat-box.controller';
+import * as chatProfileController from '../chat-profile.controller';
 // Models
 import Login from '../../models/Login';
 // Views
 import * as loginView from '../../views/auth/login.view';
+import * as formView from '../../views/auth/form.view';
 
 // CTA
 export const controlLoginCta = () => {
@@ -48,8 +53,19 @@ const controlLogin = async event => {
                     state.token = data.token;
                     // Getting User
                     const { user } = data.data;
+                    // User Assign
+                    state.user = user;
+
                     // 5) Success Alert
-                    alertsController.controlAlerts({ mode: mode.alert.login.success, data: { user: user.name } });
+                    alertsController.controlAlerts({ mode: mode.alert.login.success });
+                    // 6) Clear form
+                    formView.clearForm();
+
+                    // 7) User State of header, chat panel, chat box
+                    headerController.controlHeader({ mode: mode.header.user });
+                    chatPanelController.controlChatPanel({ mode: mode.chatPanel.user.recentChat });
+                    chatBoxController.controlChatBox({ mode: mode.chatBox.user });
+                    chatProfileController.controlChatProfile({ mode: mode.chatProfile.user });
                 }
                 break;
             case 'error': {
