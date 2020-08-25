@@ -93,13 +93,12 @@ export const renderFriend = () => {
     select(elements.ChatProfile).insertAdjacentHTML('beforeend', markup);
 };
 
-export const renderUser = () => {
-    const name = faker.name.findName();
+export const renderUser = user => {
     const markup = `
     <div class="chat-profile__user">
     <form class="chat-profile__user--form">
         <div class="chat-profile__user-pic">
-            <img src="img/avatar/boy.png" class="chat-profile__user-pic--img" alt="" />
+            <img src="${user.photo}" class="chat-profile__user-pic--img" alt="" />
             <div class="chat-profile__user-pic--upload">
                 <label class="chat-profile__user-pic--label" for="photo" title="Change profile pic">
                     <svg class="chat-profile__user-pic--svg">
@@ -108,7 +107,7 @@ export const renderUser = () => {
                 </label>
                 <input class="chat-profile__user-pic--input" type="file" id="photo" name="photo" />
             </div>
-            <div class="chat-profile__user-pic--name">${name}</div>
+            <div class="chat-profile__user-pic--name">${user.name}</div>
         </div>
         <div class="chat-profile__user-avatar">
             <div class="chat-profile__user-avatar--label">
@@ -132,7 +131,7 @@ export const renderUser = () => {
                     </div>
                 </div>
                 <div class="chat-profile__user-avatar--group" title="Men">
-                    <img src="img/avatar/men.png" alt="" class="chat-profile__user-avatar--img"/> 
+                    <img src="img/avatar/male.png" alt="" class="chat-profile__user-avatar--img"/> 
                     <div class="chat-profile__user-avatar--icon">
                         <svg class="chat-profile__user-avatar--svg">
                             <use xlink:href="svg/sprite.svg#icon-avatar"></use>
@@ -140,7 +139,7 @@ export const renderUser = () => {
                     </div>
                 </div>
                 <div class="chat-profile__user-avatar--group" title="Women">
-                    <img src="img/avatar/women.png" alt="" class="chat-profile__user-avatar--img"/> 
+                    <img src="img/avatar/female.png" alt="" class="chat-profile__user-avatar--img"/> 
                     <div class="chat-profile__user-avatar--icon">
                         <svg class="chat-profile__user-avatar--svg">
                             <use xlink:href="svg/sprite.svg#icon-avatar"></use>
@@ -157,7 +156,7 @@ export const renderUser = () => {
                         <use xlink:href="svg/sprite.svg#icon-edit"></use>
                     </svg>
                 </div>
-                <input type="text" id="name" class="chat-profile__user-about--input" value="${name}" />
+                <input type="text" id="name" class="chat-profile__user-about--input" value="${user.name}" />
             </div>
 
             <div class="chat-profile__user-about--group">
@@ -167,7 +166,7 @@ export const renderUser = () => {
                         <use xlink:href="svg/sprite.svg#icon-edit"></use>
                     </svg>
                 </div>
-                <input type="text" id="email" class="chat-profile__user-about--input" value="${faker.internet.email()}" disabled />
+                <input type="text" id="email" class="chat-profile__user-about--input" value="${user.email}" disabled />
             </div>
 
             <div class="chat-profile__user-about--group">

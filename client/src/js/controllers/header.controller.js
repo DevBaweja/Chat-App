@@ -25,7 +25,7 @@ export const controlHeader = info => {
             ideal();
             break;
         case mode.header.user:
-            user(info);
+            user();
             break;
     }
 };
@@ -45,8 +45,9 @@ const ideal = () => {
     const signupCtaBtn = select(elementStrings.btns.signupCtaBtn);
     signupCtaBtn.addEventListener('click', signupController.controlSignupCta);
 };
-const user = ({ data }) => {
-    const { user } = data;
+const user = () => {
+    // Getting user from state
+    const { user } = state;
     // Render User
     headerView.renderUser(user);
     headerView.toggleClass('user');

@@ -24,8 +24,9 @@ class Signup {
     getPhoto = () => {
         const ext = 'png';
         const photo = detect(this.name);
-        if (photo === 'unknown') return `default.${ext}`;
-        return `${photo}.${ext}`;
+        const path = 'img/avatar/';
+        if (photo === 'unknown') return `${path}default.${ext}`;
+        return `${path}${photo}.${ext}`;
     };
 
     parseData = () => {

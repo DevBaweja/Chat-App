@@ -39,8 +39,7 @@ export const renderIdeal = () => {
     select(elements.Header).insertAdjacentHTML('beforeend', markup);
 };
 
-export const renderUser = () => {
-    console.log(user);
+export const renderUser = user => {
     let markup;
     markup = `
     <form class="search">
@@ -82,11 +81,11 @@ export const renderUser = () => {
 
     markup = `
     <div class="about-me">
-    <div class="about-me__link about-me__drop" title="User Options">
-        <img src="img/avatar/boy.png" alt="user-photo" class="about-me__photo"/>
-        
-        <span class="about-me__name">${faker.name.findName()}</span>
-    </div>
+        <div class="about-me__link about-me__drop" title="User Options">
+            <img src="${user.photo}" alt="user-photo" class="about-me__photo"/>
+            
+            <span class="about-me__name">${user.name}</span>
+        </div>
     </div>
     `;
     select(elements.Header).insertAdjacentHTML('beforeend', markup);

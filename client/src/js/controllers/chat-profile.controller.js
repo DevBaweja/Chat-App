@@ -43,8 +43,10 @@ const friend = () => {
 };
 
 const user = () => {
+    // Getting user from state
+    const { user } = state;
     // Render Profile
-    chatProfileView.renderUser();
+    chatProfileView.renderUser(user);
     // Add Event Listeners
 };
 
