@@ -15,6 +15,12 @@ export const controlChatProfile = info => {
     chatProfileView.clearChatProfile();
 
     switch (info.mode) {
+        case mode.chatProfile.ideal:
+            ideal();
+            break;
+        case mode.chatProfile.empty:
+            empty();
+            break;
         case mode.chatProfile.stranger:
             stranger();
             break;
@@ -29,6 +35,9 @@ export const controlChatProfile = info => {
             break;
     }
 };
+
+const ideal = () => {};
+const empty = () => {};
 
 const stranger = () => {
     // Render Stranger

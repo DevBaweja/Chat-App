@@ -17,6 +17,8 @@ const mode = {
         drag: 'drag',
     },
     chatProfile: {
+        ideal: 'ideal',
+        empty: 'empty',
         user: 'user',
         friend: 'friend',
         stranger: 'stranger',

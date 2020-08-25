@@ -59,11 +59,11 @@ const controlSignup = async event => {
                     // 6) Clear form
                     formView.clearForm();
 
-                    // 7) Empty State of header, chat panel, chat box
+                    // 7) Empty State of header, chat panel, chat box, chat profile
                     headerController.controlHeader({ mode: mode.header.user });
                     chatPanelController.controlChatPanel({ mode: mode.chatPanel.empty });
                     chatBoxController.controlChatBox({ mode: mode.chatBox.empty });
-                    chatProfileController.controlChatProfile({ mode: mode.chatProfile.user });
+                    chatProfileController.controlChatProfile({ mode: mode.chatProfile.empty });
                 }
                 break;
             case 'error': {

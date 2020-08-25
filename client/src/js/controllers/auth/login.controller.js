@@ -61,7 +61,7 @@ const controlLogin = async event => {
                     // 6) Clear form
                     formView.clearForm();
 
-                    // 7) User State of header, chat panel, chat box
+                    // 7) User State of header, chat panel, chat box, chat profile
                     headerController.controlHeader({ mode: mode.header.user });
                     chatPanelController.controlChatPanel({ mode: mode.chatPanel.user.recentChat });
                     chatBoxController.controlChatBox({ mode: mode.chatBox.user });
