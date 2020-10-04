@@ -25,13 +25,15 @@ const addListeners = () => {
 const init = () => {
     // App
     App.render();
+    // Mode
+    modeController.controlMode({ mode: mode.mode.development });
     // Init
     initController.controlInit();
     // Theme
-    themeController.controlTheme({ mode: mode.theme.dark, color: mode.theme.color.purple });
+    themeController.controlTheme({ mode: mode.theme.dark, color: mode.theme.color.orange });
 
     // Header
-    headerController.controlHeader({ mode: mode.header.user });
+    headerController.controlHeader({ mode: mode.header.ideal });
     // Chat Panel
     chatPanelController.controlChatPanel({ mode: mode.chatPanel.user.recentChat });
     // Chat Box
@@ -59,7 +61,8 @@ const initDev = () => {
     chatPanelController.controlChatPanel({ mode: mode.chatPanel.ideal });
     // Chat Box
     chatBoxController.controlChatBox({ mode: mode.chatBox.ideal });
+
     addListeners();
 };
 
-initDev();
+init();

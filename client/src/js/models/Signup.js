@@ -10,7 +10,7 @@ class Signup {
         this.password = password;
         this.passwordConfirm = passwordConfirm;
         this.photo = this.getPhoto();
-        this.url = `${url[state.mode]}api/v1/users/signup`;
+        this.url = `${url[state.mode.mode]}api/v1/users/signup`;
     }
 
     setUserInput = ({ name, email, password, passwordConfirm }) => {

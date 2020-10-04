@@ -67,7 +67,7 @@ const controlSignup = async event => {
                 }
                 break;
             case 'error': {
-                if (state.mode == 'development') {
+                if (state.mode.mode === mode.mode.development) {
                     alertsController.controlAlerts({ mode: mode.alert.misc.failure, data: data.message });
                 }
             }

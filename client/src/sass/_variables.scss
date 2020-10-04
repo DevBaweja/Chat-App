@@ -31,6 +31,26 @@
     --color-primary-light: #ede558;
     --color-primary-dark: #bab114;
 }
+[data-color='pink'] {
+    --color-primary: #ff1455;
+    --color-primary-light: #ff366e;
+    --color-primary-dark: #f10043;
+}
+[data-color='forest'] {
+    --color-primary: #54bf78;
+    --color-primary-light: #6dc88b;
+    --color-primary-dark: #42af66;
+}
+[data-color='orange'] {
+    --color-primary: #ff4f00;
+    --color-primary-light: #fd6721;
+    --color-primary-dark: #db4906;
+}
+[data-color='teal'] {
+    --color-primary: #46c7ad;
+    --color-primary-light: #60cfb9;
+    --color-primary-dark: #37b49b;
+}
 [data-color='grey'] {
     --color-primary: #888;
     --color-primary-light: #a2a2a2;

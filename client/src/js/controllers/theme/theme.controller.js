@@ -45,5 +45,6 @@ const controlImage = () => {
     if (!state.chatBox) return;
     const valids = [mode.chatBox.user];
     const isValid = valids.find(valid => valid === state.chatBox.mode);
-    if (isValid) backgroundImageController.controlBackgroundImage({ mode: mode.background[state.theme.mode][1] });
+    const initial = 1;
+    if (isValid) backgroundImageController.controlBackgroundImage({ mode: mode.background[state.theme.mode][initial] });
 };

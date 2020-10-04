@@ -39,6 +39,10 @@ const mode = {
             yellow: 'yellow',
             grey: 'grey',
             white: 'white',
+            pink: 'pink',
+            forest: 'forest',
+            orange: 'orange',
+            teal: 'teal',
         },
     },
     background: {

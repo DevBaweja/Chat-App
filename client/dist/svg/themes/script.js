@@ -43,6 +43,26 @@ const colors = {
         light: '#ede558',
         dark: '#bab114',
     },
+    pink: {
+        normal: '#ff1455',
+        light: '#ff366e',
+        dark: '#f10043',
+    },
+    forest: {
+        normal: '#54bf78',
+        light: '#6dc88b',
+        dark: '#42af66',
+    },
+    orange: {
+        normal: '#ff4f00',
+        light: '#fd6721',
+        dark: '#db4906',
+    },
+    teal: {
+        normal: '#46c7ad',
+        light: '#60cfb9',
+        dark: '#37b49b',
+    },
     grey: {
         normal: '#bbb',
         light: '#a2a2a2',
