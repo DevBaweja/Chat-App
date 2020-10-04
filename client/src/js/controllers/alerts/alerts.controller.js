@@ -15,8 +15,14 @@ export const controlAlerts = info => {
     alertsView.clearAlerts();
 
     switch (info.mode) {
+        case mode.alert.misc.success:
+            miscSuccess(info);
+            break;
+        case mode.alert.misc.failure:
+            miscFailure(info);
+            break;
         case mode.alert.login.success:
-            loginSuccess(info);
+            loginSuccess();
             break;
         case mode.alert.login.failure:
             loginFailure();
@@ -51,6 +57,22 @@ export const controlAlerts = info => {
     state.alert.setTimer(alertsView.clearAlerts);
     // Clearing data after timeout
     state.alert.setTimer(() => (state.alert = null));
+};
+
+const miscSuccess = ({ data }) => {
+    const miscData = {
+        text: data,
+        type: 'success',
+    };
+    alertsView.renderAlerts(miscData);
+};
+
+const miscFailure = ({ data }) => {
+    const miscData = {
+        text: data,
+        type: 'failure',
+    };
+    alertsView.renderAlerts(miscData);
 };
 
 const loginSuccess = () => {

@@ -1,4 +1,8 @@
 const mode = {
+    mode: {
+        production: 'production',
+        development: 'development',
+    },
     header: {
         ideal: 'ideal',
         user: 'user',
@@ -54,6 +58,10 @@ const mode = {
         },
     },
     alert: {
+        misc: {
+            success: 'misc-success',
+            failure: 'misc-failure',
+        },
         login: {
             success: 'login-success',
             failure: 'login-failure',

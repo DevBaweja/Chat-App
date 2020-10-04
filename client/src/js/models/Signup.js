@@ -48,6 +48,8 @@ class Signup {
                 method: 'POST',
                 url: this.url,
                 data: obj,
+                validateStatus: () => true,
+                // For validation
             });
 
             this.parseData();
