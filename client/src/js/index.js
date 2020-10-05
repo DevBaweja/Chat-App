@@ -49,7 +49,7 @@ const initDev = () => {
     // App
     App.render();
     // Mode
-    modeController.controlMode({ mode: mode.mode.production });
+    modeController.controlMode({ mode: mode.mode.development });
     // Init
     initController.controlInit();
     // Theme

@@ -42,7 +42,6 @@ const controlSignup = async event => {
     try {
         // 4) Making API call
         const data = await state.signup.signupUser();
-        console.log(data);
         switch (data.status) {
             case 'success':
                 {
@@ -68,23 +67,29 @@ const controlSignup = async event => {
                 break;
             case 'error':
                 {
-                    // In Development
                     switch (state.mode.mode) {
+                        // In Development
                         case mode.mode.development:
                             console.log('Development Error : ', data.error);
                             alertsController.controlAlerts({ mode: mode.alert.misc.failure, data: data.message });
                             break;
                     }
+                    // 1) Initial UI for changes
+                    signupView.initialUIForSignup();
                 }
                 break;
-            case 'fail': {
-                // In Production
-                switch (state.mode.mode) {
-                    case mode.mode.production:
-                        alertsController.controlAlerts({ mode: mode.alert.misc.failure, data: data.message });
-                        break;
+            case 'fail':
+                {
+                    switch (state.mode.mode) {
+                        // In Production
+                        case mode.mode.production:
+                            alertsController.controlAlerts({ mode: mode.alert.misc.failure, data: data.message });
+                            break;
+                    }
+                    // 1) Initial UI for changes
+                    signupView.initialUIForSignup();
                 }
-            }
+                break;
         }
     } catch (err) {
         console.log('ERROR', err.message);

@@ -68,8 +68,26 @@ const controlLogin = async event => {
                     chatProfileController.controlChatProfile({ mode: mode.chatProfile.user });
                 }
                 break;
-            case 'error': {
-            }
+            case 'error':
+                {
+                    switch (state.mode.mode) {
+                        // In Development
+                        case mode.mode.development:
+                            {
+                                console.log('Development Error : ', data.error);
+                                alertsController.controlAlerts({ mode: mode.alert.misc.failure, data: data.message });
+                            }
+                            break;
+
+                        // In Production
+                        case mode.mode.production:
+                            alertsController.controlAlerts({ mode: mode.alert.misc.failure, data: data.message });
+                            break;
+                    }
+                    // 1) Initial UI for changes
+                    loginView.initialUIForLogin();
+                }
+                break;
         }
     } catch (err) {
         console.log('ERROR', err.message);
