@@ -81,8 +81,8 @@ const controlSignup = async event => {
         signupView.initialUIForSignup();
 
         // State Changes
+        state.token = null;
         state.user = null;
         state.signup = null;
-        state.token = null;
     }
 };

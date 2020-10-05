@@ -32,7 +32,7 @@ export const controlHeader = info => {
 const ideal = () => {
     // Render Ideal
     headerView.renderIdeal();
-    headerView.toggleClass('ideal');
+    headerView.toggleClass(mode.header.ideal);
 
     // Adding Event Listeners
     // Form Closing
@@ -50,5 +50,5 @@ const user = () => {
     const { user } = state;
     // Render User
     headerView.renderUser(user);
-    headerView.toggleClass('user');
+    headerView.toggleClass(mode.header.user);
 };
