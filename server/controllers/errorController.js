@@ -19,7 +19,7 @@ const sendErrorProd = (err, req, res) => {
         // Programming or other unknow error
     } else {
         // Log error
-        console.error('Error: ', err);
+        // console.error('Error: ', err);
         // Send generic message
         res.status(500).json({
             status: 'error',
@@ -55,6 +55,13 @@ const handleJWTExpiredError = () => {
         401
     );
 };
+
+const handleUserValidationError = (err) => {
+    let { message } = err;
+    message = message.replace('User validation failed: ', '');
+    return new AppError(message, 400);
+};
+
 module.exports = (err, req, res, next) => {
     err.statusCode = err.statusCode || 500;
     err.status = err.status || 'error';
@@ -66,7 +73,6 @@ module.exports = (err, req, res, next) => {
         let error = { ...err };
         // Saving message
         error.message = err.message;
-
         switch (true) {
             // Cast Error
             case error.name === 'CastError':
@@ -83,6 +89,9 @@ module.exports = (err, req, res, next) => {
                 break;
             case error.name === 'TokenExpiredError':
                 error = handleJWTExpiredError();
+                break;
+            case error._message === 'User validation failed':
+                error = handleUserValidationError(error);
                 break;
             default:
                 break;

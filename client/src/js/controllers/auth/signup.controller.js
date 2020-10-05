@@ -66,9 +66,23 @@ const controlSignup = async event => {
                     chatProfileController.controlChatProfile({ mode: mode.chatProfile.empty });
                 }
                 break;
-            case 'error': {
-                if (state.mode.mode === mode.mode.development) {
-                    alertsController.controlAlerts({ mode: mode.alert.misc.failure, data: data.message });
+            case 'error':
+                {
+                    // In Development
+                    switch (state.mode.mode) {
+                        case mode.mode.development:
+                            console.log('Development Error : ', data.error);
+                            alertsController.controlAlerts({ mode: mode.alert.misc.failure, data: data.message });
+                            break;
+                    }
+                }
+                break;
+            case 'fail': {
+                // In Production
+                switch (state.mode.mode) {
+                    case mode.mode.production:
+                        alertsController.controlAlerts({ mode: mode.alert.misc.failure, data: data.message });
+                        break;
                 }
             }
         }
