@@ -6,7 +6,7 @@ const renderFormGroup = (group, className) => `
 <div class="${className}__form--group">
     <label class="${className}__form--label" for="${group.for}">${group.label}</label>
     <input
-        class="${className}__form--input"
+        class="${className}__form--input ${group.className ? className + '__form--input-' + group.className : ''}"
         id="${group.id}"
         type="${group.type}"
         placeholder="${group.placeholder}"
@@ -16,6 +16,7 @@ const renderFormGroup = (group, className) => `
         minlength="${group.minLength ? group.minLength : '0'}"
         ${group.required ? 'required' : ''}
     />
+    ${group.toggle ? group.toggle : ''}
     ${group.forget ? group.forget : ''}
 </div>
 `;

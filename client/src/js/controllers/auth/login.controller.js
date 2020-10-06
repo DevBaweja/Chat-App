@@ -18,8 +18,38 @@ import * as formView from '../../views/auth/form.view';
 export const controlLoginCta = () => {
     // 1) Rendering Login form
     loginView.renderLoginForm();
-    // 2) Adding event listener to form
-    select(elementStrings.forms.loginForm).addEventListener('submit', controlLogin);
+    // 2) Adding event listener to show/hide password
+    select(elementStrings.forms.login.toggle).addEventListener('click', controlToggle);
+    // 3) Adding event listener to form
+    select(elementStrings.forms.login.form).addEventListener('submit', controlLogin);
+};
+
+const controlToggle = event => {
+    const { target } = event;
+    // Toggle
+    const element = target.closest(elementStrings.forms.login.toggle);
+
+    // Password Element
+    const passwordElement = select(elementStrings.forms.login.elements.password);
+
+    switch (element.dataset.type) {
+        case 'show':
+            // Toggle
+            element.dataset.type = 'hide';
+            // Change view
+            loginView.togglePassword(element.dataset.type);
+            // Password Show
+            passwordElement.type = 'text';
+            break;
+        case 'hide':
+            // Toggle
+            element.dataset.type = 'show';
+            // Change view
+            loginView.togglePassword(element.dataset.type);
+            // Password Hide
+            passwordElement.type = 'password';
+            break;
+    }
 };
 
 // Form
@@ -69,21 +99,21 @@ const controlLogin = async event => {
                 }
                 break;
             case 'error':
+            case 'fail':
                 {
-                    switch (state.mode.mode) {
-                        // In Development
-                        case mode.mode.development:
-                            {
-                                console.log('Development Error : ', data.error);
-                                alertsController.controlAlerts({ mode: mode.alert.misc.failure, data: data.message });
-                            }
-                            break;
+                    console.log('Error : ', data.error);
+                    let newMessage = data.message;
+                    // switch (true) {
+                    //     case data.message.includes('email'):
+                    //         newMessage = 'Please enter a valid email.';
+                    //         break;
+                    //     case data.message.includes('passwordConfirm'):
+                    //         newMessage = 'Passwords must match.';
+                    //         break;
+                    // }
+                    // 0) Error Alert
+                    alertsController.controlAlerts({ mode: mode.alert.misc.failure, data: data.message });
 
-                        // In Production
-                        case mode.mode.production:
-                            alertsController.controlAlerts({ mode: mode.alert.misc.failure, data: data.message });
-                            break;
-                    }
                     // 1) Initial UI for changes
                     loginView.initialUIForLogin();
                 }

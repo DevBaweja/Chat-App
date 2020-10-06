@@ -1,6 +1,33 @@
 import { elements, elementStrings, select } from '../../utils/base.util';
 import { renderForm, getInput, prepareUI, initialUI } from './form.view';
 import faker from 'faker';
+
+export const togglePassword = type => {
+    const markup = `
+    <svg class="user-signup__form--toggle-svg"> 
+        <use xlink:href="svg/sprite.svg#icon-${type}">
+        </use>
+    </svg>
+    `;
+    // Removing html
+    select(elementStrings.forms.signup.toggle.password).innerHTML = '';
+    // Adding html
+    select(elementStrings.forms.signup.toggle.password).insertAdjacentHTML('beforeend', markup);
+};
+
+export const togglePasswordConfirm = type => {
+    const markup = `
+    <svg class="user-signup__form--toggle-svg"> 
+        <use xlink:href="svg/sprite.svg#icon-${type}">
+        </use>
+    </svg>
+    `;
+    // Removing html
+    select(elementStrings.forms.signup.toggle.passwordConfirm).innerHTML = '';
+    // Adding html
+    select(elementStrings.forms.signup.toggle.passwordConfirm).insertAdjacentHTML('beforeend', markup);
+};
+
 export const renderSignupForm = () => {
     const form = {
         title: 'Welcome to #ChatFuel',
@@ -32,17 +59,26 @@ export const renderSignupForm = () => {
                 for: 'password',
                 id: 'password',
                 label: 'Password',
+                className: 'password',
                 placeholder: '••••••••••••',
                 // For Development
                 value: 'test1234',
                 autocomplete: 'new-password',
                 required: true,
                 minLength: 8,
+                toggle: `
+                <span class="user-signup__form--toggle user-signup__form--toggle-password" title="Show Password" data-type="show">
+                    <svg class="user-signup__form--toggle-svg"> 
+                        <use xlink:href="svg/sprite.svg#icon-show">
+                        </use>
+                    </svg> 
+                </span>`,
             },
             {
                 type: 'password',
                 for: 'passwordConfirm',
                 id: 'passwordConfirm',
+                className: 'password-confirm',
                 label: 'Confirm Password',
                 placeholder: '••••••••••••',
                 // For Development
@@ -50,6 +86,13 @@ export const renderSignupForm = () => {
                 autocomplete: 'new-password',
                 required: true,
                 minLength: 8,
+                toggle: `
+                <span class="user-signup__form--toggle user-signup__form--toggle-password-confirm" title="Show Password" data-type="show">
+                    <svg class="user-signup__form--toggle-svg"> 
+                        <use xlink:href="svg/sprite.svg#icon-show">
+                        </use>
+                    </svg> 
+                </span>`,
             },
         ],
         className: 'user-signup',

@@ -6,8 +6,24 @@ const elementStrings = {
         loginBtn: '.user-login__form--btn',
     },
     forms: {
-        signupForm: '.user-signup__form',
-        loginForm: '.user-login__form',
+        signup: {
+            form: '.user-signup__form',
+            toggle: {
+                password: '.user-signup__form--toggle-password',
+                passwordConfirm: '.user-signup__form--toggle-password-confirm',
+            },
+            elements: {
+                password: '.user-signup__form--input-password',
+                passwordConfirm: '.user-signup__form--input-password-confirm',
+            },
+        },
+        login: {
+            form: '.user-login__form',
+            toggle: '.user-login__form--toggle',
+            elements: {
+                password: '.user-login__form--input-password',
+            },
+        },
     },
     inputs: {
         signupInput: '.user-signup__form--input',

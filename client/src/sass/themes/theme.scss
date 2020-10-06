@@ -200,6 +200,15 @@
                     }
                 }
             }
+            &--toggle {
+                &-svg {
+                    @include adjust($color-grey-2, 50%, $theme, fill);
+
+                    &:hover {
+                        @include adjust($color-grey-2, 80%, $theme, fill);
+                    }
+                }
+            }
             &--btn {
                 background-color: $color-grey-3;
                 color: $color-primary;
@@ -218,10 +227,10 @@
         }
     }
 
-    // Login Form
+    // Sign up Form
     .user-signup {
     }
-    // Sign up Form
+    // Login Form
     .user-login {
     }
 

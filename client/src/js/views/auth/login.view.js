@@ -2,6 +2,18 @@ import { elements, elementStrings, select } from '../../utils/base.util';
 import { renderForm, getInput, prepareUI, initialUI } from './form.view';
 import faker from 'faker';
 
+export const togglePassword = type => {
+    const markup = `
+    <svg class="user-login__form--toggle-svg"> 
+        <use xlink:href="svg/sprite.svg#icon-${type}">
+        </use>
+    </svg>
+    `;
+    // Removing html
+    select(elementStrings.forms.login.toggle).innerHTML = '';
+    // Adding html
+    select(elementStrings.forms.login.toggle).insertAdjacentHTML('beforeend', markup);
+};
 export const renderLoginForm = () => {
     const form = {
         title: 'Log into #ChatFuel',
@@ -22,6 +34,7 @@ export const renderLoginForm = () => {
                 for: 'password',
                 id: 'password',
                 label: 'Password',
+                className: 'password',
                 placeholder: '••••••••••••',
                 // For Development
                 value: 'test1234',
@@ -29,6 +42,13 @@ export const renderLoginForm = () => {
                 required: true,
                 minLength: 8,
                 forget: `<span class="user-login__form--forget" title="Cann't remember your password">Forget password ?</span>`,
+                toggle: `
+                <span class="user-login__form--toggle" title="Show Password" data-type="show">
+                    <svg class="user-login__form--toggle-svg"> 
+                        <use xlink:href="svg/sprite.svg#icon-show">
+                        </use>
+                    </svg> 
+                </span>`,
             },
         ],
         className: 'user-login',
