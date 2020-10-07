@@ -9,9 +9,11 @@ const router = express.Router();
 
 // -----------
 // Alias
+router.get('/isLogin', authController.isLogin);
 router.post('/signup', authController.signup);
 router.post('/login', authController.login);
-router.get('/isLogin', authController.isLogin);
+router.post('/forgetPassword', authController.forgetPassword);
+router.patch('/resetPassword/:token', authController.resetPassword);
 
 router.use(authController.protect);
 router.use(authController.restrictTo('admin'));
