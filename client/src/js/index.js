@@ -29,8 +29,10 @@ const init = () => {
     modeController.controlMode({ mode: mode.mode.development });
     // Init
     initController.controlInit();
+
     // Theme
     themeController.controlTheme({ mode: mode.theme.dark, color: mode.theme.color.orange });
+    /*
 
     // Header
     headerController.controlHeader({ mode: mode.header.ideal });
@@ -41,7 +43,7 @@ const init = () => {
 
     // Chat Profile
     chatProfileController.controlChatProfile({ mode: mode.chatProfile.setting });
-
+*/
     addListeners();
 };
 

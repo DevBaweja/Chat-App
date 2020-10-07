@@ -20,10 +20,13 @@ export const controlLoginCta = () => {
     loginView.renderLoginForm();
     // 2) Adding event listener to show/hide password
     select(elementStrings.forms.login.toggle).addEventListener('click', controlToggle);
-    // 3) Adding event listener to form
+    // 3) Adding event listener to forget password
+    select(elementStrings.forms.login.forget).addEventListener('click', controlForget);
+    // 4) Adding event listener to form submit
     select(elementStrings.forms.login.form).addEventListener('submit', controlLogin);
 };
 
+// Toggle
 const controlToggle = event => {
     const { target } = event;
     // Toggle
@@ -50,6 +53,11 @@ const controlToggle = event => {
             passwordElement.type = 'password';
             break;
     }
+};
+
+// Forget
+const controlForget = () => {
+    console.log('Forget');
 };
 
 // Form
@@ -103,14 +111,14 @@ const controlLogin = async event => {
                 {
                     console.log('Error : ', data.error);
                     let newMessage = data.message;
-                    // switch (true) {
-                    //     case data.message.includes('email'):
-                    //         newMessage = 'Please enter a valid email.';
-                    //         break;
-                    //     case data.message.includes('passwordConfirm'):
-                    //         newMessage = 'Passwords must match.';
-                    //         break;
-                    // }
+                    switch (true) {
+                        case data.message.includes('email'):
+                            newMessage = 'Please enter a valid email.';
+                            break;
+                        case data.message.includes('passwordConfirm'):
+                            newMessage = 'Passwords must match.';
+                            break;
+                    }
                     // 0) Error Alert
                     alertsController.controlAlerts({ mode: mode.alert.misc.failure, data: data.message });
 

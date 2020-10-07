@@ -1,6 +1,6 @@
+import axios from 'axios';
 import state from '../state';
 import { url } from '../utils/base.util';
-import axios from 'axios';
 
 class Login {
     constructor({ email, password }) {

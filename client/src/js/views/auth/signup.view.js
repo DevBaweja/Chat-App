@@ -1,4 +1,4 @@
-import { elements, elementStrings, select } from '../../utils/base.util';
+import { elements, elementStrings, select, capitalize } from '../../utils/base.util';
 import { renderForm, getInput, prepareUI, initialUI } from './form.view';
 import faker from 'faker';
 
@@ -9,10 +9,13 @@ export const togglePassword = type => {
         </use>
     </svg>
     `;
+    const element = select(elementStrings.forms.signup.toggle.password);
     // Removing html
-    select(elementStrings.forms.signup.toggle.password).innerHTML = '';
+    element.innerHTML = '';
+    // Adjust title
+    element.title = `${capitalize(type)} Password`;
     // Adding html
-    select(elementStrings.forms.signup.toggle.password).insertAdjacentHTML('beforeend', markup);
+    element.insertAdjacentHTML('beforeend', markup);
 };
 
 export const togglePasswordConfirm = type => {
@@ -22,10 +25,13 @@ export const togglePasswordConfirm = type => {
         </use>
     </svg>
     `;
+    const element = select(elementStrings.forms.signup.toggle.passwordConfirm);
     // Removing html
-    select(elementStrings.forms.signup.toggle.passwordConfirm).innerHTML = '';
+    element.innerHTML = '';
+    // Adjust title
+    element.title = `${capitalize(type)} Confirm Password`;
     // Adding html
-    select(elementStrings.forms.signup.toggle.passwordConfirm).insertAdjacentHTML('beforeend', markup);
+    element.insertAdjacentHTML('beforeend', markup);
 };
 
 export const renderSignupForm = () => {
@@ -87,7 +93,7 @@ export const renderSignupForm = () => {
                 required: true,
                 minLength: 8,
                 toggle: `
-                <span class="user-signup__form--toggle user-signup__form--toggle-password-confirm" title="Show Password" data-type="show">
+                <span class="user-signup__form--toggle user-signup__form--toggle-password-confirm" title="Show Confirm Password" data-type="show">
                     <svg class="user-signup__form--toggle-svg"> 
                         <use xlink:href="svg/sprite.svg#icon-show">
                         </use>

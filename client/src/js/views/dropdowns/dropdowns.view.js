@@ -32,10 +32,11 @@ export const renderDropdowns = ({ groups, className, coordinate }) => {
 
     // Assign coordinates
     assignCoordinate(`.${className}`, coordinate);
+
+    // Adding transform
     setTimeout(() => {
         transform(`.${className}`);
-        // Adding transform
-    }, 500);
+    }, 10);
 };
 
 export const clearDropdowns = () => (select(elements.Dropdowns).innerHTML = '');

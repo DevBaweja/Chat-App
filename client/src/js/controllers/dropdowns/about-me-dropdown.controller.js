@@ -18,10 +18,11 @@ const controlAboutMeDropdown = event => {
 
     // 1) Render Dropdown For About Me
     aboutMeDropdownView.renderAboutMeDropdown({ coordinate });
-    /*
+
     const height = select(elementStrings.dropdowns.aboutMeDropdown).offsetHeight;
     const width = select(elementStrings.dropdowns.aboutMeDropdown).offsetWidth;
-    */
+    console.log({ height, width });
+
     // 2) Add Event Listener
     select(elementStrings.dropdowns.aboutMeDropdown).addEventListener('click', controlAboutMeDropdownItems);
 };

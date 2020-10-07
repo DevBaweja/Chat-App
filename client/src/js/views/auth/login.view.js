@@ -1,4 +1,4 @@
-import { elements, elementStrings, select } from '../../utils/base.util';
+import { elements, elementStrings, select, capitalize } from '../../utils/base.util';
 import { renderForm, getInput, prepareUI, initialUI } from './form.view';
 import faker from 'faker';
 
@@ -9,10 +9,13 @@ export const togglePassword = type => {
         </use>
     </svg>
     `;
+    const element = select(elementStrings.forms.login.toggle);
     // Removing html
-    select(elementStrings.forms.login.toggle).innerHTML = '';
+    element.innerHTML = '';
+    // Adjust title
+    element.title = `${capitalize(type)} Password`;
     // Adding html
-    select(elementStrings.forms.login.toggle).insertAdjacentHTML('beforeend', markup);
+    element.insertAdjacentHTML('beforeend', markup);
 };
 export const renderLoginForm = () => {
     const form = {

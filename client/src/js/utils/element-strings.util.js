@@ -23,6 +23,7 @@ const elementStrings = {
             elements: {
                 password: '.user-login__form--input-password',
             },
+            forget: '.user-login__form--forget',
         },
     },
     inputs: {

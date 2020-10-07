@@ -74,15 +74,10 @@
 }
 .chat-panel-user {
     &__dropdown {
+        // clip-path: polygon(11.25% 5%, 16% 0, 100% 0, 100% 100%, 0 100%, 0 0, 6.5% 0);
         transition: all 0.5s;
         transform: scale(0);
         transform-origin: top left;
-
-        // border-top-left-radius: 0;
-        // border-bottom-left-radius: 0;
-
-        // clip-path: polygon(11.25% 5%, 16% 0, 100% 0, 100% 100%, 0 100%, 0 0, 6.5% 0);
-
         &--svg {
             &-pin,
             &-mute {

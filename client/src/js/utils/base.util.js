@@ -6,5 +6,6 @@ import mode from './mode.util';
 import actions from './actions.util';
 import io from './io.util';
 import { select, selectAll } from './selector.util';
+import { capitalize } from './utility.util';
 
-export { url, elements, elementStrings, elementClasses, mode, actions, io, select, selectAll };
+export { url, elements, elementStrings, elementClasses, mode, actions, io, select, selectAll, capitalize };
