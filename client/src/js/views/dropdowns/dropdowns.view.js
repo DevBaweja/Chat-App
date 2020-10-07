@@ -32,18 +32,24 @@ export const renderDropdowns = ({ groups, className, coordinate }) => {
 
     // Assign coordinates
     assignCoordinate(`.${className}`, coordinate);
-    // Adding transform
-    transform(`.${className}`);
+    setTimeout(() => {
+        transform(`.${className}`);
+        // Adding transform
+    }, 500);
 };
 
 export const clearDropdowns = () => (select(elements.Dropdowns).innerHTML = '');
 
 // top - Y, left - X
 // clientX|Y, screenX|Y, pageX|Y, x|y
-export const getCoordinate = ({ x, y }) => ({
-    top: `${window.pageYOffset + y}px`,
-    left: `${window.pageXOffset + x}px`,
-});
+export const getCoordinate = ({ x, y }) => {
+    const coordinateX = window.pageXOffset + x;
+    const coordinateY = window.pageYOffset + y;
+    return {
+        top: `${coordinateY}px`,
+        left: `${coordinateX}px`,
+    };
+};
 
 // 2 1
 // 3 4

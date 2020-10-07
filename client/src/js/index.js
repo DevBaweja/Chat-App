@@ -65,4 +65,4 @@ const initDev = () => {
     addListeners();
 };
 
-initDev();
+init();
