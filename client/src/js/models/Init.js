@@ -33,8 +33,6 @@ class Init {
                 validateStatus: () => true,
                 // For validation
             });
-            console.log(this.data);
-
             this.parseData();
             return this.data;
         } catch (err) {

@@ -4,9 +4,7 @@ import { elementStrings, select, mode, actions } from '../../utils/base.util';
 // Controllers
 import * as themeController from '../theme/theme.controller';
 import * as alertsController from '../alerts/alerts.controller';
-import * as headerController from '../header.controller';
-import * as chatPanelController from '../chat-panel.controller';
-import * as chatBoxController from '../chat-box.controller';
+import * as combinedController from '../combined.controller';
 import * as chatProfileController from '../chat-profile.controller';
 // Views
 import { getCoordinate } from '../../views/dropdowns/dropdowns.view';
@@ -66,15 +64,14 @@ const setting = () => {
     chatProfileController.controlChatProfile({ mode: mode.chatProfile.setting });
 };
 const logout = () => {
-    // Success Alert
+    // 0) Success Alert
     alertsController.controlAlerts({ mode: mode.alert.logout.success });
 
-    // Ideal Mode of header, chat panel, chat box, chat profile
-    headerController.controlHeader({ mode: mode.header.ideal });
-    chatPanelController.controlChatPanel({ mode: mode.chatPanel.ideal });
-    chatBoxController.controlChatBox({ mode: mode.chatBox.ideal });
-    chatProfileController.controlChatProfile({ mode: mode.chatProfile.ideal });
-    // Clear state
+    // Combined Ideal
+    combinedController.controlAll({ mode: mode.combined.ideal });
+
+    // 2) Clear state
+    // 3) Clear token
 };
 
 export default controlAboutMeDropdown;

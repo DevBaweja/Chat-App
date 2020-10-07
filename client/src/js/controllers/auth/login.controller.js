@@ -4,10 +4,7 @@ import state from '../../state';
 import { elementStrings, select, mode } from '../../utils/base.util';
 // Controllers
 import * as alertsController from '../alerts/alerts.controller';
-import * as headerController from '../header.controller';
-import * as chatPanelController from '../chat-panel.controller';
-import * as chatBoxController from '../chat-box.controller';
-import * as chatProfileController from '../chat-profile.controller';
+import * as combinedController from '../combined.controller';
 // Models
 import Login from '../../models/Login';
 // Views
@@ -99,11 +96,8 @@ const controlLogin = async event => {
                     // 6) Clear form
                     formView.clearForm();
 
-                    // 7) User State of header, chat panel, chat box, chat profile
-                    headerController.controlHeader({ mode: mode.header.user });
-                    chatPanelController.controlChatPanel({ mode: mode.chatPanel.user.recentChat });
-                    chatBoxController.controlChatBox({ mode: mode.chatBox.user });
-                    chatProfileController.controlChatProfile({ mode: mode.chatProfile.user });
+                    // 7) Combine User
+                    combinedController.controlAll({ mode: mode.combined.user });
                 }
                 break;
             case 'error':

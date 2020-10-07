@@ -91,5 +91,10 @@ const mode = {
             received: 'request-received',
         },
     },
+    combined: {
+        ideal: 'ideal',
+        empty: 'empty',
+        user: 'user',
+    },
 };
 export default mode;

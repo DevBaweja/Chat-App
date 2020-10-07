@@ -4,10 +4,7 @@ import state from '../../state';
 import { elementStrings, select, mode } from '../../utils/base.util';
 // Controllers
 import * as alertsController from '../alerts/alerts.controller';
-import * as headerController from '../header.controller';
-import * as chatPanelController from '../chat-panel.controller';
-import * as chatBoxController from '../chat-box.controller';
-import * as chatProfileController from '../chat-profile.controller';
+import * as combinedController from '../combined.controller';
 // Models
 import Signup from '../../models/Signup';
 // Views
@@ -118,17 +115,15 @@ const controlSignup = async event => {
                     // 6) Clear form
                     formView.clearForm();
 
-                    // 7) Empty State of header, chat panel, chat box, chat profile
-                    headerController.controlHeader({ mode: mode.header.user });
-                    chatPanelController.controlChatPanel({ mode: mode.chatPanel.empty });
-                    chatBoxController.controlChatBox({ mode: mode.chatBox.empty });
-                    chatProfileController.controlChatProfile({ mode: mode.chatProfile.empty });
+                    // Combined Empty
+                    combinedController.controlAll({ mode: mode.combined.empty });
                 }
                 break;
             case 'error':
             case 'fail':
                 {
                     console.log('ERROR : ', data.error);
+                    // Better Alerts
                     let newMessage = data.message;
                     switch (true) {
                         case data.message.includes('email'):
