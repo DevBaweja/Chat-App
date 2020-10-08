@@ -1,3 +1,4 @@
+const crypto = require('crypto');
 const { promisify } = require('util');
 const jwt = require('jsonwebtoken');
 const User = require('../models/userModel');
@@ -205,11 +206,7 @@ exports.forgetPassword = catchAsync(async (req, res, next) => {
     await user.save({ validateBeforeSave: false });
 
     // 3) Send it to email
-    const resetURL = `${req.protocol}://${req.get(
-        'host'
-    )}/api/v1/users/resetPassword/${resetToken}`;
-
-    const message = `Forget your password? Submit a PATCH request with your new password and password confirm to reset url : ${resetURL}.\n If you didn't forget your password, please ignore this email!`;
+    const message = `Forget your password? Set your new password and password confirm with token : ${resetToken}.\n If you didn't forget your password, please ignore this email!`;
 
     try {
         await sendEmail({
@@ -230,7 +227,7 @@ exports.forgetPassword = catchAsync(async (req, res, next) => {
 
         return next(
             new AppError(
-                'There was an error  sending the email. Try again later',
+                'There was an error sending the email. Try again later',
                 500
             )
         );
@@ -238,4 +235,33 @@ exports.forgetPassword = catchAsync(async (req, res, next) => {
 });
 
 // Reset Password
-exports.resetPassword = (req, res, next) => {};
+exports.resetPassword = catchAsync(async (req, res, next) => {
+    // 1) Get user based on token
+    const hashedToken = crypto
+        .createHash('sha256')
+        .update(req.params.token)
+        .digest('hex');
+
+    const user = await User.findOne({
+        passwordResetToken: hashedToken,
+        passwordResetExpires: { $gt: Date.now() },
+    });
+    // 2) If token has not expired, and there is user, set new password
+    if (!user) {
+        return next(new AppError('Token is invalid or has expired!'));
+    }
+    // Set new password
+    user.password = req.body.password;
+    user.passwordConfirm = req.body.passwordConfirm;
+    // Remove password reset
+    user.passwordResetToken = undefined;
+    user.passwordResetExpires = undefined;
+    // Save user
+    await user.save();
+    // 3) Update changedPasswordAt properties for current user
+
+    // 4) Log user in, send JWT
+
+    // Send json web token
+    createSendToken(user, 200, req, res);
+});

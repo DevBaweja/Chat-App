@@ -72,8 +72,16 @@ userSchema.pre('save', async function (next) {
     this.password = await bcrypt.hash(this.password, 8);
     // Delete passwordConfirm
     this.passwordConfirm = undefined;
+    next();
 });
 
+userSchema.pre('save', async function (next) {
+    // As we need to do it only is password is modified and document is old
+    if (!this.isModified('password') || this.isNew) return next();
+
+    this.passwordChangedAt = Date.now() - 1000;
+    next();
+});
 // -----------
 // Methods
 userSchema.methods.correctPassword = async function (
