@@ -74,7 +74,10 @@ const logout = () => {
     combinedController.controlAll({ mode: mode.combined.ideal });
 
     // 2) Clear state
+    state['user'] = null;
+    // !For Development
     // 3) Clear token
+    state['token'] = null;
 };
 
 export default controlAboutMeDropdown;
