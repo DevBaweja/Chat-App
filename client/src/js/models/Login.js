@@ -6,7 +6,7 @@ class Login {
     constructor({ email, password }) {
         this.email = email;
         this.password = password;
-        this.url = `${url[state.mode.mode]}api/v1/users/login`;
+        this.url = `${url[state['mode'].mode]}api/v1/users/login`;
     }
 
     setUserInput = ({ email, password }) => {

@@ -8,8 +8,8 @@ import * as alertsView from '../../views/alerts/alerts.view';
 
 export const controlAlerts = info => {
     // Init Alert
-    if (!state.alert) state.alert = new Alert(info);
-    state.alert.setMode(info.mode);
+    if (!state['alert']) state['alert'] = new Alert(info);
+    state['alert'].setMode(info.mode);
 
     // Prepare UI
     alertsView.clearAlerts();
@@ -54,9 +54,9 @@ export const controlAlerts = info => {
     }
 
     // Clearing UI after timeout
-    state.alert.setTimer(alertsView.clearAlerts);
+    state['alert'].setTimer(alertsView.clearAlerts);
     // Clearing data after timeout
-    state.alert.setTimer(() => (state.alert = null));
+    state['alert'].setTimer(() => (state['alert'] = null));
 };
 
 const miscSuccess = ({ data }) => {

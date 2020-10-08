@@ -5,7 +5,7 @@ import { url } from '../utils/base.util';
 
 class Init {
     constructor() {
-        this.url = `${url[state.mode.mode]}api/v1/users/isLogin`;
+        this.url = `${url[state['mode'].mode]}api/v1/users/isLogin`;
     }
 
     establishConnection = async () => {
@@ -28,7 +28,7 @@ class Init {
                 method: 'GET',
                 url: this.url,
                 headers: {
-                    authorization: 'Bearer ' + state.token,
+                    authorization: 'Bearer ' + state['token'],
                 },
                 validateStatus: () => true,
                 // For validation

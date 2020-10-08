@@ -12,8 +12,8 @@ import * as signupController from './auth/signup.controller';
 
 export const controlHeader = info => {
     // Init Header
-    if (!state.header) state.header = new Header({ mode: info.mode, className: info.mode });
-    state.header.setMode(info.mode);
+    if (!state['header']) state['header'] = new Header({ mode: info.mode, className: info.mode });
+    state['header'].setMode(info.mode);
 
     // Prepare UI
     headerView.clearHeader();

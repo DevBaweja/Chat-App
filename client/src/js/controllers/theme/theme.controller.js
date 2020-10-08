@@ -10,18 +10,18 @@ import * as themeView from '../../views/theme/theme.view';
 
 export const controlTheme = info => {
     // Init Theme
-    if (!state.theme) state.theme = new Theme(info);
+    if (!state['theme']) state['theme'] = new Theme(info);
     // Prepare UI
-    themeView.clearTheme(state.theme.mode);
+    themeView.clearTheme(state['theme'].mode);
     themeView.clearColor();
 
     // Changing Data
-    state.theme.setMode(info.mode || state.theme.mode);
-    state.theme.setColor(info.color || state.theme.color);
+    state['theme'].setMode(info.mode || state['theme'].mode);
+    state['theme'].setColor(info.color || state['theme'].color);
 
     // Render it to App
-    themeView.renderTheme(state.theme.mode);
-    themeView.renderColor(state.theme.color);
+    themeView.renderTheme(state['theme'].mode);
+    themeView.renderColor(state['theme'].color);
 
     // SVG
     controlSvg();
@@ -32,19 +32,19 @@ export const controlTheme = info => {
 };
 
 const controlSvg = () => {
-    if (!state.chatBox) return;
+    if (!state['chatBox']) return;
     const valids = [mode.chatBox.ideal, mode.chatBox.empty];
-    const isValid = valids.find(valid => valid === state.chatBox.mode);
+    const isValid = valids.find(valid => valid === state['chatBox'].mode);
     if (isValid)
         chatBoxController.controlChatBox({
-            mode: state.chatBox.mode,
+            mode: state['chatBox'].mode,
         });
 };
 
 const controlImage = () => {
-    if (!state.chatBox) return;
+    if (!state['chatBox']) return;
     const valids = [mode.chatBox.user];
-    const isValid = valids.find(valid => valid === state.chatBox.mode);
+    const isValid = valids.find(valid => valid === state['chatBox'].mode);
     const initial = 1;
-    if (isValid) backgroundImageController.controlBackgroundImage({ mode: mode.background[state.theme.mode][initial] });
+    if (isValid) backgroundImageController.controlBackgroundImage({ mode: mode.background[state['theme'].mode][initial] });
 };

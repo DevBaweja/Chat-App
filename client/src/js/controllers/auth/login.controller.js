@@ -71,25 +71,25 @@ const controlLogin = async event => {
     // { email, password }
 
     // 3) Init login
-    if (!state.login) state.login = new Login({ ...inputs });
+    if (!state['login']) state['login'] = new Login({ ...inputs });
 
-    state.login.setUserInput({ ...inputs });
+    state['login'].setUserInput({ ...inputs });
 
     // 4) Making API call
 
     try {
         // 4) Making API call
-        const data = await state.login.loginUser();
+        const data = await state['login'].loginUser();
         switch (data.status) {
             case 'success':
                 {
                     // !For Development
                     // Token Assign
-                    state.token = data.token;
+                    state['token'] = data.token;
                     // Getting User
                     const { user } = data.data;
                     // User Assign
-                    state.user = user;
+                    state['user'] = user;
 
                     // 5) Success Alert
                     alertsController.controlAlerts({ mode: mode.alert.login.success });
@@ -130,7 +130,7 @@ const controlLogin = async event => {
         loginView.initialUIForLogin();
 
         // State Changes
-        state.login = null;
-        state.token = null;
+        state['login'] = null;
+        state['token'] = null;
     }
 };

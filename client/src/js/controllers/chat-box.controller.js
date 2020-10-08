@@ -11,8 +11,8 @@ import * as chatBoxView from '../views/chat-box.view';
 
 export const controlChatBox = info => {
     // Init Chat Box
-    if (!state.chatBox) state.chatBox = new ChatBox(info);
-    state.chatBox.setMode(info.mode);
+    if (!state['chatBox']) state['chatBox'] = new ChatBox(info);
+    state['chatBox'].setMode(info.mode);
 
     // Prepare UI
     chatBoxView.clearChatBox();
@@ -34,18 +34,18 @@ export const controlChatBox = info => {
 };
 const ideal = () => {
     // Render Ideal
-    chatBoxView.renderIdeal(state.theme.color);
+    chatBoxView.renderIdeal(state['theme'].color);
 };
 const empty = () => {
     // Render Empty
-    chatBoxView.renderEmpty(state.theme.color);
+    chatBoxView.renderEmpty(state['theme'].color);
 };
 const user = ({ data }) => {
     // Render User
     chatBoxView.renderUser(data);
     // Render Background Image
     backgroundImageController.controlBackgroundImage({
-        mode: mode.background[state.theme.mode][1],
+        mode: mode.background[state['theme'].mode][1],
     });
     // Add Event Listeners
     select(elementStrings.chatBox.header.back).addEventListener('click', () => {

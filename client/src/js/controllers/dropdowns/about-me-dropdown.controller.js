@@ -49,18 +49,18 @@ const controlAboutMeDropdownItems = event => {
 // Actions
 const theme = () => {
     console.log('Theme');
-    themeController.controlTheme({ mode: state.theme.toggleMode() });
+    themeController.controlTheme({ mode: state['theme'].toggleMode() });
 };
 
 const profile = () => {
     console.log('Profile');
-    if (state.chatProfile.mode === mode.chatProfile.user) return;
+    if (state['chatProfile'].mode === mode.chatProfile.user) return;
     chatProfileController.controlChatProfile({ mode: mode.chatProfile.user });
 };
 
 const setting = () => {
     console.log('Setting');
-    if (state.chatProfile.mode === mode.chatProfile.setting) return;
+    if (state['chatProfile'].mode === mode.chatProfile.setting) return;
     chatProfileController.controlChatProfile({ mode: mode.chatProfile.setting });
 };
 const logout = () => {

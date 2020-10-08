@@ -92,23 +92,23 @@ const controlSignup = async event => {
     // { name, email, password, passwordConfirm }
 
     // 3) Init signup
-    if (!state.signup) state.signup = new Signup({ ...inputs });
+    if (!state['signup']) state['signup'] = new Signup({ ...inputs });
 
-    state.signup.setUserInput({ ...inputs });
+    state['signup'].setUserInput({ ...inputs });
 
     try {
         // 4) Making API call
-        const data = await state.signup.signupUser();
+        const data = await state['signup'].signupUser();
         switch (data.status) {
             case 'success':
                 {
                     // !For Development
                     // Token Assign
-                    state.token = data.token;
+                    state['token'] = data.token;
                     // Getting User
                     const { user } = data.data;
                     // User Assign
-                    state.user = user;
+                    state['user'] = user;
 
                     // 5) Success Alert
                     alertsController.controlAlerts({ mode: mode.alert.signup.success });
@@ -150,8 +150,8 @@ const controlSignup = async event => {
         signupView.initialUIForSignup();
 
         // State Changes
-        state.token = null;
-        state.user = null;
-        state.signup = null;
+        state['token'] = null;
+        state['user'] = null;
+        state['signup'] = null;
     }
 };
