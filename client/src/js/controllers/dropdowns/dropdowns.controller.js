@@ -8,7 +8,6 @@ import {
     controlChatBoxInDropdown,
     controlChatBoxOptionsDropdown,
 } from './chat-box-dropdown.controller';
-
 // Models
 // Views
 import * as dropdownsView from '../../views/dropdowns/dropdowns.view';
@@ -48,3 +47,6 @@ export const controlDropdowns = event => {
             break;
     }
 };
+
+// ! For Development
+window.controlDropdowns = controlDropdowns;

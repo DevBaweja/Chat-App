@@ -59,6 +59,9 @@ export const controlAlerts = info => {
     state['alert'].setTimer(() => (state['alert'] = null));
 };
 
+// ! For Development
+window.controlAlerts = controlAlerts;
+
 const miscSuccess = ({ data }) => {
     const miscData = {
         text: data,

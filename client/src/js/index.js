@@ -22,7 +22,14 @@ const init = () => {
     App.render();
 
     // Mode
-    modeController.controlMode({ mode: mode.mode.development });
+    switch (window.location.protocol) {
+        case 'http:':
+            modeController.controlMode({ mode: mode.mode.development });
+            break;
+        case 'https:':
+            modeController.controlMode({ mode: mode.mode.production });
+            break;
+    }
 
     // Init
     initController.controlInit();

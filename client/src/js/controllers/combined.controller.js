@@ -27,6 +27,9 @@ export const controlAll = info => {
     }
 };
 
+// ! For Development
+window.controlAll = controlAll;
+
 const ideal = () => {
     console.log('ideal');
 

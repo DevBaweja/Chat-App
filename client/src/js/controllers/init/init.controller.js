@@ -7,7 +7,6 @@ import * as alertsController from '../alerts/alerts.controller';
 import * as combinedController from '../combined.controller';
 // Model
 import Init from '../../models/Init';
-// Views
 
 export const controlInit = async () => {
     console.log('Initializing App');
@@ -26,8 +25,16 @@ export const controlInit = async () => {
     // 3) isLogin
     try {
         // !For Development
-        state['token'] =
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmN2RjMmYxOGRkYjZjNjM1MDQ0NmUzOSIsImlhdCI6MTYwMjA3NzQzNiwiZXhwIjoxNjAyMjUwMjM2fQ.TJ2p7rxYkA2_PDPO-xvRayDYf9Ejnugbug2V1PyAMYc';
+        switch (state['mode'].mode) {
+            case mode.mode.development:
+                state['token'] =
+                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmN2RjMmYxOGRkYjZjNjM1MDQ0NmUzOSIsImlhdCI6MTYwMjA3NzQzNiwiZXhwIjoxNjAyMjUwMjM2fQ.TJ2p7rxYkA2_PDPO-xvRayDYf9Ejnugbug2V1PyAMYc';
+                break;
+            case mode.mode.production:
+                state['token'] =
+                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmN2VjYjgwNjI0MzgzMjliYzg0ZDI1MSIsImlhdCI6MTYwMjE0NTE1MiwiZXhwIjoxNjAyMzE3OTUyfQ.1UxIwZ0jics7vtIEbo775ZclX4bvnqGMg9xB554hLOc';
+                break;
+        }
         // Checking for Login
         const data = await state['init'].isLogin();
 
@@ -57,7 +64,7 @@ export const controlInit = async () => {
                     alertsController.controlAlerts({ mode: mode.alert.misc.failure, data: data.message });
 
                     // Theme
-                    themeController.controlTheme({ mode: mode.theme.light, color: mode.theme.color.yellow });
+                    themeController.controlTheme({ mode: mode.theme.dark, color: mode.theme.color.yellow });
 
                     // Combined Ideal
                     combinedController.controlAll({ mode: mode.combined.ideal });
@@ -69,3 +76,6 @@ export const controlInit = async () => {
         console.log('ERROR: ', err.message);
     }
 };
+
+// ! For Development
+window.controlInit = controlInit;

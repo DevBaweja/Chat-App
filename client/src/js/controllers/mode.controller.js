@@ -7,3 +7,6 @@ export const controlMode = info => {
     if (!state['mode']) state['mode'] = new Mode(info);
     state['mode'].setMode(info.mode);
 };
+
+// ! For Development
+window.controlMode = controlMode;

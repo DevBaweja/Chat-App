@@ -27,8 +27,6 @@ export const controlTheme = info => {
     controlSvg();
     // Image
     controlImage();
-    // ! For Development
-    window.controlTheme = controlTheme;
 };
 
 const controlSvg = () => {
@@ -46,5 +44,9 @@ const controlImage = () => {
     const valids = [mode.chatBox.user];
     const isValid = valids.find(valid => valid === state['chatBox'].mode);
     const initial = 1;
-    if (isValid) backgroundImageController.controlBackgroundImage({ mode: mode.background[state['theme'].mode][initial] });
+    if (isValid)
+        backgroundImageController.controlBackgroundImage({ mode: mode.background[state['theme'].mode][initial] });
 };
+
+// ! For Development
+window.controlTheme = controlTheme;

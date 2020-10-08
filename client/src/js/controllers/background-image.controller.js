@@ -19,3 +19,6 @@ export const controlBackgroundImage = info => {
     // Render Background Image
     backgroundImageView.renderBackgroundImage({ rgba, img });
 };
+
+// ! For Development
+window.controlBackgroundImage = controlBackgroundImage;

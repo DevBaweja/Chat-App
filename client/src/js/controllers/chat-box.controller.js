@@ -32,6 +32,10 @@ export const controlChatBox = info => {
             break;
     }
 };
+
+// ! For Development
+window.controlChatBox = controlChatBox;
+
 const ideal = () => {
     // Render Ideal
     chatBoxView.renderIdeal(state['theme'].color);

@@ -14,6 +14,9 @@ export const controlChatBoxInDropdown = event => {
     select(elementStrings.dropdowns.chatBoxDropdown.in).addEventListener('click', controlChatBoxInDropdownItems);
 };
 
+// ! For Development
+window.controlChatBoxInDropdown = controlChatBoxInDropdown;
+
 // Items
 const controlChatBoxInDropdownItems = () => {
     const item = event.target.closest(elementStrings.dropdownItems.chatBoxDropdownItem.in);

@@ -25,6 +25,9 @@ const controlAboutMeDropdown = event => {
     select(elementStrings.dropdowns.aboutMeDropdown).addEventListener('click', controlAboutMeDropdownItems);
 };
 
+// ! For Development
+window.controlAboutMeDropdown = controlAboutMeDropdown;
+
 // Items
 const controlAboutMeDropdownItems = event => {
     const item = event.target.closest(elementStrings.dropdownItems.aboutMeDropdownItem);

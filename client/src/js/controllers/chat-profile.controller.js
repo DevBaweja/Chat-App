@@ -36,6 +36,9 @@ export const controlChatProfile = info => {
     }
 };
 
+// ! For Development
+window.controlChatProfile = controlChatProfile;
+
 const ideal = () => {};
 const empty = () => {};
 

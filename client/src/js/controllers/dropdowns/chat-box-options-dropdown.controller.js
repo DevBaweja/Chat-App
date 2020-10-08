@@ -17,6 +17,9 @@ export const controlChatBoxOptionsDropdown = event => {
     );
 };
 
+// ! For Development
+window.controlChatBoxOptionsDropdown = controlChatBoxOptionsDropdown;
+
 // Items
 const controlChatBoxOptionsDropdownItems = () => {};
 

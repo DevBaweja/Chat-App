@@ -28,6 +28,10 @@ export const controlChatPanel = info => {
             break;
     }
 };
+
+// ! For Development
+window.controlChatPanel = controlChatPanel;
+
 const empty = () => {
     // Render Empty
     chatPanelView.renderEmpty();

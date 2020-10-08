@@ -23,6 +23,9 @@ const controlChatPanelDropdown = event => {
     select(elementStrings.dropdowns.chatPanelDropdown).addEventListener('click', controlAboutMeDropdownItems);
 };
 
+// ! For Development
+window.controlChatPanelDropdown = controlChatPanelDropdown;
+
 // Items
 const controlAboutMeDropdownItems = ({ target }) => {
     const item = target.closest(elementStrings.dropdownItems.chatPanelDropdownItem);

@@ -29,6 +29,10 @@ export const controlHeader = info => {
             break;
     }
 };
+
+// ! For Development
+window.controlHeader = controlHeader;
+
 const ideal = () => {
     // Render Ideal
     headerView.renderIdeal();
