@@ -8,3 +8,5 @@ export const controlForm = event => {
         formView.clearForm();
     }
 };
+
+// Control form with login and signup as mode

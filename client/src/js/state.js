@@ -1,18 +1,18 @@
 const state = {
+    mode: null,
     theme: null,
-    user: null,
     init: null,
+    user: null,
+    token: null,
     login: null,
     signup: null,
+    combined: null,
     header: null,
-    chatBox: null,
     chatPanel: null,
+    chatBox: null,
     chatProfile: null,
     backgroundImage: null,
     alert: null,
-    mode: null,
-    combined: null,
-    token: null,
 };
 // ! For Development
 window.state = state;

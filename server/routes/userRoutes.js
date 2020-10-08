@@ -15,7 +15,13 @@ router.post('/login', authController.login);
 router.post('/forgetPassword', authController.forgetPassword);
 router.patch('/resetPassword/:token', authController.resetPassword);
 
+// Protect
 router.use(authController.protect);
+
+router.patch('/updateMyPassword', authController.updatePassword);
+router.patch('/updateMe', userController.updateMe);
+
+// Only Admin
 router.use(authController.restrictTo('admin'));
 // -----------
 // Routes

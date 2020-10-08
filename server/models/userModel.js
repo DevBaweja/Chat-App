@@ -24,6 +24,10 @@ const def = {
             message: getMustHave('valid email'),
         },
     },
+    bio: {
+        type: String,
+        default: 'Exploring #Chatfuel',
+    },
     photo: {
         type: String,
         default: 'default.png',

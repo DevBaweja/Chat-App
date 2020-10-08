@@ -81,14 +81,14 @@ exports.isLogin = catchAsync(async (req, res, next) => {
     if (
         req.headers.authorization &&
         req.headers.authorization.startsWith('Bearer')
-    ) {
+    )
         token = req.headers.authorization.split(' ')[1];
-    }
+
     // Production
     /*
-    if (req.cookies.jwt) {
+    if (req.cookies.jwt) 
         token = req.cookies.jwt;
-    }
+    
     */
 
     if (!token)
@@ -135,14 +135,14 @@ exports.protect = catchAsync(async (req, res, next) => {
     if (
         req.headers.authorization &&
         req.headers.authorization.startsWith('Bearer')
-    ) {
+    )
         token = req.headers.authorization.split(' ')[1];
-    }
+
     // Production
     /*
-    if (req.cookies.jwt) {
+    if (req.cookies.jwt) 
         token = req.cookies.jwt;
-    }
+    
     */
 
     if (!token)
@@ -197,9 +197,9 @@ exports.restrictTo = (...roles) => {
 exports.forgetPassword = catchAsync(async (req, res, next) => {
     // 1) Get user based on posted email
     const user = await User.findOne({ email: req.body.email });
-    if (!user) {
+    if (!user)
         return next(new AppError('There is no user with email address.', 404));
-    }
+
     // 2) Generate random token
     const resetToken = user.createPasswordResetToken();
     // Remove validate and save reset token and reset expires
@@ -247,9 +247,8 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
         passwordResetExpires: { $gt: Date.now() },
     });
     // 2) If token has not expired, and there is user, set new password
-    if (!user) {
-        return next(new AppError('Token is invalid or has expired!'));
-    }
+    if (!user) return next(new AppError('Token is invalid or has expired!'));
+
     // Set new password
     user.password = req.body.password;
     user.passwordConfirm = req.body.passwordConfirm;
@@ -263,5 +262,22 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
     // 4) Log user in, send JWT
 
     // Send json web token
+    createSendToken(user, 200, req, res);
+});
+
+// Update Password
+exports.updatePassword = catchAsync(async (req, res, next) => {
+    // 1) Get user
+    const user = await User.findById(req.user.id).select('+password');
+    // 2) Check if posted password is correct
+    if (!user.correctPassword(req.body.passwordCurrent, user.password))
+        return next(new AppError('Your current password is incorrect.', 401));
+
+    // 3) If password is correct, update password
+    user.password = req.body.password;
+    user.passwordConfirm = req.body.passwordConfirm;
+    await user.save();
+    // User.findByIdAndUpdate is not used in auth due to validation
+    // 4) Log user in, send JWT
     createSendToken(user, 200, req, res);
 });
