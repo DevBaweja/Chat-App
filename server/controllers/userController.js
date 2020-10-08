@@ -24,6 +24,7 @@ exports.getUserById = factory.getOne(User);
 exports.updateUserById = factory.updateOne(User);
 exports.deleteUserById = factory.deleteOne(User);
 
+// Update Me
 exports.updateMe = catchAsync(async (req, res, next) => {
     // 1) Create error is user post password
     if (req.body.password || req.body.passwordConfirm)
@@ -45,5 +46,16 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     res.status(200).json({
         status: 'success',
         data: { user: updatedUser },
+    });
+});
+
+// Deactivate Me
+exports.deleteMe = catchAsync(async (req, res, next) => {
+    // Get user and Update Active properties
+    await User.findByIdAndUpdate(req.user.id, { active: false });
+    // Send Response
+    res.status(204).json({
+        status: 'success',
+        data: null,
     });
 });

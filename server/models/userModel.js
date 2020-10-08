@@ -59,6 +59,11 @@ const def = {
     passwordChangedAt: Date,
     passwordResetToken: String,
     passwordResetExpires: Date,
+    active: {
+        type: Boolean,
+        default: true,
+        select: false,
+    },
     createdAt: {
         type: Date,
         default: Date.now(),
@@ -69,6 +74,7 @@ const userSchema = Schema(def, options);
 
 // -----------
 // Middlewares
+// Document Middlewares
 userSchema.pre('save', async function (next) {
     if (!this.isModified('password')) return next();
 
@@ -84,6 +90,12 @@ userSchema.pre('save', async function (next) {
     if (!this.isModified('password') || this.isNew) return next();
 
     this.passwordChangedAt = Date.now() - 1000;
+    next();
+});
+// Query Middlewares
+userSchema.pre(/^find/, function (next) {
+    // For deactivated users
+    this.find({ active: { $ne: false } });
     next();
 });
 // -----------

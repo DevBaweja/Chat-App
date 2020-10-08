@@ -20,7 +20,7 @@ router.use(authController.protect);
 
 router.patch('/updateMyPassword', authController.updatePassword);
 router.patch('/updateMe', userController.updateMe);
-
+router.delete('/deleteMe', userController.deleteMe);
 // Only Admin
 router.use(authController.restrictTo('admin'));
 // -----------
