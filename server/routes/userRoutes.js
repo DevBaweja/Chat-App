@@ -10,6 +10,7 @@ const router = express.Router();
 // -----------
 // Alias
 router.get('/isLogin', authController.isLogin);
+router.get('/logout', authController.logout);
 router.post('/signup', authController.signup);
 router.post('/login', authController.login);
 router.post('/forgetPassword', authController.forgetPassword);

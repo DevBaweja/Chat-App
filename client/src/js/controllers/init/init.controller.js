@@ -29,6 +29,8 @@ export const controlInit = async () => {
             case mode.mode.development:
                 state['token'] =
                     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmN2RjMmYxOGRkYjZjNjM1MDQ0NmUzOSIsImlhdCI6MTYwMjA3NzQzNiwiZXhwIjoxNjAyMjUwMjM2fQ.TJ2p7rxYkA2_PDPO-xvRayDYf9Ejnugbug2V1PyAMYc';
+                state['token'] =
+                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmN2Q4YjA4Yzg2MmMxMDU2YzMxYzNhMyIsImlhdCI6MTYwMjE1MTIwNiwiZXhwIjoxNjAyMzI0MDA2fQ.xrmkvODUzMRIRAGzIdrVPAiqgElfTXLteOK6Y6XQ5P4';
                 break;
             case mode.mode.production:
                 state['token'] =
