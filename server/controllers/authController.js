@@ -259,6 +259,7 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
     user.passwordResetToken = undefined;
     user.passwordResetExpires = undefined;
     // Save user
+    // User.findByIdAndUpdate is not used in auth due to validation
     await user.save();
     // 3) Update changedPasswordAt properties for current user
 
@@ -273,7 +274,11 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
     // 1) Get user
     const user = await User.findById(req.user.id).select('+password');
     // 2) Check if posted password is correct
-    if (!user.correctPassword(req.body.passwordCurrent, user.password))
+    const correct = await user.correctPassword(
+        req.body.passwordCurrent,
+        user.password
+    );
+    if (!correct)
         return next(new AppError('Your current password is incorrect.', 401));
 
     // 3) If password is correct, update password

@@ -27,6 +27,7 @@ const def = {
     bio: {
         type: String,
         default: 'Exploring #Chatfuel',
+        trim: true,
     },
     photo: {
         type: String,
