@@ -101,10 +101,12 @@ const mode = {
         },
         request: {
             sent: {
-                success: 'sent-success',
-                failure: 'sent-failure',
+                success: 'request-sent-success',
+                failure: 'request-sent-failure',
             },
-            received: 'request-received',
+            received: {
+                success: 'request-received-success',
+            },
         },
     },
     combined: {

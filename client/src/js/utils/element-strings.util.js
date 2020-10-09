@@ -33,11 +33,24 @@ const elementStrings = {
             form: '.user-forget__form',
             addOn: '.user-forget__form--addon',
         },
+        reset: {
+            form: '.user-reset__form',
+            toggle: {
+                password: '.user-reset__form--toggle-password',
+                passwordConfirm: '.user-reset__form--toggle-password-confirm',
+            },
+            elements: {
+                password: '.user-reset__form--input-password',
+                passwordConfirm: '.user-reset__form--input-password-confirm',
+            },
+            addOn: '.user-reset__form--addon',
+        },
     },
     inputs: {
         signupInput: '.user-signup__form--input',
         loginInput: '.user-login__form--input',
         forgetInput: '.user-forget__form--input',
+        resetInput: '.user-reset__form--input',
     },
     drops: {
         aboutMeDrop: '.about-me__drop',

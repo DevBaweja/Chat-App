@@ -39,6 +39,12 @@ export const controlAlerts = info => {
         case mode.alert.forget.failure:
             forgetFailure();
             break;
+        case mode.alert.reset.success:
+            resetSuccess();
+            break;
+        case mode.alert.reset.failure:
+            resetFailure();
+            break;
         case mode.alert.update.profile.success:
             updateProfileSuccess();
             break;
@@ -54,8 +60,8 @@ export const controlAlerts = info => {
         case mode.alert.request.sent.failure:
             requestSentFailure();
             break;
-        case mode.alert.request.received:
-            requestReceived();
+        case mode.alert.request.received.success:
+            requestReceivedSuccess();
             break;
     }
 
@@ -124,7 +130,7 @@ const forgetSuccess = () => {
     // Getting email from state['forget']
     const { email } = state['forget'];
     const data = {
-        text: `The token has been send to ${email}.`,
+        text: `The token has been sent to ${email}.`,
         type: 'success',
     };
     alertsView.renderAlerts(data);
@@ -133,6 +139,22 @@ const forgetSuccess = () => {
 const forgetFailure = () => {
     const data = {
         text: 'There was problem while sending token.',
+        type: 'failure',
+    };
+    alertsView.renderAlerts(data);
+};
+
+const resetSuccess = () => {
+    const data = {
+        text: `Your password has been reset.`,
+        type: 'success',
+    };
+    alertsView.renderAlerts(data);
+};
+
+const resetFailure = () => {
+    const data = {
+        text: 'There was problem while reseting your password.',
         type: 'failure',
     };
     alertsView.renderAlerts(data);
@@ -176,7 +198,8 @@ const requestSentFailure = () => {
     };
     alertsView.renderAlerts(data);
 };
-const requestReceived = () => {
+
+const requestReceivedSuccess = () => {
     const data = {
         text: 'You have received a request from xyz!',
         type: 'info',

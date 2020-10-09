@@ -5,6 +5,7 @@ import { elementStrings, select, mode } from '../../utils/base.util';
 import * as loginController from './login.controller';
 import * as signupController from './signup.controller';
 import * as forgetController from './forget.controller';
+import * as resetController from './reset.controller';
 // Models
 import Form from '../../models/Form';
 // Views
@@ -12,6 +13,7 @@ import * as formView from '../../views/auth/form.view';
 import * as loginView from '../../views/auth/login.view';
 import * as signupView from '../../views/auth/signup.view';
 import * as forgetView from '../../views/auth/forget.view';
+import * as resetView from '../../views/auth/reset.view';
 
 export const controlExit = event => {
     const { target } = event;
@@ -99,5 +101,18 @@ const forget = () => {
 
 // Reset Password
 const reset = () => {
-    console.log('Reset');
+    // 1) Rendering Reset form
+    resetView.renderResetForm();
+
+    // 2.1) Adding event listener to show/hide password
+    select(elementStrings.forms.reset.toggle.password).addEventListener('click', resetController.controlTogglePassword);
+    // 2.2) Adding event listener to show/hide passwordConfirm
+    select(elementStrings.forms.reset.toggle.passwordConfirm).addEventListener(
+        'click',
+        resetController.controlTogglePasswordConfirm
+    );
+    // 3) Adding event listener to form
+    select(elementStrings.forms.reset.form).addEventListener('submit', resetController.controlReset);
+    // 5) Link to forget password
+    select(elementStrings.forms.reset.addOn).addEventListener('click', () => controlForm({ mode: mode.form.forget }));
 };
