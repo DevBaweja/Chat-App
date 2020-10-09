@@ -1,7 +1,7 @@
 import axios from 'axios';
 import socket from 'socket.io-client';
 import state from '../state';
-import { url } from '../utils/base.util';
+import { url, mode } from '../utils/base.util';
 
 class Init {
     constructor() {
@@ -23,21 +23,27 @@ class Init {
     };
 
     isLogin = async () => {
-        try {
-            this.data = await axios({
-                method: 'GET',
-                url: this.url,
-                headers: {
-                    authorization: 'Bearer ' + state['token'],
-                },
-                validateStatus: () => true,
-                // For validation
-            });
-            this.parseData();
-            return this.data;
-        } catch (err) {
-            console.log('Error', err.message);
+        let headers = {};
+        // ! For Development
+        switch (state['mode'].mode) {
+            case mode.mode.development:
+                headers['authorization'] = 'Bearer ' + state['token'];
         }
+
+        if (state['mode'].mode)
+            try {
+                this.data = await axios({
+                    method: 'GET',
+                    url: this.url,
+                    headers,
+                    validateStatus: () => true,
+                    // For validation
+                });
+                this.parseData();
+                return this.data;
+            } catch (err) {
+                console.log('Error', err.message);
+            }
     };
 }
 export default Init;
