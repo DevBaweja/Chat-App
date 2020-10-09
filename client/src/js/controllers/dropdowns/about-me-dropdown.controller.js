@@ -3,8 +3,7 @@ import state from '../../state';
 import { elementStrings, select, mode, actions } from '../../utils/base.util';
 // Controllers
 import * as themeController from '../theme/theme.controller';
-import * as alertsController from '../alerts/alerts.controller';
-import * as combinedController from '../combined.controller';
+import * as logoutController from '../auth/logout.controller';
 import * as chatProfileController from '../chat-profile.controller';
 // Views
 import { getCoordinate } from '../../views/dropdowns/dropdowns.view';
@@ -67,19 +66,7 @@ const setting = () => {
     chatProfileController.controlChatProfile({ mode: mode.chatProfile.setting });
 };
 const logout = () => {
-    // 0) Success Alert
-    alertsController.controlAlerts({ mode: mode.alert.logout.success });
-
-    // 2) Clear state
-    state['init'] = null;
-    state['backgroundImage'] = null;
-    state['user'] = null;
-    // !For Development
-    // 3) Clear token
-    state['token'] = null;
-
-    // Combined Ideal
-    combinedController.controlAll({ mode: mode.combined.ideal });
+    logoutController.controlLogout();
 };
 
 export default controlAboutMeDropdown;

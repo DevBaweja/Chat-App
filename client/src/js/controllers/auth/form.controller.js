@@ -37,6 +37,9 @@ export const controlForm = info => {
             signup();
             break;
     }
+
+    // Clear form
+    state['form'] = null;
 };
 
 // ! For Development

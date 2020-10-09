@@ -106,6 +106,9 @@ export const controlSignup = async event => {
 
                     // Combined Empty
                     combinedController.controlAll({ mode: mode.combined.empty });
+
+                    // Clear signup
+                    state['signup'] = null;
                 }
                 break;
             case 'error':
@@ -125,8 +128,11 @@ export const controlSignup = async event => {
                     // 0) Error Alert
                     alertsController.controlAlerts({ mode: mode.alert.misc.failure, data: newMessage });
 
-                    // 1) Initial UI for changes
+                    // 1) Initial UI
                     signupView.initialUIForSignup();
+
+                    // Clear signup
+                    state['signup'] = null;
                 }
                 break;
         }
@@ -135,7 +141,7 @@ export const controlSignup = async event => {
         // 0) Error Alert
         alertsController.controlAlerts({ mode: mode.alert.signup.failure });
 
-        // 1) Initial UI for changes
+        // 1) Initial UI
         signupView.initialUIForSignup();
 
         // State Changes

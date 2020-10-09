@@ -7,6 +7,7 @@ const state = {
     form: null,
     login: null,
     signup: null,
+    logout: null,
     combined: null,
     header: null,
     chatPanel: null,

@@ -51,6 +51,8 @@ export const controlInit = async () => {
             // Combined Ideal
             combinedController.controlAll({ mode: mode.combined.ideal });
 
+            // Clear init
+            state['init'] = null;
             return;
         }
 
@@ -70,6 +72,9 @@ export const controlInit = async () => {
 
                     // Combined User
                     combinedController.controlAll({ mode: mode.combined.user });
+
+                    // Clear init
+                    state['init'] = null;
                 }
                 break;
             case 'error':
@@ -84,12 +89,18 @@ export const controlInit = async () => {
 
                     // Combined Ideal
                     combinedController.controlAll({ mode: mode.combined.ideal });
+
+                    // Clear init
+                    state['init'] = null;
                 }
                 break;
         }
     } catch (err) {
         // Error
         console.log('ERROR: ', err.message);
+
+        // Clear init
+        state['init'] = null;
     }
 };
 

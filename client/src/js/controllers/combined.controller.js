@@ -25,6 +25,9 @@ export const controlAll = info => {
             user();
             break;
     }
+
+    // Clear Combined
+    state['combined'] = null;
 };
 
 // ! For Development

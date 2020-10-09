@@ -49,10 +49,10 @@ export const controlForget = () => {
 export const controlLogin = async event => {
     event.preventDefault();
 
+    console.log('Log in');
     // 0) Prepare UI for changes
     loginView.prepareUIForLogin();
 
-    console.log('Log in');
     // 1) Getting user inputs
     const inputs = loginView.getUserInput();
     // 2) Checking user inputs
@@ -86,6 +86,9 @@ export const controlLogin = async event => {
 
                     // 7) Combine User
                     combinedController.controlAll({ mode: mode.combined.user });
+
+                    //  Clear login
+                    state['login'] = null;
                 }
                 break;
             case 'error':
@@ -104,8 +107,11 @@ export const controlLogin = async event => {
                     // 0) Error Alert
                     alertsController.controlAlerts({ mode: mode.alert.misc.failure, data: data.message });
 
-                    // 1) Initial UI for changes
+                    // 1) Initial UI
                     loginView.initialUIForLogin();
+
+                    //  Clear login
+                    state['login'] = null;
                 }
                 break;
         }
@@ -114,11 +120,12 @@ export const controlLogin = async event => {
         // 0) Error Alert
         alertsController.controlAlerts({ mode: mode.alert.login.failure });
 
-        // 1) Initial UI for changes
+        // 1) Initial UI
         loginView.initialUIForLogin();
 
         // State Changes
         state['login'] = null;
         state['token'] = null;
+        state['login'] = null;
     }
 };
