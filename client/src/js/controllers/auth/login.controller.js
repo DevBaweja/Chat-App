@@ -11,20 +11,8 @@ import Login from '../../models/Login';
 import * as loginView from '../../views/auth/login.view';
 import * as formView from '../../views/auth/form.view';
 
-// CTA
-export const controlLoginCta = () => {
-    // 1) Rendering Login form
-    loginView.renderLoginForm();
-    // 2) Adding event listener to show/hide password
-    select(elementStrings.forms.login.toggle).addEventListener('click', controlToggle);
-    // 3) Adding event listener to forget password
-    select(elementStrings.forms.login.forget).addEventListener('click', controlForget);
-    // 4) Adding event listener to form submit
-    select(elementStrings.forms.login.form).addEventListener('submit', controlLogin);
-};
-
 // Toggle
-const controlToggle = event => {
+export const controlToggle = event => {
     const { target } = event;
     // Toggle
     const element = target.closest(elementStrings.forms.login.toggle);
@@ -53,12 +41,12 @@ const controlToggle = event => {
 };
 
 // Forget
-const controlForget = () => {
+export const controlForget = () => {
     console.log('Forget');
 };
 
 // Form
-const controlLogin = async event => {
+export const controlLogin = async event => {
     event.preventDefault();
 
     // 0) Prepare UI for changes

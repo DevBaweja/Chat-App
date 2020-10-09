@@ -10,19 +10,8 @@ import Signup from '../../models/Signup';
 // Views
 import * as signupView from '../../views/auth/signup.view';
 import * as formView from '../../views/auth/form.view';
-// CTA
-export const controlSignupCta = () => {
-    // 1) Rendering Signup form
-    signupView.renderSignupForm();
-    // 2.1) Adding event listener to show/hide password
-    select(elementStrings.forms.signup.toggle.password).addEventListener('click', controlTogglePassword);
-    // 2.2) Adding event listener to show/hide passwordConfirm
-    select(elementStrings.forms.signup.toggle.passwordConfirm).addEventListener('click', controlTogglePasswordConfirm);
-    // 3) Adding event listener to form
-    select(elementStrings.forms.signup.form).addEventListener('submit', controlSignup);
-};
 
-const controlTogglePassword = event => {
+export const controlTogglePassword = event => {
     const { target } = event;
     // Toggle
     const element = target.closest(elementStrings.forms.signup.toggle.password);
@@ -50,7 +39,7 @@ const controlTogglePassword = event => {
     }
 };
 
-const controlTogglePasswordConfirm = event => {
+export const controlTogglePasswordConfirm = event => {
     const { target } = event;
     // Toggle
     const element = target.closest(elementStrings.forms.signup.toggle.passwordConfirm);
@@ -79,7 +68,7 @@ const controlTogglePasswordConfirm = event => {
 };
 
 // Form
-const controlSignup = async event => {
+export const controlSignup = async event => {
     event.preventDefault();
 
     console.log('Sign up');

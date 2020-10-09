@@ -3,6 +3,10 @@ const mode = {
         production: 'production',
         development: 'development',
     },
+    form: {
+        login: 'login',
+        signup: 'signup',
+    },
     header: {
         ideal: 'ideal',
         user: 'user',

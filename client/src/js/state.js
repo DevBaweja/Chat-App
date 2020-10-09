@@ -4,6 +4,7 @@ const state = {
     init: null,
     user: null,
     token: null,
+    form: null,
     login: null,
     signup: null,
     combined: null,

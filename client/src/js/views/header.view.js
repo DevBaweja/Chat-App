@@ -12,6 +12,7 @@ export const toggleClass = className => {
     // Adding class
     select(elements.Header).classList.add(state['header'].className);
 };
+
 export const renderLogo = () => {
     const markup = `
     <div class="logo-box">
@@ -26,6 +27,7 @@ export const renderLogo = () => {
 
     select(elements.Header).insertAdjacentHTML('beforeend', markup);
 };
+
 export const renderIdeal = () => {
     const markup = `
     <div class="cta">

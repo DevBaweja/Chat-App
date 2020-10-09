@@ -7,8 +7,6 @@ import Header from '../models/Header';
 import * as headerView from '../views/header.view';
 // Controllers
 import * as formController from './auth/form.controller';
-import * as loginController from './auth/login.controller';
-import * as signupController from './auth/signup.controller';
 
 export const controlHeader = info => {
     // Init Header
@@ -38,17 +36,17 @@ const ideal = () => {
     headerView.renderIdeal();
     headerView.toggleClass(mode.header.ideal);
 
-    // Adding Event Listeners
     // Form Closing
-    select(elements.Forms).addEventListener('click', formController.controlForm);
+    select(elements.Forms).addEventListener('click', formController.controlExit);
 
     // Log In
     const loginCtaBtn = select(elementStrings.btns.loginCtaBtn);
-    loginCtaBtn.addEventListener('click', loginController.controlLoginCta);
+    loginCtaBtn.addEventListener('click', () => formController.controlForm({ mode: mode.form.login }));
     // Sign Up
     const signupCtaBtn = select(elementStrings.btns.signupCtaBtn);
-    signupCtaBtn.addEventListener('click', signupController.controlSignupCta);
+    signupCtaBtn.addEventListener('click', () => formController.controlForm({ mode: mode.form.signup }));
 };
+
 const user = () => {
     // Getting user from state
     const { user } = state;
