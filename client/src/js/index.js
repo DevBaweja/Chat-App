@@ -17,19 +17,25 @@ const addListeners = () => {
     select(elements.App).addEventListener('click', dropdownsController.controlDropdowns);
 };
 
+const initMode = () => {
+    switch (true) {
+        case window.location.hostname.includes('localhost'):
+            modeController.controlMode({ mode: mode.mode.development });
+            break;
+        case window.location.hostname.includes('herokuapp'):
+            modeController.controlMode({ mode: mode.mode.production });
+            break;
+        default:
+            modeController.controlMode({ mode: mode.mode.development });
+    }
+};
+
 const init = () => {
     // App
     App.render();
 
     // Mode
-    switch (window.location.protocol) {
-        case 'http:':
-            modeController.controlMode({ mode: mode.mode.development });
-            break;
-        case 'https:':
-            modeController.controlMode({ mode: mode.mode.production });
-            break;
-    }
+    initMode();
 
     // Init
     initController.controlInit();

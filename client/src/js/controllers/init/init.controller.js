@@ -40,6 +40,20 @@ export const controlInit = async () => {
         // Checking for Login
         const data = await state['init'].isLogin();
 
+        // User is not logged in
+        if (!data) {
+            // 0) Success Alert
+            alertsController.controlAlerts({ mode: mode.alert.misc.success, data: 'Welcome to #ChatFuel' });
+
+            // Theme
+            themeController.controlTheme({ mode: mode.theme.dark, color: mode.theme.color.yellow });
+
+            // Combined Ideal
+            combinedController.controlAll({ mode: mode.combined.ideal });
+
+            return;
+        }
+
         switch (data.status) {
             case 'success':
                 {
@@ -52,7 +66,7 @@ export const controlInit = async () => {
                     alertsController.controlAlerts({ mode: mode.alert.misc.success, data: 'Welcome back!' });
 
                     // Theme
-                    themeController.controlTheme({ mode: mode.theme.dark, color: mode.theme.color.orange });
+                    themeController.controlTheme({ mode: mode.theme.dark, color: mode.theme.color.grey });
 
                     // Combined User
                     combinedController.controlAll({ mode: mode.combined.user });
@@ -66,7 +80,7 @@ export const controlInit = async () => {
                     alertsController.controlAlerts({ mode: mode.alert.misc.failure, data: data.message });
 
                     // Theme
-                    themeController.controlTheme({ mode: mode.theme.dark, color: mode.theme.color.yellow });
+                    themeController.controlTheme({ mode: mode.theme.dark, color: mode.theme.color.red });
 
                     // Combined Ideal
                     combinedController.controlAll({ mode: mode.combined.ideal });
@@ -74,7 +88,7 @@ export const controlInit = async () => {
                 break;
         }
     } catch (err) {
-        // Error Alert
+        // Error
         console.log('ERROR: ', err.message);
     }
 };
