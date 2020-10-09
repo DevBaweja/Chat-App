@@ -16,6 +16,7 @@ const elementStrings = {
                 password: '.user-signup__form--input-password',
                 passwordConfirm: '.user-signup__form--input-password-confirm',
             },
+            addOn: '.user-signup__form--addon',
         },
         login: {
             form: '.user-login__form',
@@ -24,6 +25,7 @@ const elementStrings = {
                 password: '.user-login__form--input-password',
             },
             forget: '.user-login__form--forget',
+            addOn: '.user-login__form--addon',
         },
     },
     inputs: {

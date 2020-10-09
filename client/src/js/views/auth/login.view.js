@@ -56,6 +56,7 @@ export const renderLoginForm = () => {
         ],
         className: 'user-login',
         btntext: 'Log In',
+        addOn: 'Sign up',
     };
 
     select(elements.Forms).insertAdjacentHTML('beforeend', renderForm(form));

@@ -21,6 +21,10 @@ const renderFormGroup = (group, className) => `
 </div>
 `;
 
+const renderAddOn = ({ className, addOn }) => {
+    return `<div class="${className}__form--addon"> ${addOn} </div>`;
+};
+
 export const renderForm = form => `
     <div class="blur" title="Go back">
         <div class="${form.className}" title="">
@@ -29,6 +33,7 @@ export const renderForm = form => `
                 ${form.groups.map(group => renderFormGroup(group, form.className)).join('')}
                 <button class="${form.className}__form--btn">${form.btntext}</button>
             </form>
+            ${form.addOn ? renderAddOn(form) : ''}
             <div class="${form.className}__cross user-cross" title="Go back">
                 <svg class="${form.className}__cross--svg">
                     <use xlink:href="svg/sprite.svg#icon-cross"></use>

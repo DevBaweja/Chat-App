@@ -105,7 +105,7 @@ export const renderUser = user => {
                         <use xlink:href="svg/sprite.svg#icon-camera"></use>
                     </svg>
                 </label>
-                <input class="chat-profile__user-pic--input" type="file" id="photo" name="photo" />
+                <input class="chat-profile__user-pic--input" accept="image/*" type="file" id="photo" name="photo" />
             </div>
             <div class="chat-profile__user-pic--name">${user.name}</div>
         </div>
@@ -177,7 +177,7 @@ export const renderUser = user => {
                     </svg>
                 </div>
 
-                <textarea id="bio" class="chat-profile__user-about--input" rows="4" disabled>${faker.hacker.phrase()}</textarea>
+                <textarea id="bio" class="chat-profile__user-about--input" rows="4" disabled>${user.bio}</textarea>
             </div>
         </div>
         <div class="chat-profile__user-save" title="Save profile">

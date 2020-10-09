@@ -4,7 +4,6 @@ import { elementStrings, select, mode } from '../../utils/base.util';
 // Controllers
 import * as loginController from '../../controllers/auth/login.controller';
 import * as signupController from '../../controllers/auth/signup.controller';
-
 // Models
 import Form from '../../models/Form';
 // Views
@@ -40,6 +39,9 @@ export const controlForm = info => {
     }
 };
 
+// ! For Development
+window.controlForm = controlForm;
+
 const login = () => {
     // 1) Rendering Login form
     loginView.renderLoginForm();
@@ -49,6 +51,8 @@ const login = () => {
     select(elementStrings.forms.login.forget).addEventListener('click', loginController.controlForget);
     // 4) Adding event listener to form submit
     select(elementStrings.forms.login.form).addEventListener('submit', loginController.controlLogin);
+    // 5) Link to sign up
+    select(elementStrings.forms.login.addOn).addEventListener('click', () => controlForm({ mode: mode.form.signup }));
 };
 
 const signup = () => {
@@ -66,4 +70,6 @@ const signup = () => {
     );
     // 3) Adding event listener to form
     select(elementStrings.forms.signup.form).addEventListener('submit', signupController.controlSignup);
+    // 5) Link to log in
+    select(elementStrings.forms.signup.addOn).addEventListener('click', () => controlForm({ mode: mode.form.login }));
 };

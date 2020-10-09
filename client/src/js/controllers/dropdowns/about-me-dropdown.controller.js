@@ -70,14 +70,16 @@ const logout = () => {
     // 0) Success Alert
     alertsController.controlAlerts({ mode: mode.alert.logout.success });
 
-    // Combined Ideal
-    combinedController.controlAll({ mode: mode.combined.ideal });
-
     // 2) Clear state
+    state['init'] = null;
+    state['backgroundImage'] = null;
     state['user'] = null;
     // !For Development
     // 3) Clear token
     state['token'] = null;
+
+    // Combined Ideal
+    combinedController.controlAll({ mode: mode.combined.ideal });
 };
 
 export default controlAboutMeDropdown;
