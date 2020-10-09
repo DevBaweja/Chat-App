@@ -4,6 +4,8 @@ const elementStrings = {
         signupCtaBtn: '.cta__sign-up',
         signupBtn: '.user-signup__form--btn',
         loginBtn: '.user-login__form--btn',
+        forgetBtn: '.user-forget__form--btn',
+        resetBtn: '.user-reset__form--btn',
     },
     forms: {
         signup: {
@@ -27,10 +29,15 @@ const elementStrings = {
             forget: '.user-login__form--forget',
             addOn: '.user-login__form--addon',
         },
+        forget: {
+            form: '.user-forget__form',
+            addOn: '.user-forget__form--addon',
+        },
     },
     inputs: {
         signupInput: '.user-signup__form--input',
         loginInput: '.user-login__form--input',
+        forgetInput: '.user-forget__form--input',
     },
     drops: {
         aboutMeDrop: '.about-me__drop',

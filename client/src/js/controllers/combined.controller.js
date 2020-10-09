@@ -34,7 +34,7 @@ export const controlAll = info => {
 window.controlAll = controlAll;
 
 const ideal = () => {
-    console.log('ideal');
+    console.log('Ideal');
 
     // 0) Ideal State of header, chat panel, chat box, chat profile
     // Header
@@ -61,7 +61,7 @@ const empty = () => {
     chatProfileController.controlChatProfile({ mode: mode.chatProfile.empty });
 };
 const user = () => {
-    console.log('user');
+    console.log('User');
 
     // 0) User State of header, chat panel, chat box, chat profile
     // Header

@@ -40,11 +40,6 @@ export const controlToggle = event => {
     }
 };
 
-// Forget
-export const controlForget = () => {
-    console.log('Forget');
-};
-
 // Form
 export const controlLogin = async event => {
     event.preventDefault();
@@ -62,8 +57,6 @@ export const controlLogin = async event => {
     if (!state['login']) state['login'] = new Login({ ...inputs });
 
     state['login'].setUserInput({ ...inputs });
-
-    // 4) Making API call
 
     try {
         // 4) Making API call
@@ -86,9 +79,6 @@ export const controlLogin = async event => {
 
                     // 7) Combine User
                     combinedController.controlAll({ mode: mode.combined.user });
-
-                    //  Clear login
-                    state['login'] = null;
                 }
                 break;
             case 'error':
@@ -109,12 +99,11 @@ export const controlLogin = async event => {
 
                     // 1) Initial UI
                     loginView.initialUIForLogin();
-
-                    //  Clear login
-                    state['login'] = null;
                 }
                 break;
         }
+        //  Clear login
+        state['login'] = null;
     } catch (err) {
         console.log('ERROR', err.message);
         // 0) Error Alert

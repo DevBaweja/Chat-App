@@ -35,9 +35,6 @@ export const controlLogout = async () => {
                     // !For Development
                     // 3) Clear token
                     state['token'] = null;
-
-                    // Clear logout
-                    state['logout'] = null;
                 }
                 break;
             case 'error':
@@ -46,12 +43,11 @@ export const controlLogout = async () => {
                     console.log('Error : ', data.error);
                     // 0) Error Alert
                     alertsController.controlAlerts({ mode: mode.alert.misc.failure, data: data.message });
-
-                    // Clear logout
-                    state['logout'] = null;
                 }
                 break;
         }
+        // Clear logout
+        state['logout'] = null;
     } catch (err) {
         console.log('ERROR', err.message);
 

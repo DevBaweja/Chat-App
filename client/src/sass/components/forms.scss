@@ -16,7 +16,9 @@
 }
 
 .user-login,
-.user-signup {
+.user-signup,
+.user-forget,
+.user-reset {
     position: absolute;
     top: 50%;
     opacity: 1;
@@ -36,17 +38,19 @@
         text-align: center;
         font-size: $font-size-largest;
         font-weight: $font-weight-bolder;
+        margin: 4rem 0 2rem 0;
     }
     &__form {
         user-select: none;
         @include flex();
         flex: 1;
         @include direction(column);
-        margin: 0 10rem 0rem 10rem;
+        margin: 0 10rem;
         &--group {
             @include flex();
             @include direction(column);
             position: relative;
+            margin: 1.5rem;
         }
 
         &--label {
@@ -130,14 +134,7 @@
     }
 }
 .user-login {
-    &__title {
-        margin: 6rem 0 2rem 0;
-    }
     &__form {
-        &--group {
-            margin: 2rem;
-        }
-
         &--forget {
             font-size: $font-size-regular;
             margin: 0.5rem;
@@ -151,15 +148,12 @@
     }
 }
 .user-signup {
-    &__title {
-        margin: 4rem 0 2rem 0;
-    }
     &__form {
-        &--group {
-            margin: 1rem 2rem;
-        }
         &--toggle {
             top: 45%;
         }
     }
+}
+
+.user-forget {
 }

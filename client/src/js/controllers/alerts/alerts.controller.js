@@ -33,20 +33,26 @@ export const controlAlerts = info => {
         case mode.alert.signup.failure:
             signupFailure();
             break;
-        case mode.alert.updateProfile.success:
+        case mode.alert.forget.success:
+            forgetSuccess();
+            break;
+        case mode.alert.forget.failure:
+            forgetFailure();
+            break;
+        case mode.alert.update.profile.success:
             updateProfileSuccess();
             break;
-        case mode.alert.updateProfile.failure:
+        case mode.alert.update.profile.failure:
             updateProfileFailure();
             break;
         case mode.alert.logout.success:
             logoutSuccess();
             break;
         case mode.alert.request.sent.success:
-            sentSuccess();
+            requestSentSuccess();
             break;
         case mode.alert.request.sent.failure:
-            sentFailure();
+            requestSentFailure();
             break;
         case mode.alert.request.received:
             requestReceived();
@@ -79,10 +85,10 @@ const miscFailure = ({ data }) => {
 };
 
 const loginSuccess = () => {
-    // Getting user from state
-    const { user } = state;
+    // Getting email from state['login']
+    const { email } = state['login'];
     const data = {
-        text: `Logged in successfully as ${user.name}.`,
+        text: `Logged in successfully as ${email}.`,
         type: 'success',
     };
     alertsView.renderAlerts(data);
@@ -97,10 +103,10 @@ const loginFailure = () => {
 };
 
 const signupSuccess = () => {
-    // Getting user from state
-    const { user } = state;
+    // Getting name from state['signup']
+    const { name } = state['signup'];
     const data = {
-        text: `You have been successfully registered as ${user.name}`,
+        text: `You have been successfully registered as ${name}`,
         type: 'success',
     };
     alertsView.renderAlerts(data);
@@ -109,6 +115,24 @@ const signupSuccess = () => {
 const signupFailure = () => {
     const data = {
         text: 'There was problem in signing up.',
+        type: 'failure',
+    };
+    alertsView.renderAlerts(data);
+};
+
+const forgetSuccess = () => {
+    // Getting email from state['forget']
+    const { email } = state['forget'];
+    const data = {
+        text: `The token has been send to ${email}.`,
+        type: 'success',
+    };
+    alertsView.renderAlerts(data);
+};
+
+const forgetFailure = () => {
+    const data = {
+        text: 'There was problem while sending token.',
         type: 'failure',
     };
     alertsView.renderAlerts(data);
@@ -138,14 +162,14 @@ const logoutSuccess = () => {
     alertsView.renderAlerts(data);
 };
 
-const sentSuccess = () => {
+const requestSentSuccess = () => {
     const data = {
         text: 'You request has been sent successfully to xyz',
         type: 'success',
     };
     alertsView.renderAlerts(data);
 };
-const sentFailure = () => {
+const requestSentFailure = () => {
     const data = {
         text: 'You request was unable to sent to xyz!',
         type: 'failure',

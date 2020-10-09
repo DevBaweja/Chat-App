@@ -176,7 +176,9 @@
     // Forms
     // Login Form And Signup Form
     .user-login,
-    .user-signup {
+    .user-signup,
+    .user-forget,
+    .user-reset {
         // background-color: $color-primary;
         background: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
         &__title {

@@ -18,7 +18,7 @@ const controlAboutMeDropdown = event => {
 
     const height = select(elementStrings.dropdowns.aboutMeDropdown).offsetHeight;
     const width = select(elementStrings.dropdowns.aboutMeDropdown).offsetWidth;
-    console.log({ height, width });
+    // console.log({ height, width });
 
     // 2) Add Event Listener
     select(elementStrings.dropdowns.aboutMeDropdown).addEventListener('click', controlAboutMeDropdownItems);

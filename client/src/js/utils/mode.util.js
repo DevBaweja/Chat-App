@@ -6,6 +6,8 @@ const mode = {
     form: {
         login: 'login',
         signup: 'signup',
+        forget: 'forget',
+        reset: 'reset',
     },
     header: {
         ideal: 'ideal',
@@ -80,9 +82,19 @@ const mode = {
             failure: 'signup-failure',
             validate: {},
         },
-        updateProfile: {
-            success: 'updateProfile-success',
-            failure: 'updateProfile-failure',
+        forget: {
+            success: 'forget-success',
+            failure: 'forget-failure',
+        },
+        reset: {
+            success: 'reset-success',
+            failure: 'reset-failure',
+        },
+        update: {
+            profile: {
+                success: 'update-profile-success',
+                failure: 'update-profile-failure',
+            },
         },
         logout: {
             success: 'logout-success',
