@@ -28,9 +28,9 @@ export const controlInit = async () => {
         switch (state['mode'].mode) {
             case mode.mode.development:
                 state['token'] =
-                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmN2RjMmYxOGRkYjZjNjM1MDQ0NmUzOSIsImlhdCI6MTYwMjA3NzQzNiwiZXhwIjoxNjAyMjUwMjM2fQ.TJ2p7rxYkA2_PDPO-xvRayDYf9Ejnugbug2V1PyAMYc';
-                state['token'] =
-                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmN2Q4YjA4Yzg2MmMxMDU2YzMxYzNhMyIsImlhdCI6MTYwMjE1MTIwNiwiZXhwIjoxNjAyMzI0MDA2fQ.xrmkvODUzMRIRAGzIdrVPAiqgElfTXLteOK6Y6XQ5P4';
+                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmODE0ZjUyNmYzN2Q3MjAyNDQ1YTg2MiIsImlhdCI6MTYwMjMwOTk3MCwiZXhwIjoxNjAyNDgyNzcwfQ.SRC_xyYNGEVrXUrcBdmw2-DeY-uDWPZBv_2oopg0DgI';
+                // state['token'] =
+                // 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmN2Q4YjA4Yzg2MmMxMDU2YzMxYzNhMyIsImlhdCI6MTYwMjE1MTIwNiwiZXhwIjoxNjAyMzI0MDA2fQ.xrmkvODUzMRIRAGzIdrVPAiqgElfTXLteOK6Y6XQ5P4';
                 break;
             case mode.mode.production:
                 state['token'] =
@@ -68,7 +68,7 @@ export const controlInit = async () => {
                     alertsController.controlAlerts({ mode: mode.alert.misc.success, data: 'Welcome back!' });
 
                     // Theme
-                    themeController.controlTheme({ mode: mode.theme.dark, color: mode.theme.color.grey });
+                    themeController.controlTheme({ mode: mode.theme.dark, color: mode.theme.color.forest });
 
                     // Combined User
                     combinedController.controlAll({ mode: mode.combined.user });

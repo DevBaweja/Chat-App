@@ -39,8 +39,8 @@ export const controlForget = async event => {
                     // 1) No Clear form
                     // formView.clearForm();
 
-                    // 2) Initial UI
-                    forgetView.initialUIForForget();
+                    // 2) Resend UI
+                    forgetView.resendUIForForget();
                 }
                 break;
             case 'error':

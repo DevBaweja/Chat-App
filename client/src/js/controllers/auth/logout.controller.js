@@ -31,7 +31,7 @@ export const controlLogout = async () => {
 
                     // 2) Clear state
                     state['user'] = null;
-                    // state['backgroundImage'] = null;
+                    state['backgroundImage'] = null;
                     // !For Development
                     // 3) Clear token
                     state['token'] = null;

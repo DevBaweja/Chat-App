@@ -211,8 +211,9 @@
             line-height: 1.2;
             outline: none;
             // ! For Development
-            max-height: 10rem;
-            overflow-y: scroll;
+            max-height: 7.5rem;
+            // overflow-y: scroll;
+            overflow-y: hidden;
             overflow-x: hidden;
             cursor: text;
             // text-overflow: ellipsis;

@@ -14,7 +14,6 @@
     // ! For Developement
     overflow: hidden;
     @include grid();
-    // ! Developer Jayesh 66rem
     grid-template-rows: 6rem minmax(62.5rem, auto) 3.5rem;
     grid-template-areas:
         'header'

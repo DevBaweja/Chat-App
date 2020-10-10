@@ -1,7 +1,7 @@
 // State
 import state from '../../state';
 // Utils
-import { elementStrings, select, mode } from '../../utils/base.util';
+import { elementStrings, mode } from '../../utils/base.util';
 // Controllers
 import * as formController from './form.controller';
 import * as alertsController from '../alerts/alerts.controller';
