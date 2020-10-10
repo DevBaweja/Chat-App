@@ -15,6 +15,8 @@ export const controlEdit = event => {
     const inputElement = select(elementStrings.chatProfile.user.about.elements[type]);
     // Toggle disabled
     inputElement.toggleAttribute('disabled');
+    // Render Save Profile button
+    chatProfileUserView.renderSaveProfile();
 };
 
 // Control Disable
@@ -31,6 +33,55 @@ export const controlDisable = event => {
     chatProfileUserView.renderSaveProfile();
 };
 
+// Control Avatar
+export const controlAvatar = event => {
+    const { target } = event;
+
+    // Elements
+    const groupElement = target.closest(elementStrings.chatProfile.user.avatar.group);
+    const imgElement = select(elementStrings.chatProfile.user.avatar.img, groupElement);
+    const iconElement = select(elementStrings.chatProfile.user.avatar.icon, groupElement);
+
+    // Getting src
+    const src = imgElement.getAttribute('src');
+    // Remove Selected
+    chatProfileUserView.removeSelected();
+    // Add Selected
+    chatProfileUserView.addSelected(iconElement);
+    // Set Preview
+    select(elementStrings.chatProfile.user.pic.img).setAttribute('src', src);
+    // Render Save Profile button
+    chatProfileUserView.renderSaveProfile();
+};
+
+// Control Upload
+export const controlUpload = event => {
+    console.log('Pic Upload');
+    const { target } = event;
+
+    // Getting file
+    const [file] = target.files;
+    if (!file) {
+        return;
+    }
+
+    // Creating Reader
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+    // Adding Listener for reader
+    reader.addEventListener('load', event => {
+        const { target } = event;
+        const src = target.result;
+        // Set Preview
+        select(elementStrings.chatProfile.user.pic.img).setAttribute('src', src);
+    });
+
+    // Remove Selected
+    chatProfileUserView.removeSelected();
+
+    // Render Save Profile button
+    chatProfileUserView.renderSaveProfile();
+};
 // Update Profile
 export const controlUpdateProfile = event => {
     event.preventDefault();

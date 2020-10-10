@@ -1,6 +1,11 @@
 const elementClasses = {
     selected: {
-        chatPanelItem: 'chat-panel-user__item--selected',
+        chatPanel: {
+            item: 'chat-panel-user__item--selected',
+        },
+        chatProfile: {
+            avatar: 'chat-profile__user-avatar--icon-selected',
+        },
     },
     dropdowns: {
         aboutMeDropdown: 'about-me__dropdown',

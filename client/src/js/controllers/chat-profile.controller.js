@@ -65,11 +65,17 @@ const user = () => {
     const { user } = state;
     // Render Profile
     chatProfileUserView.renderUser(user);
-    // Add Event Listeners for pic preview
-    // Add Event Listeners selected image
+    // Add Event Listeners for pic
+    select(elementStrings.chatProfile.user.pic.input).addEventListener(
+        'input',
+        chatProfileUserController.controlUpload
+    );
+    // Add Event Listeners for avatar
+    const avatarItems = selectAll(elementStrings.chatProfile.user.avatar.group);
+    avatarItems.forEach(item => item.addEventListener('click', chatProfileUserController.controlAvatar));
     // Add Event Listeners to edit field
-    const items = selectAll(elementStrings.chatProfile.user.about.edit);
-    items.forEach(item => item.addEventListener('click', chatProfileUserController.controlDisable));
+    const editItems = selectAll(elementStrings.chatProfile.user.about.edit);
+    editItems.forEach(item => item.addEventListener('click', chatProfileUserController.controlDisable));
     // Add Event Listeners for updating profile
     select(elementStrings.chatProfile.user.form).addEventListener(
         'submit',

@@ -11,15 +11,17 @@ export const getUser = item => {
     const { user } = item.dataset;
     return user;
 };
+
 export const addSelected = item => {
-    item.classList.add(elementClasses.selected.chatPanelItem);
+    item.classList.add(elementClasses.selected.chatPanel.item);
 };
 export const removeSelected = () => {
     const items = selectAll(elementStrings.items.chatPanelItem);
     items.forEach(item => {
-        item.classList.remove(elementClasses.selected.chatPanelItem);
+        item.classList.remove(elementClasses.selected.chatPanel.item);
     });
 };
+
 export const renderIdeal = () => {
     const chat_panel_ideal = () => `
     <div class="chat-panel-ideal__dimmer--item">

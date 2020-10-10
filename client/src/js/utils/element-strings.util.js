@@ -112,9 +112,15 @@ const elementStrings = {
             update: '.chat-profile__user--update',
             pic: {
                 pic: '.chat-profile__user-pic',
+                img: '.chat-profile__user-pic--img',
+                upload: '.chat-profile__user-pic--upload',
+                input: '.chat-profile__user-pic--input',
             },
             avatar: {
                 avatar: '.chat-profile__user-avatar',
+                group: '.chat-profile__user-avatar--group',
+                img: '.chat-profile__user-avatar--img',
+                icon: '.chat-profile__user-avatar--icon',
             },
             about: {
                 about: '.chat-profile__user-about',

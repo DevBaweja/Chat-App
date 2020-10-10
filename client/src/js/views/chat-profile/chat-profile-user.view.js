@@ -1,7 +1,17 @@
-import { elements, elementStrings, select } from '../../utils/base.util';
+import { elements, elementStrings, elementClasses, select, selectAll } from '../../utils/base.util';
 import { prepareUI } from '../chat-profile.view';
 
 export const prepareUIForUser = () => prepareUI(elementStrings.chatProfile.user.update, 'Saving Profile');
+
+export const addSelected = item => {
+    item.classList.add(elementClasses.selected.chatProfile.avatar);
+};
+export const removeSelected = () => {
+    const items = selectAll(elementStrings.chatProfile.user.avatar.icon);
+    items.forEach(item => {
+        item.classList.remove(elementClasses.selected.chatProfile.avatar);
+    });
+};
 
 export const renderUser = user => {
     const markup = `
