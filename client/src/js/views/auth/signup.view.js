@@ -1,38 +1,11 @@
-import { elements, elementStrings, select, capitalize } from '../../utils/base.util';
-import { renderForm, getInput, prepareUI, initialUI } from './form.view';
+import { elements, elementStrings, select } from '../../utils/base.util';
+import { renderForm, getInput, prepareUI, initialUI, toggle } from './form.view';
 import faker from 'faker';
 
-export const togglePassword = type => {
-    const markup = `
-    <svg class="user-signup__form--toggle-svg"> 
-        <use xlink:href="svg/sprite.svg#icon-${type}">
-        </use>
-    </svg>
-    `;
-    const element = select(elementStrings.forms.signup.toggle.password);
-    // Removing html
-    element.innerHTML = '';
-    // Adjust title
-    element.title = `${capitalize(type)} Password`;
-    // Adding html
-    element.insertAdjacentHTML('beforeend', markup);
-};
-
-export const togglePasswordConfirm = type => {
-    const markup = `
-    <svg class="user-signup__form--toggle-svg"> 
-        <use xlink:href="svg/sprite.svg#icon-${type}">
-        </use>
-    </svg>
-    `;
-    const element = select(elementStrings.forms.signup.toggle.passwordConfirm);
-    // Removing html
-    element.innerHTML = '';
-    // Adjust title
-    element.title = `${capitalize(type)} Confirm Password`;
-    // Adding html
-    element.insertAdjacentHTML('beforeend', markup);
-};
+export const togglePassword = type =>
+    toggle(type, 'user-signup', elementStrings.forms.signup.toggle.password, 'Password');
+export const togglePasswordConfirm = type =>
+    toggle(type, 'user-signup', elementStrings.forms.signup.toggle.passwordConfirm, 'Confirm Password');
 
 export const renderSignupForm = () => {
     const form = {

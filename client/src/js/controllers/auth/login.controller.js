@@ -3,6 +3,7 @@ import state from '../../state';
 // Utils
 import { elementStrings, select, mode } from '../../utils/base.util';
 // Controllers
+import * as formController from './form.controller';
 import * as alertsController from '../alerts/alerts.controller';
 import * as combinedController from '../combined.controller';
 // Models
@@ -11,34 +12,13 @@ import Login from '../../models/Login';
 import * as loginView from '../../views/auth/login.view';
 import * as formView from '../../views/auth/form.view';
 
-// Toggle
-export const controlToggle = event => {
-    const { target } = event;
-    // Toggle
-    const element = target.closest(elementStrings.forms.login.toggle);
-
-    // Password Element
-    const passwordElement = select(elementStrings.forms.login.elements.password);
-
-    switch (element.dataset.type) {
-        case 'show':
-            // Toggle
-            element.dataset.type = 'hide';
-            // Change view
-            loginView.togglePassword(element.dataset.type);
-            // Password Show
-            passwordElement.type = 'text';
-            break;
-        case 'hide':
-            // Toggle
-            element.dataset.type = 'show';
-            // Change view
-            loginView.togglePassword(element.dataset.type);
-            // Password Hide
-            passwordElement.type = 'password';
-            break;
-    }
-};
+export const controlTogglePassword = event =>
+    formController.controlToggle(
+        event,
+        elementStrings.forms.login.toggle.password,
+        elementStrings.forms.login.elements.password,
+        loginView.togglePassword
+    );
 
 // Form
 export const controlLogin = async event => {

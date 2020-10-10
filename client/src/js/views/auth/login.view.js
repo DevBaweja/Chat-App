@@ -1,22 +1,10 @@
-import { elements, elementStrings, select, capitalize } from '../../utils/base.util';
-import { renderForm, getInput, prepareUI, initialUI } from './form.view';
+import { elements, elementStrings, select } from '../../utils/base.util';
+import { renderForm, getInput, prepareUI, initialUI, toggle } from './form.view';
 import faker from 'faker';
 
-export const togglePassword = type => {
-    const markup = `
-    <svg class="user-login__form--toggle-svg"> 
-        <use xlink:href="svg/sprite.svg#icon-${type}">
-        </use>
-    </svg>
-    `;
-    const element = select(elementStrings.forms.login.toggle);
-    // Removing html
-    element.innerHTML = '';
-    // Adjust title
-    element.title = `${capitalize(type)} Password`;
-    // Adding html
-    element.insertAdjacentHTML('beforeend', markup);
-};
+export const togglePassword = type =>
+    toggle(type, 'user-login', elementStrings.forms.login.toggle.password, 'Password');
+
 export const renderLoginForm = () => {
     const form = {
         title: 'Log into #ChatFuel',
@@ -46,7 +34,7 @@ export const renderLoginForm = () => {
                 minLength: 8,
                 forget: `<span class="user-login__form--forget" title="Cann't remember your password">Forget password ?</span>`,
                 toggle: `
-                <span class="user-login__form--toggle" title="Show Password" data-type="show">
+                <span class="user-login__form--toggle user-login__form--toggle-password" title="Show Password" data-type="show">
                     <svg class="user-login__form--toggle-svg"> 
                         <use xlink:href="svg/sprite.svg#icon-show">
                         </use>

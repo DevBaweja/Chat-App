@@ -15,6 +15,7 @@ import * as signupView from '../../views/auth/signup.view';
 import * as forgetView from '../../views/auth/forget.view';
 import * as resetView from '../../views/auth/reset.view';
 
+// Control Exit
 export const controlExit = event => {
     const { target } = event;
     if (target.matches('.blur') || target.matches('.user-cross,.user-cross *')) {
@@ -22,6 +23,35 @@ export const controlExit = event => {
         formView.clearForm();
         // Clearing State
         state['form'] = null;
+    }
+};
+// Control Toggle
+
+export const controlToggle = (event, toggleElementClass, ElementClass, fn) => {
+    const { target } = event;
+    // Toggle Element
+    const toggleElement = target.closest(toggleElementClass);
+
+    // Element
+    const element = select(ElementClass);
+
+    switch (toggleElement.dataset.type) {
+        case 'show':
+            // Toggle
+            toggleElement.dataset.type = 'hide';
+            // Change view
+            fn(toggleElement.dataset.type);
+            // Password Show
+            element.type = 'text';
+            break;
+        case 'hide':
+            // Toggle
+            toggleElement.dataset.type = 'show';
+            // Change view
+            fn(toggleElement.dataset.type);
+            // Password Hide
+            element.type = 'password';
+            break;
     }
 };
 
@@ -60,7 +90,7 @@ const login = () => {
     // 1) Rendering Login form
     loginView.renderLoginForm();
     // 2) Adding event listener to show/hide password
-    select(elementStrings.forms.login.toggle).addEventListener('click', loginController.controlToggle);
+    select(elementStrings.forms.login.toggle.password).addEventListener('click', loginController.controlTogglePassword);
     // 3) Adding event listener to forget password
     select(elementStrings.forms.login.forget).addEventListener('click', () => controlForm({ mode: mode.form.forget }));
     // 4) Adding event listener to form submit

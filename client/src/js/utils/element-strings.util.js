@@ -22,7 +22,9 @@ const elementStrings = {
         },
         login: {
             form: '.user-login__form',
-            toggle: '.user-login__form--toggle',
+            toggle: {
+                password: '.user-login__form--toggle-password',
+            },
             elements: {
                 password: '.user-login__form--input-password',
             },

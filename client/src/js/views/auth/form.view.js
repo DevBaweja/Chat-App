@@ -1,4 +1,4 @@
-import { elements, select, selectAll } from '../../utils/base.util';
+import { elements, select, selectAll, capitalize } from '../../utils/base.util';
 
 export const clearForm = () => (select(elements.Forms).innerHTML = '');
 
@@ -25,6 +25,7 @@ const renderAddOn = ({ className, addOn }) => {
     return `<div class="${className}__form--addon"> ${addOn} </div>`;
 };
 
+// Render Form
 export const renderForm = form => `
     <div class="blur" title="Go back">
         <div class="${form.className}" title="">
@@ -43,6 +44,7 @@ export const renderForm = form => `
     </div>
 `;
 
+// Get Input
 export const getInput = className => {
     const inputs = selectAll(className);
 
@@ -69,4 +71,21 @@ export const initialUI = (className, text) => {
     btn.innerText = text;
     // Enabling button
     btn.disabled = false;
+};
+
+// Toggle
+export const toggle = (type, className, elementClass, title) => {
+    const markup = `
+    <svg class="${className}__form--toggle-svg"> 
+        <use xlink:href="svg/sprite.svg#icon-${type}">
+        </use>
+    </svg>
+    `;
+    const element = select(elementClass);
+    // Removing html
+    element.innerHTML = '';
+    // Adjust title
+    element.title = `${capitalize(type)} ${title}`;
+    // Adding html
+    element.insertAdjacentHTML('beforeend', markup);
 };

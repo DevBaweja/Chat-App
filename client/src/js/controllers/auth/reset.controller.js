@@ -3,6 +3,7 @@ import state from '../../state';
 // Utils
 import { elementStrings, select, mode } from '../../utils/base.util';
 // Controllers
+import * as formController from './form.controller';
 import * as alertsController from '../alerts/alerts.controller';
 import * as combinedController from '../combined.controller';
 // Models
@@ -11,61 +12,21 @@ import Reset from '../../models/Reset';
 import * as resetView from '../../views/auth/reset.view';
 import * as formView from '../../views/auth/form.view';
 
-export const controlTogglePassword = event => {
-    const { target } = event;
-    // Toggle
-    const element = target.closest(elementStrings.forms.reset.toggle.password);
+export const controlTogglePassword = event =>
+    formController.controlToggle(
+        event,
+        elementStrings.forms.reset.toggle.password,
+        elementStrings.forms.reset.elements.password,
+        resetView.togglePassword
+    );
 
-    // Password Element
-    const passwordElement = select(elementStrings.forms.reset.elements.password);
-
-    switch (element.dataset.type) {
-        case 'show':
-            // Toggle
-            element.dataset.type = 'hide';
-            // Change view
-            resetView.togglePassword(element.dataset.type);
-            // Password Show
-            passwordElement.type = 'text';
-            break;
-        case 'hide':
-            // Toggle
-            element.dataset.type = 'show';
-            // Change view
-            resetView.togglePassword(element.dataset.type);
-            // Password Hide
-            passwordElement.type = 'password';
-            break;
-    }
-};
-
-export const controlTogglePasswordConfirm = event => {
-    const { target } = event;
-    // Toggle
-    const element = target.closest(elementStrings.forms.reset.toggle.passwordConfirm);
-
-    // Password Confirm Element
-    const passwordConfirmElement = select(elementStrings.forms.reset.elements.passwordConfirm);
-
-    switch (element.dataset.type) {
-        case 'show':
-            // Toggle
-            element.dataset.type = 'hide';
-            // Change view
-            resetView.togglePasswordConfirm(element.dataset.type);
-            // Password Show
-            passwordConfirmElement.type = 'text';
-            break;
-        case 'hide':
-            // Toggle
-            element.dataset.type = 'show';
-            // Change view
-            resetView.togglePasswordConfirm(element.dataset.type);
-            // Password Hide
-            passwordConfirmElement.type = 'password';
-            break;
-    }
-};
+export const controlTogglePasswordConfirm = event =>
+    formController.controlToggle(
+        event,
+        elementStrings.forms.reset.toggle.passwordConfirm,
+        elementStrings.forms.reset.elements.passwordConfirm,
+        resetView.togglePasswordConfirm
+    );
 
 // Form
 export const controlReset = async event => {
