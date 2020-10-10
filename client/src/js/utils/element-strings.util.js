@@ -104,5 +104,29 @@ const elementStrings = {
             send: '.chat-box-user__footer--send',
         },
     },
+    chatProfile: {
+        user: {
+            form: '.chat-profile__user--form',
+            update: '.chat-profile__user--update',
+            pic: {
+                pic: '.chat-profile__user-pic',
+            },
+            avatar: {
+                avatar: '.chat-profile__user-avatar',
+            },
+            about: {
+                about: '.chat-profile__user-about',
+                edit: '.chat-profile__user-about--svg',
+                group: '.chat-profile__user-about--group',
+                input: '.chat-profile__user-about--input',
+                elements: {
+                    name: '.chat-profile__user-about--input-name',
+                    email: '.chat-profile__user-about--input-email',
+                    bio: '.chat-profile__user-about--input-bio',
+                },
+            },
+            save: '.chat-profile__user-save',
+        },
+    },
 };
 export default elementStrings;

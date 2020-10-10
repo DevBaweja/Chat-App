@@ -25,8 +25,8 @@ export const controlExit = event => {
         state['form'] = null;
     }
 };
-// Control Toggle
 
+// Control Toggle
 export const controlToggle = (event, toggleElementClass, ElementClass, fn) => {
     const { target } = event;
     // Toggle Element

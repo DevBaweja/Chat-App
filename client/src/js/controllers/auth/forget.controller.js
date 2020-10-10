@@ -8,7 +8,6 @@ import * as alertsController from '../alerts/alerts.controller';
 import Forget from '../../models/Forget';
 // Views
 import * as forgetView from '../../views/auth/forget.view';
-import * as formView from '../../views/auth/form.view';
 
 // Form
 export const controlForget = async event => {

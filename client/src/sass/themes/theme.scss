@@ -229,13 +229,6 @@
         }
     }
 
-    // Sign up Form
-    .user-signup {
-    }
-    // Login Form
-    .user-login {
-    }
-
     // ----------------------------------
     // Components
     // Logo Box
@@ -333,7 +326,7 @@
 
     .about-me {
         &__link {
-            color: inherit;
+            color: $color-primary;
             @include adjust($color-grey-3, 10%, $theme, background-color);
             &:hover {
                 background-color: $color-grey-2;
@@ -475,7 +468,7 @@
             }
             &--content {
                 &-name {
-                    @include adjust($color-grey-1, 60%, $theme, color);
+                    color: $color-primary;
                 }
                 &-status {
                     @include adjust($color-grey-1, 40%, $theme, color);
@@ -662,6 +655,9 @@
         &__user {
             &-pic {
                 &--upload {
+                }
+                &--name {
+                    color: $color-primary;
                 }
                 &--input {
                 }

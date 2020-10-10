@@ -1,10 +1,16 @@
 import state from '../state';
 // Utils
-import { mode } from '../utils/base.util';
+import { mode, elementStrings, select, selectAll } from '../utils/base.util';
+// Controllers
+import * as chatProfileUserController from './chat-profile/chat-profile-user.controller';
 // Models
 import ChatProfile from '../models/ChatProfile';
 // Views
 import * as chatProfileView from '../views/chat-profile.view';
+import * as chatProfileStrangerView from '../views/chat-profile/chat-profile-stranger.view';
+import * as chatProfileFriendView from '../views/chat-profile/chat-profile-friend.view';
+import * as chatProfileUserView from '../views/chat-profile/chat-profile-user.view';
+import * as chatProfileSettingView from '../views/chat-profile/chat-profile-setting.view';
 
 export const controlChatProfile = info => {
     // Init Chat Profile
@@ -44,13 +50,13 @@ const empty = () => {};
 
 const stranger = () => {
     // Render Stranger
-    chatProfileView.renderStranger();
+    chatProfileStrangerView.renderStranger();
     // Add Event Listeners
 };
 
 const friend = () => {
     // Render Friend
-    chatProfileView.renderFriend();
+    chatProfileFriendView.renderFriend();
     // Add Event Listeners
 };
 
@@ -58,12 +64,21 @@ const user = () => {
     // Getting user from state
     const { user } = state;
     // Render Profile
-    chatProfileView.renderUser(user);
-    // Add Event Listeners
+    chatProfileUserView.renderUser(user);
+    // Add Event Listeners for pic preview
+    // Add Event Listeners selected image
+    // Add Event Listeners to edit field
+    const items = selectAll(elementStrings.chatProfile.user.about.edit);
+    items.forEach(item => item.addEventListener('click', chatProfileUserController.controlDisable));
+    // Add Event Listeners for updating profile
+    select(elementStrings.chatProfile.user.form).addEventListener(
+        'submit',
+        chatProfileUserController.controlUpdateProfile
+    );
 };
 
 const setting = () => {
     // Render Setting
-    chatProfileView.renderSetting();
+    chatProfileSettingView.renderSetting();
     // Add Event Listeners
 };
