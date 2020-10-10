@@ -18,8 +18,9 @@ export const controlChatBoxOutDropdown = event => {
 window.controlChatBoxOutDropdown = controlChatBoxOutDropdown;
 
 // Items
-const controlChatBoxOutDropdownItems = () => {
-    const item = event.target.closest(elementStrings.dropdownItems.chatBoxDropdownItem.out);
+const controlChatBoxOutDropdownItems = event => {
+    const { target } = event;
+    const item = target.closest(elementStrings.dropdownItems.chatBoxDropdownItem.out);
     if (!item) return;
     const { type } = item.dataset;
     switch (type) {

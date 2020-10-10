@@ -1,7 +1,7 @@
 import { elements, elementStrings, select } from '../../utils/base.util';
 import { prepareUI } from '../chat-profile.view';
 
-export const prepareUIForUser = () => prepareUI(elementStrings.chatProfile.user.update, 'Saving Profile...');
+export const prepareUIForUser = () => prepareUI(elementStrings.chatProfile.user.update, 'Saving Profile');
 
 export const renderUser = user => {
     const markup = `

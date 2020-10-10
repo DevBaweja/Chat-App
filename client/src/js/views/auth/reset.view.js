@@ -72,6 +72,6 @@ export const renderResetForm = () => {
 
 export const initialUIForReset = () => initialUI(elementStrings.btns.resetBtn, 'Reset Password');
 
-export const prepareUIForReset = () => prepareUI(elementStrings.btns.resetBtn);
+export const prepareUIForReset = () => prepareUI(elementStrings.btns.resetBtn, 'Reseting Password');
 
 export const getUserInput = () => getInput(elementStrings.inputs.resetInput);

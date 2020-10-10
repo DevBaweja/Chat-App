@@ -52,6 +52,6 @@ export const renderLoginForm = () => {
 
 export const initialUIForLogin = () => initialUI(elementStrings.btns.loginBtn, 'Log in');
 
-export const prepareUIForLogin = () => prepareUI(elementStrings.btns.loginBtn);
+export const prepareUIForLogin = () => prepareUI(elementStrings.btns.loginBtn, 'Logging In');
 
 export const getUserInput = () => getInput(elementStrings.inputs.loginInput);

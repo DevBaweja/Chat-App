@@ -30,6 +30,6 @@ export const initialUIForForget = () => initialUI(elementStrings.btns.forgetBtn,
 
 export const resendUIForForget = () => initialUI(elementStrings.btns.forgetBtn, 'Resend Token');
 
-export const prepareUIForForget = () => prepareUI(elementStrings.btns.forgetBtn);
+export const prepareUIForForget = () => prepareUI(elementStrings.btns.forgetBtn, 'Sending Token');
 
 export const getUserInput = () => getInput(elementStrings.inputs.forgetInput);

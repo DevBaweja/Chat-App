@@ -27,8 +27,11 @@ const controlChatPanelDropdown = event => {
 window.controlChatPanelDropdown = controlChatPanelDropdown;
 
 // Items
-const controlAboutMeDropdownItems = ({ target }) => {
+const controlAboutMeDropdownItems = (event ) => {
+    const { target } = event;
     const item = target.closest(elementStrings.dropdownItems.chatPanelDropdownItem);
+    if (!item) return;
+
     const { type } = item.dataset;
     switch (type) {
         case actions.chatPanel.read:

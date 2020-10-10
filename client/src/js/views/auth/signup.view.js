@@ -84,6 +84,6 @@ export const renderSignupForm = () => {
 
 export const initialUIForSignup = () => initialUI(elementStrings.btns.signupBtn, 'Sign Up');
 
-export const prepareUIForSignup = () => prepareUI(elementStrings.btns.signupBtn);
+export const prepareUIForSignup = () => prepareUI(elementStrings.btns.signupBtn, 'Signing Up');
 
 export const getUserInput = () => getInput(elementStrings.inputs.signupInput);
