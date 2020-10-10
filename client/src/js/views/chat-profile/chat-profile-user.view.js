@@ -1,4 +1,7 @@
 import { elements, elementStrings, select } from '../../utils/base.util';
+import { prepareUI } from '../chat-profile.view';
+
+export const prepareUIForUser = () => prepareUI(elementStrings.chatProfile.user.update, 'Saving Profile...');
 
 export const renderUser = user => {
     const markup = `
@@ -100,8 +103,8 @@ export const renderSaveProfile = () => {
     if (saveElement) saveElement.remove();
 
     const markup = `
-    <div class="chat-profile__user-save" title="Save profile">
-        <button class="chat-profile__user--update">Save profile</button>
+    <div class="chat-profile__user-save" title="Save Profile">
+        <button class="chat-profile__user--update">Save Profile</button>
     </div>`;
     const formElement = select(elementStrings.chatProfile.user.form);
 

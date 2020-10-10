@@ -33,13 +33,13 @@ export const controlDisable = event => {
 
 // Update Profile
 export const controlUpdateProfile = event => {
-    /*
     event.preventDefault();
 
     console.log('Update Profile');
     // 0) Prepare UI for changes
-    resetView.prepareUIForReset();
+    chatProfileUserView.prepareUIForUser();
 
+    /*
     // 1) Getting user inputs
     const inputs = resetView.getUserInput();
     // 2) Checking user inputs

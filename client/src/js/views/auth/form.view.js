@@ -57,10 +57,10 @@ export const getInput = className => {
     return obj;
 };
 
-export const prepareUI = className => {
+export const prepareUI = (className, text = 'Loading...') => {
     const btn = select(className);
     // Rendering Loading Text
-    btn.innerText = 'Loading...';
+    btn.innerText = text;
     // Disabling button
     btn.disabled = true;
 };
