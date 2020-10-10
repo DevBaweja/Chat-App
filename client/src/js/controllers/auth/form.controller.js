@@ -141,6 +141,8 @@ const reset = () => {
         'click',
         resetController.controlTogglePasswordConfirm
     );
+    // 2.3) Adding event listener to paste reset token
+    select(elementStrings.forms.reset.toggle.token).addEventListener('click', resetController.controlPasteResetToken);
     // 3) Adding event listener to form
     select(elementStrings.forms.reset.form).addEventListener('submit', resetController.controlReset);
     // 5) Link to forget password

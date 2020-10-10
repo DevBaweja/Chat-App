@@ -1,7 +1,7 @@
 // State
 import state from '../../state';
 // Utils
-import { elementStrings, mode } from '../../utils/base.util';
+import { elementStrings, select, mode } from '../../utils/base.util';
 // Controllers
 import * as formController from './form.controller';
 import * as alertsController from '../alerts/alerts.controller';
@@ -11,6 +11,20 @@ import Reset from '../../models/Reset';
 // Views
 import * as resetView from '../../views/auth/reset.view';
 import * as formView from '../../views/auth/form.view';
+
+export const controlPasteResetToken = async () => {
+    // Element
+    const element = select(elementStrings.forms.reset.elements.token);
+
+    let value = 'Please allow clipboard access.';
+    // Getting data from clipboard
+    try {
+        value = await navigator.clipboard.readText();
+    } catch (err) {
+        console.log('Error in clipboard access.');
+    }
+    element.value = value;
+};
 
 export const controlTogglePassword = event =>
     formController.controlToggle(

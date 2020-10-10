@@ -40,10 +40,12 @@ const elementStrings = {
             toggle: {
                 password: '.user-reset__form--toggle-password',
                 passwordConfirm: '.user-reset__form--toggle-password-confirm',
+                token: '.user-reset__form--toggle-token',
             },
             elements: {
                 password: '.user-reset__form--input-password',
                 passwordConfirm: '.user-reset__form--input-password-confirm',
+                token: '.user-reset__form--input-token',
             },
             addOn: '.user-reset__form--addon',
         },

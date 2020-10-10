@@ -16,10 +16,18 @@ export const renderResetForm = () => {
                 for: 'token',
                 id: 'token',
                 label: 'Reset Token',
+                className: 'token',
                 placeholder: faker.random.uuid(),
                 // For Development
                 value: faker.random.uuid(),
                 required: true,
+                toggle: `
+                <span class="user-reset__form--toggle user-reset__form--toggle-token" title="Paste Reset Token">
+                    <svg class="user-reset__form--toggle-svg"> 
+                        <use xlink:href="svg/sprite.svg#icon-copy">
+                        </use>
+                    </svg> 
+                </span>`,
             },
             {
                 type: 'password',

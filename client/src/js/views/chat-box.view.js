@@ -59,8 +59,8 @@ export const renderUser = () => {
     const reg = new RegExp(
         '([a-zA-Z0-9]+://)?([a-zA-Z0-9_]+:[a-zA-Z0-9_]+@)?([a-zA-Z0-9.-]+\\.[A-Za-z]{2,4})(:[0-9]+)?(/.*)?'
     );
-    console.log(reg.test('https://web.whatsapp.com'));
-    console.log('https://web.whatsapp.com'.match(reg));
+    // console.log(reg.test('https://web.whatsapp.com'));
+    // console.log('https://web.whatsapp.com'.match(reg));
     const messageOut = () => `
     <li class="chat-box-user__main--item">
         <div class="chat-box-user__main--message">
@@ -217,12 +217,9 @@ export const renderUser = () => {
 `;
 
     select(elements.ChatBox).insertAdjacentHTML('beforeend', markup);
-    setTimeout(() => {
-        const chatBoxList = select('.chat-box-user__main--list');
-        chatBoxList.scrollTop = chatBoxList.scrollHeight - chatBoxList.scrollTop;
-    }, 100);
-    // chatBoxList.scrollTop = chatBoxList.scrollHeight;
-    // console.log(chatBoxList.scrollTop);
+
+    const chatBoxList = select('.chat-box-user__main--list');
+    chatBoxList.scrollTop = chatBoxList.scrollHeight - chatBoxList.scrollTop;
 };
 
 export const renderDrag = ({ user }) => {
