@@ -1,4 +1,4 @@
-import { elements, elementStrings, select } from '../../utils/base.util';
+import { elements, elementClasses, elementStrings, select } from '../../utils/base.util';
 import { renderForm, getInput, prepareUI, initialUI } from './form.view';
 import faker from 'faker';
 
@@ -18,7 +18,7 @@ export const renderForgetForm = () => {
                 required: true,
             },
         ],
-        className: 'user-forget',
+        className: elementClasses.forms.forget,
         btntext: 'Send Token',
         addOn: 'Validate your token',
     };

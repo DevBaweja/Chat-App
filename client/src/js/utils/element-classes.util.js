@@ -15,5 +15,11 @@ const elementClasses = {
             out: 'chat-box-user-out__dropdown',
         },
     },
+    forms: {
+        signup: 'user-signup',
+        login: 'user-login',
+        forget: 'user-forget',
+        reset: 'user-reset',
+    },
 };
 export default elementClasses;

@@ -1,11 +1,11 @@
-import { elements, elementStrings, select } from '../../utils/base.util';
+import { elements, elementStrings,elementClasses, select } from '../../utils/base.util';
 import { renderForm, getInput, prepareUI, initialUI, toggle } from './form.view';
 import faker from 'faker';
 
 export const togglePassword = type =>
-    toggle(type, 'user-reset', elementStrings.forms.reset.toggle.password, 'Password');
+    toggle(type, elementClasses.forms.reset, elementStrings.forms.reset.toggle.password, 'Password');
 export const togglePasswordConfirm = type =>
-    toggle(type, 'user-reset', elementStrings.forms.reset.toggle.passwordConfirm, 'Confirm Password');
+    toggle(type, elementClasses.forms.reset, elementStrings.forms.reset.toggle.passwordConfirm, 'Confirm Password');
 
 export const renderResetForm = () => {
     const form = {
@@ -22,8 +22,8 @@ export const renderResetForm = () => {
                 value: faker.random.uuid(),
                 required: true,
                 toggle: `
-                <span class="user-reset__form--toggle user-reset__form--toggle-token" title="Paste Reset Token">
-                    <svg class="user-reset__form--toggle-svg"> 
+                <span class="${elementClasses.forms.reset}__form--toggle ${elementClasses.forms.reset}__form--toggle-token" title="Paste Reset Token">
+                    <svg class="${elementClasses.forms.reset}__form--toggle-svg"> 
                         <use xlink:href="svg/sprite.svg#icon-copy">
                         </use>
                     </svg> 
@@ -42,8 +42,8 @@ export const renderResetForm = () => {
                 required: true,
                 minLength: 8,
                 toggle: `
-                <span class="user-reset__form--toggle user-reset__form--toggle-password" title="Show Password" data-type="show">
-                    <svg class="user-reset__form--toggle-svg"> 
+                <span class="${elementClasses.forms.reset}__form--toggle ${elementClasses.forms.reset}__form--toggle-password" title="Show Password" data-type="show">
+                    <svg class="${elementClasses.forms.reset}__form--toggle-svg"> 
                         <use xlink:href="svg/sprite.svg#icon-show">
                         </use>
                     </svg> 
@@ -62,15 +62,15 @@ export const renderResetForm = () => {
                 required: true,
                 minLength: 8,
                 toggle: `
-                <span class="user-reset__form--toggle user-reset__form--toggle-password-confirm" title="Show Confirm Password" data-type="show">
-                    <svg class="user-reset__form--toggle-svg"> 
+                <span class="${elementClasses.forms.reset}__form--toggle ${elementClasses.forms.reset}__form--toggle-password-confirm" title="Show Confirm Password" data-type="show">
+                    <svg class="${elementClasses.forms.reset}__form--toggle-svg"> 
                         <use xlink:href="svg/sprite.svg#icon-show">
                         </use>
                     </svg> 
                 </span>`,
             },
         ],
-        className: 'user-reset',
+        className: elementClasses.forms.reset,
         btntext: 'Reset Password',
         addOn: 'Go back',
     };

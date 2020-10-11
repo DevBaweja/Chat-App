@@ -1,11 +1,11 @@
-import { elements, elementStrings, select } from '../../utils/base.util';
+import { elements, elementStrings, elementClasses, select } from '../../utils/base.util';
 import { renderForm, getInput, prepareUI, initialUI, toggle } from './form.view';
 import faker from 'faker';
 
 export const togglePassword = type =>
-    toggle(type, 'user-signup', elementStrings.forms.signup.toggle.password, 'Password');
+    toggle(type, elementClasses.forms.signup, elementStrings.forms.signup.toggle.password, 'Password');
 export const togglePasswordConfirm = type =>
-    toggle(type, 'user-signup', elementStrings.forms.signup.toggle.passwordConfirm, 'Confirm Password');
+    toggle(type, elementClasses.forms.signup, elementStrings.forms.signup.toggle.passwordConfirm, 'Confirm Password');
 
 export const renderSignupForm = () => {
     const form = {
@@ -46,8 +46,8 @@ export const renderSignupForm = () => {
                 required: true,
                 minLength: 8,
                 toggle: `
-                <span class="user-signup__form--toggle user-signup__form--toggle-password" title="Show Password" data-type="show">
-                    <svg class="user-signup__form--toggle-svg"> 
+                <span class="${elementClasses.forms.signup}__form--toggle ${elementClasses.forms.signup}__form--toggle-password" title="Show Password" data-type="show">
+                    <svg class="${elementClasses.forms.signup}__form--toggle-svg"> 
                         <use xlink:href="svg/sprite.svg#icon-show">
                         </use>
                     </svg> 
@@ -66,15 +66,15 @@ export const renderSignupForm = () => {
                 required: true,
                 minLength: 8,
                 toggle: `
-                <span class="user-signup__form--toggle user-signup__form--toggle-password-confirm" title="Show Confirm Password" data-type="show">
-                    <svg class="user-signup__form--toggle-svg"> 
+                <span class="${elementClasses.forms.signup}__form--toggle ${elementClasses.forms.signup}__form--toggle-password-confirm" title="Show Confirm Password" data-type="show">
+                    <svg class="${elementClasses.forms.signup}__form--toggle-svg"> 
                         <use xlink:href="svg/sprite.svg#icon-show">
                         </use>
                     </svg> 
                 </span>`,
             },
         ],
-        className: 'user-signup',
+        className: elementClasses.forms.signup,
         btntext: 'Sign Up',
         addOn: 'Log in',
     };
