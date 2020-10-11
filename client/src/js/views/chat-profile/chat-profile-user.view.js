@@ -1,11 +1,13 @@
 import { elements, elementStrings, elementClasses, select, selectAll } from '../../utils/base.util';
-import { prepareUI, initialUI, getInput } from '../chat-profile.view';
+import { prepareUI, initialUI, getInput, getPhoto } from '../chat-profile.view';
 
 export const prepareUIForUser = () => prepareUI(elementStrings.chatProfile.user.update, 'Saving Profile');
 
 export const initialUIForUser = () => initialUI(elementStrings.chatProfile.user.update, 'Save Profile');
 
 export const getUserInput = () => getInput(elementStrings.chatProfile.user.about.input);
+
+export const getUserPhoto = inputs => getPhoto(elementStrings.chatProfile.user.pic.input, inputs);
 
 export const addSelected = item => {
     item.classList.add(elementClasses.selected.chatProfile.avatar);
@@ -17,12 +19,18 @@ export const removeSelected = () => {
     });
 };
 
+const renderSelected = () => {
+    const imgElement = select(`${elementStrings.chatProfile.user.avatar.img}[src="${user.photo}"]`);
+    if (!imgElement) return;
+
+    console.log(imgElement);
+};
 export const renderUser = user => {
     const markup = `
     <div class="chat-profile__user">
     <form class="chat-profile__user--form">
         <div class="chat-profile__user-pic">
-            <img src="${user.photo}" class="chat-profile__user-pic--img" alt="" />
+            <img src="${user.photo}" class="chat-profile__user-pic--img" alt=" " />
             <div class="chat-profile__user-pic--upload">
                 <label class="chat-profile__user-pic--label" for="photo" title="Change profile pic">
                     <svg class="chat-profile__user-pic--svg">
@@ -40,7 +48,7 @@ export const renderUser = user => {
             <div class="chat-profile__user-avatar--container">
                 <div class="chat-profile__user-avatar--group" title="Boy">
                     <img src="img/avatar/boy.png" alt="" class="chat-profile__user-avatar--img"/>
-                    <div class="chat-profile__user-avatar--icon chat-profile__user-avatar--icon-selected">
+                    <div class="chat-profile__user-avatar--icon">
                         <svg class="chat-profile__user-avatar--svg">
                             <use xlink:href="svg/sprite.svg#icon-avatar"></use>
                         </svg>
@@ -110,6 +118,8 @@ export const renderUser = user => {
     `;
 
     select(elements.ChatProfile).insertAdjacentHTML('beforeend', markup);
+
+    // renderSelected();
 };
 
 export const renderSaveProfile = () => {

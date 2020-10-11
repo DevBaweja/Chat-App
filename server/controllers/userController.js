@@ -80,9 +80,9 @@ exports.updateMe = catchAsync(async (req, res, next) => {
             )
         );
     // 2) Filter unwanted field names that are not allowed to be updated
-    const filterBody = filter(req.body, 'name', 'email', 'bio');
+    const filterBody = filter(req.body, 'name', 'email', 'bio', 'photo');
     // Photo
-    if (req.file) filterBody.photo = req.file.filename;
+    if (req.file) filterBody.photo = `img/users/${req.file.filename}`;
 
     // 3) Update user document
     // findByIdAndUpdate can now be used

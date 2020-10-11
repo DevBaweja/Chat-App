@@ -84,7 +84,7 @@ export const renderUser = user => {
     markup = `
     <div class="about-me">
         <div class="about-me__link about-me__drop" title="User Options">
-            <img src="${user.photo}" alt="user-photo" class="about-me__photo"/>
+            <img src="${user.photo}" alt=" " class="about-me__photo"/>
             
             <span class="about-me__name">${user.name}</span>
         </div>

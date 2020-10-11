@@ -3,17 +3,13 @@ import state from '../state';
 import { url, mode } from '../utils/base.util';
 
 class UpdateProfile {
-    constructor({ name, email, bio }) {
-        this.name = name;
-        this.email = email;
-        this.bio = bio;
+    constructor({ inputs }) {
+        this.inputs = inputs;
         this.url = `${url[state['mode'].mode]}api/v1/users/updateMe`;
     }
 
-    setUserInput = ({ name, email, bio }) => {
-        this.name = name;
-        this.email = email;
-        this.bio = bio;
+    setUserInput = ({ inputs }) => {
+        this.inputs = inputs;
     };
 
     parseData = () => {
@@ -29,11 +25,10 @@ class UpdateProfile {
                 headers['authorization'] = 'Bearer ' + state['token'];
         }
         try {
-            const obj = { name: this.name, email: this.email, bio: this.bio };
             this.data = await axios({
                 method: 'PATCH',
                 url: this.url,
-                data: obj,
+                data: this.inputs,
                 headers,
                 validateStatus: () => true,
                 // For validation

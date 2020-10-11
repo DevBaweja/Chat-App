@@ -1,4 +1,4 @@
-import { elements, select, selectAll } from '../utils/base.util';
+import { elements, elementStrings, select, selectAll } from '../utils/base.util';
 
 export const clearChatProfile = () => (select(elements.ChatProfile).innerHTML = '');
 
@@ -20,13 +20,29 @@ export const initialUI = (className, text) => {
 
 // Get Input
 export const getInput = className => {
-    const inputs = selectAll(className);
+    const inputElement = selectAll(className);
 
-    let obj = {};
+    let inputs = new FormData();
 
-    inputs.forEach(input => {
-        obj[input.id] = input.value;
+    inputElement.forEach(input => {
+        inputs.append(input.id, input.value);
     });
 
-    return obj;
+    return inputs;
+};
+
+export const getPhoto = (className, inputs) => {
+    const inputElement = select(className);
+
+    const [file] = inputElement.files;
+
+    // Getting file
+    if (file) {
+        inputs.append(inputElement.id, file);
+    } else {
+        // Getting Avatar
+        const imgElement = select(elementStrings.chatProfile.user.pic.img);
+        const src = imgElement.getAttribute('src');
+        inputs.append('photo', src);
+    }
 };

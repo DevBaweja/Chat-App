@@ -4,6 +4,7 @@ import { mode, elementStrings, select } from '../../utils/base.util';
 // Models
 import UpdateProfile from '../../models/UpdateProfile';
 // Controllers
+import * as chatProfileController from '../chat-profile.controller';
 import * as alertsController from '../alerts/alerts.controller';
 // Views
 import * as chatProfileUserView from '../../views/chat-profile/chat-profile-user.view';
@@ -66,6 +67,8 @@ export const controlUpload = event => {
     // Getting file
     const [file] = target.files;
     if (!file) {
+        // Backup
+        select(elementStrings.chatProfile.user.pic.img).setAttribute('src', 'img/avatar/unisex.png');
         return;
     }
 
@@ -97,13 +100,15 @@ export const controlUpdateProfile = async event => {
     // 1) Getting user inputs
     const inputs = chatProfileUserView.getUserInput();
     // 2) Checking user inputs
+    // inputs : FormData
     // { name, email, bio }
 
     // 3) Pic Processing
+    chatProfileUserView.getUserPhoto(inputs);
 
     // 3) Init UpdateProfile
-    if (!state['updateProfile']) state['updateProfile'] = new UpdateProfile({ ...inputs });
-    state['updateProfile'].setUserInput({ ...inputs });
+    if (!state['updateProfile']) state['updateProfile'] = new UpdateProfile({ inputs });
+    state['updateProfile'].setUserInput({ inputs });
 
     try {
         // 4) Making API call
@@ -121,6 +126,9 @@ export const controlUpdateProfile = async event => {
 
                     // 1) Initial UI
                     chatProfileUserView.initialUIForUser();
+
+                    // 2) Re Render with user
+                    chatProfileController.controlChatProfile({ mode: mode.chatProfile.user });
                 }
                 break;
             case 'error':
@@ -137,7 +145,7 @@ export const controlUpdateProfile = async event => {
         }
 
         // Clear update profile
-        // state['updateProfile'] = null;
+        state['updateProfile'] = null;
     } catch (err) {
         console.log('ERROR', err.message);
 
@@ -148,6 +156,6 @@ export const controlUpdateProfile = async event => {
         chatProfileUserView.initialUIForUser();
 
         // State Changes
-        // state['updateProfile'] = null;
+        state['updateProfile'] = null;
     }
 };
