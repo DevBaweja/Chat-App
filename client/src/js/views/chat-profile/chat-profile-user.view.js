@@ -1,7 +1,11 @@
 import { elements, elementStrings, elementClasses, select, selectAll } from '../../utils/base.util';
-import { prepareUI } from '../chat-profile.view';
+import { prepareUI, initialUI, getInput } from '../chat-profile.view';
 
 export const prepareUIForUser = () => prepareUI(elementStrings.chatProfile.user.update, 'Saving Profile');
+
+export const initialUIForUser = () => initialUI(elementStrings.chatProfile.user.update, 'Save Profile');
+
+export const getUserInput = () => getInput(elementStrings.chatProfile.user.about.input);
 
 export const addSelected = item => {
     item.classList.add(elementClasses.selected.chatProfile.avatar);

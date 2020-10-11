@@ -1,6 +1,10 @@
-import { elementStrings, select } from '../../utils/base.util';
+import state from '../../state';
 // Utils
+import { mode, elementStrings, select } from '../../utils/base.util';
 // Models
+import UpdateProfile from '../../models/UpdateProfile';
+// Controllers
+import * as alertsController from '../alerts/alerts.controller';
 // Views
 import * as chatProfileUserView from '../../views/chat-profile/chat-profile-user.view';
 
@@ -83,82 +87,67 @@ export const controlUpload = event => {
     chatProfileUserView.renderSaveProfile();
 };
 // Update Profile
-export const controlUpdateProfile = event => {
+export const controlUpdateProfile = async event => {
     event.preventDefault();
 
     console.log('Update Profile');
     // 0) Prepare UI for changes
     chatProfileUserView.prepareUIForUser();
 
-    /*
     // 1) Getting user inputs
-    const inputs = resetView.getUserInput();
+    const inputs = chatProfileUserView.getUserInput();
     // 2) Checking user inputs
-    // { token, password, passwordConfirm }
+    // { name, email, bio }
 
-    // 3) Init Reset
-    if (!state['reset']) state['reset'] = new Reset({ ...inputs });
+    // 3) Pic Processing
 
-    state['reset'].setUserInput({ ...inputs });
+    // 3) Init UpdateProfile
+    if (!state['updateProfile']) state['updateProfile'] = new UpdateProfile({ ...inputs });
+    state['updateProfile'].setUserInput({ ...inputs });
 
     try {
         // 4) Making API call
-        const data = await state['reset'].resetPassword();
+        const data = await state['updateProfile'].updateProfile();
         switch (data.status) {
             case 'success':
                 {
-                    // !For Development
-                    // Token Assign
-                    state['token'] = data.token;
                     // Getting User
                     const { user } = data.data;
                     // User Assign
                     state['user'] = user;
 
-                    // 5) Success Alert
-                    alertsController.controlAlerts({ mode: mode.alert.reset.success });
-                    // 6) Clear form
-                    formView.clearForm();
+                    // 0) Success Alert
+                    alertsController.controlAlerts({ mode: mode.alert.update.profile.success });
 
-                    // Combined User
-                    combinedController.controlAll({ mode: mode.combined.user });
+                    // 1) Initial UI
+                    chatProfileUserView.initialUIForUser();
                 }
                 break;
             case 'error':
             case 'fail':
                 {
                     console.log('ERROR : ', data.error);
-                    // Better Alerts
-                    let newMessage = data.message;
-                    switch (true) {
-                        case data.message.includes('passwordConfirm'):
-                            newMessage = 'Passwords must match.';
-                            break;
-                    }
-                    // 0) Error Alert
-                    alertsController.controlAlerts({ mode: mode.alert.misc.failure, data: newMessage });
 
+                    // 0) Better Alerts
+                    alertsController.controlBetterAlerts({ data: data.message });
                     // 1) Initial UI
-                    resetView.initialUIForReset();
+                    chatProfileUserView.initialUIForUser();
                 }
                 break;
         }
 
-        // Clear signup
-        state['reset'] = null;
+        // Clear update profile
+        // state['updateProfile'] = null;
     } catch (err) {
         console.log('ERROR', err.message);
 
         // 0) Error Alert
-        alertsController.controlAlerts({ mode: mode.alert.reset.failure });
+        alertsController.controlAlerts({ mode: mode.alert.update.profile.failure });
 
         // 1) Initial UI
-        resetView.initialUIForReset();
+        chatProfileUserView.initialUIForUser();
 
         // State Changes
-        state['token'] = null;
-        state['user'] = null;
-        state['reset'] = null;
+        // state['updateProfile'] = null;
     }
-    */
 };

@@ -21,6 +21,15 @@ export const controlAlerts = info => {
         case mode.alert.misc.failure:
             miscFailure(info);
             break;
+        case mode.alert.error.duplicate:
+            errorDuplicate();
+            break;
+        case mode.alert.error.email:
+            errorEmail();
+            break;
+        case mode.alert.error.password:
+            errorPassword();
+            break;
         case mode.alert.login.success:
             loginSuccess();
             break;
@@ -74,6 +83,27 @@ export const controlAlerts = info => {
 // ! For Development
 window.controlAlerts = controlAlerts;
 
+export const controlBetterAlerts = ({ data }) => {
+    // Better Alerts
+    let newMessage = data;
+    console.log(data);
+    switch (true) {
+        case newMessage.includes('duplicate'):
+            controlAlerts({ mode: mode.alert.error.duplicate });
+            break;
+        case newMessage.includes('email'):
+            controlAlerts({ mode: mode.alert.error.email });
+            break;
+        case newMessage.includes('password'):
+            controlAlerts({ mode: mode.alert.error.password });
+            break;
+        default:
+            // 0) Error Alert
+            controlAlerts({ mode: mode.alert.misc.failure, data: newMessage });
+            break;
+    }
+};
+
 const miscSuccess = ({ data }) => {
     const miscData = {
         text: data,
@@ -88,6 +118,29 @@ const miscFailure = ({ data }) => {
         type: 'failure',
     };
     alertsView.renderAlerts(miscData);
+};
+
+const errorDuplicate = () => {
+    const data = {
+        text: 'Email address already taken. Please enter a different email address.',
+        type: 'failure',
+    };
+    alertsView.renderAlerts(data);
+};
+const errorEmail = () => {
+    const data = {
+        text: 'Please enter an valid email address.',
+        type: 'failure',
+    };
+    alertsView.renderAlerts(data);
+};
+
+const errorPassword = () => {
+    const data = {
+        text: 'Passwords must match.',
+        type: 'failure',
+    };
+    alertsView.renderAlerts(data);
 };
 
 const loginSuccess = () => {

@@ -72,6 +72,11 @@ const mode = {
             success: 'misc-success',
             failure: 'misc-failure',
         },
+        error: {
+            duplicate: 'error-duplicate',
+            email: 'error-email',
+            password: 'error-password',
+        },
         login: {
             success: 'login-success',
             failure: 'login-failure',
@@ -94,6 +99,10 @@ const mode = {
             profile: {
                 success: 'update-profile-success',
                 failure: 'update-profile-failure',
+            },
+            password: {
+                success: 'update-password-success',
+                failure: 'update-password-failure',
             },
         },
         logout: {

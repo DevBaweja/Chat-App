@@ -14,6 +14,8 @@ const state = {
     chatBox: null,
     chatProfile: null,
     backgroundImage: null,
+    updateProfile: null,
+    updatePassword: null,
     alert: null,
 };
 // ! For Development
