@@ -39,10 +39,11 @@ export const getPhoto = (className, inputs) => {
     // Getting file
     if (file) {
         inputs.append(inputElement.id, file);
-    } else {
-        // Getting Avatar
-        const imgElement = select(elementStrings.chatProfile.user.pic.img);
-        const src = imgElement.getAttribute('src');
-        inputs.append('photo', src);
+        return;
     }
+
+    // Getting Avatar
+    const imgElement = select(elementStrings.chatProfile.user.pic.img);
+    const src = imgElement.getAttribute('src');
+    inputs.append('photo', src);
 };

@@ -4,6 +4,7 @@ import { mode, elementStrings, select } from '../../utils/base.util';
 // Models
 import UpdateProfile from '../../models/UpdateProfile';
 // Controllers
+import * as headerController from '../header.controller';
 import * as chatProfileController from '../chat-profile.controller';
 import * as alertsController from '../alerts/alerts.controller';
 // Views
@@ -68,7 +69,7 @@ export const controlUpload = event => {
     const [file] = target.files;
     if (!file) {
         // Backup
-        select(elementStrings.chatProfile.user.pic.img).setAttribute('src', 'img/avatar/unisex.png');
+        select(elementStrings.chatProfile.user.pic.img).setAttribute('src', state['user'].photo);
         return;
     }
 
@@ -128,6 +129,7 @@ export const controlUpdateProfile = async event => {
                     chatProfileUserView.initialUIForUser();
 
                     // 2) Re Render with user
+                    headerController.controlHeader({ mode: mode.header.user });
                     chatProfileController.controlChatProfile({ mode: mode.chatProfile.user });
                 }
                 break;

@@ -19,12 +19,16 @@ export const removeSelected = () => {
     });
 };
 
-const renderSelected = () => {
-    const imgElement = select(`${elementStrings.chatProfile.user.avatar.img}[src="${user.photo}"]`);
+const renderSelected = ({ photo }) => {
+    const imgElement = select(`${elementStrings.chatProfile.user.avatar.img}[src="${photo}"]`);
     if (!imgElement) return;
 
-    console.log(imgElement);
+    const groupElement = imgElement.closest(elementStrings.chatProfile.user.avatar.group);
+    const iconElement = select(elementStrings.chatProfile.user.avatar.icon, groupElement);
+
+    addSelected(iconElement);
 };
+
 export const renderUser = user => {
     const markup = `
     <div class="chat-profile__user">
@@ -119,7 +123,7 @@ export const renderUser = user => {
 
     select(elements.ChatProfile).insertAdjacentHTML('beforeend', markup);
 
-    // renderSelected();
+    renderSelected(user);
 };
 
 export const renderSaveProfile = () => {
