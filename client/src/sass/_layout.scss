@@ -15,7 +15,7 @@
     overflow: hidden;
     @include grid();
     @include templateRows(6rem minmax(62.5rem, auto) 3.5rem);
-    @include columns(15);
+    @include columns(18);
 }
 
 // Header
@@ -39,7 +39,7 @@
     @include gridColumn(2, -1);
 
     @include grid();
-    @include templateColumns(1.5fr 3fr 1.35fr);
+    @include templateColumns(1.5fr 3fr 1.5fr);
 }
 
 // Footer
