@@ -340,14 +340,14 @@
 
     .chat-panel-user {
         &__title {
-            @include adjust($color-grey-2, 65%, $theme, color);
-            background-color: $color-grey-1;
+            color: $color-primary;
+            background-color: $color-grey-3;
         }
         &__count {
             @include adjust($color-grey-2, 50%, $theme, color);
         }
         &__reload {
-            @include adjust($color-grey-2, 55%, $theme, fill);
+            @include adjust($color-grey-2, 50%, $theme, fill);
             &:hover {
                 fill: $color-primary;
             }
@@ -360,7 +360,6 @@
             transition: all 0.2s;
             &:hover {
                 @include adjust($color-grey-1, 10%, $theme, background-color);
-
                 .chat-panel-user__state {
                     &--active {
                         @include adjust($color-grey-1, 10%, $theme, border-color);
@@ -725,6 +724,21 @@
             &--content {
                 @include adjust($color-grey-1, 50%, $theme, color);
                 background-color: $color-grey-1;
+            }
+        }
+        // New Setting
+        &-setting {
+            &__heading {
+                color: $color-primary;
+                background-color: $color-grey-3;
+            }
+            &__item {
+                &:hover {
+                    @include adjust($color-grey-1, 10%, $theme, background-color);
+                }
+            }
+            &__svg {
+                @include adjust($color-grey-2, 50%, $theme, fill);
             }
         }
     }

@@ -15,12 +15,15 @@ export const controlInit = async () => {
     if (!state['init']) state['init'] = new Init();
 
     // 2) Establish Connection
+    /*
+    // !For Development
     try {
         const io = await state['init'].establishConnection();
     } catch (err) {
         // Error Alert
         console.log('ERROR: ', err.message);
     }
+    */
 
     // 3) isLogin
     try {
@@ -28,9 +31,9 @@ export const controlInit = async () => {
         switch (state['mode'].mode) {
             case mode.mode.development:
                 state['token'] =
-                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmODE0ZjUyNmYzN2Q3MjAyNDQ1YTg2MiIsImlhdCI6MTYwMjMwOTk3MCwiZXhwIjoxNjAyNDgyNzcwfQ.SRC_xyYNGEVrXUrcBdmw2-DeY-uDWPZBv_2oopg0DgI';
-                state['token'] =
-                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmODNkYTg4MmQ2ZjJjMWYwYzMyY2ZlYSIsImlhdCI6MTYwMjQ3NjY4MCwiZXhwIjoxNjAyNjQ5NDgwfQ.Lu5Y0A4g6m-cL3jG4CUjZiOuaBvGc5G56DyVDpi2aE0';
+                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmODNmM2RjZTdjYTBlNjEwMGJiODg0MiIsImlhdCI6MTYwMjQ4MzE2NCwiZXhwIjoxNjAyNjU1OTY0fQ.H3rFrhhlsp99CjvB8DuiKMBIoQbDjKTPjuWckA6iGWQ';
+                // state['token'] =
+                // 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmODNkYTg4MmQ2ZjJjMWYwYzMyY2ZlYSIsImlhdCI6MTYwMjQ3NjY4MCwiZXhwIjoxNjAyNjQ5NDgwfQ.Lu5Y0A4g6m-cL3jG4CUjZiOuaBvGc5G56DyVDpi2aE0';
                 break;
             case mode.mode.production:
                 state['token'] =

@@ -227,7 +227,7 @@
     // Null
 
     // Setting
-    &__setting {
+    &-setting {
         margin: 0.5rem;
         overflow-y: scroll;
         overflow-x: hidden;
@@ -236,47 +236,52 @@
         @include flex();
         @include direction(column);
         align-items: stretch;
-
-        &--list {
+        &__heading {
+            // display: block;
+            padding: 0.5rem 1.5rem;
+            margin: 0.75rem;
+            margin-bottom: 1.5rem;
+            border-radius: 1rem;
+            font-weight: $font-weight-bold;
+            font-size: $font-size-medium;
+            letter-spacing: 0.05rem;
+            text-align: center;
+        }
+        &__list {
             @include flex();
             @include direction(column);
             align-items: stretch;
+            padding: 1rem;
         }
-        &--item {
+        &__item {
             @include flex();
             @include direction(column);
             align-items: stretch;
-            margin: 0.5rem;
-
-            & .chat-profile__setting--content {
-                display: none;
-            }
-
-            &-active .chat-profile__setting--content {
-                display: block;
-            }
-            &-active .chat-profile__setting--svg {
-                transform: rotate(180deg);
-            }
-        }
-        &--title {
-            @include flex(space-between);
             padding: 0.5rem;
-            font-size: $font-size-regular-1;
-            letter-spacing: 0.02rem;
+            border-radius: 0.2rem;
             cursor: pointer;
+            transition: all 0.2s;
         }
-        &--span {
+        &__title {
+            @include flex(flex-start);
+            letter-spacing: 0.02rem;
         }
-        &--svg {
-            height: 1.5rem;
-            width: 1.5rem;
+        &__svg {
+            height: 2rem;
+            width: 2rem;
+            margin: 0.5rem 1rem;
+        }
+        &__span {
+            flex: 1;
+            margin: 0.5rem;
+            font-size: $font-size-regular-2;
         }
 
         // Content
-        &--content {
-            font-size: $font-size-regular-1;
-            padding: 0.5rem 1rem;
+        &__content {
+            font-size: $font-size-regular;
+            display: none;
+            margin-left: 5rem;
         }
     }
 }

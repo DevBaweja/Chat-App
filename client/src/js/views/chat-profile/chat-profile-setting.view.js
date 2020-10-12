@@ -1,71 +1,66 @@
 import { elements, select } from '../../utils/base.util';
 
 export const renderSetting = () => {
-    const markup = `
-    <div class="chat-profile__setting">
-        <ul class="chat-profile__setting--list">
-            <li class="chat-profile__setting--item chat-profile__setting--item-active">
-                <div class="chat-profile__setting--title">
-                    <span class="chat-profile__setting--span">
-                        Appearance
-                    </span>
-                    <svg class="chat-profile__setting--svg">
-                        <use xlink:href="svg/sprite.svg#icon-down"></use>
-                    </svg>
-                </div>
-                <div class="chat-profile__setting--content">
-                    Color + Theme
-                    <br/>
-                    Theme + Wallpaper
-                </div>
-            </li>
-            <li class="chat-profile__setting--item chat-profile__setting--item-active">
-                <div class="chat-profile__setting--title">
-                    <span class="chat-profile__setting--span">
-                        Notifications
-                    </span>
-                    <svg class="chat-profile__setting--svg">
-                        <use xlink:href="svg/sprite.svg#icon-down"></use>
-                    </svg>
-                </div>
-                <div class="chat-profile__setting--content">
-                    Sound
-                </div>
-            </li>
-            <li class="chat-profile__setting--item chat-profile__setting--item-active">
-                <div class="chat-profile__setting--title">
-                    <span class="chat-profile__setting--span">
-                        Privacy
-                    </span>
-                    <svg class="chat-profile__setting--svg">
-                        <use xlink:href="svg/sprite.svg#icon-down"></use>
-                    </svg>
-                </div>
-                <div class="chat-profile__setting--content">
-                    Status
-                    <br/>
-                    Bio
-                    <br/>
-                    Pic
-                </div>
-            </li>
-            <li class="chat-profile__setting--item chat-profile__setting--item-active">
-                <div class="chat-profile__setting--title">
-                    <span class="chat-profile__setting--span">
-                        Account
-                    </span>
-                    <svg class="chat-profile__setting--svg">
-                        <use xlink:href="svg/sprite.svg#icon-down"></use>
-                    </svg>
-                </div>
-                <div class="chat-profile__setting--content">
+    let markup = `
+<div class="chat-profile-setting">
+    <div class="chat-profile-setting__heading">
+        Settings
+    </div>
+    <ul class="chat-profile-setting__list">
+        <li class="chat-profile-setting__item" data-type="color">
+            <div class="chat-profile-setting__title">
+                <svg class="chat-profile-setting__svg">
+                    <use xlink:href="svg/sprite.svg#icon-setting-color"></use>
+                </svg>
+                <span class="chat-profile-setting__span">
+                    Color
+                </span>
+            </div>
+            <div class="chat-profile-setting__content">
+                Life is like a rainbow
+            </div>
+        </li>
+        <li class="chat-profile-setting__item">
+            <div class="chat-profile-setting__title">
+                <svg class="chat-profile-setting__svg">
+                    <use xlink:href="svg/sprite.svg#icon-setting-wallpaper"></use>
+                </svg>
+                <span class="chat-profile-setting__span">
+                    Wallpaper
+                </span>
+            </div>
+            <div class="chat-profile-setting__content">
+                Customize your wallpaper like pro
+            </div>
+        </li>
+        <li class="chat-profile-setting__item">
+            <div class="chat-profile-setting__title">
+                <svg class="chat-profile-setting__svg">
+                    <use xlink:href="svg/sprite.svg#icon-setting-privacy"></use>
+                </svg>
+                <span class="chat-profile-setting__span">
+                    Privacy
+                </span>
+            </div>
+            <div class="chat-profile-setting__content">
+               Everything doesn't need to be talked about
+            </div>
+        </li>
+        <li class="chat-profile-setting__item">
+            <div class="chat-profile-setting__title">
+                <svg class="chat-profile-setting__svg">
+                    <use xlink:href="svg/sprite.svg#icon-setting-password"></use>
+                </svg>
+                <span class="chat-profile-setting__span">
                     Password
-                    <br/>
-                    Delete
-                </div>
-            </li>
-        </ul>
-    </div>`;
-
+                </span>
+            </div>
+            <div class="chat-profile-setting__content">
+                Love is secret password to every soul
+            </div>
+        </li>
+    </ul>
+</div>
+    `;
     select(elements.ChatProfile).insertAdjacentHTML('beforeend', markup);
 };
