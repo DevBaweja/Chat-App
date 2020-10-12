@@ -732,13 +732,19 @@
                 color: $color-primary;
                 background-color: $color-grey-3;
             }
-            &__item {
+            &__title {
                 &:hover {
                     @include adjust($color-grey-1, 10%, $theme, background-color);
                 }
             }
+            &__span {
+                @include adjust($color-grey-2, 60%, $theme, color);
+            }
             &__svg {
-                @include adjust($color-grey-2, 50%, $theme, fill);
+                @include adjust($color-grey-2, 60%, $theme, fill);
+            }
+            &__content {
+                @include adjust($color-grey-2, 40%, $theme, color);
             }
         }
     }

@@ -237,7 +237,6 @@
         @include direction(column);
         align-items: stretch;
         &__heading {
-            // display: block;
             padding: 0.5rem 1.5rem;
             margin: 0.75rem;
             margin-bottom: 1.5rem;
@@ -257,14 +256,15 @@
             @include flex();
             @include direction(column);
             align-items: stretch;
-            padding: 0.5rem;
-            border-radius: 0.2rem;
+            padding: 0.5rem 0;
             cursor: pointer;
-            transition: all 0.2s;
         }
         &__title {
             @include flex(flex-start);
             letter-spacing: 0.02rem;
+            border-radius: 0.2rem;
+            transition: all 0.2s;
+            padding: 0.5rem 0;
         }
         &__svg {
             height: 2rem;
@@ -275,13 +275,13 @@
             flex: 1;
             margin: 0.5rem;
             font-size: $font-size-regular-2;
+            letter-spacing: 0.04rem;
         }
 
         // Content
         &__content {
             font-size: $font-size-regular;
-            display: none;
-            margin-left: 5rem;
+            padding-left: 2.5rem;
         }
     }
 }
