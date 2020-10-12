@@ -733,15 +733,21 @@
                 background-color: $color-grey-3;
             }
             &__title {
+                @include adjust($color-grey-2, 60%, $theme, color);
                 &:hover {
                     @include adjust($color-grey-1, 10%, $theme, background-color);
                 }
+                &--delete {
+                    color: $color-danger;
+                }
             }
             &__span {
-                @include adjust($color-grey-2, 60%, $theme, color);
             }
             &__svg {
                 @include adjust($color-grey-2, 60%, $theme, fill);
+                &--delete {
+                    fill: $color-danger;
+                }
             }
             &__content {
                 @include adjust($color-grey-2, 40%, $theme, color);

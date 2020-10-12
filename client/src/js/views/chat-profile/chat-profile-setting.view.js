@@ -48,7 +48,7 @@ export const renderSetting = () => {
         </li>
         <li class="chat-profile-setting__item">
             <div class="chat-profile-setting__title">
-                <svg class="chat-profile-setting__svg">
+                <svg class="chat-profile-setting__svg chat-profile-setting__svg--password">
                     <use xlink:href="svg/sprite.svg#icon-setting-password"></use>
                 </svg>
                 <span class="chat-profile-setting__span">
@@ -57,6 +57,19 @@ export const renderSetting = () => {
             </div>
             <div class="chat-profile-setting__content">
                 Love is secret password to every soul
+            </div>
+        </li>
+        <li class="chat-profile-setting__item">
+            <div class="chat-profile-setting__title chat-profile-setting__title--delete">
+                <svg class="chat-profile-setting__svg chat-profile-setting__svg--delete">
+                    <use xlink:href="svg/sprite.svg#icon-setting-delete"></use>
+                </svg>
+                <span class="chat-profile-setting__span">
+                    Delete Account
+                </span>
+            </div>
+            <div class="chat-profile-setting__content">
+                We will miss you! You can always activate again.
             </div>
         </li>
     </ul>
