@@ -136,5 +136,9 @@ const elementStrings = {
             save: '.chat-profile__user-save',
         },
     },
+    setting: {
+        list: '.chat-profile-setting__list',
+        item: '.chat-profile-setting__item',
+    },
 };
 export default elementStrings;

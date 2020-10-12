@@ -33,6 +33,14 @@ const mode = {
         friend: 'friend',
         stranger: 'stranger',
         setting: 'setting',
+        settingSub: 'setting-sub',
+    },
+    setting: {
+        color: 'color',
+        wallpaper: 'wallpaper',
+        privacy: 'privacy',
+        updatePassword: 'update-password',
+        deleteAccount: 'delete-account',
     },
     theme: {
         dark: 'dark',

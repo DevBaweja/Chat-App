@@ -20,7 +20,7 @@ export const renderSetting = () => {
                 Life is like a rainbow
             </div>
         </li>
-        <li class="chat-profile-setting__item">
+        <li class="chat-profile-setting__item" data-type="wallpaper">
             <div class="chat-profile-setting__title">
                 <svg class="chat-profile-setting__svg">
                     <use xlink:href="svg/sprite.svg#icon-setting-wallpaper"></use>
@@ -33,7 +33,7 @@ export const renderSetting = () => {
                 Customize your wallpaper like pro
             </div>
         </li>
-        <li class="chat-profile-setting__item">
+        <li class="chat-profile-setting__item" data-type="privacy">
             <div class="chat-profile-setting__title">
                 <svg class="chat-profile-setting__svg">
                     <use xlink:href="svg/sprite.svg#icon-setting-privacy"></use>
@@ -46,7 +46,7 @@ export const renderSetting = () => {
                Everything doesn't need to be talked about
             </div>
         </li>
-        <li class="chat-profile-setting__item">
+        <li class="chat-profile-setting__item" data-type="update-password">
             <div class="chat-profile-setting__title">
                 <svg class="chat-profile-setting__svg chat-profile-setting__svg--password">
                     <use xlink:href="svg/sprite.svg#icon-setting-password"></use>
@@ -59,7 +59,7 @@ export const renderSetting = () => {
                 Love is secret password to every soul
             </div>
         </li>
-        <li class="chat-profile-setting__item">
+        <li class="chat-profile-setting__item" data-type="delete-account">
             <div class="chat-profile-setting__title chat-profile-setting__title--delete">
                 <svg class="chat-profile-setting__svg chat-profile-setting__svg--delete">
                     <use xlink:href="svg/sprite.svg#icon-setting-delete"></use>
@@ -77,3 +77,7 @@ export const renderSetting = () => {
     `;
     select(elements.ChatProfile).insertAdjacentHTML('beforeend', markup);
 };
+
+export const renderColor = () => {};
+export const renderWallpaper = () => {};
+export const renderPrivacy = () => {};

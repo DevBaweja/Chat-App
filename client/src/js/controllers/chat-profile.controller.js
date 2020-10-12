@@ -3,6 +3,7 @@ import state from '../state';
 import { mode, elementStrings, select, selectAll } from '../utils/base.util';
 // Controllers
 import * as chatProfileUserController from './chat-profile/chat-profile-user.controller';
+import * as chatProfileSettingController from './chat-profile/chat-profile-setting.controller';
 // Models
 import ChatProfile from '../models/ChatProfile';
 // Views
@@ -86,5 +87,19 @@ const user = () => {
 const setting = () => {
     // Render Setting
     chatProfileSettingView.renderSetting();
-    // Add Event Listeners
+    // Add Event Listeners on list
+    select(elementStrings.setting.list).addEventListener('click', event => {
+        const { target } = event;
+        // Item Element
+        const item = target.closest(elementStrings.setting.item);
+        if (!item) return;
+
+        // Type
+        const type = item.dataset.type;
+        if (!type) return;
+
+        // Reset chatProfile
+        controlChatProfile({ mode: mode.chatProfile.settingSub });
+        chatProfileSettingController.controlSetting({ mode: type });
+    });
 };
