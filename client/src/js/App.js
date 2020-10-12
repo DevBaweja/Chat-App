@@ -5,6 +5,9 @@ export const render = () => {
             <!-- Header -->
             <header class="header"></header>
             <!-- /Header -->
+            <!-- Navbar -->
+            <nav class="navbar"></nav>
+            <!-- /Navbar -->
             <!-- Main -->
             <main class="main">
                 <!-- Chat Panel -->

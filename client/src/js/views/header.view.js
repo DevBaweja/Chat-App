@@ -53,7 +53,6 @@ export const renderUser = user => {
         </button>
     </form>
     `;
-    // select(elements.Header).insertAdjacentHTML('beforeend', markup);
 
     const menu__item = item => `
     <li class="menu__item">
@@ -74,12 +73,6 @@ export const renderUser = user => {
             ${['Favourites', 'Active', 'Friends', 'Groups'].map(cur => menu__item(cur)).join('')}
         </ul>
     </div>`;
-
-    markup = `
-    <div class="menu">
-    </div>
-    `;
-    select(elements.Header).insertAdjacentHTML('beforeend', markup);
 
     markup = `
     <div class="about-me">

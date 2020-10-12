@@ -18,8 +18,20 @@
     grid-template-columns: repeat($columns, 1fr);
 }
 
-@mixin customColumns($args...) {
+@mixin templateColumns($args...) {
     grid-template-columns: $args;
+}
+
+@mixin templateRows($args...) {
+    grid-template-rows: $args;
+}
+
+@mixin gridRow($start, $end) {
+    grid-row: #{$start}/#{$end};
+}
+
+@mixin gridColumn($start, $end) {
+    grid-column: #{$start}/#{$end};
 }
 
 @mixin adjust($color, $percent: 50%, $theme: dark, $set: color) {

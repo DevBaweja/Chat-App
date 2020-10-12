@@ -14,37 +14,39 @@
     // ! For Developement
     overflow: hidden;
     @include grid();
-    grid-template-rows: 6rem minmax(62.5rem, auto) 3.5rem;
-    grid-template-areas:
-        'header'
-        'main'
-        'footer';
+    @include templateRows(6rem minmax(62.5rem, auto) 3.5rem);
+    @include columns(15);
 }
 
 // Header
 .header {
-    grid-area: header;
+    @include gridRow(1, 2);
+    @include gridColumn(2, -1);
+
     @include grid();
+    @include templateColumns(1fr 1fr);
+}
 
-    &.user {
-        @include customColumns(1.5fr 3fr 1.35fr);
-    }
-
-    &.ideal {
-        @include customColumns(1fr 3fr);
-    }
+// Navbar
+.navbar {
+    @include gridRow(1, -1);
+    @include gridColumn(1, 2);
 }
 
 // Main
 .main {
-    grid-area: main;
+    @include gridRow(2, 3);
+    @include gridColumn(2, -1);
+
     @include grid();
-    @include customColumns(1.5fr 3fr 1.35fr);
+    @include templateColumns(1.5fr 3fr 1.35fr);
 }
 
 // Footer
 .footer {
-    grid-area: footer;
+    @include gridRow(3, -1);
+    @include gridColumn(2, -1);
+
     @include grid();
-    @include customColumns(1fr 1fr);
+    @include templateColumns(1fr 1fr);
 }
