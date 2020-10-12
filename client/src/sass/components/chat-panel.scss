@@ -6,17 +6,20 @@
     @include flex(flex-start);
     @include direction(column);
 
+    margin: 0.5rem;
     align-items: stretch;
     &__title {
-        display: block;
         padding: 0.5rem 1.5rem;
         margin: 0.75rem;
+        margin-right: 5rem;
+        margin-left: 5rem;
         margin-bottom: 1.5rem;
         border-radius: 1rem;
         font-weight: $font-weight-bold;
         font-size: $font-size-regular-2;
         letter-spacing: 0.05rem;
         position: relative;
+        text-align: center;
     }
     &__span {
         margin: 0 0.5rem;
@@ -45,7 +48,7 @@
         // Height of List
         // ! Developer Jayesh 60rem
         max-height: 55rem;
-        margin-right: 1rem;
+        margin-right: 0.5rem;
         padding: 1rem;
         overflow-x: hidden;
         overflow-y: scroll;
