@@ -12,12 +12,14 @@ export const renderSetting = () => {
                 <svg class="chat-profile-setting__svg">
                     <use xlink:href="svg/sprite.svg#icon-setting-color"></use>
                 </svg>
-                <span class="chat-profile-setting__span">
-                    Color
-                </span>
-            </div>
-            <div class="chat-profile-setting__content">
-                Life is like a rainbow
+                <div class="chat-profile-setting__content">
+                    <span class="chat-profile-setting__span">
+                        Color
+                    </span>
+                    <span class="chat-profile-setting__description">
+                        Life is like a rainbow
+                    </span>
+                </div>
             </div>
         </li>
         <li class="chat-profile-setting__item" data-type="wallpaper">
@@ -25,12 +27,14 @@ export const renderSetting = () => {
                 <svg class="chat-profile-setting__svg">
                     <use xlink:href="svg/sprite.svg#icon-setting-wallpaper"></use>
                 </svg>
-                <span class="chat-profile-setting__span">
-                    Wallpaper
-                </span>
-            </div>
-            <div class="chat-profile-setting__content">
-                Customize your wallpaper like pro
+                <div class="chat-profile-setting__content">
+                    <span class="chat-profile-setting__span">
+                        Wallpaper
+                    </span>
+                    <span class="chat-profile-setting__description">
+                        Customize your wallpaper like pro
+                    </span>
+                </div>
             </div>
         </li>
         <li class="chat-profile-setting__item" data-type="privacy">
@@ -38,12 +42,14 @@ export const renderSetting = () => {
                 <svg class="chat-profile-setting__svg">
                     <use xlink:href="svg/sprite.svg#icon-setting-privacy"></use>
                 </svg>
-                <span class="chat-profile-setting__span">
-                    Privacy
-                </span>
-            </div>
-            <div class="chat-profile-setting__content">
-               Everything doesn't need to be talked about
+                <div class="chat-profile-setting__content">
+                    <span class="chat-profile-setting__span">
+                        Privacy
+                    </span>
+                    <span class="chat-profile-setting__description">
+                        Privacy is not up for discussion
+                    </span>
+                </div>
             </div>
         </li>
         <li class="chat-profile-setting__item" data-type="update-password">
@@ -51,25 +57,29 @@ export const renderSetting = () => {
                 <svg class="chat-profile-setting__svg chat-profile-setting__svg--password">
                     <use xlink:href="svg/sprite.svg#icon-setting-password"></use>
                 </svg>
-                <span class="chat-profile-setting__span">
-                    Password
-                </span>
-            </div>
-            <div class="chat-profile-setting__content">
-                Love is secret password to every soul
+                <div class="chat-profile-setting__content">
+                    <span class="chat-profile-setting__span">
+                        Password
+                    </span>
+                    <span class="chat-profile-setting__description">
+                    Love is secret password to every soul
+                    </span>
+                </div>
             </div>
         </li>
         <li class="chat-profile-setting__item" data-type="delete-account">
-            <div class="chat-profile-setting__title chat-profile-setting__title--delete">
+            <div class="chat-profile-setting__title">
                 <svg class="chat-profile-setting__svg chat-profile-setting__svg--delete">
                     <use xlink:href="svg/sprite.svg#icon-setting-delete"></use>
                 </svg>
-                <span class="chat-profile-setting__span">
-                    Delete Account
-                </span>
-            </div>
-            <div class="chat-profile-setting__content">
-                We will miss you! You can always activate again.
+                <div class="chat-profile-setting__content chat-profile-setting__content--delete">
+                    <span class="chat-profile-setting__span">
+                        Delete Account
+                    </span>
+                    <span class="chat-profile-setting__description">
+                        We will miss you!
+                    </span>
+                </div>
             </div>
         </li>
     </ul>

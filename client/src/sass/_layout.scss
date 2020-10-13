@@ -39,7 +39,7 @@
     @include gridColumn(2, -1);
 
     @include grid();
-    @include templateColumns(1.75fr 3fr 1.5fr);
+    @include templateColumns(1.5fr 3fr 1.45fr);
 }
 
 // Footer

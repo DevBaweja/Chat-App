@@ -257,7 +257,6 @@
             @include direction(column);
             align-items: stretch;
             padding: 0.5rem 0;
-            cursor: pointer;
         }
         &__title {
             @include flex(flex-start);
@@ -265,11 +264,21 @@
             border-radius: 0.2rem;
             transition: all 0.2s;
             padding: 0.5rem 0;
+            cursor: pointer;
         }
+        // Content
+        &__content {
+            margin: 0.5rem;
+            flex: 1;
+            @include flex();
+            @include direction(column);
+            align-items: flex-start;
+        }
+
         &__svg {
             height: 2rem;
             width: 2rem;
-            margin: 0.5rem 1rem;
+            margin: 0.5rem 1.5rem;
             &--delete,
             &--password {
                 height: 1.75rem;
@@ -277,16 +286,11 @@
             }
         }
         &__span {
-            flex: 1;
-            margin: 0.5rem;
             font-size: $font-size-regular-2;
             letter-spacing: 0.04rem;
         }
-
-        // Content
-        &__content {
+        &__description {
             font-size: $font-size-regular;
-            margin-left: 4.5rem;
         }
     }
 }

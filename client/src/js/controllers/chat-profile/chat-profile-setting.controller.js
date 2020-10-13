@@ -4,8 +4,6 @@ import { mode } from '../../utils/base.util';
 // Controllers
 // Models
 import Setting from '../../models/Setting';
-// Views
-import * as chatProfileView from '../../views/chat-profile.view';
 
 export const controlSetting = info => {
     // Init Settings
