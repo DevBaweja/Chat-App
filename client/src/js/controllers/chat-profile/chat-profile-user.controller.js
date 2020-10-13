@@ -5,6 +5,7 @@ import { mode, elementStrings, select } from '../../utils/base.util';
 import UpdateProfile from '../../models/UpdateProfile';
 // Controllers
 import * as headerController from '../header.controller';
+import * as navbarController from '../navbar.controller';
 import * as chatProfileController from '../chat-profile.controller';
 import * as alertsController from '../alerts/alerts.controller';
 // Views
@@ -130,6 +131,7 @@ export const controlUpdateProfile = async event => {
 
                     // 2) Re Render with user
                     headerController.controlHeader({ mode: mode.header.user });
+                    navbarController.controlNavbar({ mode: mode.navbar.user });
                     chatProfileController.controlChatProfile({ mode: mode.chatProfile.user });
                 }
                 break;

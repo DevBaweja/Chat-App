@@ -31,6 +31,9 @@
 .navbar {
     @include gridRow(1, -1);
     @include gridColumn(1, 2);
+
+    @include grid();
+    @include templateRows(6rem minmax(56rem, auto) 10rem);
 }
 
 // Main

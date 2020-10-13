@@ -2,15 +2,9 @@
 // Logo Box
 .logo-box {
     @include flex(flex-start);
-
-    &__svg {
-        margin: 1rem;
-        width: 5rem;
-        height: 4rem;
-    }
-
     &__name {
         margin: 0.5rem;
+        margin-left: 2.5rem;
         font-size: $font-size-larger;
         font-weight: $font-weight-bold;
     }

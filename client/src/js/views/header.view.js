@@ -3,21 +3,9 @@ import { elements, select } from '../utils/base.util';
 
 export const clearHeader = () => (select(elements.Header).innerHTML = '');
 
-export const toggleClass = className => {
-    // Removing class
-    select(elements.Header).classList.remove(state['header'].className);
-    // Changing state
-    state['header'].className = className;
-    // Adding class
-    select(elements.Header).classList.add(state['header'].className);
-};
-
 export const renderLogo = () => {
     const markup = `
     <div class="logo-box">
-        <svg class="logo-box__svg">
-           <use xlink:href="svg/sprite.svg#icon-chat"></use>
-        </svg>
         <div class="logo-box__name">
             #ChatFuel
         </div>
