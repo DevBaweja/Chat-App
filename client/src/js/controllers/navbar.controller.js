@@ -14,8 +14,6 @@ export const controlNavbar = info => {
 
     // Prepare UI
     navbarView.clearNavbar();
-    // Render Logo
-    navbarView.renderLogo();
 
     switch (info.mode) {
         case mode.navbar.ideal:

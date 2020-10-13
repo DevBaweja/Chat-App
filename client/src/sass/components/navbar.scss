@@ -1,17 +1,39 @@
 .navbar {
-    &__icon {
-        &--logo {
+    @include flex();
+    @include direction(column);
+
+    &-user {
+        flex: 1;
+
+        @include flex();
+        @include direction(column);
+
+        &__icon {
+            &--svg {
+                margin-top: 1.5rem;
+                width: 5rem;
+                height: 4rem;
+            }
         }
-        &--svg {
-            margin: 1.5rem 1.5rem 0 1.5rem;
-            width: 5rem;
-            height: 4rem;
+
+        &__content {
+            flex: 1;
+        }
+
+        &__photo {
         }
     }
 
-    &__content {
-    }
+    &-ideal {
+        flex: 1;
+        justify-self: start;
 
-    &__user {
+        &__icon {
+            &--svg {
+                margin-top: 1.5rem;
+                width: 5rem;
+                height: 4rem;
+            }
+        }
     }
 }
