@@ -13,6 +13,10 @@ const mode = {
         ideal: 'ideal',
         user: 'user',
     },
+    navbar: {
+        ideal: 'ideal',
+        user: 'user',
+    },
     chatPanel: {
         ideal: 'ideal',
         empty: 'empty',

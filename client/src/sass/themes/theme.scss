@@ -16,6 +16,25 @@
         background-color: $color-grey-3;
         @include adjust($color-grey-3, 50%, $theme, color);
     }
+
+    .navbar {
+        /*
+        background-image: linear-gradient(
+            to bottom,
+            #4879ff 0%,
+            #46c7ad 10%,
+            #01c0c8 20%,
+            #54bf78 30%,
+            #61f761 40%,
+            #e8de2a 50%,
+            #ff4f00 60%,
+            #fd334c 70%,
+            #ff1455 80%,
+            #be55f8 90%,
+            #888 100%
+        );
+        */
+    }
     .main {
         background-color: $color-grey-2;
         @include adjust($color-grey-2, 50%, $theme, color);

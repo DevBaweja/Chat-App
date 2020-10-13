@@ -1,6 +1,5 @@
 import state from '../state';
 import { elements, select } from '../utils/base.util';
-import faker from 'faker';
 
 export const clearHeader = () => (select(elements.Header).innerHTML = '');
 

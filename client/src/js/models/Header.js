@@ -1,7 +1,6 @@
 class Header {
-    constructor({ mode, className }) {
+    constructor({ mode }) {
         this.mode = mode;
-        this.className = className;
     }
     setMode(mode) {
         this.mode = mode;

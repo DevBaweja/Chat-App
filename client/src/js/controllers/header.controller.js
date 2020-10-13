@@ -10,7 +10,7 @@ import * as formController from './auth/form.controller';
 
 export const controlHeader = info => {
     // Init Header
-    if (!state['header']) state['header'] = new Header({ mode: info.mode, className: info.mode });
+    if (!state['header']) state['header'] = new Header({ mode: info.mode });
     state['header'].setMode(info.mode);
 
     // Prepare UI
@@ -34,7 +34,6 @@ window.controlHeader = controlHeader;
 const ideal = () => {
     // Render Ideal
     headerView.renderIdeal();
-    headerView.toggleClass(mode.header.ideal);
 
     // Form Closing
     select(elements.Forms).addEventListener('click', formController.controlExit);
@@ -52,5 +51,4 @@ const user = () => {
     const { user } = state;
     // Render User
     headerView.renderUser(user);
-    headerView.toggleClass(mode.header.user);
 };

@@ -10,6 +10,7 @@ const state = {
     logout: null,
     combined: null,
     header: null,
+    navbar: null,
     chatPanel: null,
     chatBox: null,
     chatProfile: null,
