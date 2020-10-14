@@ -7,12 +7,17 @@ import * as chatPanelDropdownView from '../../views/dropdowns/chat-panel-dropdow
 import { getCoordinate } from '../../views/dropdowns/dropdowns.view';
 
 const controlChatPanelDropdown = event => {
+    const { target } = event;
     // 0) Positioning of Dropdown
     const coordinate = getCoordinate(event);
 
     // 0) Getting User Id
-    const item = chatPanelView.getItem(event);
-    const user = chatPanelView.getUser(item);
+    // Getting item
+    const item = target.closest(elementStrings.items.chatPanelItem);
+    if (!item) return;
+    // Getting user
+    const user = item.dataset.user;
+    if (!user) return;
     // 0) Get User Info
     // const data  = state['chatPanel'].getUserInfo(user)
 
@@ -27,7 +32,7 @@ const controlChatPanelDropdown = event => {
 window.controlChatPanelDropdown = controlChatPanelDropdown;
 
 // Items
-const controlAboutMeDropdownItems = (event ) => {
+const controlAboutMeDropdownItems = event => {
     const { target } = event;
     const item = target.closest(elementStrings.dropdownItems.chatPanelDropdownItem);
     if (!item) return;

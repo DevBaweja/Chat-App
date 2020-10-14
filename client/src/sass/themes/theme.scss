@@ -19,6 +19,7 @@
 
     .navbar {
         &.ideal {
+            /*
             background-image: linear-gradient(
                 to bottom,
                 #4879ff 0%,
@@ -33,10 +34,11 @@
                 #be55f8 90%,
                 #888 100%
             );
-            // background-color: $color-primary;
+            */
+            background-color: $color-primary-dark;
         }
         &.user {
-            background-color: $color-primary;
+            background-color: $color-primary-dark;
         }
     }
     .main {
@@ -263,7 +265,7 @@
         &-user {
             &__icon {
                 &--svg {
-                    fill: $color-grey-2;
+                    fill: $color-grey-3;
                 }
             }
             &__item {
@@ -276,7 +278,7 @@
             }
             &__title {
                 &--svg {
-                    fill: $color-grey-2;
+                    fill: $color-grey-3;
                 }
             }
 

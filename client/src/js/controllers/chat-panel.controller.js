@@ -45,19 +45,22 @@ const recentChat = () => {
     chatPanelView.renderRecentChat();
     // Add Event Listeners
     const list = select(elementStrings.lists.chatPanelList);
-    // Drag
+    // Drag Start
     list.addEventListener('dragstart', event => {
+        const { target } = event;
         // Getting item
-        const item = chatPanelView.getItem(event);
+        const item = target.closest(elementStrings.items.chatPanelItem);
         if (!item) return;
         // Getting user
-        const user = chatPanelView.getUser(item);
+        const user =  item.dataset.user;
+        if (!user) return;
         // Saving user
         event.dataTransfer.setData('user', user);
         // Drag Mode of chat box
         chatBoxController.controlChatBox({ mode: mode.chatBox.drag, data: { user: user } });
     });
-    list.addEventListener('dragend', event => {
+    // Drag End
+    list.addEventListener('dragend', () => {
         if (state['chatBox'].mode === mode.chatBox.drag)
             // User Mode is chat box
             chatBoxController.controlChatBox({
@@ -71,10 +74,10 @@ const recentChat = () => {
         // Don't do anything in case of drop
         if (target.matches(`${elementStrings.drops.chatPanelDrop}, ${elementStrings.drops.chatPanelDrop} *`)) return;
         // Getting item
-        const item = chatPanelView.getItem(event);
+        const item = target.closest(elementStrings.items.chatPanelItem);
         if (!item) return;
         // Getting user
-        const user = chatPanelView.getUser(item);
+        const user =  item.dataset.user;
         if (!user) return;
         // Remove Selected
         chatPanelView.removeSelected();

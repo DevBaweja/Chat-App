@@ -3,15 +3,6 @@ import faker from 'faker';
 
 export const clearChatPanel = () => (select(elements.ChatPanel).innerHTML = '');
 
-export const getItem = event => {
-    const item = event.target.closest(elementStrings.items.chatPanelItem);
-    return item;
-};
-export const getUser = item => {
-    const { user } = item.dataset;
-    return user;
-};
-
 export const addSelected = item => {
     item.classList.add(elementClasses.selected.chatPanel.item);
 };

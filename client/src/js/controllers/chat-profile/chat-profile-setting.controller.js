@@ -2,6 +2,7 @@ import state from '../../state';
 // Utils
 import { mode } from '../../utils/base.util';
 // Controllers
+import * as chatProfileController from '../chat-profile.controller';
 // Models
 import Setting from '../../models/Setting';
 
@@ -43,7 +44,11 @@ const privacy = () => {
 };
 const updatePassword = () => {
     console.log('Update Password');
+    // Re render Chat Profile
+    chatProfileController.controlChatProfile({ mode: mode.chatProfile.setting });
 };
 const deleteAccount = () => {
     console.log('Delete Account');
+    // Re render Chat Profile
+    chatProfileController.controlChatProfile({ mode: mode.chatProfile.setting });
 };

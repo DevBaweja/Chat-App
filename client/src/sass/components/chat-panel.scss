@@ -148,9 +148,13 @@
     @include direction(column);
     align-items: stretch;
 
+    margin: 0.5rem;
     &__title {
         padding: 2rem 1.5rem;
         margin: 1rem;
+        margin-right: 5rem;
+        margin-left: 5rem;
+        margin-bottom: 1.5rem;
         border-radius: 1rem;
     }
     &__dimmer {
