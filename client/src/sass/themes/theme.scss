@@ -33,6 +33,7 @@
                 #be55f8 90%,
                 #888 100%
             );
+            // background-color: $color-primary;
         }
         &.user {
             background-color: $color-primary;
@@ -253,15 +254,48 @@
 
     // ----------------------------------
     // Components
-    // Logo Box
-    .logo-box {
-        &__svg {
-            fill: $color-primary;
+    // Title
+    .title {
+        color: $color-primary;
+    }
+    // Navbar
+    .navbar {
+        &-user {
+            &__icon {
+                &--svg {
+                    fill: $color-grey-2;
+                }
+            }
+            &__item {
+                &:hover {
+                    background-color: $color-primary-light;
+                }
+                &--selected {
+                    background-color: $color-primary-light;
+                }
+            }
+            &__title {
+                &--svg {
+                    fill: $color-grey-2;
+                }
+            }
+
+            &__photo {
+                &--img {
+                    border-color: $color-primary-light;
+                }
+            }
         }
-        &__name {
-            color: $color-primary;
+
+        &-ideal {
+            &__icon {
+                &--svg {
+                    fill: $color-grey-2;
+                }
+            }
         }
     }
+
     // Search
     .search {
         &__input {

@@ -1,0 +1,10 @@
+// -----------------------------------------
+// Title
+.title {
+    @include flex(flex-start);
+
+    margin: 0.5rem;
+    margin-left: 2.5rem;
+    font-size: $font-size-larger;
+    font-weight: $font-weight-bold;
+}

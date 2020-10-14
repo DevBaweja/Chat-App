@@ -3,12 +3,10 @@ import { elements, select } from '../utils/base.util';
 
 export const clearHeader = () => (select(elements.Header).innerHTML = '');
 
-export const renderLogo = () => {
+export const renderTitle = () => {
     const markup = `
-    <div class="logo-box">
-        <div class="logo-box__name">
-            #ChatFuel
-        </div>
+    <div class="title">
+        #ChatFuel
     </div>
     `;
 

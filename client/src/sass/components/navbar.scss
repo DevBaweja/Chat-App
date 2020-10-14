@@ -16,11 +16,57 @@
             }
         }
 
+        // Content
         &__content {
+            align-self: stretch;
             flex: 1;
+
+            @include flex();
+            @include direction(column);
+
+            align-items: stretch;
+            justify-content: flex-start;
+        }
+        &__list {
+            flex: 1;
+
+            @include flex();
+            @include direction(column);
+            align-items: stretch;
+            justify-content: space-evenly;
+            margin: 6rem 1rem;
+        }
+        &__item {
+            @include flex();
+            @include direction(column);
+            align-items: stretch;
+            cursor: pointer;
+            height: 6rem;
+            width: 6rem;
+            border-radius: 50%;
+            transition: all 0.2s;
+            &--selected {
+                border-radius: 1rem;
+            }
+        }
+        &__title {
+            flex: 1;
+            @include flex();
+            @include direction(column);
+            &--svg {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
         }
 
         &__photo {
+            padding-bottom: 1.5rem;
+            &--img {
+                border: 0.75rem solid;
+                height: 5rem;
+                width: 5rem;
+                border-radius: 50%;
+            }
         }
     }
 

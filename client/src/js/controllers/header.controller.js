@@ -15,8 +15,8 @@ export const controlHeader = info => {
 
     // Prepare UI
     headerView.clearHeader();
-    // Render Logo
-    headerView.renderLogo();
+    // Render Title
+    headerView.renderTitle();
 
     switch (info.mode) {
         case mode.header.ideal:
