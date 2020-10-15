@@ -34,7 +34,7 @@
             @include direction(column);
             align-items: stretch;
             justify-content: space-evenly;
-            margin: 5rem 0rem;
+            margin: 5rem 0.5rem;
         }
         &__item {
             @include flex();

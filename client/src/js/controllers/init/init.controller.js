@@ -31,13 +31,11 @@ export const controlInit = async () => {
         switch (state['mode'].mode) {
             case mode.mode.development:
                 state['token'] =
-                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmODNmM2RjZTdjYTBlNjEwMGJiODg0MiIsImlhdCI6MTYwMjQ4MzE2NCwiZXhwIjoxNjAyNjU1OTY0fQ.H3rFrhhlsp99CjvB8DuiKMBIoQbDjKTPjuWckA6iGWQ';
-                state['token'] =
-                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmODZhMjhjNTI1NzBhMmU5MDRlNWU2ZCIsImlhdCI6MTYwMjY1ODk1NiwiZXhwIjoxNjAyODMxNzU2fQ.Q4CEl-VnTps0-m6_cKAdmDfoC1NaZT1EPGtUdTyZSDY';
+                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmODdlZDA2NjNmNGNhMzAyMDRhMDExYyIsImlhdCI6MTYwMjc0MzU1OCwiZXhwIjoxNjAyOTE2MzU4fQ.LYy2GP8u1AgpwOuwgJ1oRH0Rcqg2oKwHXdqxVUUZdn0';
                 break;
             case mode.mode.production:
                 state['token'] =
-                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmN2VjYjgwNjI0MzgzMjliYzg0ZDI1MSIsImlhdCI6MTYwMjE0NTE1MiwiZXhwIjoxNjAyMzE3OTUyfQ.1UxIwZ0jics7vtIEbo775ZclX4bvnqGMg9xB554hLOc';
+                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmODdmMzE5Nzk4NjU5MDAyMzE5YjEyYiIsImlhdCI6MTYwMjc0NTExMywiZXhwIjoxNjAyOTE3OTEzfQ.JG_xUugnAk9h46yp5ipQcv0pL0y4yqLQ58_np9dsKnI';
                 break;
         }
         // Checking for Login
