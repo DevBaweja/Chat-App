@@ -68,3 +68,6 @@ export const controlForget = async event => {
         state['forget'] = null;
     }
 };
+
+// ! For Development
+window.controlForget = controlForget

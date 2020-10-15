@@ -20,6 +20,7 @@ const elementClasses = {
         login: 'user-login',
         forget: 'user-forget',
         reset: 'user-reset',
+        update: 'user-update',
     },
 };
 export default elementClasses;

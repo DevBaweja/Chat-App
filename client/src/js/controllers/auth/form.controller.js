@@ -6,6 +6,7 @@ import * as loginController from './login.controller';
 import * as signupController from './signup.controller';
 import * as forgetController from './forget.controller';
 import * as resetController from './reset.controller';
+import * as updateController from './update.controller';
 // Models
 import Form from '../../models/Form';
 // Views
@@ -14,6 +15,7 @@ import * as loginView from '../../views/auth/login.view';
 import * as signupView from '../../views/auth/signup.view';
 import * as forgetView from '../../views/auth/forget.view';
 import * as resetView from '../../views/auth/reset.view';
+import * as updateView from '../../views/auth/update.view';
 
 // Control Exit
 export const controlExit = event => {
@@ -76,6 +78,9 @@ export const controlForm = info => {
         case mode.form.reset:
             reset();
             break;
+        case mode.form.update:
+            update();
+            break;
     }
 
     // Clear form
@@ -115,7 +120,7 @@ const signup = () => {
     );
     // 3) Adding event listener to form
     select(elementStrings.forms.signup.form).addEventListener('submit', signupController.controlSignup);
-    // 5) Link to log in
+    // 4) Link to log in
     select(elementStrings.forms.signup.addOn).addEventListener('click', () => controlForm({ mode: mode.form.login }));
 };
 
@@ -125,7 +130,7 @@ const forget = () => {
     forgetView.renderForgetForm();
     // 2) Adding event listener to form submit
     select(elementStrings.forms.forget.form).addEventListener('submit', forgetController.controlForget);
-    // 5) Link to reset password
+    // 3) Link to reset password
     select(elementStrings.forms.forget.addOn).addEventListener('click', () => controlForm({ mode: mode.form.reset }));
 };
 
@@ -145,6 +150,30 @@ const reset = () => {
     select(elementStrings.forms.reset.toggle.token).addEventListener('click', resetController.controlPasteResetToken);
     // 3) Adding event listener to form
     select(elementStrings.forms.reset.form).addEventListener('submit', resetController.controlReset);
-    // 5) Link to forget password
+    // 4) Link to forget password
     select(elementStrings.forms.reset.addOn).addEventListener('click', () => controlForm({ mode: mode.form.forget }));
+};
+
+// Update Password
+const update = () => {
+    // 1) Rendering Update form
+    updateView.renderUpdateForm();
+
+    // 2.0) Adding event listener to show/hide passwordCurrent
+    select(elementStrings.forms.update.toggle.passwordCurrent).addEventListener(
+        'click',
+        updateController.controlTogglePasswordCurrent
+    );
+    // 2.1) Adding event listener to show/hide password
+    select(elementStrings.forms.update.toggle.password).addEventListener(
+        'click',
+        updateController.controlTogglePassword
+    );
+    // 2.2) Adding event listener to show/hide passwordConfirm
+    select(elementStrings.forms.update.toggle.passwordConfirm).addEventListener(
+        'click',
+        updateController.controlTogglePasswordConfirm
+    );
+    // 3) Adding event listener to form
+    select(elementStrings.forms.update.form).addEventListener('submit', updateController.controlUpdate);
 };

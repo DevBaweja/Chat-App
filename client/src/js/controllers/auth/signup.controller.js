@@ -62,7 +62,6 @@ export const controlSignup = async event => {
 
                     // 5) Success Alert
                     alertsController.controlAlerts({ mode: mode.alert.signup.success });
-                    console.log(state['signup']);
                     // 6) Clear form
                     formView.clearForm();
 
@@ -99,3 +98,6 @@ export const controlSignup = async event => {
         state['signup'] = null;
     }
 };
+
+// ! For Development
+window.controlSignup = controlSignup;

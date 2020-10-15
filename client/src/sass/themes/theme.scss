@@ -203,7 +203,8 @@
     .user-login,
     .user-signup,
     .user-forget,
-    .user-reset {
+    .user-reset,
+    .user-update {
         // background-color: $color-primary;
         background: linear-gradient(to right bottom, $color-primary-light, $color-primary);
         &__title {

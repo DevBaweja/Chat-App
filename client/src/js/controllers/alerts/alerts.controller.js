@@ -27,6 +27,9 @@ export const controlAlerts = info => {
         case mode.alert.error.email:
             errorEmail();
             break;
+        case mode.alert.error.current:
+            errorCurrent();
+            break;
         case mode.alert.error.password:
             errorPassword();
             break;
@@ -59,6 +62,12 @@ export const controlAlerts = info => {
             break;
         case mode.alert.update.profile.failure:
             updateProfileFailure();
+            break;
+        case mode.alert.update.password.success:
+            updatePasswordSuccess();
+            break;
+        case mode.alert.update.password.failure:
+            updatePasswordFailure();
             break;
         case mode.alert.logout.success:
             logoutSuccess();
@@ -93,6 +102,9 @@ export const controlBetterAlerts = ({ data }) => {
             break;
         case newMessage.includes('email'):
             controlAlerts({ mode: mode.alert.error.email });
+            break;
+        case newMessage.includes('current password'):
+            controlAlerts({ mode: mode.alert.error.current });
             break;
         case newMessage.includes('password'):
             controlAlerts({ mode: mode.alert.error.password });
@@ -135,6 +147,13 @@ const errorEmail = () => {
     alertsView.renderAlerts(data);
 };
 
+const errorCurrent = () => {
+    const data = {
+        text: 'Your current password is incorrect.',
+        type: 'failure',
+    };
+    alertsView.renderAlerts(data);
+};
 const errorPassword = () => {
     const data = {
         text: 'Passwords must match.',
@@ -224,6 +243,22 @@ const updateProfileSuccess = () => {
 const updateProfileFailure = () => {
     const data = {
         text: 'There was error while updating your profile.',
+        type: 'failure',
+    };
+    alertsView.renderAlerts(data);
+};
+
+const updatePasswordSuccess = () => {
+    const data = {
+        text: 'Your password has been updated successfully.',
+        type: 'success',
+    };
+    alertsView.renderAlerts(data);
+};
+
+const updatePasswordFailure = () => {
+    const data = {
+        text: 'There was error while updating your password.',
         type: 'failure',
     };
     alertsView.renderAlerts(data);

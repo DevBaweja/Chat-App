@@ -98,3 +98,6 @@ export const controlLogin = async event => {
         state['login'] = null;
     }
 };
+
+// ! For Development
+window.controlLogin = controlLogin

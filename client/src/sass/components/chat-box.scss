@@ -109,10 +109,10 @@
             top: 0;
             left: 50%;
             transform: translate(-50%, 50%);
-            z-index: 2;
+            z-index: 3;
             // !For Development
-            visibility: hidden;
-            opacity: 0;
+            // visibility: hidden;
+            // opacity: 0;
             &-span {
             }
         }
@@ -244,7 +244,7 @@
             cursor: pointer;
             border-radius: 50%;
             transition: all 0.3s;
-            z-index: 1;
+            z-index: 4;
             margin: 0 0.2rem;
             &-svg {
                 height: 2rem;
@@ -290,7 +290,6 @@
             transition: all 0.2s;
             opacity: 0;
             visibility: hidden;
-            z-index: 1;
             cursor: pointer;
             &--svg {
                 height: 2rem;

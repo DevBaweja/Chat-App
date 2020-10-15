@@ -91,6 +91,7 @@ export const controlUpload = event => {
     // Render Save Profile button
     chatProfileUserView.renderSaveProfile();
 };
+
 // Update Profile
 export const controlUpdateProfile = async event => {
     event.preventDefault();

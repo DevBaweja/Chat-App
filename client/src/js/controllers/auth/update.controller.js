@@ -1,68 +1,60 @@
 // State
 import state from '../../state';
 // Utils
-import { elementStrings, select, mode } from '../../utils/base.util';
+import { elementStrings, mode } from '../../utils/base.util';
 // Controllers
 import * as formController from './form.controller';
 import * as alertsController from '../alerts/alerts.controller';
 import * as combinedController from '../combined.controller';
 // Models
-import Reset from '../../models/Reset';
+import UpdatePassword from '../../models/UpdatePassword';
 // Views
-import * as resetView from '../../views/auth/reset.view';
+import * as updateView from '../../views/auth/update.view';
 import * as formView from '../../views/auth/form.view';
 
-export const controlPasteResetToken = async () => {
-    // Element
-    const element = select(elementStrings.forms.reset.elements.token);
-
-    let value = 'Please allow clipboard access.';
-    // Getting data from clipboard
-    try {
-        value = await navigator.clipboard.readText();
-    } catch (err) {
-        console.log('Error in clipboard access.');
-    }
-    element.value = value;
-};
+export const controlTogglePasswordCurrent = event =>
+    formController.controlToggle(
+        event,
+        elementStrings.forms.update.toggle.passwordCurrent,
+        elementStrings.forms.update.elements.passwordCurrent,
+        updateView.togglePasswordCurrent
+    );
 
 export const controlTogglePassword = event =>
     formController.controlToggle(
         event,
-        elementStrings.forms.reset.toggle.password,
-        elementStrings.forms.reset.elements.password,
-        resetView.togglePassword
+        elementStrings.forms.update.toggle.password,
+        elementStrings.forms.update.elements.password,
+        updateView.togglePassword
     );
 
 export const controlTogglePasswordConfirm = event =>
     formController.controlToggle(
         event,
-        elementStrings.forms.reset.toggle.passwordConfirm,
-        elementStrings.forms.reset.elements.passwordConfirm,
-        resetView.togglePasswordConfirm
+        elementStrings.forms.update.toggle.passwordConfirm,
+        elementStrings.forms.update.elements.passwordConfirm,
+        updateView.togglePasswordConfirm
     );
 
 // Form
-export const controlReset = async event => {
+export const controlUpdate = async event => {
     event.preventDefault();
 
-    console.log('Reset Password');
+    console.log('Update Password');
     // 0) Prepare UI for changes
-    resetView.prepareUIForReset();
+    updateView.prepareUIForUpdate();
 
     // 1) Getting user inputs
-    const inputs = resetView.getUserInput();
+    const inputs = updateView.getUserInput();
     // 2) Checking user inputs
-    // { token, password, passwordConfirm }
+    // { passwordCurrent, password, passwordConfirm }
+    // 3) Init UpdatePassword
+    if (!state['updatePassword']) state['updatePassword'] = new UpdatePassword({ ...inputs });
 
-    // 3) Init Reset
-    if (!state['reset']) state['reset'] = new Reset({ ...inputs });
-
-    state['reset'].setUserInput({ ...inputs });
-
+    state['updatePassword'].setUserInput({ ...inputs });
     try {
         // 4) Making API call
-        const data = await state['reset'].resetPassword();
+        const data = await state['updatePassword'].updatePassword();
         switch (data.status) {
             case 'success':
                 {
@@ -75,11 +67,11 @@ export const controlReset = async event => {
                     state['user'] = user;
 
                     // 5) Success Alert
-                    alertsController.controlAlerts({ mode: mode.alert.reset.success });
+                    alertsController.controlAlerts({ mode: mode.alert.update.password.success });
                     // 6) Clear form
                     formView.clearForm();
 
-                    // Combined User
+                    // Combined Empty
                     combinedController.controlAll({ mode: mode.combined.user });
                 }
                 break;
@@ -91,28 +83,25 @@ export const controlReset = async event => {
                     // 0) Better Alerts
                     alertsController.controlBetterAlerts({ data: data.message });
                     // 1) Initial UI
-                    resetView.initialUIForReset();
+                    updateView.initialUIForUpdate();
                 }
                 break;
         }
 
-        // Clear reset
-        state['reset'] = null;
+        // Clear updatePassword
+        state['updatePassword'] = null;
     } catch (err) {
         console.log('ERROR', err.message);
-
         // 0) Error Alert
-        alertsController.controlAlerts({ mode: mode.alert.reset.failure });
+        alertsController.controlAlerts({ mode: mode.alert.update.password.failure });
 
         // 1) Initial UI
-        resetView.initialUIForReset();
+        updateView.initialUIForUpdate();
 
         // State Changes
-        state['token'] = null;
-        state['user'] = null;
-        state['reset'] = null;
+        state['updatePassword'] = null;
     }
 };
 
 // ! For Development
-window.controlReset = controlReset
+window.controlUpdate = controlUpdate;

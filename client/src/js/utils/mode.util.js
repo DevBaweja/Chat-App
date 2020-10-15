@@ -8,6 +8,7 @@ const mode = {
         signup: 'signup',
         forget: 'forget',
         reset: 'reset',
+        update: 'update',
     },
     header: {
         ideal: 'ideal',
@@ -88,6 +89,7 @@ const mode = {
             duplicate: 'error-duplicate',
             email: 'error-email',
             password: 'error-password',
+            current: 'error-current',
         },
         login: {
             success: 'login-success',

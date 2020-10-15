@@ -13,12 +13,14 @@
     animation: blur 1s ease;
     backdrop-filter: blur(0.2rem);
     cursor: pointer;
+    z-index: 6;
 }
 
 .user-login,
 .user-signup,
 .user-forget,
-.user-reset {
+.user-reset,
+.user-update {
     position: absolute;
     top: 50%;
     opacity: 1;
@@ -29,7 +31,7 @@
     @include direction(column);
     letter-spacing: 0.05rem;
     animation: TopToDown 1s ease;
-    z-index: 1;
+    z-index: 7;
     cursor: initial;
     padding: 0.5rem;
     padding-bottom: 3rem;
@@ -115,6 +117,16 @@
                 text-decoration: underline;
             }
         }
+        &--forget {
+            font-size: $font-size-regular;
+            margin: 0.5rem;
+            margin-left: auto;
+            cursor: pointer;
+            transition: all 0.2s;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 
     &__cross {
@@ -134,20 +146,10 @@
         }
     }
 }
+
 .user-login {
-    &__form {
-        &--forget {
-            font-size: $font-size-regular;
-            margin: 0.5rem;
-            margin-left: auto;
-            cursor: pointer;
-            transition: all 0.2s;
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-    }
 }
+
 .user-signup {
     &__form {
         &--toggle {
@@ -160,6 +162,14 @@
 }
 
 .user-reset {
+    &__form {
+        &--toggle {
+            top: 45%;
+        }
+    }
+}
+
+.user-update {
     &__form {
         &--toggle {
             top: 45%;

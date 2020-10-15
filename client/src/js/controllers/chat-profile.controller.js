@@ -98,7 +98,6 @@ const setting = () => {
         const type = item.dataset.type;
         if (!type) return;
 
-        console.log(type);
         // Reset chatProfile
         controlChatProfile({ mode: mode.chatProfile.settingSub });
         chatProfileSettingController.controlSetting({ mode: type });

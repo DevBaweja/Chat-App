@@ -13,7 +13,7 @@
     border-radius: 0.5rem;
     border-bottom: 0.1rem solid;
     @include flex();
-    z-index: 2;
+    z-index: 8;
 
     &__svg {
         height: 1.4rem;

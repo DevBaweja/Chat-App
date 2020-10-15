@@ -3,6 +3,7 @@ import state from '../../state';
 import { mode } from '../../utils/base.util';
 // Controllers
 import * as chatProfileController from '../chat-profile.controller';
+import * as formController from '../auth/form.controller';
 // Models
 import Setting from '../../models/Setting';
 
@@ -46,6 +47,8 @@ const updatePassword = () => {
     console.log('Update Password');
     // Re render Chat Profile
     chatProfileController.controlChatProfile({ mode: mode.chatProfile.setting });
+    // Form
+    formController.controlForm({ mode: mode.form.update });
 };
 const deleteAccount = () => {
     console.log('Delete Account');

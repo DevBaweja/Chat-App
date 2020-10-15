@@ -6,6 +6,7 @@ const elementStrings = {
         loginBtn: '.user-login__form--btn',
         forgetBtn: '.user-forget__form--btn',
         resetBtn: '.user-reset__form--btn',
+        updateBtn: '.user-update__form--btn',
     },
     forms: {
         signup: {
@@ -49,12 +50,26 @@ const elementStrings = {
             },
             addOn: '.user-reset__form--addon',
         },
+        update: {
+            form: '.user-update__form',
+            toggle: {
+                passwordCurrent: '.user-update__form--toggle-password-current',
+                password: '.user-update__form--toggle-password',
+                passwordConfirm: '.user-update__form--toggle-password-confirm',
+            },
+            elements: {
+                passwordCurrent: '.user-update__form--input-password-current',
+                password: '.user-update__form--input-password',
+                passwordConfirm: '.user-update__form--input-password-confirm',
+            },
+        },
     },
     inputs: {
         signupInput: '.user-signup__form--input',
         loginInput: '.user-login__form--input',
         forgetInput: '.user-forget__form--input',
         resetInput: '.user-reset__form--input',
+        updateInput: '.user-update__form--input',
     },
     drops: {
         aboutMeDrop: '.about-me__drop',
