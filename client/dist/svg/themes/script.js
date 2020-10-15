@@ -64,14 +64,9 @@ const colors = {
         dark: '#37b49b',
     },
     grey: {
-        normal: '#bbb',
+        normal: '#888',
         light: '#a2a2a2',
-        dark: '#888',
-    },
-    white: {
-        normal: '#fff',
-        light: '#fff',
-        dark: '#fff',
+        dark: '#6f6f6f',
     },
 };
 

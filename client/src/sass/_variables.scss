@@ -1,70 +1,57 @@
 :root {
-    --color-primary: #01c0c8;
-    --color-primary-dark: #31f3fa;
-    --color-primary-light: #087d81;
+    --color-primary: #6f6f6f;
+    --color-primary-light: #a2a2a2;
 }
 
 // ------------------------
 // Colors
+[data-color='aqua'] {
+    --color-primary: #01c0c8;
+    --color-primary-light: #31f3fa;
+}
 [data-color='green'] {
-    --color-primary: #61f761;
+    --color-primary: #0ad80a;
     --color-primary-light: #91f991;
-    --color-primary-dark: #31f531;
 }
 [data-color='blue'] {
-    --color-primary: #4879ff;
+    --color-primary: #0448ff;
     --color-primary-light: #8cabff;
-    --color-primary-dark: #0448ff;
 }
 [data-color='purple'] {
-    --color-primary: #be55f8;
+    --color-primary: #a613f6;
     --color-primary-light: #d796fb;
-    --color-primary-dark: #a613f6;
 }
 [data-color='red'] {
-    --color-primary: #fd334c;
+    --color-primary: #fd122e;
     --color-primary-light: #fe5569;
-    --color-primary-dark: #fd122e;
 }
 [data-color='yellow'] {
-    --color-primary: #e8de2a;
-    --color-primary-light: #ede558;
-    --color-primary-dark: #bab114;
+    --color-primary: #e1ad01;
+    --color-primary-light: #f0d73f;
 }
 [data-color='pink'] {
-    --color-primary: #ff1455;
+    --color-primary: #f10043;
     --color-primary-light: #ff366e;
-    --color-primary-dark: #f10043;
 }
 [data-color='forest'] {
-    --color-primary: #54bf78;
+    --color-primary: #42af66;
     --color-primary-light: #6dc88b;
-    --color-primary-dark: #42af66;
 }
 [data-color='orange'] {
-    --color-primary: #ff4f00;
+    --color-primary: #db4906;
     --color-primary-light: #fd6721;
-    --color-primary-dark: #db4906;
 }
 [data-color='teal'] {
-    --color-primary: #46c7ad;
+    --color-primary: #37b49b;
     --color-primary-light: #60cfb9;
-    --color-primary-dark: #37b49b;
 }
 [data-color='grey'] {
-    --color-primary: #888;
+    --color-primary: #6f6f6f;
     --color-primary-light: #a2a2a2;
-    --color-primary-dark: #6f6f6f;
-}
-[data-color='white'] {
-    --color-primary: #fff;
-    --color-primary-light: #fff;
-    --color-primary-dark: #fff;
 }
 
 $color-primary: var(--color-primary);
 $color-primary-light: var(--color-primary-light);
-$color-primary-dark: var(--color-primary-dark);
 
 // --------------------------
 // Themes

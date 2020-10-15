@@ -9,7 +9,7 @@ export const renderAboutMeDropdown = ({ coordinate }) => {
             },
             {
                 type: 'theme',
-                text: 'Toggle Theme',
+                text: 'Theme',
             },
             {
                 type: 'setting',

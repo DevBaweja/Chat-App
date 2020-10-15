@@ -7,7 +7,7 @@
 
     // Dark Theme
     .app {
-        background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+        background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary);
         position: relative;
     }
     // ---------------------------
@@ -35,10 +35,10 @@
                 #888 100%
             );
             */
-            background-color: $color-primary-dark;
+            background-color: $color-primary;
         }
         &.user {
-            background-color: $color-primary-dark;
+            background-color: $color-primary;
         }
     }
     .main {
@@ -205,7 +205,7 @@
     .user-forget,
     .user-reset {
         // background-color: $color-primary;
-        background: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+        background: linear-gradient(to right bottom, $color-primary-light, $color-primary);
         &__title {
         }
         &__form {
@@ -265,7 +265,7 @@
         &-user {
             &__icon {
                 &--svg {
-                    fill: $color-grey-3;
+                    fill: $color-grey-1;
                 }
             }
             &__item {
@@ -548,14 +548,13 @@
                 }
                 &-out {
                     background-color: $color-primary;
-                    color: $color-grey-1;
+                    color: $color-grey-2;
                     border-color: $color-primary;
                     &-span {
-                        color: $color-grey-1;
                     }
                     &-info {
                         &--svg {
-                            @include adjust($color-grey-1, 15%, $theme, fill);
+                            fill: $color-grey-2;
                         }
                     }
                 }
@@ -627,7 +626,7 @@
                 background-color: $color-primary;
 
                 &:disabled {
-                    background-color: $color-primary-dark;
+                    background-color: $color-primary;
                 }
                 &:hover {
                     background-color: $color-primary-light;
@@ -651,7 +650,7 @@
                 background-color: $color-primary;
                 box-shadow: -0.2rem 0.2rem 0.5rem 0.1rem $color-primary;
                 &--svg {
-                    fill: $color-grey-1;
+                    fill: $color-grey-2;
                 }
             }
         }
