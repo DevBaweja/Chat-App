@@ -39,9 +39,9 @@ const colors = {
         dark: '#fd122e',
     },
     yellow: {
-        normal: '#e8de2a',
-        light: '#ede558',
-        dark: '#bab114',
+        normal: '#e1ad01',
+        light: '#f0d73f',
+        dark: '#c59906',
     },
     pink: {
         normal: '#ff1455',
