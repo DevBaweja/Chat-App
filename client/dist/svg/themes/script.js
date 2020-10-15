@@ -12,8 +12,14 @@ if (!validArgv.find(valid => valid === filename)) {
     process.exit();
 }
 
+const init = {
+    normal: 'normal',
+    light: 'light',
+    dark: 'dark',
+};
+
 const colors = {
-    dark: {
+    aqua: {
         normal: '#01c0c8',
         light: '#31f3fa',
         dark: '#087d81',
@@ -87,7 +93,7 @@ Object.keys(colors).forEach(key => {
     let newTemplate = '' + template;
 
     for (const type of ['normal', 'light', 'dark']) {
-        var reg = new RegExp(colors.dark[type], 'g');
+        var reg = new RegExp(init[type], 'g');
         newTemplate = newTemplate.replace(reg, colors[key][type]);
     }
 
