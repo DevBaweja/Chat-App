@@ -5,7 +5,7 @@ const fs = require('fs');
 const { argv } = process;
 const filename = argv[argv.length - 1];
 
-const validArgv = ['null', 'ideal'];
+const validArgv = ['favicon', 'empty', 'ideal'];
 
 if (!validArgv.find(valid => valid === filename)) {
     console.log(`Error: ${filename}  is not an valid argument`);

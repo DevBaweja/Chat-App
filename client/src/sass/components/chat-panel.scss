@@ -143,7 +143,7 @@
     }
 }
 .chat-panel-ideal,
-.chat-panel-null {
+.chat-panel-empty {
     @include flex(flex-start);
     @include direction(column);
     align-items: stretch;

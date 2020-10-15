@@ -306,7 +306,7 @@
 }
 
 .chat-box-ideal,
-.chat-box-null {
+.chat-box-empty {
     &--container {
     }
     &--svg {
@@ -327,7 +327,7 @@
         margin-top: 2rem;
     }
 }
-.chat-box-null {
+.chat-box-empty {
 }
 .chat-box-drag {
     height: 100%;

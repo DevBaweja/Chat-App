@@ -5,14 +5,14 @@ export const clearChatBox = () => (select(elements.ChatBox).innerHTML = '');
 
 export const renderEmpty = color => {
     const markup = `
-    <div class="chat-box-null">
-        <div class="chat-box-null--container">
-            <div class="chat-box-null--svg">
+    <div class="chat-box-empty">
+        <div class="chat-box-empty--container">
+            <div class="chat-box-empty--svg">
                 <svg>
-                    <use xlink:href="svg/themes/null.svg#icon-null-${color}"></use>
+                    <use xlink:href="svg/themes/empty.svg#icon-empty-${color}"></use>
                 </svg>
             </div>
-            <div class="chat-box-null--title">
+            <div class="chat-box-empty--title">
                 No one's around to play with Wumpus.
             </div>
         </div>

@@ -49,13 +49,13 @@ export const renderIdeal = () => {
 
 export const renderEmpty = () => {
     const chat_panel_empty = () => `
-    <div class="chat-panel-null__dimmer--item">
-        <div class="chat-panel-null__dimmer--circle">
+    <div class="chat-panel-empty__dimmer--item">
+        <div class="chat-panel-empty__dimmer--circle">
             <svg viewBox="0 0 50 50">
                 <circle></circle>
             </svg>
         </div>
-        <div class="chat-panel-null__dimmer--rect">
+        <div class="chat-panel-empty__dimmer--rect">
             <svg viewBox="0 0 180 40">
                 <rect></rect>
             </svg>
@@ -65,7 +65,7 @@ export const renderEmpty = () => {
 
     // No users
     const markup = `
-    <div class="chat-panel-null">
+    <div class="chat-panel-empty">
         <div class="chat-panel-user__title">
             Active Now <span class="chat-panel-user__count" title="#">(0)</span>
             <svg class="chat-panel-user__reload" title="Reload">
