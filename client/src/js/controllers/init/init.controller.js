@@ -33,10 +33,6 @@ export const controlInit = async () => {
                 state['token'] =
                     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmODdlZDA2NjNmNGNhMzAyMDRhMDExYyIsImlhdCI6MTYwMjc0MzU1OCwiZXhwIjoxNjAyOTE2MzU4fQ.LYy2GP8u1AgpwOuwgJ1oRH0Rcqg2oKwHXdqxVUUZdn0';
                 break;
-            case mode.mode.production:
-                state['token'] =
-                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmODdmMzE5Nzk4NjU5MDAyMzE5YjEyYiIsImlhdCI6MTYwMjc0NTExMywiZXhwIjoxNjAyOTE3OTEzfQ.JG_xUugnAk9h46yp5ipQcv0pL0y4yqLQ58_np9dsKnI';
-                break;
         }
         // Checking for Login
         const data = await state['init'].isLogin();

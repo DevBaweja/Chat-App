@@ -29,6 +29,8 @@ export const controlSetting = info => {
             deleteAccount();
             break;
     }
+    // Clear setting
+    state['setting'] = null;
 };
 
 // ! For Development
