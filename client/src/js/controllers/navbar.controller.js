@@ -1,6 +1,6 @@
 import state from '../state';
 // Utils
-import { elements, elementStrings, mode, select } from '../utils/base.util';
+import { mode } from '../utils/base.util';
 // Models
 import Navbar from '../models/Navbar';
 // Views

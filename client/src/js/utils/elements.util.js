@@ -6,8 +6,10 @@ const elements = {
     ChatBox: '.chat-box',
     ChatProfile: '.chat-profile',
 
-    Forms: '.forms',
+    Loading: '.loading',
+    Guide: '.guide',
     Alerts: '.alerts',
+    Forms: '.forms',
     Dropdowns: '.dropdowns',
 };
 export default elements;

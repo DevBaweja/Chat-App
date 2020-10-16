@@ -18,6 +18,8 @@ const state = {
     updateProfile: null,
     updatePassword: null,
     alert: null,
+    loading: null,
+    guide: null,
 };
 // ! For Development
 window.state = state;

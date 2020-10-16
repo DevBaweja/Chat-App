@@ -1,12 +1,18 @@
 import state from '../../state';
 // Utils
-import { mode } from '../../utils/base.util';
+import { mode, elements, select } from '../../utils/base.util';
 // Controllers
+import * as dropdownsController from '../dropdowns/dropdowns.controller';
 import * as themeController from '../theme/theme.controller';
 import * as alertsController from '../alerts/alerts.controller';
 import * as combinedController from '../combined.controller';
 // Model
 import Init from '../../models/Init';
+
+export const addListeners = () => {
+    // Dropdown
+    select(elements.App).addEventListener('click', dropdownsController.controlDropdowns);
+};
 
 export const controlInit = async () => {
     console.log('Initializing App');

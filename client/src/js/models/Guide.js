@@ -1,4 +1,4 @@
-class Alert {
+class Guide {
     constructor({ mode }) {
         this.mode = mode;
     }
@@ -6,4 +6,4 @@ class Alert {
         this.mode = mode;
     }
 }
-export default Alert;
+export default Guide;

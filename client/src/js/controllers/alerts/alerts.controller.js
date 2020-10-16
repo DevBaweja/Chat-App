@@ -83,10 +83,12 @@ export const controlAlerts = info => {
             break;
     }
 
-    // Clearing UI after timeout
-    state['alert'].setTimer(alertsView.clearAlerts);
-    // Clearing data after timeout
-    state['alert'].setTimer(() => (state['alert'] = null));
+    const time = info.time || 5000;
+    // Clearing UI and data after timeout
+    setTimeout(() => {
+        alertsView.clearAlerts();
+        state['alert'] = null;
+    }, time);
 };
 
 // ! For Development

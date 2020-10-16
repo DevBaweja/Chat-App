@@ -5,9 +5,11 @@ export const render = () => {
             <!-- Header -->
             <header class="header"></header>
             <!-- /Header -->
+
             <!-- Navbar -->
             <nav class="navbar"></nav>
             <!-- /Navbar -->
+
             <!-- Main -->
             <main class="main">
                 <!-- Chat Panel -->
@@ -18,6 +20,7 @@ export const render = () => {
                 <div class="chat-profile"></div>
             </main>
             <!-- /Main -->
+
             <!-- Footer -->
             <footer class="footer">
                 <div class="copyright">
@@ -50,6 +53,12 @@ export const render = () => {
 
         <!-- Guide -->
         <div class="guide"></div>
+        <!-- /Guide -->
+
+        <!-- Alerts -->
+        <div class="alerts"></div>
+        <!-- /Alerts -->
+
         <!-- Forms -->
         <div class="forms"></div>
         <!-- /Forms -->
@@ -57,10 +66,6 @@ export const render = () => {
         <!-- Dropdowns -->
         <div class="dropdowns"></div>
         <!-- /Dropdowns -->
-
-        <!-- Alerts -->
-        <div class="alerts"></div>
-        <!-- /Alerts -->
     </div>
     `;
 
