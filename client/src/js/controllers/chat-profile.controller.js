@@ -15,8 +15,7 @@ import * as chatProfileSettingView from '../views/chat-profile/chat-profile-sett
 
 export const controlChatProfile = info => {
     // Init Chat Profile
-    if (!state['chatProfile']) state['chatProfile'] = new ChatProfile(info);
-    state['chatProfile'].setMode(info.mode);
+    state.set('chatProfile', info, ChatProfile);
 
     // Prepare UI
     chatProfileView.clearChatProfile();

@@ -10,8 +10,7 @@ import * as chatPanelView from '../views/chat-panel.view';
 
 export const controlChatPanel = info => {
     // Init Chat Panel
-    if (!state['chatPanel']) state['chatPanel'] = new ChatPanel(info);
-    state['chatPanel'].setMode(info.mode);
+    state.set('chatPanel', info, ChatPanel)
 
     // Prepare UI
     chatPanelView.clearChatPanel();

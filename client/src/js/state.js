@@ -14,6 +14,7 @@ const state = {
     chatPanel: null,
     chatBox: null,
     chatProfile: null,
+    setting: null,
     backgroundImage: null,
     updateProfile: null,
     updatePassword: null,
@@ -21,6 +22,12 @@ const state = {
     loading: null,
     guide: null,
 };
+
+state.set = (key, info, Model) => {
+    if (!state[key]) state[key] = new Model(info);
+    state[key].setMode(info.mode);
+};
+
 // ! For Development
 window.state = state;
 

@@ -10,8 +10,7 @@ import * as formController from './auth/form.controller';
 
 export const controlHeader = info => {
     // Init Header
-    if (!state['header']) state['header'] = new Header({ mode: info.mode });
-    state['header'].setMode(info.mode);
+    state.set('header', info, Header);
 
     // Prepare UI
     headerView.clearHeader();

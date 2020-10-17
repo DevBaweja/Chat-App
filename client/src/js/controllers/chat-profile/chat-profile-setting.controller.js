@@ -9,8 +9,7 @@ import Setting from '../../models/Setting';
 
 export const controlSetting = info => {
     // Init Settings
-    if (!state['setting']) state['setting'] = new Setting(info);
-    state['setting'].setMode(info.mode);
+    state.set('setting', info, Setting);
 
     switch (info.mode) {
         case mode.setting.color:

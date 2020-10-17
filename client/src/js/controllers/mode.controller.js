@@ -19,8 +19,7 @@ export const initMode = () => {
 
 export const controlMode = info => {
     // Init Mode
-    if (!state['mode']) state['mode'] = new Mode(info);
-    state['mode'].setMode(info.mode);
+    state.set('mode', info, Mode);
 };
 
 // ! For Development

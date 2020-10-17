@@ -6,13 +6,11 @@ import * as backgroundImageView from '../views/background-image.view';
 
 export const controlBackgroundImage = info => {
     // Init Background Image
-    if (!state['backgroundImage']) state['backgroundImage'] = new BackgroundImage(info);
+    state.set('backgroundImage', info, BackgroundImage);
 
     // Prepare UI
     backgroundImageView.clearBackgroundImage();
 
-    // Changing Data
-    state['backgroundImage'].setMode(info.mode);
     const rgba = state['backgroundImage'].getRgba();
 
     const { mode: img } = info;

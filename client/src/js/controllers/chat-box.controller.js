@@ -11,8 +11,7 @@ import * as chatBoxView from '../views/chat-box.view';
 
 export const controlChatBox = info => {
     // Init Chat Box
-    if (!state['chatBox']) state['chatBox'] = new ChatBox(info);
-    state['chatBox'].setMode(info.mode);
+    state.set('chatBox', info, ChatBox);
 
     // Prepare UI
     chatBoxView.clearChatBox();

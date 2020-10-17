@@ -8,8 +8,7 @@ import * as alertsView from '../../views/alerts/alerts.view';
 
 export const controlAlerts = info => {
     // Init Alert
-    if (!state['alert']) state['alert'] = new Alert(info);
-    state['alert'].setMode(info.mode);
+    state.set('alert', info, Alert);
 
     // Prepare UI
     alertsView.clearAlerts();

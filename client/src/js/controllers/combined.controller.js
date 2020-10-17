@@ -13,8 +13,7 @@ import Combined from '../models/Combined';
 
 export const controlAll = info => {
     // Init Combined
-    if (!state['combined']) state['combined'] = new Combined(info);
-    state['combined'].setMode(info.mode);
+    state.set('combined', info, Combined);
 
     switch (info.mode) {
         case mode.combined.ideal:
