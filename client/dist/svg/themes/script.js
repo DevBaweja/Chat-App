@@ -69,6 +69,11 @@ const colors = {
         light: '#60cfb9',
         dark: '#37b49b',
     },
+    carrot: {
+        normal: '#f37e3b',
+        light: '#f5935b',
+        dark: '#f1691b',
+    },
     grey: {
         normal: '#888',
         light: '#a2a2a2',

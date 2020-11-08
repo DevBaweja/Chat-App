@@ -87,10 +87,10 @@ const setting = () => {
     // Render Setting
     chatProfileSettingView.renderSetting();
     // Add Event Listeners on list
-    select(elementStrings.setting.list).addEventListener('click', event => {
+    select(elementStrings.chatProfile.setting.list).addEventListener('click', event => {
         const { target } = event;
         // Item Element
-        const item = target.closest(elementStrings.setting.item);
+        const item = target.closest(elementStrings.chatProfile.setting.item);
         if (!item) return;
 
         // Type
@@ -101,4 +101,8 @@ const setting = () => {
         controlChatProfile({ mode: mode.chatProfile.settingSub });
         chatProfileSettingController.controlSetting({ mode: type });
     });
+    // ! For Development
+    // Reset chatProfile
+    controlChatProfile({ mode: mode.chatProfile.settingSub });
+    chatProfileSettingController.controlSetting({ mode: 'color' });
 };

@@ -150,10 +150,15 @@ const elementStrings = {
             },
             save: '.chat-profile__user-save',
         },
-    },
-    setting: {
-        list: '.chat-profile-setting__list',
-        item: '.chat-profile-setting__item',
+        setting: {
+            list: '.chat-profile-setting__list',
+            item: '.chat-profile-setting__item',
+        },
+        subSetting: {
+            color: {
+                back: '.chat-profile-setting-color__header--back',
+            },
+        },
     },
 };
 export default elementStrings;

@@ -777,6 +777,29 @@
                 }
             }
         }
+
+        // Sub Setting
+        &-setting-color {
+            &__header {
+                color: $color-primary;
+                &--heading {
+                    background-color: $color-grey-3;
+                }
+                &--back {
+                    &:hover {
+                        background-color: $color-grey-3;
+                    }
+                    &-svg {
+                        fill: $color-primary;
+                    }
+                }
+            }
+
+            &__item {
+            }
+            &__content {
+            }
+        }
     }
 
     .copyright {

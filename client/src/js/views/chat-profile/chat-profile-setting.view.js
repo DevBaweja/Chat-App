@@ -88,6 +88,73 @@ export const renderSetting = () => {
     select(elements.ChatProfile).insertAdjacentHTML('beforeend', markup);
 };
 
-export const renderColor = () => {};
+export const renderColor = () => {
+    let markup = `
+<div class="chat-profile-setting-color">
+    <div class="chat-profile-setting-color__header">
+        <div class="chat-profile-setting-color__header--back">
+            <svg class="chat-profile-setting-color__header--back-svg">
+                <use xlink:href="svg/sprite.svg#icon-back"></use>
+            </svg>
+        </div>
+        <div class="chat-profile-setting-color__header--heading">
+            Color
+        </div>
+    </div>
+    <ul class="chat-profile-setting-color__list">
+        <li class="chat-profile-setting-color__item" data-type="aqua">
+            <div class="chat-profile-setting-color__content" style="background-color: #01c0c8">
+            </div>
+        </li>
+        <li class="chat-profile-setting-color__item" data-type="green">
+            <div class="chat-profile-setting-color__content" style="background-color: #0ad80a">
+            </div>
+        </li>
+        <li class="chat-profile-setting-color__item" data-type="blue">
+            <div class="chat-profile-setting-color__content" style="background-color: #0448ff">
+            </div>
+        </li>
+        <li class="chat-profile-setting-color__item" data-type="purple">
+            <div class="chat-profile-setting-color__content" style="background-color: #a613f6">
+            </div>
+        </li>
+        <li class="chat-profile-setting-color__item" data-type="red">
+            <div class="chat-profile-setting-color__content" style="background-color: #fd122e">
+            </div>
+        </li>
+        <li class="chat-profile-setting-color__item" data-type="yellow">
+            <div class="chat-profile-setting-color__content" style="background-color: #e1ad01">
+            </div>
+        </li>
+        <li class="chat-profile-setting-color__item" data-type="pink">
+            <div class="chat-profile-setting-color__content" style="background-color: #f10043">
+            </div>
+        </li>
+        <li class="chat-profile-setting-color__item" data-type="forest">
+            <div class="chat-profile-setting-color__content" style="background-color: #42af66">
+            </div>
+        </li>
+        <li class="chat-profile-setting-color__item" data-type="orange">
+            <div class="chat-profile-setting-color__content" style="background-color: #db4906">
+            </div>
+        </li>
+        <li class="chat-profile-setting-color__item" data-type="teal">
+            <div class="chat-profile-setting-color__content" style="background-color: #37b49b">
+            </div>
+        </li>
+         <li class="chat-profile-setting-color__item" data-type="carrot">
+            <div class="chat-profile-setting-color__content" style="background-color: #f37e3b">
+            </div>
+        </li>
+        <li class="chat-profile-setting-color__item" data-type="grey">
+            <div class="chat-profile-setting-color__content" style="background-color: #6f6f6f">
+            </div>
+        </li>
+    </ul> 
+</div>
+    `;
+
+    select(elements.ChatProfile).insertAdjacentHTML('beforeend', markup);
+};
 export const renderWallpaper = () => {};
 export const renderPrivacy = () => {};
