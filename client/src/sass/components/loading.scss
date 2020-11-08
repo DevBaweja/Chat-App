@@ -11,3 +11,26 @@
     background-color: $color-white;
     z-index: 10;
 }
+
+.loading {
+    &__content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @include flex(space-between);
+    }
+    &__span {
+        margin: 1rem;
+        height: 2rem;
+        width: 2rem;
+        border-radius: 50%;
+
+        // background-color: red;
+    }
+    &__span::before {
+    }
+}
+
+@keyframes ripple {
+}

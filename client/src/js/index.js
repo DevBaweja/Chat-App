@@ -15,7 +15,7 @@ const init = () => {
     App.render();
 
     // Loading
-    loadingController.controlLoading(true);
+    loadingController.controlLoading(false);
 
     // Mode
     modeController.initMode();

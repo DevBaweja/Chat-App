@@ -28,7 +28,7 @@ export const controlAll = info => {
     }
 
     // Loading
-    loadingController.controlLoading(false);
+    // loadingController.controlLoading(false);
     // Clear Combined
     state['combined'] = null;
 };
