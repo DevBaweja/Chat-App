@@ -57,7 +57,6 @@ const controlWallpaper = () => {
     const isValid = valids.find(
         valid => valid.chatProfile === state['chatProfile'].mode && valid.setting === state['setting'].mode
     );
-    console.log(isValid);
     if (isValid) chatProfileSettingController.controlSetting({ mode: state['setting'].mode });
 };
 // ! For Development

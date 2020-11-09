@@ -117,6 +117,7 @@
                 position: relative;
             }
             &--icon {
+                opacity: 0;
                 visibility: hidden;
                 position: absolute;
                 top: 60%;
@@ -124,9 +125,11 @@
                 height: 2rem;
                 width: 2rem;
                 border-radius: 50%;
+                transition: all 0.2s;
                 @include flex();
                 &-selected {
                     visibility: visible;
+                    opacity: 1;
                 }
             }
             &--svg {
@@ -346,6 +349,7 @@
                 position: relative;
             }
             &__icon {
+                opacity: 0;
                 visibility: hidden;
                 position: absolute;
                 top: 60%;
@@ -353,10 +357,10 @@
                 height: 2rem;
                 width: 2rem;
                 border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                @include flex();
+                transition: all 0.2s;
                 &--selected {
+                    opacity: 1;
                     visibility: visible;
                 }
             }
@@ -378,6 +382,7 @@
             &__content {
                 height: 15rem;
                 width: 12rem;
+                transition: all 0.2s;
                 border: 0.2rem solid;
             }
         }
