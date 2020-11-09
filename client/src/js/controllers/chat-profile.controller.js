@@ -97,12 +97,6 @@ const setting = () => {
         const type = item.dataset.type;
         if (!type) return;
 
-        // Reset chatProfile
-        controlChatProfile({ mode: mode.chatProfile.settingSub });
         chatProfileSettingController.controlSetting({ mode: type });
     });
-    // ! For Development
-    // Reset chatProfile
-    controlChatProfile({ mode: mode.chatProfile.settingSub });
-    chatProfileSettingController.controlSetting({ mode: 'wallpaper' });
 };

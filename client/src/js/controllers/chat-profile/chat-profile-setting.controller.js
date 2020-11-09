@@ -15,6 +15,9 @@ export const controlSetting = info => {
     // Init Settings
     state.set('setting', info, Setting);
 
+    // Reset chatProfile
+    chatProfileController.controlChatProfile({ mode: mode.chatProfile.settingSub });
+
     switch (info.mode) {
         case mode.setting.color:
             color();
@@ -33,7 +36,8 @@ export const controlSetting = info => {
             break;
     }
     // Clear setting
-    state['setting'] = null;
+    // Render for wallpaper
+    // state['setting'] = null;
 };
 
 // ! For Development

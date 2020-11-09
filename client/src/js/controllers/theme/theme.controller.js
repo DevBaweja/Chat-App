@@ -1,8 +1,9 @@
 import state from '../../state';
 import { mode } from '../../utils/base.util';
 // Controllers
-import * as chatBoxController from '../../controllers/chat-box.controller';
-import * as backgroundImageController from '../../controllers/background-image.controller';
+import * as chatBoxController from '../chat-box.controller';
+import * as backgroundImageController from '../background-image.controller';
+import * as chatProfileSettingController from '../chat-profile/chat-profile-setting.controller';
 // Models
 import Theme from '../../models/Theme';
 // Views
@@ -27,6 +28,8 @@ export const controlTheme = info => {
     controlSvg();
     // Image
     controlImage();
+    // Wallpaper
+    controlWallpaper();
 };
 
 const controlSvg = () => {
@@ -48,5 +51,14 @@ const controlImage = () => {
         backgroundImageController.controlBackgroundImage({ mode: mode.background[state['theme'].mode][initial] });
 };
 
+const controlWallpaper = () => {
+    if (!state['chatProfile'] || !state['setting']) return;
+    const valids = [{ chatProfile: mode.chatProfile.settingSub, setting: mode.setting.wallpaper }];
+    const isValid = valids.find(
+        valid => valid.chatProfile === state['chatProfile'].mode && valid.setting === state['setting'].mode
+    );
+    console.log(isValid);
+    if (isValid) chatProfileSettingController.controlSetting({ mode: state['setting'].mode });
+};
 // ! For Development
 window.controlTheme = controlTheme;
