@@ -157,6 +157,9 @@ const elementStrings = {
         subSetting: {
             color: {
                 back: '.chat-profile-setting-color__header--back',
+                list: '.chat-profile-setting-color__list',
+                item: '.chat-profile-setting-color__item',
+                icon: '.chat-profile-setting-color__icon',
             },
         },
     },

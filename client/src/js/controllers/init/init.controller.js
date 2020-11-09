@@ -37,7 +37,7 @@ export const controlInit = async () => {
         switch (state['mode'].mode) {
             case mode.mode.development:
                 state['token'] =
-                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTgyNDQwZWY1Nzc4NDljODk5MTUyYiIsImlhdCI6MTYwNDg1NDg0OCwiZXhwIjoxNjA1MDI3NjQ4fQ.CwOAxl2R4zroInmxYYe4ffA0rxN15AosstCo-MYv4Y8';
+                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTk1ZTIwYThkYTkyMTQyY2IwZWY4YyIsImlhdCI6MTYwNDkzNTIwMSwiZXhwIjoxNjA1MTA4MDAxfQ.YAJoShi3H5IyX4c3ylmG8ascCObFRkWeeDMELTbh1LY';
                 break;
         }
         // Checking for Login

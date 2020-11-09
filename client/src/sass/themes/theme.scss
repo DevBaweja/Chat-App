@@ -799,6 +799,14 @@
             }
             &__content {
             }
+            &__icon {
+                background-color: $color-grey-1;
+                &--selected {
+                }
+            }
+            &__svg {
+                fill: $color-primary;
+            }
         }
     }
 

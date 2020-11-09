@@ -335,7 +335,7 @@
         }
         &__item {
             @include flex();
-            padding: 1.25rem 1rem;
+            margin: 1.25rem 1rem;
         }
         // Content
         &__content {
@@ -344,6 +344,25 @@
             height: 6.5rem;
             width: 6.5rem;
             position: relative;
+        }
+        &__icon {
+            visibility: hidden;
+            position: absolute;
+            top: 60%;
+            left: 60%;
+            height: 2rem;
+            width: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &--selected {
+                visibility: visible;
+            }
+        }
+        &__svg {
+            height: 1rem;
+            width: 1rem;
         }
     }
 }
