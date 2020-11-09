@@ -18,10 +18,10 @@ export const controlChatBox = info => {
 
     switch (info.mode) {
         case mode.chatBox.ideal:
-            ideal(info);
+            ideal();
             break;
         case mode.chatBox.empty:
-            empty(info);
+            empty();
             break;
         case mode.chatBox.user:
             user(info);
@@ -36,20 +36,26 @@ export const controlChatBox = info => {
 window.controlChatBox = controlChatBox;
 
 const ideal = () => {
+    // Getting theme from state
+    const theme = state['theme'];
     // Render Ideal
-    chatBoxView.renderIdeal(state['theme'].color);
+    chatBoxView.renderIdeal(theme.color);
 };
 const empty = () => {
+    // Getting theme from state
+    const theme = state['theme'];
     // Render Empty
-    chatBoxView.renderEmpty(state['theme'].color);
+    chatBoxView.renderEmpty(theme.color);
 };
-const user = ({ data }) => {
+const user = () => {
+    // Getting theme, backgroundImage from state
+    const theme = state['theme'];
+    const backgroundImage = state['backgroundImage'];
     // Render User
-    chatBoxView.renderUser(data);
+    chatBoxView.renderUser();
     // Render Background Image
-    backgroundImageController.controlBackgroundImage({
-        mode: mode.background[state['theme'].mode][1],
-    });
+    if (!backgroundImage) backgroundImageController.controlBackgroundImage({ mode: mode.background[theme.mode][1] });
+    else backgroundImageController.controlBackgroundImage({ mode: backgroundImage.mode });
     // Add Event Listeners
     select(elementStrings.chatBox.header.back).addEventListener('click', () => {
         // Remove Selected

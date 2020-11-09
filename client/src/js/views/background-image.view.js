@@ -4,5 +4,6 @@ export const clearBackgroundImage = () => (select(elementStrings.chatBox.backgro
 
 export const renderBackgroundImage = ({ rgba, img }) => {
     const backgroundString = `linear-gradient(to right bottom, ${rgba},${rgba}), url(img/background-image/${img}.jpg)`;
+
     select(elementStrings.chatBox.background).style.backgroundImage = backgroundString;
 };

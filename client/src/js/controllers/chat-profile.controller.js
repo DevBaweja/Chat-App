@@ -96,7 +96,6 @@ const setting = () => {
         // Type
         const type = item.dataset.type;
         if (!type) return;
-
         chatProfileSettingController.controlSetting({ mode: type });
     });
 };
