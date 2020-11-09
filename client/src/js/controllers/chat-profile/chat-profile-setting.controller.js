@@ -4,6 +4,7 @@ import { mode, elementStrings, select } from '../../utils/base.util';
 // Controllers
 import * as chatProfileController from '../chat-profile.controller';
 import * as themeController from '../theme/theme.controller';
+import * as backgroundImageController from '../background-image.controller';
 import * as formController from '../auth/form.controller';
 // Models
 import Setting from '../../models/Setting';
@@ -72,9 +73,36 @@ const color = () => {
 };
 const wallpaper = () => {
     console.log('Wallpaper');
+    // Getting theme from state
+    const { theme } = state;
+    const { backgroundImage } = state;
     // Render Wallpaper
-    chatProfileSettingView.renderWallpaper();
+    chatProfileSettingView.renderWallpaper({ theme, backgroundImage });
     // Event Listener
+    // Back
+    select(elementStrings.chatProfile.subSetting.wallpaper.back).addEventListener('click', () =>
+        chatProfileController.controlChatProfile({ mode: mode.chatProfile.setting })
+    );
+    // List
+    select(elementStrings.chatProfile.subSetting.wallpaper.list).addEventListener('click', event => {
+        const { target } = event;
+        // Item Element
+        const itemElement = target.closest(elementStrings.chatProfile.subSetting.wallpaper.item);
+        if (!itemElement) return;
+        // Content Element
+        const contentElement = select(elementStrings.chatProfile.subSetting.wallpaper.content, itemElement);
+        // Remove Selected
+        chatProfileSettingView.removeSelectedWallpaper();
+        // Add Selected
+        chatProfileSettingView.addSelectedWallpaper(contentElement);
+
+        // Type
+        const type = itemElement.dataset.type;
+        if (!type) return;
+
+        // Render Theme
+        backgroundImageController.controlBackgroundImage({ mode: type });
+    });
 };
 const privacy = () => {
     console.log('Privacy');

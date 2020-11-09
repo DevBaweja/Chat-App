@@ -103,6 +103,6 @@ const setting = () => {
     });
     // ! For Development
     // Reset chatProfile
-    // controlChatProfile({ mode: mode.chatProfile.settingSub });
-    // chatProfileSettingController.controlSetting({ mode: 'wallpaper' });
+    controlChatProfile({ mode: mode.chatProfile.settingSub });
+    chatProfileSettingController.controlSetting({ mode: 'wallpaper' });
 };

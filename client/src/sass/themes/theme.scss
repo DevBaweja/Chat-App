@@ -779,33 +779,45 @@
         }
 
         // Sub Setting
-        &-setting-color {
-            &__header {
-                color: $color-primary;
-                &--heading {
-                    background-color: $color-grey-3;
-                }
-                &--back {
-                    &:hover {
+        &-setting {
+            &-color,
+            &-wallpaper {
+                &__header {
+                    color: $color-primary;
+                    &--heading {
                         background-color: $color-grey-3;
                     }
-                    &-svg {
-                        fill: $color-primary;
+                    &--back {
+                        &:hover {
+                            background-color: $color-grey-3;
+                        }
+                        &-svg {
+                            fill: $color-primary;
+                        }
                     }
+                }
+
+                &__item {
+                }
+                &__content {
+                }
+                &__icon {
+                    background-color: $color-grey-1;
+                    &--selected {
+                    }
+                }
+                &__svg {
+                    fill: $color-primary;
                 }
             }
 
-            &__item {
-            }
-            &__content {
-            }
-            &__icon {
-                background-color: $color-grey-1;
-                &--selected {
+            &-wallpaper {
+                &__content {
+                    border-color: $color-grey-3;
+                    &--selected {
+                        border-color: $color-primary;
+                    }
                 }
-            }
-            &__svg {
-                fill: $color-primary;
             }
         }
     }

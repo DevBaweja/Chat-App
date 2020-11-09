@@ -7,6 +7,8 @@ class BackgroundImage {
     }
     getRgba() {
         const rgba = {
+            'light-1': 'rgba(0,0,0,0.06)',
+
             'dark-1': 'rgba(0,0,0,0.4)',
             'dark-2': 'rgba(0,0,0,0.1)',
             'dark-3': 'rgba(255, 255, 255, 0.035)',
@@ -16,7 +18,6 @@ class BackgroundImage {
             'dark-7': 'rgba(255,255,255,0.08)',
             'dark-8': 'rgba(0,0,0,0.6)',
             'dark-9': 'rgba(0,0,0,0.6)',
-            'light-1': 'rgba(0,0,0,0.06)',
         };
         return rgba[this.mode];
     }

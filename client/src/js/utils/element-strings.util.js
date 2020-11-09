@@ -161,6 +161,12 @@ const elementStrings = {
                 item: '.chat-profile-setting-color__item',
                 icon: '.chat-profile-setting-color__icon',
             },
+            wallpaper: {
+                back: '.chat-profile-setting-wallpaper__header--back',
+                list: '.chat-profile-setting-wallpaper__list',
+                item: '.chat-profile-setting-wallpaper__item',
+                content: '.chat-profile-setting-wallpaper__content',
+            },
         },
     },
 };

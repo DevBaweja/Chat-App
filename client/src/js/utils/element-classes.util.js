@@ -6,6 +6,7 @@ const elementClasses = {
         chatProfile: {
             avatar: 'chat-profile__user-avatar--icon-selected',
             color: 'chat-profile-setting-color__icon--selected',
+            wallpaper: 'chat-profile-setting-wallpaper__content--selected',
         },
     },
     dropdowns: {

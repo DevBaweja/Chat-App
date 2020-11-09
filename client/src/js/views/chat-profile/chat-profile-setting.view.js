@@ -128,5 +128,76 @@ export const renderColor = theme => {
 
     renderSelectedColor(theme);
 };
-export const renderWallpaper = () => {};
+
+export const removeSelectedWallpaper = () => {
+    const items = selectAll(elementStrings.chatProfile.subSetting.wallpaper.content);
+    items.forEach(item => {
+        item.classList.remove(elementClasses.selected.chatProfile.wallpaper);
+    });
+};
+
+export const addSelectedWallpaper = item => {
+    item.classList.add(elementClasses.selected.chatProfile.wallpaper);
+};
+
+const renderSelectedWallpaper = ({ mode }) => {
+    const itemElement = select(`${elementStrings.chatProfile.subSetting.wallpaper.item}[data-type="${mode}"]`);
+    if (!itemElement) return;
+
+    const contentElement = select(elementStrings.chatProfile.subSetting.wallpaper.content, itemElement);
+    addSelectedWallpaper(contentElement);
+};
+
+export const renderWallpaper = ({ theme, backgroundImage }) => {
+    const mode = theme.mode;
+    const type = {
+        light: ['light-1'],
+        dark: ['dark-1', 'dark-2', 'dark-3', 'dark-4', 'dark-5', 'dark-6', 'dark-7', 'dark-8', 'dark-9'],
+    };
+    const rgba = {
+        light: ['rgba(0,0,0,0.06)'],
+        dark: [
+            'rgba(0,0,0,0.4)',
+            'rgba(0,0,0,0.1)',
+            'rgba(255, 255, 255, 0.035)',
+            'rgba(255,255,255,0.085)',
+            'rgba(255,255,255,0.05)',
+            'rgba(255,255,255,0.01)',
+            'rgba(255,255,255,0.08)',
+            'rgba(0,0,0,0.6)',
+            'rgba(0,0,0,0.6)',
+        ],
+    };
+
+    let markup = `
+    <div class="chat-profile-setting-wallpaper">
+        <div class="chat-profile-setting-wallpaper__header">
+            <div class="chat-profile-setting-wallpaper__header--back">
+                <svg class="chat-profile-setting-wallpaper__header--back-svg">
+                    <use xlink:href="svg/sprite.svg#icon-back"></use>
+                </svg>
+            </div>
+            <div class="chat-profile-setting-wallpaper__header--heading">
+                Wallpaper
+            </div>
+        </div>
+        <ul class="chat-profile-setting-wallpaper__list">
+        ${type[mode]
+            .map(
+                (item, index) => `
+            <li class="chat-profile-setting-wallpaper__item" data-type="${item}">
+                <div class="chat-profile-setting-wallpaper__content" style="background-image: linear-gradient(to right bottom, ${rgba[mode][index]},${rgba[mode][index]}), url(img/background-image/${item}.jpg); background-size: cover;">
+                </div>
+            </li>
+            `
+            )
+            .join('')}
+        </ul> 
+    </div>
+        `;
+
+    select(elements.ChatProfile).insertAdjacentHTML('beforeend', markup);
+
+    renderSelectedWallpaper(backgroundImage);
+};
 export const renderPrivacy = () => {};

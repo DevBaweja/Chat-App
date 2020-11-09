@@ -291,78 +291,95 @@
         }
     }
 
-    &-setting-color {
-        margin: 0.5rem;
+    &-setting {
+        &-color,
+        &-wallpaper {
+            margin: 0.5rem;
 
-        @include flex();
-        @include direction(column);
-        align-items: stretch;
-
-        &__header {
             @include flex();
-            &--heading {
-                flex: 1;
-                padding: 0.5rem 0rem;
-                margin: 0.75rem 3rem;
-                margin-left: 1.5rem;
-                font-weight: $font-weight-bold;
-                font-size: $font-size-medium;
-                border-radius: 1rem;
-                letter-spacing: 0.05rem;
-                text-align: center;
-            }
-            &--back {
+            @include direction(column);
+            align-items: stretch;
+
+            &__header {
                 @include flex();
-                border-radius: 50%;
-                padding: 1rem;
-                margin-left: 1rem;
-                cursor: pointer;
-                &-svg {
-                    height: 1.5rem;
-                    width: 1.5rem;
+                &--heading {
+                    flex: 1;
+                    padding: 0.5rem 0rem;
+                    margin: 0.75rem 3rem;
+                    margin-left: 1.5rem;
+                    font-weight: $font-weight-bold;
+                    font-size: $font-size-medium;
+                    border-radius: 1rem;
+                    letter-spacing: 0.05rem;
+                    text-align: center;
+                }
+                &--back {
+                    @include flex();
+                    border-radius: 50%;
+                    padding: 1rem;
+                    margin-left: 1rem;
+                    cursor: pointer;
+                    &-svg {
+                        height: 1.5rem;
+                        width: 1.5rem;
+                    }
                 }
             }
-        }
-        &__list {
-            // ! For Development
-            max-height: 55rem;
-            overflow-x: hidden;
-            overflow-y: scroll;
-            margin-top: 1rem;
-            padding: 1rem;
-            @include flex();
-            flex-wrap: wrap;
-        }
-        &__item {
-            @include flex();
-            margin: 1.25rem 1rem;
-        }
-        // Content
-        &__content {
-            cursor: pointer;
-            border-radius: 0.5rem;
-            height: 6.5rem;
-            width: 6.5rem;
-            position: relative;
-        }
-        &__icon {
-            visibility: hidden;
-            position: absolute;
-            top: 60%;
-            left: 60%;
-            height: 2rem;
-            width: 2rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            &--selected {
-                visibility: visible;
+            &__list {
+                // ! For Development
+                max-height: 55rem;
+                overflow-x: hidden;
+                overflow-y: scroll;
+                margin-top: 1rem;
+                padding: 1rem;
+                @include flex();
+                flex-wrap: wrap;
+            }
+            &__item {
+                @include flex();
+                margin: 1.25rem 1rem;
+            }
+            // Content
+            &__content {
+                cursor: pointer;
+                border-radius: 0.5rem;
+                position: relative;
+            }
+            &__icon {
+                visibility: hidden;
+                position: absolute;
+                top: 60%;
+                left: 60%;
+                height: 2rem;
+                width: 2rem;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                &--selected {
+                    visibility: visible;
+                }
+            }
+            &__svg {
+                height: 1rem;
+                width: 1rem;
             }
         }
-        &__svg {
-            height: 1rem;
-            width: 1rem;
+
+        // Color
+        &-color {
+            &__content {
+                height: 6.5rem;
+                width: 6.5rem;
+            }
+        }
+        // Wallpaper
+        &-wallpaper {
+            &__content {
+                height: 15rem;
+                width: 12rem;
+                border: 0.2rem solid;
+            }
         }
     }
 }
