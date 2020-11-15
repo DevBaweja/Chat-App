@@ -28,3 +28,27 @@
         cursor: pointer;
     }
 }
+
+// Menu
+.menu {
+    &__list {
+    }
+
+    &__item {
+    }
+
+    &__link {
+        @include adjust($color-grey-3, 50%, $theme, color);
+        background-color: $color-grey-2;
+        border-bottom-color: transparent;
+
+        &:hover {
+            background-color: $color-grey-1;
+        }
+
+        &--active {
+            border-bottom-color: $color-primary;
+            background-color: $color-grey-1;
+        }
+    }
+}

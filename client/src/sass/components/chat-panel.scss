@@ -18,7 +18,6 @@
         font-weight: $font-weight-bold;
         font-size: $font-size-regular-2;
         letter-spacing: 0.05rem;
-        position: relative;
         text-align: center;
     }
     &__span {
@@ -27,21 +26,6 @@
     }
     &__count {
         font-size: $font-size-regular;
-    }
-    &__reload {
-        position: absolute;
-        top: 50%;
-        right: 0;
-        height: 1.5rem;
-        width: 1.5rem;
-        margin-right: 2rem;
-        transition: all 1s;
-        backface-visibility: hidden;
-        transform: translateY(-50%) translateZ(0) scale(1) rotate(0deg);
-        cursor: pointer;
-        &:hover {
-            transform: translateY(-50%) translateZ(0) scale(1) rotate(360deg);
-        }
     }
 
     &__list {

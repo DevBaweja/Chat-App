@@ -1,6 +1,6 @@
 import state from '../../state';
 // Utils
-import { elementStrings, select, mode } from '../../utils/base.util';
+import { elementStrings, elements, select, mode } from '../../utils/base.util';
 // Controllers
 import * as loginController from './login.controller';
 import * as signupController from './signup.controller';
@@ -83,6 +83,8 @@ export const controlForm = info => {
             break;
     }
 
+    // Control Exit
+    select(elements.Forms).addEventListener('click', controlExit);
     // Clear form
     state['form'] = null;
 };

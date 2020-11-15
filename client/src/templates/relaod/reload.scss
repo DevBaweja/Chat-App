@@ -1,0 +1,21 @@
+.reload {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: 2rem;
+    transition: all 1s;
+    backface-visibility: hidden;
+    transform: translateY(-50%) translateZ(0) scale(1) rotate(0deg);
+    cursor: pointer;
+    &:hover {
+        transform: translateY(-50%) translateZ(0) scale(1) rotate(360deg);
+    }
+}
+.reload {
+    @include adjust($color-grey-2, 50%, $theme, fill);
+    &:hover {
+        fill: $color-primary;
+    }
+}

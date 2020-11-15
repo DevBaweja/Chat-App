@@ -112,7 +112,7 @@ export const renderRecentChat = () => {
     const markup = `
     <div class="chat-panel-user">                    
         <div class="chat-panel-user__title">
-            Recent Chatsg <span class="chat-panel-user__count">(10)</span>
+            Recent Chats <span class="chat-panel-user__count">(10)</span>
             <svg class="chat-panel-user__reload">
                 <use xlink:href="svg/sprite.svg#icon-spinner"></use>
             </svg>

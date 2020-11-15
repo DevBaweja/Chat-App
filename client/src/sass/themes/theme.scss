@@ -283,61 +283,6 @@
         }
     }
 
-    // Search
-    .search {
-        &__input {
-            @include adjust($color-grey-3, 10%, $theme, background-color);
-            @include adjust($color-grey-3, 50%, $theme, color);
-
-            &::placeholder {
-                @include adjust($color-grey-3, 30%, $theme, color);
-            }
-
-            &:focus {
-                background-color: $color-grey-2;
-            }
-        }
-
-        &__button {
-            @include adjust($color-grey-3, 10%, $theme, background-color);
-        }
-
-        &__input:focus + .search__button {
-            background-color: $color-grey-2;
-        }
-
-        &__icon {
-            @include adjust($color-grey-3, 40%, $theme, fill);
-        }
-
-        &__input:focus + .search__button .search__icon {
-            fill: $color-primary;
-        }
-    }
-    // Menu
-    .menu {
-        &__list {
-        }
-
-        &__item {
-        }
-
-        &__link {
-            @include adjust($color-grey-3, 50%, $theme, color);
-            background-color: $color-grey-2;
-            border-bottom-color: transparent;
-
-            &:hover {
-                background-color: $color-grey-1;
-            }
-
-            &--active {
-                border-bottom-color: $color-primary;
-                background-color: $color-grey-1;
-            }
-        }
-    }
-
     // CTA
     .cta {
         &__btn {
@@ -388,12 +333,6 @@
         }
         &__count {
             @include adjust($color-grey-2, 50%, $theme, color);
-        }
-        &__reload {
-            @include adjust($color-grey-2, 50%, $theme, fill);
-            &:hover {
-                fill: $color-primary;
-            }
         }
 
         &__list {

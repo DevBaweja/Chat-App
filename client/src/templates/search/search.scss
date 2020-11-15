@@ -26,3 +26,35 @@
         width: 2rem;
     }
 }
+
+// Search
+.search {
+    &__input {
+        @include adjust($color-grey-3, 10%, $theme, background-color);
+        @include adjust($color-grey-3, 50%, $theme, color);
+
+        &::placeholder {
+            @include adjust($color-grey-3, 30%, $theme, color);
+        }
+
+        &:focus {
+            background-color: $color-grey-2;
+        }
+    }
+
+    &__button {
+        @include adjust($color-grey-3, 10%, $theme, background-color);
+    }
+
+    &__input:focus + .search__button {
+        background-color: $color-grey-2;
+    }
+
+    &__icon {
+        @include adjust($color-grey-3, 40%, $theme, fill);
+    }
+
+    &__input:focus + .search__button .search__icon {
+        fill: $color-primary;
+    }
+}

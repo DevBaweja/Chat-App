@@ -1,6 +1,6 @@
 import state from '../state';
 // Utils
-import { elements, elementStrings, mode, select } from '../utils/base.util';
+import { elementStrings, mode, select } from '../utils/base.util';
 // Models
 import Header from '../models/Header';
 // Views
@@ -33,9 +33,6 @@ window.controlHeader = controlHeader;
 const ideal = () => {
     // Render Ideal
     headerView.renderIdeal();
-
-    // Form Closing
-    select(elements.Forms).addEventListener('click', formController.controlExit);
 
     // Log In
     const loginCtaBtn = select(elementStrings.btns.loginCtaBtn);
