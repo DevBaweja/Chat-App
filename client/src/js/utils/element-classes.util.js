@@ -1,5 +1,8 @@
 const elementClasses = {
     selected: {
+        navbar: {
+            item: 'navbar-user__item--selected',
+        },
         chatPanel: {
             item: 'chat-panel-user__item--selected',
         },

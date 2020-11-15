@@ -26,7 +26,7 @@ const renderIdealGroup = () => `
     </div>
 </div>
 `;
-
+// Ideal
 export const renderIdeal = () => {
     // Data
     const data = new Array(8).fill(0);
@@ -55,6 +55,7 @@ const renderEmptyGroup = () => `
     </div>
 </div>
 `;
+// Empty
 export const renderEmpty = () => {
     // Data
     const data = new Array(8).fill(0);
@@ -74,13 +75,6 @@ export const renderEmpty = () => {
     </div>
     `;
 
-    select(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
-};
-
-export const renderActiveNow = () => {
-    const markup = `
-    <p>Active Now</p>
-    `;
     select(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
 };
 
@@ -112,10 +106,8 @@ export const renderRecentChat = () => {
     const markup = `
     <div class="chat-panel-user">                    
         <div class="chat-panel-user__title">
-            Recent Chats <span class="chat-panel-user__count">(10)</span>
-            <svg class="chat-panel-user__reload">
-                <use xlink:href="svg/sprite.svg#icon-spinner"></use>
-            </svg>
+           <span class="chat-panel-user__label">Recent Chats</span> 
+           <span class="chat-panel-user__count">(10)</span>
         </div>
         <ul class="chat-panel-user__list">
             ${chat_panel__item()}
@@ -216,34 +208,6 @@ export const renderRecentChat = () => {
         </ul>
     </div>
 
-    `;
-    select(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
-};
-
-export const renderSearch = () => {
-    const markup = `
-    <p>Search</p>
-    `;
-    select(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
-};
-
-export const renderFriend = () => {
-    const markup = `
-    <p>Friend</p>
-    `;
-    select(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
-};
-
-export const renderRequestSent = () => {
-    const markup = `
-    <p>Request Sent</p>
-    `;
-    select(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
-};
-
-export const renderRequestReceive = () => {
-    const markup = `
-    <p>Request Receive</p>
     `;
     select(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
 };

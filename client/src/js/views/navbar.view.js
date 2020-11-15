@@ -1,5 +1,4 @@
-import state from '../state';
-import { elements, select } from '../utils/base.util';
+import { elements, elementStrings, elementClasses, select, selectAll } from '../utils/base.util';
 
 export const clearNavbar = () => (select(elements.Navbar).innerHTML = '');
 
@@ -20,6 +19,7 @@ export const renderLogo = type => `
     </div>
     `;
 
+// Ideal
 export const renderIdeal = () => {
     const markup = `
     <div class="navbar-ideal">
@@ -28,6 +28,23 @@ export const renderIdeal = () => {
     `;
 
     select(elements.Navbar).insertAdjacentHTML('beforeend', markup);
+};
+
+export const removeSelected = () => {
+    const items = selectAll(elementStrings.navbar.user.item);
+    items.forEach(item => {
+        item.classList.remove(elementClasses.selected.navbar.item);
+    });
+};
+export const addSelected = item => {
+    item.classList.add(elementClasses.selected.navbar.item);
+};
+
+const renderSelected = type => {
+    const itemElement = select(`${elementStrings.navbar.user.item}[data-type="${type}"]`);
+    if (!itemElement) return;
+
+    addSelected(itemElement);
 };
 
 const renderUserItem = ({ type, title, svg }) => `
@@ -40,6 +57,7 @@ const renderUserItem = ({ type, title, svg }) => `
 </li>
 `;
 
+// User
 export const renderUser = user => {
     // Data
     const data = [
@@ -66,4 +84,6 @@ export const renderUser = user => {
         </div>
     `;
     select(elements.Navbar).insertAdjacentHTML('beforeend', markup);
+
+    renderSelected('recent-chat');
 };

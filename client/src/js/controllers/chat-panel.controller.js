@@ -7,6 +7,12 @@ import * as chatBoxController from '../controllers/chat-box.controller';
 import ChatPanel from '../models/ChatPanel';
 // Views
 import * as chatPanelView from '../views/chat-panel.view';
+import * as chatPanelActiveNowView from '../views/chat-panel/chat-panel-active-now.view';
+import * as chatPanelRecentChatView from '../views/chat-panel/chat-panel-recent-chat.view';
+import * as chatPanelSearchView from '../views/chat-panel/chat-panel-search.view';
+import * as chatPanelFriendView from '../views/chat-panel/chat-panel-friend.view';
+import * as chatPanelRequestSentView from '../views/chat-panel/chat-panel-request-sent.view';
+import * as chatPanelRequestReceiveView from '../views/chat-panel/chat-panel-request-receive.view';
 
 export const controlChatPanel = info => {
     // Init Chat Panel
@@ -108,29 +114,29 @@ const recentChat = () => {
 const activeNow = () => {
     console.log('Active Now');
     // Render Active Now
-    chatPanelView.renderActiveNow();
+    chatPanelActiveNowView.renderActiveNow();
 };
 
 const search = () => {
     console.log('Search');
     // Render Search
-    chatPanelView.renderSearch();
+    chatPanelSearchView.renderSearch();
 };
 
 const friend = () => {
     console.log('Friend');
     // Render Friend
-    chatPanelView.renderFriend();
+    chatPanelFriendView.renderFriend();
 };
 
 const requestSent = () => {
     console.log('Request Sent');
     // Render Request Sent
-    chatPanelView.renderRequestSent();
+    chatPanelRequestSentView.renderRequestSent();
 };
 
 const requestReceive = () => {
     console.log('Request Receive');
     // Render Request Receive
-    chatPanelView.renderRequestReceive();
+    chatPanelRequestReceiveView.renderRequestReceive();
 };

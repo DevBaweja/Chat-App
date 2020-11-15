@@ -60,6 +60,11 @@ const user = () => {
         // Type
         const type = item.dataset.type;
         if (!type) return;
+
+        // Remove Selected
+        navbarView.removeSelected();
+        // Add Selected
+        navbarView.addSelected(item);
         // No render
         if (state['chatPanel'].mode === type) return;
         chatPanelController.controlChatPanel({ mode: type });
