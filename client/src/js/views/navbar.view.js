@@ -32,58 +32,38 @@ export const renderIdeal = () => {
     select(elements.Navbar).insertAdjacentHTML('beforeend', markup);
 };
 
+const renderUserItem = ({ type, title, svg }) => `
+<li class="navbar-user__item" title="${title}" data-type="${type}">
+    <div class="navbar-user__title">
+        <svg class="navbar-user__title--svg">
+            <use xlink:href="svg/sprite.svg#icon-${svg}"></use>
+        </svg>
+    </div>
+</li>
+`;
+
 export const renderUser = user => {
+    // Data
+    const data = [
+        { type: 'active-now', title: 'Active Now', svg: 'active-now' },
+        { type: 'recent-chat', title: 'Recent Chats', svg: 'recent-chat' },
+        { type: 'search', title: 'Search', svg: 'user-search' },
+        { type: 'friend', title: 'Friends', svg: 'user-friend' },
+        { type: 'request-sent', title: 'Request Sent', svg: 'request-sent' },
+        { type: 'request-receive', title: 'Request Received', svg: 'request-receive' },
+    ];
+    const { photo } = user;
+
     const markup = `
         <div class="navbar-user">
             ${renderLogo('user')}
             <div class="navbar-user__content">
                 <ul class="navbar-user__list">
-                    <li class="navbar-user__item" title="Active Now" data-type="active-now">
-                        <div class="navbar-user__title">
-                            <svg class="navbar-user__title--svg">
-                                <use xlink:href="svg/sprite.svg#icon-active-now"></use>
-                            </svg>
-                        </div>
-                    </li>
-                    <li class="navbar-user__item navbar-user__item--selected" title="Recent Chat" data-type="recent-chat">
-                        <div class="navbar-user__title">
-                            <svg class="navbar-user__title--svg">
-                                <use xlink:href="svg/sprite.svg#icon-recent-chat"></use>
-                            </svg>
-                        </div>
-                    </li>
-                    <li class="navbar-user__item" title="Search" data-type="search">
-                        <div class="navbar-user__title">
-                            <svg class="navbar-user__title--svg">
-                                <use xlink:href="svg/sprite.svg#icon-user-search"></use>
-                            </svg>
-                        </div>
-                    </li>
-                    <li class="navbar-user__item" title="Friends" data-type="friend">
-                        <div class="navbar-user__title">
-                            <svg class="navbar-user__title--svg">
-                                <use xlink:href="svg/sprite.svg#icon-user-friend"></use>
-                            </svg>
-                        </div>
-                    </li>
-                    <li class="navbar-user__item" title="Request Sent" data-type="request-sent">
-                        <div class="navbar-user__title">
-                            <svg class="navbar-user__title--svg">
-                                <use xlink:href="svg/sprite.svg#icon-request-sent"></use>
-                            </svg>
-                        </div>
-                    </li>
-                    <li class="navbar-user__item" title="Request Received" data-type="request-receive">
-                        <div class="navbar-user__title">
-                            <svg class="navbar-user__title--svg">
-                                <use xlink:href="svg/sprite.svg#icon-request-receive"></use>
-                            </svg>
-                        </div>
-                    </li>
+                    ${data.map(item => renderUserItem(item)).join('')}
                 </ul>
             </div>
             <div class="navbar-user__photo">
-                <img src="${user.photo}" alt=" " class="navbar-user__photo--img"/>
+                <img src="${photo}" alt=" " class="navbar-user__photo--img"/>
             </div>
         </div>
     `;

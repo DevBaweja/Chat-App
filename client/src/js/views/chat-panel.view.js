@@ -13,55 +13,52 @@ export const removeSelected = () => {
     });
 };
 
-export const renderIdeal = () => {
-    const chat_panel_ideal = () => `
-    <div class="chat-panel-ideal__dimmer--item">
-        <div class="chat-panel-ideal__dimmer--circle">
-            <svg viewBox="0 0 50 50">
-                <circle></circle>
-            </svg>
-        </div>
-        <div class="chat-panel-ideal__dimmer--rect">
-            <svg viewBox="0 0 180 40">
-                <rect></rect>
-            </svg>
-        </div>
+const renderIdealGroup = () => `
+<div class="chat-panel-ideal__dimmer--item">
+    <div class="chat-panel-ideal__dimmer--circle">
+        <svg viewBox="0 0 50 50">
+            <circle></circle>
+        </svg>
     </div>
-    `;
+    <div class="chat-panel-ideal__dimmer--rect">
+        <svg viewBox="0 0 180 40">
+            <rect></rect>
+        </svg>
+    </div>
+</div>
+`;
 
+export const renderIdeal = () => {
+    // Data
+    const data = new Array(8).fill(0);
     const markup = `
     <div class="chat-panel-ideal">
         <div class="chat-panel-ideal__title"></div>
         <div class="chat-panel-ideal__dimmer">
-            ${chat_panel_ideal()}
-            ${chat_panel_ideal()}
-            ${chat_panel_ideal()}
-            ${chat_panel_ideal()}
-            ${chat_panel_ideal()}
-            ${chat_panel_ideal()}
-            ${chat_panel_ideal()}
-            ${chat_panel_ideal()}
+            ${data.map(() => renderIdealGroup()).join('')}
         </div>
     </div>
 `;
     select(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
 };
 
-export const renderEmpty = () => {
-    const chat_panel_empty = () => `
-    <div class="chat-panel-empty__dimmer--item">
-        <div class="chat-panel-empty__dimmer--circle">
-            <svg viewBox="0 0 50 50">
-                <circle></circle>
-            </svg>
-        </div>
-        <div class="chat-panel-empty__dimmer--rect">
-            <svg viewBox="0 0 180 40">
-                <rect></rect>
-            </svg>
-        </div>
+const renderEmptyGroup = () => `
+<div class="chat-panel-empty__dimmer--item">
+    <div class="chat-panel-empty__dimmer--circle">
+        <svg viewBox="0 0 50 50">
+            <circle></circle>
+        </svg>
     </div>
-    `;
+    <div class="chat-panel-empty__dimmer--rect">
+        <svg viewBox="0 0 180 40">
+            <rect></rect>
+        </svg>
+    </div>
+</div>
+`;
+export const renderEmpty = () => {
+    // Data
+    const data = new Array(8).fill(0);
 
     // No users
     const markup = `
@@ -73,14 +70,7 @@ export const renderEmpty = () => {
             </svg>
         </div>
         <div class="chat-panel-user__dimmer">
-            ${chat_panel_empty()}
-            ${chat_panel_empty()}
-            ${chat_panel_empty()}
-            ${chat_panel_empty()}
-            ${chat_panel_empty()}
-            ${chat_panel_empty()}
-            ${chat_panel_empty()}
-            ${chat_panel_empty()}
+        ${data.map(() => renderEmptyGroup()).join('')}
         </div>
     </div>
     `;

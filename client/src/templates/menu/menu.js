@@ -1,21 +1,23 @@
-let markup;
-const menu__item = item => `
+const menu = [
+    { type: 'active-now', title: 'Active Now', svg: 'active-now' },
+    { type: 'recent-chat', title: 'Recent Chats', svg: 'recent-chat' },
+    { type: 'search', title: 'Search', svg: 'user-search' },
+    { type: 'friend', title: 'Friends', svg: 'user-friend' },
+    { type: 'request-sent', title: 'Request Sent', svg: 'request-sent' },
+    { type: 'request-receive', title: 'Request Received', svg: 'request-receive' },
+];
+
+const renderMenuItem = ({ type, title }) => `
 <li class="menu__item">
-    <div class="menu__link" role="button" data-goTo="${item.toLowerCase()}" title="${item}">
-        ${item}
+    <div class="menu__link" role="button" data-type="${type}" title="${title}">
+        ${title}
     </div>
 </li>
 `;
-markup = `
+
+const markup = `
 <div class="menu">
     <ul class="menu__list">
-        <li class="menu__item">
-            <div class="menu__link menu__link--active" role="button" data-goTo="chats">
-                Chats
-            </div>
-        </li>
-        ${['Favourites', 'Active', 'Friends', 'Groups'].map(cur => menu__item(cur)).join('')}
+        ${menu.map(item => renderMenuItem(item)).join('')}
     </ul>
-</div>
-`;
-select(elements.Header).insertAdjacentHTML('beforeend', markup);
+</div>`;

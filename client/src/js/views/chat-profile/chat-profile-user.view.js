@@ -57,6 +57,7 @@ const renderUserGroup = ({ type, label, value, isInput }) => `
 
 export const renderUser = user => {
     // Data
+    const { photo, name } = user;
     const avatar = [
         { type: 'boy', title: 'Boy' },
         { type: 'girl', title: 'Girl' },
@@ -74,7 +75,7 @@ export const renderUser = user => {
     <div class="chat-profile__user">
     <form class="chat-profile__user--form">
         <div class="chat-profile__user-pic">
-            <img src="${user.photo}" class="chat-profile__user-pic--img" alt=" " />
+            <img src="${photo}" class="chat-profile__user-pic--img" alt=" " />
             <div class="chat-profile__user-pic--upload">
                 <label class="chat-profile__user-pic--label" for="photo" title="Change profile pic">
                     <svg class="chat-profile__user-pic--svg">
@@ -83,7 +84,7 @@ export const renderUser = user => {
                 </label>
                 <input class="chat-profile__user-pic--input" accept="image/*" type="file" id="photo" name="photo" />
             </div>
-            <div class="chat-profile__user-pic--name">${user.name}</div>
+            <div class="chat-profile__user-pic--name">${name}</div>
         </div>
         <div class="chat-profile__user-avatar">
             <div class="chat-profile__user-avatar--label">

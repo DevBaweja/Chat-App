@@ -20,6 +20,7 @@ export const renderEmpty = color => {
     `;
     select(elements.ChatBox).insertAdjacentHTML('beforeend', markup);
 };
+
 export const renderIdeal = color => {
     const markup = `
     <div class="chat-box-ideal">
@@ -37,6 +38,7 @@ export const renderIdeal = color => {
     `;
     select(elements.ChatBox).insertAdjacentHTML('beforeend', markup);
 };
+
 export const renderUser = () => {
     const date = '2020-08-01T00:00:00.000+00:00';
     const messageIn = () => `

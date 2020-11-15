@@ -26,45 +26,24 @@ export const renderIdeal = () => {
     select(elements.Header).insertAdjacentHTML('beforeend', markup);
 };
 
+const renderMenuItem = ({ type, title }) => `
+<li class="menu__item">
+    <div class="menu__link" role="button" data-type="${type}" title="${title}">
+        ${title}
+    </div>
+</li>
+`;
 export const renderUser = user => {
-    let markup;
-    markup = `
-    <form class="search">
-        <input type="text" class="search__input" placeholder="Search Friends" />
-        <button class="search__button" title="Search Friends">
-            <svg class="search__icon">
-                <use xlink:href="svg/sprite.svg#icon-search"></use>
-            </svg>
-        </button>
-    </form>
-    `;
+    // Data
+    const { photo, name } = user;
 
-    const menu__item = item => `
-    <li class="menu__item">
-        <div class="menu__link" role="button" data-goTo="${item.toLowerCase()}" title="${item}">
-            ${item}
-        </div>
-    </li>
-    `;
-
-    markup = `
-    <div class="menu">
-        <ul class="menu__list">
-            <li class="menu__item">
-                <div class="menu__link menu__link--active" role="button" data-goTo="chats">
-                    Chats
-                </div>
-            </li>
-            ${['Favourites', 'Active', 'Friends', 'Groups'].map(cur => menu__item(cur)).join('')}
-        </ul>
-    </div>`;
-
-    markup = `
+    // Markup
+    const markup = `
     <div class="about-me">
         <div class="about-me__link about-me__drop" title="User Options">
-            <img src="${user.photo}" alt=" " class="about-me__photo"/>
+            <img src="${photo}" alt=" " class="about-me__photo"/>
             
-            <span class="about-me__name">${user.name}</span>
+            <span class="about-me__name">${name}</span>
         </div>
     </div>
     `;
