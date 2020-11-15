@@ -9,9 +9,8 @@ export const getUserInput = () => getInput(elementStrings.chatProfile.user.about
 
 export const getUserPhoto = inputs => getPhoto(elementStrings.chatProfile.user.pic.input, inputs);
 
-export const addSelected = item => {
-    item.classList.add(elementClasses.selected.chatProfile.avatar);
-};
+export const addSelected = item => item.classList.add(elementClasses.selected.chatProfile.avatar);
+
 export const removeSelected = () => {
     const items = selectAll(elementStrings.chatProfile.user.avatar.icon);
     items.forEach(item => {
@@ -29,7 +28,48 @@ const renderSelected = ({ photo }) => {
     addSelected(iconElement);
 };
 
+const renderAvatar = ({ type, title }) => `
+<div class="chat-profile__user-avatar--group" title="${title}">
+    <img src="img/avatar/${type}.png" alt="" class="chat-profile__user-avatar--img"/>
+    <div class="chat-profile__user-avatar--icon">
+        <svg class="chat-profile__user-avatar--svg">
+            <use xlink:href="svg/sprite.svg#icon-avatar"></use>
+        </svg>
+    </div>
+</div>
+`;
+
+const renderUserGroup = ({ type, label, value, isInput }) => `
+<div class="chat-profile__user-about--group">
+    <div class="chat-profile__user-about--edit">
+        <label for="${type}" class="chat-profile__user-about--label"> ${label} </label>
+        <svg class="chat-profile__user-about--svg" title="Edit ${label}" data-type="${type}">
+            <use xlink:href="svg/sprite.svg#icon-edit"></use>
+        </svg>
+    </div>
+    ${
+        isInput
+            ? `<input type="text" id="${type}" class="chat-profile__user-about--input chat-profile__user-about--input-${type}" value="${value}" disabled/>`
+            : `<textarea id="${type}" class="chat-profile__user-about--input chat-profile__user-about--input-${type}" rows="4" disabled>${value}</textarea>`
+    }  
+</div>
+`;
+
 export const renderUser = user => {
+    // Data
+    const avatar = [
+        { type: 'boy', title: 'Boy' },
+        { type: 'girl', title: 'Girl' },
+        { type: 'male', title: 'Male' },
+        { type: 'female', title: 'Female' },
+    ];
+
+    const data = [
+        { type: 'name', label: 'Name', value: user.name, isInput: true },
+        { type: 'email', label: 'Email', value: user.email, isInput: true },
+        { type: 'bio', label: 'Bio', value: user.bio, isInput: false },
+    ];
+    // Markup
     const markup = `
     <div class="chat-profile__user">
     <form class="chat-profile__user--form">
@@ -50,71 +90,11 @@ export const renderUser = user => {
                 Choose your avatar
             </div>
             <div class="chat-profile__user-avatar--container">
-                <div class="chat-profile__user-avatar--group" title="Boy">
-                    <img src="img/avatar/boy.png" alt="" class="chat-profile__user-avatar--img"/>
-                    <div class="chat-profile__user-avatar--icon">
-                        <svg class="chat-profile__user-avatar--svg">
-                            <use xlink:href="svg/sprite.svg#icon-avatar"></use>
-                        </svg>
-                    </div>
-                </div>
-                <div class="chat-profile__user-avatar--group" title="Girl">
-                    <img src="img/avatar/girl.png" alt="" class="chat-profile__user-avatar--img"/>
-                    <div class="chat-profile__user-avatar--icon">
-                        <svg class="chat-profile__user-avatar--svg">
-                            <use xlink:href="svg/sprite.svg#icon-avatar"></use>
-                        </svg>
-                    </div>
-                </div>
-                <div class="chat-profile__user-avatar--group" title="Men">
-                    <img src="img/avatar/male.png" alt="" class="chat-profile__user-avatar--img"/> 
-                    <div class="chat-profile__user-avatar--icon">
-                        <svg class="chat-profile__user-avatar--svg">
-                            <use xlink:href="svg/sprite.svg#icon-avatar"></use>
-                        </svg>
-                    </div>
-                </div>
-                <div class="chat-profile__user-avatar--group" title="Women">
-                    <img src="img/avatar/female.png" alt="" class="chat-profile__user-avatar--img"/> 
-                    <div class="chat-profile__user-avatar--icon">
-                        <svg class="chat-profile__user-avatar--svg">
-                            <use xlink:href="svg/sprite.svg#icon-avatar"></use>
-                        </svg>
-                    </div>
-                </div>
+                ${avatar.map(item => renderAvatar(item)).join('')}
             </div>
         </div>
         <div class="chat-profile__user-about">
-            <div class="chat-profile__user-about--group">
-                <div class="chat-profile__user-about--edit">
-                    <label for="name" class="chat-profile__user-about--label"> Name </label>
-                    <svg class="chat-profile__user-about--svg" title="Edit Name" data-type="name">
-                        <use xlink:href="svg/sprite.svg#icon-edit"></use>
-                    </svg>
-                </div>
-                <input type="text" id="name" class="chat-profile__user-about--input chat-profile__user-about--input-name" value="${user.name}" disabled/>
-            </div>
-
-            <div class="chat-profile__user-about--group">
-                <div class="chat-profile__user-about--edit">
-                    <label for="email" class="chat-profile__user-about--label"> Email </label>
-                    <svg class="chat-profile__user-about--svg" title="Edit Email" data-type="email">
-                        <use xlink:href="svg/sprite.svg#icon-edit"></use>
-                    </svg>
-                </div>
-                <input type="text" id="email" class="chat-profile__user-about--input chat-profile__user-about--input-email" value="${user.email}" disabled />
-            </div>
-
-            <div class="chat-profile__user-about--group">
-                <div class="chat-profile__user-about--edit">
-                    <label for="bio" class="chat-profile__user-about--label"> Bio </label>
-                    <svg class="chat-profile__user-about--svg" title="Edit Bio" data-type="bio">
-                        <use xlink:href="svg/sprite.svg#icon-edit"></use>
-                    </svg>
-                </div>
-
-                <textarea id="bio" class="chat-profile__user-about--input chat-profile__user-about--input-bio" rows="4" disabled>${user.bio}</textarea>
-            </div>
+            ${data.map(item => renderUserGroup(item)).join('')}
         </div>
     </form>
 </div>

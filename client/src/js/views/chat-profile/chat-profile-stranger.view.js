@@ -1,8 +1,32 @@
 import { elements, select } from '../../utils/base.util';
 import faker from 'faker';
 
+const renderStrangerGroup = ({ type, label, id, value, isInput }) => `
+<div class="chat-profile__stranger-about--group">
+    <div class="chat-profile__stranger-about--edit">
+        <label for="${type}" class="chat-profile__stranger-about--label"> ${label} </label>
+    </div>
+    ${
+        isInput
+            ? ` <input type="text" id="${id}" class="chat-profile__stranger-about--input" value="${value}" disabled />`
+            : `<textarea id="${id}" class="chat-profile__stranger-about--input" rows="4" disabled>${value}</textarea>`
+    }
+   
+</div>
+`;
+
 export const renderStranger = () => {
+    // ! For Development
     const name = faker.name.findName();
+    const email = faker.internet.email();
+    const bio = faker.hacker.phrase();
+    // Data
+    const data = [
+        { type: 'name', label: 'Name', id: 'name', value: name, isInput: true },
+        { type: 'email', label: 'Email', id: 'email', value: email, isInput: true },
+        { type: 'bio', label: 'Bio', id: 'bio', value: bio, isInput: false },
+    ];
+
     const markup = `
     <div class="chat-profile__stranger">
         <form class="chat-profile__stranger--form">
@@ -17,27 +41,7 @@ export const renderStranger = () => {
             </div>
 
             <div class="chat-profile__stranger-about">
-                <div class="chat-profile__stranger-about--group">
-                    <div class="chat-profile__stranger-about--edit">
-                        <label for="name" class="chat-profile__stranger-about--label"> Name </label>
-                    </div>
-                    <input type="text" id="name" class="chat-profile__stranger-about--input" value="${name}" disabled />
-                </div>
-
-                <div class="chat-profile__stranger-about--group">
-                    <div class="chat-profile__stranger-about--edit">
-                        <label for="email" class="chat-profile__stranger-about--label"> Email </label>
-                    </div>
-                    <input type="text" id="email" class="chat-profile__stranger-about--input" value="${faker.internet.email()}" disabled />
-                </div>
-
-                <div class="chat-profile__stranger-about--group">
-                    <div class="chat-profile__stranger-about--edit">
-                        <label for="bio" class="chat-profile__stranger-about--label"> Bio </label>
-                    </div>
-
-                    <textarea id="bio" class="chat-profile__stranger-about--input" rows="4" disabled>${faker.hacker.phrase()}</textarea>
-                </div>
+                ${data.map(item => renderStrangerGroup(item)).join('')}
             </div>
         </form>
     </div>

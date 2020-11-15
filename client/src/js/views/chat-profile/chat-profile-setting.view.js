@@ -1,6 +1,8 @@
 import { elements, elementStrings, elementClasses, select, selectAll } from '../../utils/base.util';
 
+// Setting
 export const renderSetting = () => {
+    // Data
     const data = ['color', 'wallpaper', 'privacy', 'password', 'delete'];
     const type = ['color', 'wallpaper', 'privacy', 'update-password', 'delete-account'];
     const content = ['Color', 'Wallpaper', 'Privacy', 'Password', 'Delete Account'];
@@ -12,6 +14,7 @@ export const renderSetting = () => {
         'We will miss you!',
     ];
 
+    // Markup
     let markup = `
 <div class="chat-profile-setting">
     <div class="chat-profile-setting__heading">
@@ -42,28 +45,42 @@ export const renderSetting = () => {
     </ul>
 </div>
     `;
+    // Rendering Markup
     select(elements.ChatProfile).insertAdjacentHTML('beforeend', markup);
 };
 
-export const removeSelectedColor = () => {
-    const items = selectAll(elementStrings.chatProfile.subSetting.color.icon);
-    items.forEach(item => {
-        item.classList.remove(elementClasses.selected.chatProfile.color);
-    });
-};
-export const addSelectedColor = item => {
-    item.classList.add(elementClasses.selected.chatProfile.color);
+// Remove, Add, Render Selected Function
+const removeSelected = (itemsClass, selectedClass) => {
+    const items = selectAll(itemsClass);
+    items.forEach(item => item.classList.remove(selectedClass));
 };
 
-const renderSelectedColor = ({ color }) => {
-    const itemElement = select(`${elementStrings.chatProfile.subSetting.color.item}[data-type="${color}"]`);
+const addSelected = (item, itemClass) => item.classList.add(itemClass);
+
+const renderSelected = (info, itemClass, subItemClass, selectedClass) => {
+    const itemElement = select(`${itemClass}[data-type="${info}"]`);
     if (!itemElement) return;
 
-    const iconElement = select(elementStrings.chatProfile.subSetting.color.icon, itemElement);
-    addSelectedColor(iconElement);
+    const subElement = select(subItemClass, itemElement);
+    addSelected(subElement, selectedClass);
 };
 
+// Color
+export const removeSelectedColor = () =>
+    removeSelected(elementStrings.chatProfile.subSetting.color.icon, elementClasses.selected.chatProfile.color);
+
+export const addSelectedColor = item => addSelected(item, elementClasses.selected.chatProfile.color);
+
+const renderSelectedColor = ({ color }) =>
+    renderSelected(
+        color,
+        elementStrings.chatProfile.subSetting.color.item,
+        elementStrings.chatProfile.subSetting.color.icon,
+        elementClasses.selected.chatProfile.color
+    );
+
 export const renderColor = theme => {
+    // Data
     const color = [
         '#01c0c8',
         '#0ad80a',
@@ -92,6 +109,7 @@ export const renderColor = theme => {
         'carrot',
         'grey',
     ];
+    // Markup
     let markup = `
 <div class="chat-profile-setting-color">
     <div class="chat-profile-setting-color__header">
@@ -124,31 +142,31 @@ export const renderColor = theme => {
 </div>
     `;
 
+    // Rendering Markup
     select(elements.ChatProfile).insertAdjacentHTML('beforeend', markup);
 
     renderSelectedColor(theme);
 };
 
-export const removeSelectedWallpaper = () => {
-    const items = selectAll(elementStrings.chatProfile.subSetting.wallpaper.content);
-    items.forEach(item => {
-        item.classList.remove(elementClasses.selected.chatProfile.wallpaper);
-    });
-};
+// Wallpaper
+export const removeSelectedWallpaper = () =>
+    removeSelected(
+        elementStrings.chatProfile.subSetting.wallpaper.content,
+        elementClasses.selected.chatProfile.wallpaper
+    );
 
-export const addSelectedWallpaper = item => {
-    item.classList.add(elementClasses.selected.chatProfile.wallpaper);
-};
+export const addSelectedWallpaper = item => addSelected(item, elementClasses.selected.chatProfile.wallpaper);
 
-const renderSelectedWallpaper = ({ mode }) => {
-    const itemElement = select(`${elementStrings.chatProfile.subSetting.wallpaper.item}[data-type="${mode}"]`);
-    if (!itemElement) return;
-
-    const contentElement = select(elementStrings.chatProfile.subSetting.wallpaper.content, itemElement);
-    addSelectedWallpaper(contentElement);
-};
+const renderSelectedWallpaper = ({ mode }) =>
+    renderSelected(
+        mode,
+        elementStrings.chatProfile.subSetting.wallpaper.item,
+        elementStrings.chatProfile.subSetting.wallpaper.content,
+        elementClasses.selected.chatProfile.wallpaper
+    );
 
 export const renderWallpaper = ({ theme, backgroundImage }) => {
+    // Data
     const mode = theme.mode;
     const type = {
         light: ['light-1'],
@@ -169,6 +187,7 @@ export const renderWallpaper = ({ theme, backgroundImage }) => {
         ],
     };
 
+    // Markup
     let markup = `
     <div class="chat-profile-setting-wallpaper">
         <div class="chat-profile-setting-wallpaper__header">
@@ -196,8 +215,11 @@ export const renderWallpaper = ({ theme, backgroundImage }) => {
     </div>
         `;
 
+    // Rendering Markup
     select(elements.ChatProfile).insertAdjacentHTML('beforeend', markup);
 
     renderSelectedWallpaper(backgroundImage);
 };
+
+// Privacy
 export const renderPrivacy = () => {};
