@@ -3,13 +3,11 @@ import { elements, select } from '../utils/base.util';
 
 export const clearNavbar = () => (select(elements.Navbar).innerHTML = '');
 
-export const toggleClass = className => {
+export const replaceClass = (removeClass, addClass) => {
     // Removing class
-    select(elements.Navbar).classList.remove(state['navbar'].className);
-    // Changing state
-    state['navbar'].className = className;
+    select(elements.Navbar).classList.remove(removeClass);
     // Adding class
-    select(elements.Navbar).classList.add(state['navbar'].className);
+    select(elements.Navbar).classList.add(addClass);
 };
 
 export const renderLogo = type => `

@@ -9,7 +9,7 @@ import * as navbarView from '../views/navbar.view';
 
 export const controlNavbar = info => {
     // Init Navbar
-    if (!state['navbar']) state['navbar'] = new Navbar({ mode: info.mode, className: info.mode });
+    if (!state['navbar']) state['navbar'] = new Navbar({ mode: info.mode });
     state['navbar'].setMode(info.mode);
 
     // Prepare UI
@@ -31,8 +31,10 @@ window.controlNavbar = controlNavbar;
 const ideal = () => {
     // Render Ideal
     navbarView.renderIdeal();
-    // Gradient
-    navbarView.toggleClass(mode.navbar.ideal);
+
+    // Changing State
+    state['navbar'].setClassName(mode.navbar.ideal);
+    navbarView.replaceClass(mode.navbar.user, mode.navbar.ideal);
 };
 
 const user = () => {
@@ -40,5 +42,10 @@ const user = () => {
     const { user } = state;
     // Render User
     navbarView.renderUser(user);
-    navbarView.toggleClass(mode.navbar.user);
+
+    // Changing State
+    state['navbar'].setClassName(mode.navbar.user);
+    navbarView.replaceClass(mode.navbar.ideal, mode.navbar.user);
+
+    // Event Listeners
 };

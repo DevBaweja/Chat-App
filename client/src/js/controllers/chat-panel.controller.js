@@ -10,7 +10,7 @@ import * as chatPanelView from '../views/chat-panel.view';
 
 export const controlChatPanel = info => {
     // Init Chat Panel
-    state.set('chatPanel', info, ChatPanel)
+    state.set('chatPanel', info, ChatPanel);
 
     // Prepare UI
     chatPanelView.clearChatPanel();
@@ -42,8 +42,10 @@ const ideal = () => {
 const recentChat = () => {
     // Render Recent Chat
     chatPanelView.renderRecentChat();
+
     // Add Event Listeners
     const list = select(elementStrings.lists.chatPanelList);
+
     // Drag Start
     list.addEventListener('dragstart', event => {
         const { target } = event;
@@ -51,7 +53,7 @@ const recentChat = () => {
         const item = target.closest(elementStrings.items.chatPanelItem);
         if (!item) return;
         // Getting user
-        const user =  item.dataset.user;
+        const user = item.dataset.user;
         if (!user) return;
         // Saving user
         event.dataTransfer.setData('user', user);
@@ -60,13 +62,9 @@ const recentChat = () => {
     });
     // Drag End
     list.addEventListener('dragend', () => {
-        if (state['chatBox'].mode === mode.chatBox.drag)
-            // User Mode is chat box
-            chatBoxController.controlChatBox({
-                mode: mode.chatBox.user,
-                data: { user: 'id' },
-            });
+        if (state['chatBox'].mode === mode.chatBox.drag) chatBoxController.controlChatBox({ mode: mode.chatBox.empty });
     });
+
     // Click
     list.addEventListener('click', event => {
         const { target } = event;
@@ -76,13 +74,13 @@ const recentChat = () => {
         const item = target.closest(elementStrings.items.chatPanelItem);
         if (!item) return;
         // Getting user
-        const user =  item.dataset.user;
+        const user = item.dataset.user;
         if (!user) return;
         // Remove Selected
         chatPanelView.removeSelected();
         // Add Selected
         chatPanelView.addSelected(item);
-        // User Mode of chat box
+        // User Mode of Chat Box
         chatBoxController.controlChatBox({
             mode: mode.chatBox.user,
             data: { user: user },

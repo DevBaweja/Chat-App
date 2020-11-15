@@ -3,9 +3,8 @@ import faker from 'faker';
 
 export const clearChatPanel = () => (select(elements.ChatPanel).innerHTML = '');
 
-export const addSelected = item => {
-    item.classList.add(elementClasses.selected.chatPanel.item);
-};
+export const addSelected = item => item.classList.add(elementClasses.selected.chatPanel.item);
+
 export const removeSelected = () => {
     const items = selectAll(elementStrings.items.chatPanelItem);
     items.forEach(item => {

@@ -1,10 +1,12 @@
 class Navbar {
-    constructor({ mode, className }) {
+    constructor({ mode }) {
         this.mode = mode;
-        this.className = className;
     }
     setMode(mode) {
         this.mode = mode;
+    }
+    setClassName(className) {
+        this.className = className;
     }
 }
 export default Navbar;

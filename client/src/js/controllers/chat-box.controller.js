@@ -24,7 +24,7 @@ export const controlChatBox = info => {
             empty();
             break;
         case mode.chatBox.user:
-            user(info);
+            user();
             break;
         case mode.chatBox.drag:
             drag(info);
@@ -53,9 +53,11 @@ const user = () => {
     const backgroundImage = state['backgroundImage'];
     // Render User
     chatBoxView.renderUser();
+
     // Render Background Image
     if (!backgroundImage) backgroundImageController.controlBackgroundImage({ mode: mode.background[theme.mode][1] });
     else backgroundImageController.controlBackgroundImage({ mode: backgroundImage.mode });
+
     // Add Event Listeners
     select(elementStrings.chatBox.header.back).addEventListener('click', () => {
         // Remove Selected
@@ -70,17 +72,24 @@ const drag = ({ data }) => {
     // Add Event Listeners
     // To make it dropable elements
     const dropable = select(elementStrings.drags.chatPanelDrag);
+
     dropable.addEventListener('dragover', event => {
         event.preventDefault();
     });
     dropable.addEventListener('drop', event => {
         const user = event.dataTransfer.getData('user');
         // Model
-        if (user) controlChatBox({ mode: mode.chatBox.user });
+        if (!user) return;
+
+        controlChatBox({
+            mode: mode.chatBox.user,
+            data: { user: user },
+        });
         // Remove Selected
         chatPanelView.removeSelected();
         // Getting Item
         const item = select(`${elementStrings.items.chatPanelItem}[data-user="${user}"]`);
+        if (!item) return;
         // Add Selected
         chatPanelView.addSelected(item);
     });
