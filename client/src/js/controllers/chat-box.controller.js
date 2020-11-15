@@ -88,7 +88,7 @@ const drag = ({ data }) => {
         // Remove Selected
         chatPanelView.removeSelected();
         // Getting Item
-        const item = select(`${elementStrings.items.chatPanelItem}[data-user="${user}"]`);
+        const item = select(`${elementStrings.chatPanel.user.item}[data-user="${user}"]`);
         if (!item) return;
         // Add Selected
         chatPanelView.addSelected(item);

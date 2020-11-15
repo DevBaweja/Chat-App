@@ -6,7 +6,7 @@ export const clearChatPanel = () => (select(elements.ChatPanel).innerHTML = '');
 export const addSelected = item => item.classList.add(elementClasses.selected.chatPanel.item);
 
 export const removeSelected = () => {
-    const items = selectAll(elementStrings.items.chatPanelItem);
+    const items = selectAll(elementStrings.chatPanel.user.item);
     items.forEach(item => {
         item.classList.remove(elementClasses.selected.chatPanel.item);
     });
@@ -77,6 +77,13 @@ export const renderEmpty = () => {
     select(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
 };
 
+export const renderActiveNow = () => {
+    const markup = `
+    <p>Active Now</p>
+    `;
+    select(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
+};
+
 export const renderRecentChat = () => {
     const chat_panel__item = () => ` 
     <li class="chat-panel-user__item" data-user=${faker.random.uuid()} title="${faker.name.findName()}" draggable="true">
@@ -105,7 +112,7 @@ export const renderRecentChat = () => {
     const markup = `
     <div class="chat-panel-user">                    
         <div class="chat-panel-user__title">
-            Active Now <span class="chat-panel-user__count">(10)</span>
+            Recent Chatsg <span class="chat-panel-user__count">(10)</span>
             <svg class="chat-panel-user__reload">
                 <use xlink:href="svg/sprite.svg#icon-spinner"></use>
             </svg>
@@ -209,6 +216,34 @@ export const renderRecentChat = () => {
         </ul>
     </div>
 
+    `;
+    select(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
+};
+
+export const renderSearch = () => {
+    const markup = `
+    <p>Search</p>
+    `;
+    select(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
+};
+
+export const renderFriend = () => {
+    const markup = `
+    <p>Friend</p>
+    `;
+    select(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
+};
+
+export const renderRequestSent = () => {
+    const markup = `
+    <p>Request Sent</p>
+    `;
+    select(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
+};
+
+export const renderRequestReceive = () => {
+    const markup = `
+    <p>Request Receive</p>
     `;
     select(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
 };

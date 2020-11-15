@@ -99,12 +99,22 @@ const elementStrings = {
     drags: {
         chatPanelDrag: '.chat-box-drag',
     },
-    lists: {
-        chatPanelList: '.chat-panel-user__list',
+
+    navbar: {
+        user: {
+            list: '.navbar-user__list',
+            item: '.navbar-user__item',
+            photo: '.navbar-user__photo',
+        },
     },
-    items: {
-        chatPanelItem: '.chat-panel-user__item',
+
+    chatPanel: {
+        user: {
+            list: '.chat-panel-user__list',
+            item: '.chat-panel-user__item',
+        },
     },
+
     chatBox: {
         header: {
             back: '.chat-box-user__header--back',
@@ -121,6 +131,7 @@ const elementStrings = {
             send: '.chat-box-user__footer--send',
         },
     },
+
     chatProfile: {
         user: {
             form: '.chat-profile__user--form',

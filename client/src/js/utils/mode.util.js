@@ -22,7 +22,12 @@ const mode = {
         ideal: 'ideal',
         empty: 'empty',
         user: {
+            activeNow: 'active-now',
             recentChat: 'recent-chat',
+            search: 'search',
+            friend: 'friend',
+            requestSent: 'request-sent',
+            requestReceive: 'request-receive',
         },
     },
     chatBox: {
