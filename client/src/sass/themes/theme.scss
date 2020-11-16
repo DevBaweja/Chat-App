@@ -326,6 +326,8 @@
     .chat-panel {
     }
 
+    // Title
+    .chat-panel-empty,
     .chat-panel-active-now,
     .chat-panel-recent-chat,
     .chat-panel-search,
@@ -339,6 +341,14 @@
         &__count {
             @include adjust($color-grey-2, 50%, $theme, color);
         }
+    }
+
+    .chat-panel-active-now,
+    .chat-panel-recent-chat,
+    .chat-panel-search,
+    .chat-panel-friend,
+    .chat-panel-request-sent,
+    .chat-panel-request-receive {
     }
 
     // Recent Chat

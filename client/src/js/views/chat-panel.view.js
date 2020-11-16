@@ -60,12 +60,16 @@ export const renderEmpty = () => {
     // Data
     const data = new Array(8).fill(0);
 
+    const title = {
+        label: 'Active Now',
+        count: 0,
+        className: 'empty',
+    };
+
     // No users
     const markup = `
     <div class="chat-panel-empty">
-        <div class="chat-panel-user__title">
-            Active Now <span class="chat-panel-user__count" title="#">(0)</span>
-        </div>
+        ${renderTitle(title)}
         <div class="chat-panel-user__dimmer">
         ${data.map(() => renderEmptyGroup()).join('')}
         </div>
@@ -79,8 +83,8 @@ export const renderEmpty = () => {
 export const renderTitle = ({ label, count, className }) => `
 <div class="chat-panel-${className}">                    
     <div class="chat-panel-${className}__title">
-    <span class="chat-panel-${className}__label">${label}</span> 
-    <span class="chat-panel-${className}__count">(${count})</span>
+        <span class="chat-panel-${className}__label">${label}</span> 
+        <span class="chat-panel-${className}__count">(${count})</span>
     </div>
 </div>
 `;

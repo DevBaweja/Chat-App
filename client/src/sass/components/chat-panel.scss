@@ -2,6 +2,8 @@
 .chat-panel {
 }
 
+// Title
+.chat-panel-empty,
 .chat-panel-active-now,
 .chat-panel-recent-chat,
 .chat-panel-friend,
@@ -33,7 +35,13 @@
         font-weight: $font-weight-bold;
         font-size: $font-size-regular;
     }
+}
 
+.chat-panel-active-now,
+.chat-panel-recent-chat,
+.chat-panel-friend,
+.chat-panel-request-sent,
+.chat-panel-request-receive {
     &__list {
         // ! For Development
         max-height: 55rem;
@@ -223,8 +231,9 @@
 }
 
 // Ideal and Empty
-.chat-panel-ideal,
-.chat-panel-empty {
+
+// Title
+.chat-panel-ideal {
     @include flex(flex-start);
     @include direction(column);
     align-items: stretch;
@@ -238,6 +247,11 @@
         margin-bottom: 1.5rem;
         border-radius: 1rem;
     }
+}
+
+// Dimmer
+.chat-panel-ideal,
+.chat-panel-empty {
     &__dimmer {
         height: 55rem;
 
