@@ -77,6 +77,10 @@
     --color-primary: #f10043;
     --color-primary-light: #ff366e;
 }
+[data-color='mud'] {
+    --color-primary: #965326;
+    --color-primary-light: #b16d3f;
+}
 [data-color='grass'] {
     --color-primary: #089e37;
     --color-primary-light: #0dc446;
@@ -84,11 +88,6 @@
 [data-color='grey'] {
     --color-primary: #6f6f6f;
     --color-primary-light: #a2a2a2;
-}
-
-[data-color='aqua'] {
-    --color-primary: #d1dae1;
-    --color-primary-light: #9badbb;
 }
 
 $color-primary: var(--color-primary);

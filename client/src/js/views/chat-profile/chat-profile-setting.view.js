@@ -100,6 +100,7 @@ export const renderColor = theme => {
         '#f37e3b',
         '#c70b37',
         '#f10043',
+        '#965326',
         '#089e37',
         '#6f6f6f',
     ];
@@ -122,6 +123,7 @@ export const renderColor = theme => {
         'carrot',
         'maroon',
         'blood',
+        'mud',
         'grass',
         'grey',
     ];

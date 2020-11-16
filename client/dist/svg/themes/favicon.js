@@ -113,6 +113,11 @@ const colors = {
         normal: '#738491',
         dark: '#5a666e',
     },
+    mud: {
+        light: '#b16d3f',
+        normal: '#965326',
+        dark: '#6d3c1c',
+    },
     grey: {
         light: '#a2a2a2',
         normal: '#6f6f6f',
