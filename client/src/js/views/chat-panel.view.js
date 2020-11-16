@@ -65,9 +65,6 @@ export const renderEmpty = () => {
     <div class="chat-panel-empty">
         <div class="chat-panel-user__title">
             Active Now <span class="chat-panel-user__count" title="#">(0)</span>
-            <svg class="chat-panel-user__reload" title="Reload">
-                <use xlink:href="svg/sprite.svg#icon-spinner"></use>
-            </svg>
         </div>
         <div class="chat-panel-user__dimmer">
         ${data.map(() => renderEmptyGroup()).join('')}
