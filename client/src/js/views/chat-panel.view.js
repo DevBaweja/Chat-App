@@ -75,6 +75,15 @@ export const renderEmpty = () => {
     select(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
 };
 
+// User Title
+export const renderTitle = ({ label, count, className }) => `
+<div class="chat-panel-${className}">                    
+    <div class="chat-panel-${className}__title">
+    <span class="chat-panel-${className}__label">${label}</span> 
+    <span class="chat-panel-${className}__count">(${count})</span>
+    </div>
+</div>
+`;
 export const renderRecentChat = () => {
     const chat_panel__item = () => ` 
     <li class="chat-panel-user__item" data-user=${faker.random.uuid()} title="${faker.name.findName()}" draggable="true">
@@ -89,7 +98,7 @@ export const renderRecentChat = () => {
         </div>
         
         <!-- OPTIONS -->
-        <svg class="chat-panel-user__option chat-panel__drop title="Chat Options">
+        <svg class="chat-panel-user__option chat-panel__drop" title="Chat Options">
             <use xlink:href="svg/sprite.svg#icon-down"></use>
         </svg>
         <!-- ACTIVE -->
@@ -124,7 +133,7 @@ export const renderRecentChat = () => {
         </svg>
 
         <!-- OPTION -->
-        <svg class="chat-panel-user__option chat-panel__drop " title="Chat Options">
+        <svg class="chat-panel-user__option chat-panel__drop" title="Chat Options">
             <use xlink:href="svg/sprite.svg#icon-down"></use>
         </svg>
        

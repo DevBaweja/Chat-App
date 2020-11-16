@@ -231,7 +231,7 @@ export const renderDrag = ({ user }) => {
             <svg class="chat-box-drag--svg">
                 <use xlink:href="svg/sprite.svg#icon-drag"></use>
             </svg>
-            <div class="chat-box-drag--content">Drop here to start chat with ${user}.</div>
+            <div class="chat-box-drag--content">Drop here to start chat with <span class="chat-box-drag--classifier"> ${user}</span></div>
         </div>
     </div>
     `;

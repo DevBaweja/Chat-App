@@ -326,6 +326,22 @@
     .chat-panel {
     }
 
+    .chat-panel-active-now,
+    .chat-panel-recent-chat,
+    .chat-panel-search,
+    .chat-panel-friend,
+    .chat-panel-request-sent,
+    .chat-panel-request-receive {
+        &__title {
+            color: $color-primary;
+            background-color: $color-grey-3;
+        }
+        &__count {
+            @include adjust($color-grey-2, 50%, $theme, color);
+        }
+    }
+
+    // Recent Chat
     .chat-panel-user {
         &__title {
             color: $color-primary;
@@ -408,6 +424,33 @@
             &--inactive {
                 fill: transparent;
             }
+        }
+    }
+    // Search
+    .chat-panel-search {
+        &__input {
+            background-color: $color-grey-3;
+            @include adjust($color-grey-3, 50%, $theme, color);
+
+            &::placeholder {
+                @include adjust($color-grey-3, 25%, $theme, color);
+            }
+
+            &:focus {
+                background-color: $color-grey-1;
+            }
+        }
+
+        &__button {
+            background-color: $color-grey-3;
+        }
+
+        &__input:focus + .chat-panel-search__button {
+            background-color: $color-grey-1;
+        }
+
+        &__icon {
+            fill: $color-primary;
         }
     }
     // Ideal and Empty
@@ -583,6 +626,11 @@
     .chat-box-drag {
         &--svg {
             @include adjust($color-grey-3, 50%, $theme, fill);
+        }
+        &--content {
+        }
+        &--classifier {
+            color: $color-primary;
         }
     }
     // Chat Profile

@@ -76,7 +76,7 @@ const user = () => {
     // Navbar
     navbarController.controlNavbar({ mode: mode.navbar.user });
     // Chat Panel
-    chatPanelController.controlChatPanel({ mode: mode.chatPanel.user.recentChat });
+    chatPanelController.controlChatPanel({ mode: mode.chatPanel.user.search });
     // Chat Box
     chatBoxController.controlChatBox({ mode: mode.chatBox.user });
     // Chat Profile

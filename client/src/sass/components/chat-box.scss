@@ -345,7 +345,6 @@
         padding: 2.5rem 10rem;
         font-size: $font-size-regular-2;
         font-style: italic;
-        @include flex();
         text-align: center;
     }
 }
