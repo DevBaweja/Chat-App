@@ -82,10 +82,10 @@ export const renderRecentChat = () => {
     const chat_panel__item = () => ` 
     <li class="chat-panel-user__item" data-user=${faker.random.uuid()} title="${faker.name.findName()}" draggable="true">
     <div class="chat-panel-user__link" role="button">
-        <img src="${faker.image.avatar()}" alt="" class="chat-panel-user__userphoto" />
+        <img src="${faker.image.avatar()}" alt="" class="chat-panel-user__photo" />
         <!-- User Info -->
         <div class="chat-panel-user__info">
-            <span class="chat-panel-user__username">${faker.name.findName()}</span>
+            <span class="chat-panel-user__name">${faker.name.findName()}</span>
             <div class="chat-panel-user__settings">
                
             </div>
@@ -113,10 +113,10 @@ export const renderRecentChat = () => {
             ${chat_panel__item()}
             <li class="chat-panel-user__item" data-user=${faker.random.uuid()} title="${faker.name.findName()}" draggable="true">
     <div class="chat-panel-user__link" role="button">
-        <img src="${faker.image.avatar()}" alt="" class="chat-panel-user__userphoto" />
-        <!-- User Info -->
+        <img src="${faker.image.avatar()}" alt="" class="chat-panel-user__photo" />
+        <!-- USER INFO -->
         <div class="chat-panel-user__info">
-            <span class="chat-panel-user__username">${faker.name.findName()}</span>
+            <span class="chat-panel-user__name">${faker.name.findName()}</span>
             <div class="chat-panel-user__settings">
                
             </div>
@@ -140,9 +140,9 @@ export const renderRecentChat = () => {
             <!-- Settings -->
             <li class="chat-panel-user__item" data-user=${faker.random.uuid()} title="${faker.name.findName()}" draggable="true">
             <div class="chat-panel-user__link" role="button">
-                <img src="${faker.image.avatar()}" alt="" class="chat-panel-user__userphoto" />
+                <img src="${faker.image.avatar()}" alt="" class="chat-panel-user__photo" />
                 <div class="chat-panel-user__info">
-                <span class="chat-panel-user__username">${faker.name.findName()}</span>
+                <span class="chat-panel-user__name">${faker.name.findName()}</span>
                 <div class="chat-panel-user__settings">
                 <svg class="chat-panel-user__settings--icons icon-dot-single--notification" title="Unread Messages">
                 <use xlink:href="svg/sprite.svg#icon-dot-single--notification"></use>
@@ -169,9 +169,9 @@ export const renderRecentChat = () => {
             <!-- Selected -->
             <li class="chat-panel-user__item chat-panel-user__item--selected" data-user=${faker.random.uuid()} title="${faker.name.findName()}" draggable="true">
             <div class="chat-panel-user__link" role="button">
-                <img src="${faker.image.avatar()}" alt="" class="chat-panel-user__userphoto" />
+                <img src="${faker.image.avatar()}" alt="" class="chat-panel-user__photo" />
                 <div class="chat-panel-user__info">
-                <span class="chat-panel-user__username">${faker.name.findName()}</span>
+                <span class="chat-panel-user__name">${faker.name.findName()}</span>
                 <div class="chat-panel-user__settings">
                     
                 </div>
@@ -188,9 +188,9 @@ export const renderRecentChat = () => {
             <!-- Active -->
             <li class="chat-panel-user__item chat-panel-user__item--selected" data-user=${faker.random.uuid()} title="${faker.name.findName()}" draggable="true">
             <div class="chat-panel-user__link" role="button">
-                <img src="${faker.image.avatar()}" alt="" class="chat-panel-user__userphoto" />
+                <img src="${faker.image.avatar()}" alt="" class="chat-panel-user__photo" />
                 <div class="chat-panel-user__info">
-                <span class="chat-panel-user__username">${faker.name.findName()}</span>
+                <span class="chat-panel-user__name">${faker.name.findName()}</span>
                 <div class="chat-panel-user__settings">
                     
                 </div>

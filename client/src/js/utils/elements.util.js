@@ -1,4 +1,5 @@
 const elements = {
+    Favicon: '#favicon',
     App: '.app',
     Header: '.header',
     Navbar: '.navbar',

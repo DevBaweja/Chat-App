@@ -1,5 +1,5 @@
 import state from '../../state';
-import { mode } from '../../utils/base.util';
+import { mode, select, elements } from '../../utils/base.util';
 // Controllers
 import * as chatBoxController from '../chat-box.controller';
 import * as backgroundImageController from '../background-image.controller';
@@ -24,12 +24,23 @@ export const controlTheme = info => {
     themeView.renderTheme(state['theme'].mode);
     themeView.renderColor(state['theme'].color);
 
+    // Favicon
+    controlFavicon();
     // SVG
     controlSvg();
     // Image
     controlImage();
     // Wallpaper
     controlWallpaper();
+};
+
+const controlFavicon = () => {
+    // Getting color from state
+    const { color } = state['theme'];
+
+    const faviconElement = select(elements.Favicon);
+    const location = `svg/themes/favicon/favicon-${color}.svg`;
+    faviconElement.setAttribute('href', location);
 };
 
 const controlSvg = () => {

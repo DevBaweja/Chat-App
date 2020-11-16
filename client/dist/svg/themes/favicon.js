@@ -5,7 +5,7 @@ const fs = require('fs');
 const { argv } = process;
 const filename = argv[argv.length - 1];
 
-const validArgv = ['empty', 'ideal'];
+const validArgv = ['favicon'];
 
 if (!validArgv.find(valid => valid === filename)) {
     console.log(`Error: ${filename}  is not an valid argument`);
@@ -81,32 +81,15 @@ const colors = {
     },
 };
 
-const string = {
-    start: `
-    <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <defs>`,
-    end: `
-    </defs>
-    </svg>`,
-};
-
 // Loop
-const template = fs.readFileSync(`./template/${filename}.template.svg`, 'utf-8');
-let str = '';
-str += string.start;
+let template = fs.readFileSync(`./template/${filename}.template.svg`, 'utf-8');
 Object.keys(colors).forEach(key => {
-    let newTemplate = '' + template;
-
+    let newTemplate = template;
     for (const type of ['normal', 'light', 'dark']) {
         var reg = new RegExp(init[type], 'g');
         newTemplate = newTemplate.replace(reg, colors[key][type]);
     }
-
-    newTemplate = newTemplate.replace(`icon-${filename}`, `icon-${filename}-${key}`);
-
-    str += newTemplate;
+    fs.writeFileSync(`./favicon/${filename}-${key}.svg`, newTemplate);
 });
-str += string.end;
 
-fs.writeFileSync(`./${filename}.svg`, str);
 console.log(`File: ${filename} written successfully!`);
