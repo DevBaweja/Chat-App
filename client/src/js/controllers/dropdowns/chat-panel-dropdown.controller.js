@@ -13,7 +13,7 @@ const controlChatPanelDropdown = event => {
 
     // 0) Getting User Id
     // Getting item
-    const item = target.closest(elementStrings.chatPanel.user.item);
+    const item = target.closest(elementStrings.chatPanel.recentChat.item);
     if (!item) return;
     // Getting user
     const user = item.dataset.user;

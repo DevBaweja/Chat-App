@@ -64,16 +64,16 @@ const ideal = () => {
 const recentChat = () => {
     console.log('Recent Chat');
     // Render Recent Chat
-    chatPanelView.renderRecentChat();
+    chatPanelRecentChatView.renderRecentChat();
 
     // Add Event Listeners
-    const list = select(elementStrings.chatPanel.user.list);
+    const list = select(elementStrings.chatPanel.recentChat.list);
 
     // Drag Start
     list.addEventListener('dragstart', event => {
         const { target } = event;
         // Getting item
-        const item = target.closest(elementStrings.chatPanel.user.item);
+        const item = target.closest(elementStrings.chatPanel.recentChat.item);
         if (!item) return;
         // Getting user
         const user = item.dataset.user;
@@ -94,7 +94,7 @@ const recentChat = () => {
         // Don't do anything in case of drop
         if (target.matches(`${elementStrings.drops.chatPanelDrop}, ${elementStrings.drops.chatPanelDrop} *`)) return;
         // Getting item
-        const item = target.closest(elementStrings.chatPanel.user.item);
+        const item = target.closest(elementStrings.chatPanel.recentChat.item);
         if (!item) return;
         // Getting user
         const user = item.dataset.user;

@@ -109,9 +109,9 @@ const elementStrings = {
     },
 
     chatPanel: {
-        user: {
-            list: '.chat-panel-user__list',
-            item: '.chat-panel-user__item',
+        recentChat: {
+            list: '.chat-panel-recent-chat__list',
+            item: '.chat-panel-recent-chat__item',
         },
     },
 

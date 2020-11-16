@@ -67,33 +67,7 @@
 }
 
 // Recent Chat
-.chat-panel-user {
-    @include flex(flex-start);
-    @include direction(column);
-
-    margin: 0.5rem;
-    align-items: stretch;
-    &__title {
-        text-align: center;
-        padding: 0.75rem 1.5rem;
-        margin: 0.75rem;
-        margin-right: 5rem;
-        margin-left: 5rem;
-        margin-bottom: 1.5rem;
-        border-radius: 1rem;
-        line-height: 1.2;
-    }
-    &__label {
-        font-size: $font-size-regular-2;
-        font-weight: $font-weight-bold;
-    }
-    &__count {
-        margin: 0 0.5rem;
-        letter-spacing: 0.05rem;
-        font-weight: $font-weight-bold;
-        font-size: $font-size-regular;
-    }
-
+.chat-panel-recent-chat {
     &__list {
         // ! For Development
         max-height: 55rem;

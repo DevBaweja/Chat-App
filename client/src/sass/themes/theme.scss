@@ -352,15 +352,7 @@
     }
 
     // Recent Chat
-    .chat-panel-user {
-        &__title {
-            color: $color-primary;
-            background-color: $color-grey-3;
-        }
-        &__count {
-            @include adjust($color-grey-2, 50%, $theme, color);
-        }
-
+    .chat-panel-recent-chat {
         &__list {
         }
 

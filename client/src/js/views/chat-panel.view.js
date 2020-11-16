@@ -1,14 +1,13 @@
 import { elementStrings, elementClasses, elements, select, selectAll } from '../utils/base.util';
-import faker from 'faker';
 
 export const clearChatPanel = () => (select(elements.ChatPanel).innerHTML = '');
 
-export const addSelected = item => item.classList.add(elementClasses.selected.chatPanel.item);
+export const addSelected = item => item.classList.add(elementClasses.selected.chatPanel.recentChat);
 
 export const removeSelected = () => {
-    const items = selectAll(elementStrings.chatPanel.user.item);
+    const items = selectAll(elementStrings.chatPanel.recentChat.item);
     items.forEach(item => {
-        item.classList.remove(elementClasses.selected.chatPanel.item);
+        item.classList.remove(elementClasses.selected.chatPanel.recentChat);
     });
 };
 
@@ -70,7 +69,7 @@ export const renderEmpty = () => {
     const markup = `
     <div class="chat-panel-empty">
         ${renderTitle(title)}
-        <div class="chat-panel-user__dimmer">
+        <div class="chat-panel-empty__dimmer">
         ${data.map(() => renderEmptyGroup()).join('')}
         </div>
     </div>
@@ -88,136 +87,3 @@ export const renderTitle = ({ label, count, className }) => `
     </div>
 </div>
 `;
-export const renderRecentChat = () => {
-    const chat_panel__item = () => ` 
-    <li class="chat-panel-user__item" data-user=${faker.random.uuid()} title="${faker.name.findName()}" draggable="true">
-    <div class="chat-panel-user__link" role="button">
-        <img src="${faker.image.avatar()}" alt="" class="chat-panel-user__photo" />
-        <!-- User Info -->
-        <div class="chat-panel-user__info">
-            <span class="chat-panel-user__name">${faker.name.findName()}</span>
-            <div class="chat-panel-user__settings">
-               
-            </div>
-        </div>
-        
-        <!-- OPTIONS -->
-        <svg class="chat-panel-user__option chat-panel__drop" title="Chat Options">
-            <use xlink:href="svg/sprite.svg#icon-down"></use>
-        </svg>
-        <!-- ACTIVE -->
-        <svg class="chat-panel-user__state chat-panel-user__state--inactive">
-            <use xlink:href="svg/sprite.svg#icon-dot"></use>
-        </svg>
-        
-    </div>
-    </li>
-    `;
-    const markup = `
-    <div class="chat-panel-user">                    
-        <div class="chat-panel-user__title">
-           <span class="chat-panel-user__label">Recent Chats</span> 
-           <span class="chat-panel-user__count">(10)</span>
-        </div>
-        <ul class="chat-panel-user__list">
-            ${chat_panel__item()}
-            <li class="chat-panel-user__item" data-user=${faker.random.uuid()} title="${faker.name.findName()}" draggable="true">
-    <div class="chat-panel-user__link" role="button">
-        <img src="${faker.image.avatar()}" alt="" class="chat-panel-user__photo" />
-        <!-- USER INFO -->
-        <div class="chat-panel-user__info">
-            <span class="chat-panel-user__name">${faker.name.findName()}</span>
-            <div class="chat-panel-user__settings">
-               
-            </div>
-        </div>
-        <!-- ACTIVE -->
-        <svg class="chat-panel-user__state chat-panel-user__state--inactive">
-            <use xlink:href="svg/sprite.svg#icon-dot"></use>
-        </svg>
-
-        <!-- OPTION -->
-        <svg class="chat-panel-user__option chat-panel__drop" title="Chat Options">
-            <use xlink:href="svg/sprite.svg#icon-down"></use>
-        </svg>
-       
-       
-        
-    </div>
-    </li>
-            ${chat_panel__item()}
-
-            <!-- Settings -->
-            <li class="chat-panel-user__item" data-user=${faker.random.uuid()} title="${faker.name.findName()}" draggable="true">
-            <div class="chat-panel-user__link" role="button">
-                <img src="${faker.image.avatar()}" alt="" class="chat-panel-user__photo" />
-                <div class="chat-panel-user__info">
-                <span class="chat-panel-user__name">${faker.name.findName()}</span>
-                <div class="chat-panel-user__settings">
-                <svg class="chat-panel-user__settings--icons icon-dot-single--notification" title="Unread Messages">
-                <use xlink:href="svg/sprite.svg#icon-dot-single--notification"></use>
-                </svg>
-                <svg class="chat-panel-user__settings--icons icon-pin-chat" title="Chat Pinned">
-                <use xlink:href="svg/sprite.svg#icon-pin-chat"></use>
-                </svg>
-                <svg class="chat-panel-user__settings--icons icon-mute-notification" title="Chat Muted">
-                <use xlink:href="svg/sprite.svg#icon-mute-notification"></use>
-                </svg> 
-               
-                </div>
-            </div>
-                <svg class="chat-panel-user__option chat-panel__drop" title="Chat Options">
-                    <use xlink:href="svg/sprite.svg#icon-down"></use>
-                </svg>
-                <svg class="chat-panel-user__state chat-panel-user__state--active">
-                    <use xlink:href="svg/sprite.svg#icon-dot"></use>
-                </svg>
-            </div>
-            </li>
-            ${chat_panel__item()}
-
-            <!-- Selected -->
-            <li class="chat-panel-user__item chat-panel-user__item--selected" data-user=${faker.random.uuid()} title="${faker.name.findName()}" draggable="true">
-            <div class="chat-panel-user__link" role="button">
-                <img src="${faker.image.avatar()}" alt="" class="chat-panel-user__photo" />
-                <div class="chat-panel-user__info">
-                <span class="chat-panel-user__name">${faker.name.findName()}</span>
-                <div class="chat-panel-user__settings">
-                    
-                </div>
-            </div>
-                <svg class="chat-panel-user__option chat-panel__drop" title="Chat Options">
-                    <use xlink:href="svg/sprite.svg#icon-down"></use>
-                </svg>
-                <svg class="chat-panel-user__state chat-panel-user__state--inactive">
-                    <use xlink:href="svg/sprite.svg#icon-dot"></use>
-                </svg>
-            </div>
-            </li>
-            ${chat_panel__item()}
-            <!-- Active -->
-            <li class="chat-panel-user__item chat-panel-user__item--selected" data-user=${faker.random.uuid()} title="${faker.name.findName()}" draggable="true">
-            <div class="chat-panel-user__link" role="button">
-                <img src="${faker.image.avatar()}" alt="" class="chat-panel-user__photo" />
-                <div class="chat-panel-user__info">
-                <span class="chat-panel-user__name">${faker.name.findName()}</span>
-                <div class="chat-panel-user__settings">
-                    
-                </div>
-            </div>
-                <svg class="chat-panel-user__option chat-panel__drop" title="Chat Options">
-                    <use xlink:href="svg/sprite.svg#icon-down"></use>
-                </svg>
-                <svg class="chat-panel-user__state chat-panel-user__state--active">
-                    <use xlink:href="svg/sprite.svg#icon-dot"></use>
-                </svg>
-            </div>
-            </li>
-            ${chat_panel__item()}
-            ${chat_panel__item()}
-        </ul>
-    </div>
-
-    `;
-    select(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
-};
