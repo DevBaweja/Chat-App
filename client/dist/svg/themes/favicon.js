@@ -17,67 +17,106 @@ const init = {
     light: 'light',
     dark: 'dark',
 };
-
 const colors = {
+    red: {
+        light: '#fe5569',
+        normal: '#fd122e',
+        dark: '#df0d26',
+    },
     aqua: {
-        normal: '#01c0c8',
         light: '#31f3fa',
+        normal: '#01c0c8',
         dark: '#087d81',
     },
     green: {
-        normal: '#61f761',
         light: '#91f991',
-        dark: '#31f531',
+        normal: '#0ad80a',
+        dark: '#07b407',
+    },
+    blueberry: {
+        light: '#71a4f7',
+        normal: '#4286f4',
+        dark: '#317efa',
+    },
+    peach: {
+        light: '#f17878',
+        normal: '#ef5b5b',
+        dark: '#f14a4a',
     },
     blue: {
-        normal: '#4879ff',
         light: '#8cabff',
-        dark: '#0448ff',
-    },
-    purple: {
-        normal: '#be55f8',
-        light: '#d796fb',
-        dark: '#a613f6',
-    },
-    red: {
-        normal: '#fd334c',
-        light: '#fe5569',
-        dark: '#fd122e',
-    },
-    yellow: {
-        normal: '#e1ad01',
-        light: '#f0d73f',
-        dark: '#c59906',
+        normal: '#0448ff',
+        dark: '#063fdd',
     },
     pink: {
-        normal: '#ff1455',
-        light: '#ff366e',
-        dark: '#f10043',
+        light: '#f5649c',
+        normal: '#f44286',
+        dark: '#f32e7a',
+    },
+    purple: {
+        light: '#d796fb',
+        normal: '#a613f6',
+        dark: '#920adb',
+    },
+    yellow: {
+        light: '#f0d73f',
+        normal: '#e1ad01',
+        dark: '#c99a02',
+    },
+    lilac: {
+        light: '#cb75eb',
+        normal: '#b666d2',
+        dark: '#af52d1',
     },
     forest: {
-        normal: '#54bf78',
         light: '#6dc88b',
-        dark: '#42af66',
+        normal: '#42af66',
+        dark: '#389758',
     },
     orange: {
-        normal: '#ff4f00',
         light: '#fd6721',
-        dark: '#db4906',
+        normal: '#db4906',
+        dark: '#b93f06',
     },
     teal: {
-        normal: '#46c7ad',
         light: '#60cfb9',
-        dark: '#37b49b',
+        normal: '#37b49b',
+        dark: '#2c947f',
     },
     carrot: {
-        normal: '#f37e3b',
         light: '#f5935b',
-        dark: '#f1691b',
+        normal: '#f37e3b',
+        dark: '#f1732a',
+    },
+    maroon: {
+        light: '#dd0b3c',
+        normal: '#c70b37',
+        dark: '#b10a31',
+    },
+    gold: {
+        light: '#c5c74f',
+        normal: '#9c9e3c',
+        dark: '#838530',
+    },
+    blood: {
+        light: '#ff366e',
+        normal: '#f10043',
+        dark: '#da023f',
+    },
+    grass: {
+        light: '#0dc446',
+        normal: '#089e37',
+        dark: '#06812d',
+    },
+    metal: {
+        light: '#9badbb',
+        normal: '#738491',
+        dark: '#5a666e',
     },
     grey: {
-        normal: '#888',
         light: '#a2a2a2',
-        dark: '#6f6f6f',
+        normal: '#6f6f6f',
+        dark: '#565656',
     },
 };
 

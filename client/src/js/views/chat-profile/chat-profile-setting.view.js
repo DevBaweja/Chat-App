@@ -1,4 +1,4 @@
-import { elements, elementStrings, elementClasses, select, selectAll } from '../../utils/base.util';
+import { elements, elementStrings, elementClasses, select, selectAll, capitalize } from '../../utils/base.util';
 
 // Setting
 export const renderSetting = () => {
@@ -82,31 +82,47 @@ const renderSelectedColor = ({ color }) =>
 export const renderColor = theme => {
     // Data
     const color = [
+        '#fd122e',
         '#01c0c8',
         '#0ad80a',
+        '#4286f4',
+        '#ef5b5b',
         '#0448ff',
+        '#f44286',
         '#a613f6',
-        '#fd122e',
+        '#738491',
+        '#9c9e3c',
         '#e1ad01',
-        '#f10043',
+        '#b666d2',
         '#42af66',
         '#db4906',
         '#37b49b',
         '#f37e3b',
+        '#c70b37',
+        '#f10043',
+        '#089e37',
         '#6f6f6f',
     ];
     const type = [
+        'red',
         'aqua',
         'green',
+        'blueberry',
+        'peach',
         'blue',
-        'purple',
-        'red',
-        'yellow',
         'pink',
+        'purple',
+        'metal',
+        'gold',
+        'yellow',
+        'lilac',
         'forest',
         'orange',
         'teal',
         'carrot',
+        'maroon',
+        'blood',
+        'grass',
         'grey',
     ];
     // Markup
@@ -127,7 +143,9 @@ export const renderColor = theme => {
         .map(
             (item, index) => `
         <li class="chat-profile-setting-color__item" data-type="${item}">
-            <div class="chat-profile-setting-color__content" style="background-color: ${color[index]}">
+            <div class="chat-profile-setting-color__content" style="background-color: ${
+                color[index]
+            }" title="${capitalize(item)}">
                 <div class="chat-profile-setting-color__icon">
                     <svg class="chat-profile-setting-color__svg">
                         <use xlink:href="svg/sprite.svg#icon-avatar"></use>

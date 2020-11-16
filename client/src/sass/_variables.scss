@@ -5,33 +5,45 @@
 
 // ------------------------
 // Colors
+[data-color='red'] {
+    --color-primary: #fd122e;
+    --color-primary-light: #fe5569;
+}
 [data-color='aqua'] {
     --color-primary: #01c0c8;
     --color-primary-light: #31f3fa;
 }
 [data-color='green'] {
-    --color-primary: #0ad80a;
+    --color-primary: #08c008;
     --color-primary-light: #91f991;
+}
+[data-color='blueberry'] {
+    --color-primary: #4286f4;
+    --color-primary-light: #71a4f7;
+}
+[data-color='peach'] {
+    --color-primary: #ef5b5b;
+    --color-primary-light: #f17878;
 }
 [data-color='blue'] {
     --color-primary: #0448ff;
     --color-primary-light: #8cabff;
 }
+[data-color='pink'] {
+    --color-primary: #f44286;
+    --color-primary-light: #f5649c;
+}
 [data-color='purple'] {
     --color-primary: #a613f6;
     --color-primary-light: #d796fb;
-}
-[data-color='red'] {
-    --color-primary: #fd122e;
-    --color-primary-light: #fe5569;
 }
 [data-color='yellow'] {
     --color-primary: #e1ad01;
     --color-primary-light: #f0d73f;
 }
-[data-color='pink'] {
-    --color-primary: #f10043;
-    --color-primary-light: #ff366e;
+[data-color='lilac'] {
+    --color-primary: #b666d2;
+    --color-primary-light: #cb75eb;
 }
 [data-color='forest'] {
     --color-primary: #42af66;
@@ -49,9 +61,34 @@
     --color-primary: #f37e3b;
     --color-primary-light: #f5935b;
 }
+[data-color='maroon'] {
+    --color-primary: #c70b37;
+    --color-primary-light: #dd0b3c;
+}
+[data-color='metal'] {
+    --color-primary: #738491;
+    --color-primary-light: #9badbb;
+}
+[data-color='gold'] {
+    --color-primary: #9c9e3c;
+    --color-primary-light: #c5c74f;
+}
+[data-color='blood'] {
+    --color-primary: #f10043;
+    --color-primary-light: #ff366e;
+}
+[data-color='grass'] {
+    --color-primary: #089e37;
+    --color-primary-light: #0dc446;
+}
 [data-color='grey'] {
     --color-primary: #6f6f6f;
     --color-primary-light: #a2a2a2;
+}
+
+[data-color='aqua'] {
+    --color-primary: #d1dae1;
+    --color-primary-light: #9badbb;
 }
 
 $color-primary: var(--color-primary);
