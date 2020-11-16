@@ -2,21 +2,24 @@
 
 const fs = require('fs');
 
-const { argv } = process;
-const filename = argv[argv.length - 1];
+// const { argv } = process;
+// const filename = argv[argv.length - 1];
 
 const validArgv = ['favicon'];
 
+/*
 if (!validArgv.find(valid => valid === filename)) {
     console.log(`Error: ${filename}  is not an valid argument`);
     process.exit();
 }
+*/
 
 const init = {
     normal: 'normal',
     light: 'light',
     dark: 'dark',
 };
+
 const colors = {
     red: {
         light: '#fe5569',
@@ -29,34 +32,44 @@ const colors = {
         dark: '#087d81',
     },
     green: {
-        light: '#91f991',
+        light: '#12f112',
         normal: '#0ad80a',
         dark: '#07b407',
     },
     blueberry: {
-        light: '#71a4f7',
+        light: '#7facf5',
         normal: '#4286f4',
         dark: '#317efa',
     },
     peach: {
-        light: '#f17878',
+        light: '#f18e8e',
         normal: '#ef5b5b',
         dark: '#f14a4a',
     },
     blue: {
-        light: '#8cabff',
+        light: '#4c79f5',
         normal: '#0448ff',
         dark: '#063fdd',
     },
     pink: {
-        light: '#f5649c',
+        light: '#fa78aa',
         normal: '#f44286',
         dark: '#f32e7a',
     },
     purple: {
-        light: '#d796fb',
+        light: '#c260f7',
         normal: '#a613f6',
         dark: '#920adb',
+    },
+    metal: {
+        light: '#9badbb',
+        normal: '#738491',
+        dark: '#5a666e',
+    },
+    gold: {
+        light: '#c5c74f',
+        normal: '#9c9e3c',
+        dark: '#838530',
     },
     yellow: {
         light: '#f0d73f',
@@ -64,60 +77,51 @@ const colors = {
         dark: '#c99a02',
     },
     lilac: {
-        light: '#cb75eb',
+        light: '#d189eb',
         normal: '#b666d2',
         dark: '#af52d1',
     },
     forest: {
-        light: '#6dc88b',
+        light: '#76c490',
         normal: '#42af66',
         dark: '#389758',
     },
     orange: {
-        light: '#fd6721',
+        light: '#fc7c40',
         normal: '#db4906',
         dark: '#b93f06',
     },
     teal: {
-        light: '#60cfb9',
+        light: '#71c9b7',
         normal: '#37b49b',
         dark: '#2c947f',
     },
     carrot: {
-        light: '#f5935b',
+        light: '#f39965',
         normal: '#f37e3b',
         dark: '#f1732a',
     },
     maroon: {
-        light: '#dd0b3c',
+        light: '#c74765',
         normal: '#c70b37',
         dark: '#b10a31',
     },
-    gold: {
-        light: '#c5c74f',
-        normal: '#9c9e3c',
-        dark: '#838530',
-    },
     blood: {
-        light: '#ff366e',
+        light: '#fa4a7c',
         normal: '#f10043',
         dark: '#da023f',
-    },
-    grass: {
-        light: '#0dc446',
-        normal: '#089e37',
-        dark: '#06812d',
-    },
-    metal: {
-        light: '#9badbb',
-        normal: '#738491',
-        dark: '#5a666e',
     },
     mud: {
         light: '#b16d3f',
         normal: '#965326',
         dark: '#6d3c1c',
     },
+    grass: {
+        light: '#0dc446',
+        normal: '#089e37',
+        dark: '#06812d',
+    },
+
     grey: {
         light: '#a2a2a2',
         normal: '#6f6f6f',
@@ -126,14 +130,16 @@ const colors = {
 };
 
 // Loop
-let template = fs.readFileSync(`./template/${filename}.template.svg`, 'utf-8');
-Object.keys(colors).forEach(key => {
-    let newTemplate = template;
-    for (const type of ['normal', 'light', 'dark']) {
-        var reg = new RegExp(init[type], 'g');
-        newTemplate = newTemplate.replace(reg, colors[key][type]);
-    }
-    fs.writeFileSync(`./favicon/${filename}-${key}.svg`, newTemplate);
-});
+validArgv.forEach(filename => {
+    let template = fs.readFileSync(`./template/${filename}.template.svg`, 'utf-8');
+    Object.keys(colors).forEach(key => {
+        let newTemplate = template;
+        for (const type of ['normal', 'light', 'dark']) {
+            var reg = new RegExp(init[type], 'g');
+            newTemplate = newTemplate.replace(reg, colors[key][type]);
+        }
+        fs.writeFileSync(`./favicon/${filename}-${key}.svg`, newTemplate);
+    });
 
-console.log(`File: ${filename} written successfully!`);
+    console.log(`File: ${filename} written successfully!`);
+});

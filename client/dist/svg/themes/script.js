@@ -2,15 +2,17 @@
 
 const fs = require('fs');
 
-const { argv } = process;
-const filename = argv[argv.length - 1];
+// const { argv } = process;
+// const filename = argv[argv.length - 1];
 
 const validArgv = ['empty', 'ideal'];
 
+/*
 if (!validArgv.find(valid => valid === filename)) {
     console.log(`Error: ${filename}  is not an valid argument`);
     process.exit();
 }
+*/
 
 const init = {
     normal: 'normal',
@@ -136,23 +138,25 @@ const string = {
     </svg>`,
 };
 
-// Loop
-const template = fs.readFileSync(`./template/${filename}.template.svg`, 'utf-8');
-let str = '';
-str += string.start;
-Object.keys(colors).forEach(key => {
-    let newTemplate = '' + template;
+validArgv.forEach(filename => {
+    // Loop
+    const template = fs.readFileSync(`./template/${filename}.template.svg`, 'utf-8');
+    let str = '';
+    str += string.start;
+    Object.keys(colors).forEach(key => {
+        let newTemplate = '' + template;
 
-    for (const type of ['normal', 'light', 'dark']) {
-        var reg = new RegExp(init[type], 'g');
-        newTemplate = newTemplate.replace(reg, colors[key][type]);
-    }
+        for (const type of ['normal', 'light', 'dark']) {
+            var reg = new RegExp(init[type], 'g');
+            newTemplate = newTemplate.replace(reg, colors[key][type]);
+        }
 
-    newTemplate = newTemplate.replace(`icon-${filename}`, `icon-${filename}-${key}`);
+        newTemplate = newTemplate.replace(`icon-${filename}`, `icon-${filename}-${key}`);
 
-    str += newTemplate;
+        str += newTemplate;
+    });
+    str += string.end;
+
+    fs.writeFileSync(`./${filename}.svg`, str);
+    console.log(`File: ${filename} written successfully!`);
 });
-str += string.end;
-
-fs.writeFileSync(`./${filename}.svg`, str);
-console.log(`File: ${filename} written successfully!`);
