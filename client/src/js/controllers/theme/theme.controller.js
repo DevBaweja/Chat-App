@@ -63,12 +63,12 @@ const controlImage = () => {
 };
 
 const controlWallpaper = () => {
-    if (!state['chatProfile'] || !state['setting']) return;
+    if (!state['chatProfile'] || !state['subSetting']) return;
     const valids = [{ chatProfile: mode.chatProfile.settingSub, setting: mode.setting.wallpaper }];
     const isValid = valids.find(
-        valid => valid.chatProfile === state['chatProfile'].mode && valid.setting === state['setting'].mode
+        valid => valid.chatProfile === state['chatProfile'].mode && valid.setting === state['subSetting'].mode
     );
-    if (isValid) chatProfileSettingController.controlSetting({ mode: state['setting'].mode });
+    if (isValid) chatProfileSettingController.controlSetting({ mode: state['subSetting'].mode });
 };
 // ! For Development
 window.controlTheme = controlTheme;

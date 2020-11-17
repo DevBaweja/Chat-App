@@ -1,6 +1,6 @@
 import state from '../../state';
 // Utils
-import { mode, elements, select } from '../../utils/base.util';
+import { mode, elements, select, randomItem, color } from '../../utils/base.util';
 // Controllers
 import * as dropdownsController from '../dropdowns/dropdowns.controller';
 import * as themeController from '../theme/theme.controller';
@@ -37,7 +37,7 @@ export const controlInit = async () => {
         switch (state['mode'].mode) {
             case mode.mode.development:
                 state['token'] =
-                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYjEzODY4NmM5YWM0MzBiNDUyOGFlMSIsImlhdCI6MTYwNTQ0OTgzMywiZXhwIjoxNjA1NjIyNjMzfQ.3Lv10gxqHZJcOmy1V4WDAHdCFur2K1iDEGI0UH7y_j4';
+                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYjMyNGRjYjQwZmYyM2JkMDI2NGZhYiIsImlhdCI6MTYwNTU3NzQ5OCwiZXhwIjoxNjA1NzUwMjk4fQ.QAm1GvQn_-1prn8EeDCmClSv3nr2VzGRv1J56ru7RqM';
                 break;
         }
         // Checking for Login
@@ -49,7 +49,7 @@ export const controlInit = async () => {
             alertsController.controlAlerts({ mode: mode.alert.misc.success, data: 'Welcome to #ChatFuel' });
 
             // Theme
-            themeController.controlTheme({ mode: mode.theme.dark, color: mode.theme.color.yellow });
+            themeController.controlTheme({ mode: mode.theme.dark, color: randomItem(color) });
 
             // Combined Ideal
             combinedController.controlAll({ mode: mode.combined.ideal });
@@ -62,16 +62,20 @@ export const controlInit = async () => {
         switch (data.status) {
             case 'success':
                 {
-                    // 0) Getting User
+                    // Getting User
                     const { user } = data.data;
-                    // 1) User Assign
+                    // Assign User
                     state['user'] = user;
+                    // Getting Setting
+                    const { setting } = user;
+                    // User Assign Setting
+                    state['setting'] = setting;
 
-                    // 2) Success Alert
+                    //  Success Alert
                     alertsController.controlAlerts({ mode: mode.alert.misc.success, data: 'Welcome back!' });
 
                     // Theme
-                    themeController.controlTheme({ mode: mode.theme.dark, color: mode.theme.color.forest });
+                    themeController.controlTheme({ mode: setting.theme, color: setting.color });
 
                     // Combined User
                     combinedController.controlAll({ mode: mode.combined.user });

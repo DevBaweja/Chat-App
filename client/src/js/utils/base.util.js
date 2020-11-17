@@ -6,6 +6,22 @@ import mode from './mode.util';
 import actions from './actions.util';
 import io from './io.util';
 import { select, selectAll } from './selector.util';
-import { capitalize } from './utility.util';
+import { capitalize, random, randomItem } from './utility.util';
+import { color, hex } from './color.util';
 
-export { url, elements, elementStrings, elementClasses, mode, actions, io, select, selectAll, capitalize };
+export {
+    url,
+    elements,
+    elementStrings,
+    elementClasses,
+    mode,
+    actions,
+    io,
+    select,
+    selectAll,
+    capitalize,
+    random,
+    randomItem,
+    color,
+    hex,
+};

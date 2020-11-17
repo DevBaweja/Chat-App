@@ -12,6 +12,7 @@ const compression = require('compression');
 
 // Routers
 const userRouter = require('./routes/userRoutes');
+const settingRouter = require('./routes/settingRoutes');
 const messageRouter = require('./routes/messageRoutes');
 // Controllers
 const globalErrorHandler = require('./controllers/errorController');
@@ -81,6 +82,7 @@ app.use((req, res, next) => {
 // -----------------------
 // Routes
 app.use('/api/v1/users', userRouter);
+app.use('/api/v1/settings', settingRouter);
 app.use('/api/v1/messages', messageRouter);
 
 // Undefined Routes

@@ -13,7 +13,7 @@ import * as chatProfileSettingView from '../../views/chat-profile/chat-profile-s
 
 export const controlSetting = info => {
     // Init Settings
-    state.set('setting', info, Setting);
+    state.set('subSetting', info, Setting);
 
     // Reset chatProfile
     chatProfileController.controlChatProfile({ mode: mode.chatProfile.settingSub });
@@ -37,7 +37,7 @@ export const controlSetting = info => {
     }
     // Clear setting
     // Render for wallpaper
-    // state['setting'] = null;
+    // state['subSetting'] = null;
 };
 
 // ! For Development

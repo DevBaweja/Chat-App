@@ -5,6 +5,7 @@ import { elementStrings, mode } from '../../utils/base.util';
 // Controllers
 import * as formController from './form.controller';
 import * as alertsController from '../alerts/alerts.controller';
+import * as themeController from '../theme/theme.controller';
 import * as combinedController from '../combined.controller';
 // Models
 import Login from '../../models/Login';
@@ -49,15 +50,22 @@ export const controlLogin = async event => {
                     state['token'] = data.token;
                     // Getting User
                     const { user } = data.data;
-                    // User Assign
+                    // Assign User
                     state['user'] = user;
-
+                    // Getting Setting
+                    const { setting } = user;
+                    // Assign Setting
+                    state['setting'] = setting;
                     // 5) Success Alert
                     alertsController.controlAlerts({ mode: mode.alert.login.success });
+
                     // 6) Clear form
                     formView.clearForm();
 
-                    // 7) Combine User
+                    // 7) Theme
+                    themeController.controlTheme({ mode: setting.theme, color: setting.color });
+
+                    // 8) Combine User
                     combinedController.controlAll({ mode: mode.combined.user });
                 }
                 break;
@@ -100,4 +108,4 @@ export const controlLogin = async event => {
 };
 
 // ! For Development
-window.controlLogin = controlLogin
+window.controlLogin = controlLogin;

@@ -7,7 +7,6 @@ import * as navbarController from './navbar.controller';
 import * as chatPanelController from './chat-panel.controller';
 import * as chatBoxController from './chat-box.controller';
 import * as chatProfileController from './chat-profile.controller';
-import * as loadingController from './loading/loading.controller';
 // Models
 import Combined from '../models/Combined';
 

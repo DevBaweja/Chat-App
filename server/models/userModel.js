@@ -9,6 +9,10 @@ const getMustHave = (str) => `A user must have ${str}`;
 // ----------
 // Schema
 const def = {
+    photo: {
+        type: String,
+        default: 'default.png',
+    },
     name: {
         type: String,
         required: { value: true, message: getMustHave('name') },
@@ -29,14 +33,14 @@ const def = {
         default: 'Exploring #ChatFuel',
         trim: true,
     },
-    photo: {
-        type: String,
-        default: 'default.png',
-    },
     role: {
         type: String,
         enum: ['user', 'admin'],
         default: 'user',
+    },
+    setting: {
+        type: Schema.Types.ObjectId,
+        ref: 'Setting',
     },
     password: {
         type: String,
@@ -97,6 +101,11 @@ userSchema.pre('save', async function (next) {
 userSchema.pre(/^find/, function (next) {
     // For deactivated users
     this.find({ active: { $ne: false } });
+    next();
+});
+userSchema.pre(/^find/, function (next) {
+    // Settings
+    this.populate('setting');
     next();
 });
 // -----------
