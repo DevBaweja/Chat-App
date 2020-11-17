@@ -55,20 +55,6 @@ const mode = {
     theme: {
         dark: 'dark',
         light: 'light',
-        color: {
-            green: 'green',
-            blue: 'blue',
-            purple: 'purple',
-            red: 'red',
-            yellow: 'yellow',
-            white: 'white',
-            pink: 'pink',
-            forest: 'forest',
-            orange: 'orange',
-            teal: 'teal',
-            carrot: 'carrot',
-            grey: 'grey',
-        },
     },
     background: {
         dark: {

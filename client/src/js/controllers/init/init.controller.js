@@ -85,11 +85,11 @@ export const controlInit = async () => {
             case 'fail':
                 {
                     console.log('Error : ', data.error);
-                    // 0) Error Alert
+                    // Error Alert
                     alertsController.controlAlerts({ mode: mode.alert.misc.failure, data: data.message });
 
                     // Theme
-                    themeController.controlTheme({ mode: mode.theme.dark, color: mode.theme.color.red });
+                    themeController.controlTheme({ mode: mode.theme.dark, color: 'red' });
 
                     // Combined Ideal
                     combinedController.controlAll({ mode: mode.combined.ideal });
