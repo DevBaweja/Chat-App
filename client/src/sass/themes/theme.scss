@@ -600,6 +600,7 @@
     .chat-box-drag {
         &--svg {
             @include adjust($color-grey-3, 50%, $theme, fill);
+            fill: $color-primary;
         }
         &--content {
         }

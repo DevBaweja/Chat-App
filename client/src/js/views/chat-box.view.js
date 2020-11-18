@@ -1,4 +1,4 @@
-import { elements, select } from '../utils/base.util';
+import { elements, select, bold, capitalize } from '../utils/base.util';
 import faker from 'faker';
 
 export const clearChatBox = () => (select(elements.ChatBox).innerHTML = '');
@@ -231,7 +231,9 @@ export const renderDrag = ({ user }) => {
             <svg class="chat-box-drag--svg">
                 <use xlink:href="svg/sprite.svg#icon-drag"></use>
             </svg>
-            <div class="chat-box-drag--content">Drop here to start chat with <span class="chat-box-drag--classifier"> ${user}</span></div>
+            <div class="chat-box-drag--content">Drop here to start chat with <span class="chat-box-drag--classifier"> ${bold(
+                capitalize(user)
+            )}</span></div>
         </div>
     </div>
     `;
