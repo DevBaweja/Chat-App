@@ -104,7 +104,7 @@ export const renderItem = ({ user, photo, name, state, setting }, className) => 
             ${setting
                 .map(
                     ({ type }) => `
-                <svg class="chat-panel-${className}__setting--icon chat-panel-${className}__setting--icon-${type}" title="">
+                <svg class="chat-panel-${className}__setting--icon chat-panel-${className}__setting--icon-${type}">
                     <use xlink:href="svg/sprite.svg#icon-${type}"></use>
                 </svg>
             `

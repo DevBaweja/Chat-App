@@ -49,14 +49,12 @@ const empty = () => {
 };
 const user = () => {
     // Getting theme, backgroundImage from state
-    const theme = state['theme'];
-    const backgroundImage = state['backgroundImage'];
+    const { wallpaper } = state['setting'];
     // Render User
     chatBoxView.renderUser();
 
     // Render Background Image
-    if (!backgroundImage) backgroundImageController.controlBackgroundImage({ mode: mode.background[theme.mode][1] });
-    else backgroundImageController.controlBackgroundImage({ mode: backgroundImage.mode });
+    backgroundImageController.controlBackgroundImage({ mode: wallpaper[state['theme'].mode] });
 
     // Add Event Listeners
     select(elementStrings.chatBox.header.back).addEventListener('click', () => {

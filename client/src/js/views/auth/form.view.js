@@ -28,7 +28,7 @@ const renderAddOn = ({ className, addOn }) => {
 // Render Form
 export const renderForm = form => `
     <div class="blur" title="Go back">
-        <div class="${form.className}" title="">
+        <div class="${form.className}">
             <div class="${form.className}__title">${form.title}</div>
             <form class="${form.className}__form" autocomplete="on">
                 ${form.groups.map(group => renderFormGroup(group, form.className)).join('')}

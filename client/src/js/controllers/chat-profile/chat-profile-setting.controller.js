@@ -103,7 +103,7 @@ const wallpaper = () => {
         chatProfileController.controlChatProfile({ mode: mode.chatProfile.setting })
     );
     // List
-    select(elementStrings.chatProfile.subSetting.wallpaper.list).addEventListener('click', event => {
+    select(elementStrings.chatProfile.subSetting.wallpaper.list).addEventListener('click', async event => {
         const { target } = event;
         // Item Element
         const itemElement = target.closest(elementStrings.chatProfile.subSetting.wallpaper.item);
@@ -119,8 +119,24 @@ const wallpaper = () => {
         const type = itemElement.dataset.type;
         if (!type) return;
 
-        // Render Theme
-        backgroundImageController.controlBackgroundImage({ mode: type });
+        //  Changing State
+        const theme = type.split('-')[0];
+        state['setting'].setWallpaper({ ...state['setting'].wallpaper, [theme]: type });
+
+        const data = await state['setting'].updateMySetting();
+
+        switch (data.status) {
+            case 'success': {
+                // Getting Setting
+                const { setting } = data.data;
+                // Assign Setting
+                state['setting'].setInput({ ...setting });
+                // Success Alert
+                alertsController.controlAlerts({ mode: mode.alert.update.background });
+                // Render BackgroundImage
+                backgroundImageController.controlBackgroundImage({ mode: type });
+            }
+        }
     });
 };
 const privacy = () => {

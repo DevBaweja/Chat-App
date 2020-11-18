@@ -72,7 +72,7 @@ export const controlUpdate = async event => {
                     // 6) Clear form
                     formView.clearForm();
 
-                    // Combined Empty
+                    // Combined User
                     combinedController.controlAll({ mode: mode.combined.user });
                 }
                 break;

@@ -27,6 +27,20 @@ const colors = [
     'grey',
 ];
 const themes = ['light', 'dark'];
+const wallpaper = {
+    light: ['light-1'],
+    dark: [
+        'dark-1',
+        'dark-2',
+        'dark-3',
+        'dark-4',
+        'dark-5',
+        'dark-6',
+        'dark-7',
+        'dark-8',
+        'dark-9',
+    ],
+};
 // -------
 // Schema
 const def = {
@@ -43,7 +57,6 @@ const def = {
             message: 'Color choices are limited.',
         },
         default: 'grey',
-        required: { value: true, message: getMustHave('a color.') },
     },
     theme: {
         type: String,
@@ -52,7 +65,24 @@ const def = {
             message: 'Theme can either be light or dark.',
         },
         default: 'dark',
-        required: { value: true, message: getMustHave('a theme.') },
+    },
+    wallpaper: {
+        light: {
+            type: String,
+            enum: {
+                values: wallpaper.light,
+                message: 'Wallpaper choices are limited.',
+            },
+            default: 'light-1',
+        },
+        dark: {
+            type: String,
+            enum: {
+                values: wallpaper.dark,
+                message: 'Wallpaper choices are limited.',
+            },
+            default: 'dark-1',
+        },
     },
     createdAt: {
         type: Date,

@@ -11,7 +11,7 @@ const getMustHave = (str) => `A user must have ${str}`;
 const def = {
     photo: {
         type: String,
-        default: 'default.png',
+        default: 'img/avatar/default.png',
     },
     name: {
         type: String,

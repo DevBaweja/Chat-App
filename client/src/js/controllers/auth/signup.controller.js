@@ -6,6 +6,7 @@ import { elementStrings, mode, setToken } from '../../utils/base.util';
 import * as formController from './form.controller';
 import * as alertsController from '../alerts/alerts.controller';
 import * as combinedController from '../combined.controller';
+import * as backgroundImageController from '../background-image.controller';
 // Models
 import Signup from '../../models/Signup';
 import Setting from '../../models/Setting';
@@ -69,6 +70,7 @@ export const controlSignup = async event => {
 
                     switch (settingData.status) {
                         case 'success': {
+                            const { setting } = settingData.data;
                             // 5) Success Alert
                             alertsController.controlAlerts({ mode: mode.alert.signup.success });
                             // 6) Clear form
@@ -76,6 +78,9 @@ export const controlSignup = async event => {
 
                             // Combined Empty
                             combinedController.controlAll({ mode: mode.combined.empty });
+                            const { wallpaper } = setting;
+                            // Background Image
+                            backgroundImageController.controlBackgroundImage({ mode: wallpaper[state['theme'].mode] });
                         }
                     }
                 }

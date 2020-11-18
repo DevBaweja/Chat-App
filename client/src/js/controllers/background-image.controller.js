@@ -9,6 +9,11 @@ export const controlBackgroundImage = info => {
     // Init Background Image
     state.set('backgroundImage', info, BackgroundImage);
 
+    // Control ChatBox
+    controlChatBox(info);
+};
+
+const controlChatBox = info => {
     if (!state['chatBox']) return;
     const valids = [mode.chatBox.user];
     const isValid = valids.find(valid => valid === state['chatBox'].mode);
@@ -18,11 +23,10 @@ export const controlBackgroundImage = info => {
 
         const rgba = state['backgroundImage'].getRgba();
 
-        const { mode: img } = info;
+        const img = info.mode;
         // Render Background Image
         backgroundImageView.renderBackgroundImage({ rgba, img });
     }
 };
-
 // ! For Development
 window.controlBackgroundImage = controlBackgroundImage;

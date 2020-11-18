@@ -112,6 +112,7 @@ const mode = {
             },
             theme: 'update-theme-success',
             color: 'update-color-success',
+            background: 'update-background-success',
         },
         logout: {
             success: 'logout-success',

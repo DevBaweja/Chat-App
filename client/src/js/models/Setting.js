@@ -12,10 +12,14 @@ class Setting {
     setColor = color => {
         this.color = color;
     };
+    setWallpaper = wallpaper => {
+        this.wallpaper = wallpaper;
+    };
 
-    setInput = ({ theme, color }) => {
+    setInput = ({ theme, color, wallpaper }) => {
         this.theme = theme;
         this.color = color;
+        this.wallpaper = wallpaper;
     };
 
     parseData = () => {
@@ -28,6 +32,7 @@ class Setting {
         const data = {
             theme: this.theme,
             color: this.color,
+            wallpaper: this.wallpaper,
         };
         try {
             this.data = await axios({
@@ -69,6 +74,7 @@ class Setting {
         const data = {
             theme: this.theme,
             color: this.color,
+            wallpaper: this.wallpaper,
         };
         try {
             this.data = await axios({
