@@ -10,7 +10,9 @@ export const renderFriend = () => {
     };
 
     const markup = `
-    ${renderTitle(title)}
+    <div class="chat-panel-friend"> 
+        ${renderTitle(title)}
+    <//div>
     `;
     select(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
 };

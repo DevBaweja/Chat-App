@@ -10,7 +10,9 @@ export const renderRequestReceive = () => {
     };
 
     const markup = `
+    <div class="chat-panel-request-receive">     
         ${renderTitle(title)}
+    </div>
         `;
 
     select(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);

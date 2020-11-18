@@ -1,6 +1,6 @@
 import state from '../../state';
 // Utils
-import { mode } from '../../utils/base.util';
+import { mode, bold, capitalize } from '../../utils/base.util';
 // Models
 import Alert from '../../models/Alert';
 // Views
@@ -173,7 +173,7 @@ const loginSuccess = () => {
     // Getting email
     const { email } = state['login'];
     const data = {
-        text: `Logged in successfully as ${email}.`,
+        text: `Logged in successfully as ${bold(email)}.`,
         type: 'success',
     };
     alertsView.renderAlerts(data);
@@ -191,7 +191,7 @@ const signupSuccess = () => {
     // Getting name
     const { name } = state['signup'];
     const data = {
-        text: `You have been successfully registered as ${name}`,
+        text: `You have been successfully registered as ${bold(name)}`,
         type: 'success',
     };
     alertsView.renderAlerts(data);
@@ -209,7 +209,7 @@ const forgetSuccess = () => {
     // Getting email
     const { email } = state['forget'];
     const data = {
-        text: `The token has been sent to ${email}.`,
+        text: `The token has been sent to ${bold(email)}.`,
         type: 'success',
     };
     alertsView.renderAlerts(data);
@@ -275,7 +275,7 @@ const updateThemeSuccess = () => {
     // Getting theme
     const { theme } = state['setting'];
     const data = {
-        text: `Theme has been changed to <b>${theme}</b>.`,
+        text: `Theme has been changed to ${bold(capitalize(theme))}.`,
         type: 'success',
     };
     alertsView.renderAlerts(data);
@@ -284,7 +284,7 @@ const updateColorSuccess = () => {
     // Getting color
     const { color } = state['setting'];
     const data = {
-        text: `Color has been changed to <b>${color}</b>.`,
+        text: `Color has been changed to ${bold(capitalize(color))}.`,
         type: 'success',
     };
     alertsView.renderAlerts(data);

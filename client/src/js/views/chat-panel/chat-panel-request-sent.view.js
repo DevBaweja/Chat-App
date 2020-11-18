@@ -10,8 +10,10 @@ export const renderRequestSent = () => {
     };
 
     const markup = `
-            ${renderTitle(title)}
-            `;
+    <div class="chat-panel-request-sent">     
+        ${renderTitle(title)}
+    </div>
+    `;
 
     select(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
 };

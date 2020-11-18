@@ -130,6 +130,36 @@
             }
         }
     }
+    .chat-panel-user {
+        // Dropdown
+        &__dropdown {
+            &--svg {
+                @include adjust($color-grey-3, 50%, $theme, fill);
+
+                &-mark-read,
+                &-mark-unread {
+                }
+                &-pin-chat,
+                &-unpin-chat {
+                }
+                &-mute-notification,
+                &-unmute-notification {
+                }
+                &-add-favourite,
+                &-remove-favourite {
+                    fill: $color-primary;
+                }
+                &-delete {
+                    fill: $color-danger;
+                }
+            }
+            &--span {
+                &-delete {
+                    color: $color-danger;
+                }
+            }
+        }
+    }
 
     // Alert
     .alert {
@@ -151,36 +181,6 @@
         }
     }
 
-    .chat-panel-user {
-        // Dropdown
-        &__dropdown {
-            &--svg {
-                @include adjust($color-grey-3, 50%, $theme, fill);
-
-                &-read,
-                &-unread {
-                }
-                &-add,
-                &-remove {
-                    fill: $color-primary;
-                }
-                &-pin,
-                &-unpin {
-                }
-                &-mute,
-                &-unmute {
-                }
-                &-delete {
-                    fill: $color-danger;
-                }
-            }
-            &--span {
-                &-delete {
-                    color: $color-danger;
-                }
-            }
-        }
-    }
     // ---------------------------------
     // Forms
     // Login Form And Signup Form
@@ -360,11 +360,6 @@
             transition: all 0.2s;
             &:hover {
                 @include adjust($color-grey-1, 10%, $theme, background-color);
-                .chat-panel-user__state {
-                    &--active {
-                        @include adjust($color-grey-1, 10%, $theme, border-color);
-                    }
-                }
             }
 
             &--selected {
@@ -372,16 +367,6 @@
                 border-color: $color-primary;
                 &:hover {
                     background-color: $color-grey-1;
-                    .chat-panel-user__state {
-                        &--active {
-                            border-color: $color-grey-1;
-                        }
-                    }
-                }
-                .chat-panel-user__state {
-                    &--active {
-                        border-color: $color-grey-1;
-                    }
                 }
             }
         }
@@ -389,42 +374,33 @@
         &__link {
             @include adjust($color-grey-2, 65%, $theme, color);
         }
+        // State
+        &__state {
+            &--active {
+                fill: $color-active;
+                box-shadow: 0 0 0 0.4rem $color-grey-2;
+            }
 
-        &__userphoto {
+            &--inactive {
+                fill: transparent;
+            }
         }
         &__info {
         }
-        &__username {
-        }
-        // Settings
-        &__settings {
-            &--icons {
+        // Setting
+        &__setting {
+            &--icon {
                 @include adjust($color-grey-2, 40%, $theme, fill);
+                &-add-favourite {
+                    fill: $color-primary;
+                }
             }
-        }
-        .icon-pin-chat {
-        }
-        .icon-mute-notification {
-        }
-        .icon-dot-single--notification {
-            fill: $color-primary;
         }
         // Option
         &__option {
             @include adjust($color-grey-2, 60%, $theme, fill);
             &:hover {
                 fill: $color-primary;
-            }
-        }
-        // State
-        &__state {
-            &--active {
-                fill: $color-active;
-                border-color: $color-grey-2;
-            }
-
-            &--inactive {
-                fill: transparent;
             }
         }
     }

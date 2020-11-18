@@ -5,26 +5,26 @@ export const renderChatPanelDropdown = ({ coordinate }) => {
     const data = {
         groups: [
             {
-                // read or unread
-                type: 'read',
+                // mark-read or mark-unread
+                type: 'mark-read',
                 // Mark as read/unread
                 text: 'Mark as read',
             },
             {
-                // pin or unpin
-                type: 'pin',
+                // pin-chat or unpin-chat
+                type: 'pin-chat',
                 // Pin/Unpin Chat
                 text: 'Pin Chat',
             },
             {
-                // mute or unmute
-                type: 'mute',
+                // mute-notification or unmute-notification
+                type: 'mute-notification',
                 // Mute/Unmute Notifications
                 text: 'Mute Notifications',
             },
             {
-                // add/remove
-                type: 'add',
+                // add-favourite or remove-favourite
+                type: 'add-favourite',
                 // Add to/Remove from Favourites
                 text: 'Add to Favourites',
             },

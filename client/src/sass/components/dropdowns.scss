@@ -79,15 +79,17 @@
         transform: scale(0);
         transform-origin: top left;
         &--svg {
-            &-pin,
-            &-mute {
-                height: 1.5rem;
-                width: 1.5rem;
-            }
-            &-unpin,
-            &-unmute {
+            &-unpin-chat {
                 height: 1.2rem;
                 width: 1.2rem;
+            }
+            &-mute-notification {
+                height: 1.6rem;
+                width: 1.6rem;
+            }
+            &-delete {
+                height: 1.3rem;
+                width: 1.3rem;
             }
         }
     }
