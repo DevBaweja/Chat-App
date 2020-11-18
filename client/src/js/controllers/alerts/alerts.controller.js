@@ -101,13 +101,13 @@ export const controlBetterAlerts = ({ data }) => {
         case newMessage.includes('duplicate'):
             controlAlerts({ mode: mode.alert.error.duplicate });
             break;
-        case newMessage.includes('email'):
+        case newMessage.includes('valid email'):
             controlAlerts({ mode: mode.alert.error.email });
             break;
         case newMessage.includes('current password'):
             controlAlerts({ mode: mode.alert.error.current });
             break;
-        case newMessage.includes('password'):
+        case newMessage.includes('passwords must match'):
             controlAlerts({ mode: mode.alert.error.password });
             break;
         default:

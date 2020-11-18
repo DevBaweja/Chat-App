@@ -85,18 +85,9 @@ export const controlLogin = async event => {
             case 'fail':
                 {
                     console.log('Error : ', data.error);
-                    let newMessage = data.message;
-                    switch (true) {
-                        case data.message.includes('email'):
-                            newMessage = 'Please enter a valid email.';
-                            break;
-                        case data.message.includes('passwordConfirm'):
-                            newMessage = 'Passwords must match.';
-                            break;
-                    }
-                    // 0) Error Alert
-                    alertsController.controlAlerts({ mode: mode.alert.misc.failure, data: data.message });
 
+                    // 0) Better Alerts
+                    alertsController.controlBetterAlerts({ data: data.message });
                     // 1) Initial UI
                     loginView.initialUIForLogin();
                 }
