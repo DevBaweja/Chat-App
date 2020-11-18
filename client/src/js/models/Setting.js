@@ -1,9 +1,13 @@
 class Setting {
-    constructor({ mode }) {
-        this.mode = mode;
+    constructor({ theme, color }) {
+        this.theme = theme;
+        this.color = color;
     }
-    setMode = mode => {
-        this.mode = mode;
+    setTheme = theme => {
+        this.theme = theme;
+    };
+    setColor = color => {
+        this.color = color;
     };
 }
 export default Setting;

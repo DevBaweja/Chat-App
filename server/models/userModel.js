@@ -38,10 +38,6 @@ const def = {
         enum: ['user', 'admin'],
         default: 'user',
     },
-    setting: {
-        type: Schema.Types.ObjectId,
-        ref: 'Setting',
-    },
     password: {
         type: String,
         required: { value: true, message: getMustHave('password') },
@@ -103,11 +99,7 @@ userSchema.pre(/^find/, function (next) {
     this.find({ active: { $ne: false } });
     next();
 });
-userSchema.pre(/^find/, function (next) {
-    // Settings
-    this.populate('setting');
-    next();
-});
+
 // -----------
 // Methods
 userSchema.methods.correctPassword = async function (

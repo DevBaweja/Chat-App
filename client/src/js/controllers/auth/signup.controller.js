@@ -7,6 +7,7 @@ import * as formController from './form.controller';
 import * as alertsController from '../alerts/alerts.controller';
 import * as combinedController from '../combined.controller';
 // Models
+import Setting from '../../models/Setting';
 import Signup from '../../models/Signup';
 // Views
 import * as signupView from '../../views/auth/signup.view';
@@ -43,7 +44,6 @@ export const controlSignup = async event => {
 
     // 3) Init signup
     if (!state['signup']) state['signup'] = new Signup({ ...inputs });
-
     state['signup'].setUserInput({ ...inputs });
 
     try {

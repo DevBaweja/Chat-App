@@ -30,6 +30,12 @@ const themes = ['light', 'dark'];
 // -------
 // Schema
 const def = {
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        unique: true,
+        required: { value: true, message: getMustHave('a user.') },
+    },
     color: {
         type: String,
         enum: {

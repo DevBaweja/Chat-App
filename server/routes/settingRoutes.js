@@ -7,10 +7,19 @@ const authController = require('../controllers/authController');
 // Router
 const router = express.Router();
 
+// Authentication
+router.use(authController.protect);
 // -----------
 // Alias
+router
+    .route('/mySetting')
+    .get(settingController.getMySetting)
+    .post(settingController.createMySetting)
+    .patch(settingController.updateMySetting)
+    .delete(settingController.deleteMySetting);
 
-router.use(authController.protect, authController.restrictTo('admin'));
+// Authorization
+router.use(authController.restrictTo('admin'));
 // -----------
 // Routes
 router

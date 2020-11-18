@@ -7,13 +7,13 @@ import * as themeController from '../theme/theme.controller';
 import * as backgroundImageController from '../background-image.controller';
 import * as formController from '../auth/form.controller';
 // Models
-import Setting from '../../models/Setting';
+import SubSetting from '../../models/SubSetting';
 // Views
 import * as chatProfileSettingView from '../../views/chat-profile/chat-profile-setting.view';
 
 export const controlSetting = info => {
-    // Init Settings
-    state.set('subSetting', info, Setting);
+    // Init Sub Settings
+    state.set('subSetting', info, SubSetting);
 
     // Reset chatProfile
     chatProfileController.controlChatProfile({ mode: mode.chatProfile.settingSub });

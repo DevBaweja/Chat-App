@@ -55,6 +55,7 @@ export const controlLogin = async event => {
                     // Getting Setting
                     const { setting } = user;
                     // Assign Setting
+                    // state['setting'] = new Setting()
                     state['setting'] = setting;
                     // 5) Success Alert
                     alertsController.controlAlerts({ mode: mode.alert.login.success });

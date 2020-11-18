@@ -1,6 +1,6 @@
 import axios from 'axios';
 import state from '../state';
-import { url, mode } from '../utils/base.util';
+import { url, addAuthorizationHeaders } from '../utils/base.util';
 
 class UpdatePassword {
     constructor({ passwordCurrent, password, passwordConfirm }) {
@@ -23,11 +23,7 @@ class UpdatePassword {
 
     updatePassword = async () => {
         let headers = {};
-        // ! For Development
-        switch (state['mode'].mode) {
-            case mode.mode.development:
-                headers['authorization'] = 'Bearer ' + state['token'];
-        }
+        addAuthorizationHeaders(headers);
         try {
             const obj = {
                 passwordCurrent: this.passwordCurrent,
