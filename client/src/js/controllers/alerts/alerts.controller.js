@@ -68,6 +68,12 @@ export const controlAlerts = info => {
         case mode.alert.update.password.failure:
             updatePasswordFailure();
             break;
+        case mode.alert.update.theme:
+            updateThemeSuccess();
+            break;
+        case mode.alert.update.color:
+            updateColorSuccess();
+            break;
         case mode.alert.logout.success:
             logoutSuccess();
             break;
@@ -164,7 +170,7 @@ const errorPassword = () => {
 };
 
 const loginSuccess = () => {
-    // Getting email from state['login']
+    // Getting email
     const { email } = state['login'];
     const data = {
         text: `Logged in successfully as ${email}.`,
@@ -182,7 +188,7 @@ const loginFailure = () => {
 };
 
 const signupSuccess = () => {
-    // Getting name from state['signup']
+    // Getting name
     const { name } = state['signup'];
     const data = {
         text: `You have been successfully registered as ${name}`,
@@ -200,7 +206,7 @@ const signupFailure = () => {
 };
 
 const forgetSuccess = () => {
-    // Getting email from state['forget']
+    // Getting email
     const { email } = state['forget'];
     const data = {
         text: `The token has been sent to ${email}.`,
@@ -261,6 +267,25 @@ const updatePasswordFailure = () => {
     const data = {
         text: 'There was error while updating your password.',
         type: 'failure',
+    };
+    alertsView.renderAlerts(data);
+};
+
+const updateThemeSuccess = () => {
+    // Getting theme
+    const { theme } = state['setting'];
+    const data = {
+        text: `Theme has been changed to <b>${theme}</b>.`,
+        type: 'success',
+    };
+    alertsView.renderAlerts(data);
+};
+const updateColorSuccess = () => {
+    // Getting color
+    const { color } = state['setting'];
+    const data = {
+        text: `Color has been changed to <b>${color}</b>.`,
+        type: 'success',
     };
     alertsView.renderAlerts(data);
 };

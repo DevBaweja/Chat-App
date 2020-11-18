@@ -433,6 +433,7 @@
         &__input {
             background-color: $color-grey-3;
             @include adjust($color-grey-3, 50%, $theme, color);
+            border-color: $color-grey-3;
 
             &::placeholder {
                 @include adjust($color-grey-3, 25%, $theme, color);
@@ -440,19 +441,16 @@
 
             &:focus {
                 background-color: $color-grey-1;
+                border-color: $color-primary;
             }
         }
 
         &__button {
-            background-color: $color-grey-3;
-        }
-
-        &__input:focus + .chat-panel-search__button {
-            background-color: $color-grey-1;
+            background-color: $color-primary;
         }
 
         &__icon {
-            fill: $color-primary;
+            fill: $color-grey-3;
         }
     }
     // Ideal and Empty

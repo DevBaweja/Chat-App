@@ -110,6 +110,8 @@ const mode = {
                 success: 'update-password-success',
                 failure: 'update-password-failure',
             },
+            theme: 'update-theme-success',
+            color: 'update-color-success',
         },
         logout: {
             success: 'logout-success',

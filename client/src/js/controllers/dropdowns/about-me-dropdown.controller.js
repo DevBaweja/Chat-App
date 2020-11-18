@@ -5,6 +5,7 @@ import { elementStrings, select, mode, actions } from '../../utils/base.util';
 import * as themeController from '../theme/theme.controller';
 import * as logoutController from '../auth/logout.controller';
 import * as chatProfileController from '../chat-profile.controller';
+import * as alertsController from '../alerts/alerts.controller';
 // Views
 import { getCoordinate } from '../../views/dropdowns/dropdowns.view';
 import * as aboutMeDropdownView from '../../views/dropdowns/about-me-dropdrop.view';
@@ -63,6 +64,8 @@ const theme = async () => {
             state['setting'].setInput({ ...setting });
             // Render Theme
             themeController.controlTheme({ mode: setting.theme });
+            // Success Alert
+            alertsController.controlAlerts({ mode: mode.alert.update.theme });
         }
     }
 };

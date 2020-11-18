@@ -6,6 +6,7 @@ import * as chatProfileController from '../chat-profile.controller';
 import * as themeController from '../theme/theme.controller';
 import * as backgroundImageController from '../background-image.controller';
 import * as formController from '../auth/form.controller';
+import * as alertsController from '../alerts/alerts.controller';
 // Models
 import SubSetting from '../../models/SubSetting';
 // Views
@@ -83,6 +84,8 @@ const color = () => {
                 state['setting'].setInput({ ...setting });
                 // Render Theme
                 themeController.controlTheme({ color: type });
+                // Success Alert
+                alertsController.controlAlerts({ mode: mode.alert.update.color });
             }
         }
     });
