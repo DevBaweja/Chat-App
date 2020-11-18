@@ -8,6 +8,7 @@ import * as alertsController from '../alerts/alerts.controller';
 import * as combinedController from '../combined.controller';
 // Models
 import Signup from '../../models/Signup';
+import Setting from '../../models/Setting';
 // Views
 import * as signupView from '../../views/auth/signup.view';
 import * as formView from '../../views/auth/form.view';
@@ -59,14 +60,26 @@ export const controlSignup = async event => {
                     const { user } = data.data;
                     // User Assign
                     state['user'] = user;
+                    // 1) Initializing Setting
+                    if (!state['setting']) state['setting'] = new Setting();
+                    state['setting'].setTheme(state['theme'].mode);
+                    state['setting'].setColor(state['theme'].color);
+                    // Creating Setting
+                    const settingData = await state['setting'].createMySetting();
 
-                    // 5) Success Alert
-                    alertsController.controlAlerts({ mode: mode.alert.signup.success });
-                    // 6) Clear form
-                    formView.clearForm();
+                    switch (settingData.status) {
+                        case 'success': {
+                            // Getting Setting
+                            // const { setting } = settingData.data;
+                            // 5) Success Alert
+                            alertsController.controlAlerts({ mode: mode.alert.signup.success });
+                            // 6) Clear form
+                            formView.clearForm();
 
-                    // Combined Empty
-                    combinedController.controlAll({ mode: mode.combined.empty });
+                            // Combined Empty
+                            combinedController.controlAll({ mode: mode.combined.empty });
+                        }
+                    }
                 }
                 break;
             case 'error':

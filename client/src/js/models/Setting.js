@@ -22,7 +22,29 @@ class Setting {
         const { data } = this.data;
         this.data = data;
     };
+    createMySetting = async () => {
+        let headers = {};
+        addAuthorizationHeaders(headers);
+        const data = {
+            theme: this.theme,
+            color: this.color,
+        };
+        try {
+            this.data = await axios({
+                method: 'POST',
+                url: `${this.url}mySetting`,
+                headers,
+                data,
+                validateStatus: () => true,
+                // For validation
+            });
 
+            this.parseData();
+            return this.data;
+        } catch (err) {
+            throw err;
+        }
+    };
     getMySetting = async () => {
         let headers = {};
         addAuthorizationHeaders(headers);
