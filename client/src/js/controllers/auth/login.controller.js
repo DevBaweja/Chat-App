@@ -1,7 +1,7 @@
 // State
 import state from '../../state';
 // Utils
-import { elementStrings, mode } from '../../utils/base.util';
+import { elementStrings, mode, setToken } from '../../utils/base.util';
 // Controllers
 import * as formController from './form.controller';
 import * as alertsController from '../alerts/alerts.controller';
@@ -48,6 +48,7 @@ export const controlLogin = async event => {
                     // !For Development
                     // Token Assign
                     state['token'] = data.token;
+                    setToken(state['token']);
                     // Getting User
                     const { user } = data.data;
                     // Assign User
@@ -103,6 +104,7 @@ export const controlLogin = async event => {
 
         // State Changes
         state['token'] = null;
+        setToken(state['token']);
         state['user'] = null;
         state['login'] = null;
     }

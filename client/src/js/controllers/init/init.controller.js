@@ -1,6 +1,6 @@
 import state from '../../state';
 // Utils
-import { mode, elements, select, randomItem, color } from '../../utils/base.util';
+import { mode, elements, select, randomItem, color, getToken } from '../../utils/base.util';
 // Controllers
 import * as dropdownsController from '../dropdowns/dropdowns.controller';
 import * as themeController from '../theme/theme.controller';
@@ -8,6 +8,7 @@ import * as alertsController from '../alerts/alerts.controller';
 import * as combinedController from '../combined.controller';
 // Model
 import Init from '../../models/Init';
+import Setting from '../../models/Setting';
 
 export const addListeners = () => {
     // Dropdown
@@ -36,8 +37,7 @@ export const controlInit = async () => {
         // !For Development
         switch (state['mode'].mode) {
             case mode.mode.development:
-                state['token'] =
-                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYjMyNGRjYjQwZmYyM2JkMDI2NGZhYiIsImlhdCI6MTYwNTU3NzQ5OCwiZXhwIjoxNjA1NzUwMjk4fQ.QAm1GvQn_-1prn8EeDCmClSv3nr2VzGRv1J56ru7RqM';
+                state['token'] = getToken();
                 break;
         }
         // Checking for Login
@@ -66,19 +66,33 @@ export const controlInit = async () => {
                     const { user } = data.data;
                     // Assign User
                     state['user'] = user;
+                    // 1) Initializing Setting
+                    if (!state['setting']) state['setting'] = new Setting();
                     // Getting Setting
-                    const { setting } = user;
-                    // User Assign Setting
-                    state['setting'] = setting;
+                    const settingData = await state['setting'].getMySetting();
 
-                    //  Success Alert
-                    alertsController.controlAlerts({ mode: mode.alert.misc.success, data: 'Welcome back!' });
+                    switch (settingData.status) {
+                        case 'success':
+                            {
+                                // Getting Setting
+                                const { setting } = settingData.data;
+                                // Assign Setting
+                                state['setting'].setInput({ ...setting });
 
-                    // Theme
-                    themeController.controlTheme({ mode: setting.theme, color: setting.color });
+                                //  Success Alert
+                                alertsController.controlAlerts({
+                                    mode: mode.alert.misc.success,
+                                    data: 'Welcome back!',
+                                });
 
-                    // Combined User
-                    combinedController.controlAll({ mode: mode.combined.user });
+                                // Theme
+                                themeController.controlTheme({ mode: setting.theme, color: setting.color });
+
+                                // Combined User
+                                combinedController.controlAll({ mode: mode.combined.user });
+                            }
+                            break;
+                    }
                 }
                 break;
             case 'error':

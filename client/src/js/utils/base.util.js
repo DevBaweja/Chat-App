@@ -8,7 +8,7 @@ import io from './io.util';
 import { select, selectAll } from './selector.util';
 import { capitalize, random, randomItem } from './utility.util';
 import { color, hex } from './color.util';
-import { addAuthorizationHeaders } from './auth.util';
+import { addAuthorizationHeaders, getToken, setToken } from './auth.util';
 
 export {
     url,
@@ -26,4 +26,6 @@ export {
     color,
     hex,
     addAuthorizationHeaders,
+    getToken,
+    setToken,
 };

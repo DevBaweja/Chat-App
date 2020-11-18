@@ -7,3 +7,9 @@ export const addAuthorizationHeaders = headers => {
             headers['authorization'] = 'Bearer ' + state['token'];
     }
 };
+export const getToken = () => {
+    const token = localStorage.getItem('token');
+    if (!token) return null;
+    return token;
+};
+export const setToken = token => localStorage.setItem('token', token);

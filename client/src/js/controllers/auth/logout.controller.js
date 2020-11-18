@@ -1,7 +1,7 @@
 // State
 import state from '../../state';
 // Utils
-import { mode } from '../../utils/base.util';
+import { mode, setToken } from '../../utils/base.util';
 // Controllers
 import * as alertsController from '../alerts/alerts.controller';
 import * as combinedController from '../combined.controller';
@@ -35,6 +35,8 @@ export const controlLogout = async () => {
                     // !For Development
                     // 3) Clear token
                     state['token'] = null;
+                    // Don't
+                    setToken(state['token']);
                 }
                 break;
             case 'error':
