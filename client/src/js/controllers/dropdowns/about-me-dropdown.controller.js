@@ -49,9 +49,22 @@ const controlAboutMeDropdownItems = event => {
 };
 
 // Actions
-const theme = () => {
+const theme = async () => {
     console.log('Theme');
-    themeController.controlTheme({ mode: state['theme'].toggleMode() });
+    //  Changing State
+    state['setting'].setTheme(state['theme'].toggleMode());
+    const data = await state['setting'].updateMySetting();
+
+    switch (data.status) {
+        case 'success': {
+            // Getting Setting
+            const { setting } = data.data;
+            // Assign Setting
+            state['setting'].setInput({ ...setting });
+            // Render Theme
+            themeController.controlTheme({ mode: setting.theme });
+        }
+    }
 };
 
 const profile = () => {

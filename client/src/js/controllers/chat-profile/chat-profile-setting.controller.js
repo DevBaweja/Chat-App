@@ -73,12 +73,12 @@ const color = () => {
 
         //  Changing State
         state['setting'].setColor(type);
-        const settingData = await state['setting'].updateMySetting();
+        const data = await state['setting'].updateMySetting();
 
-        switch (settingData.status) {
+        switch (data.status) {
             case 'success': {
                 // Getting Setting
-                const { setting } = settingData.data;
+                const { setting } = data.data;
                 // Assign Setting
                 state['setting'].setInput({ ...setting });
                 // Render Theme
