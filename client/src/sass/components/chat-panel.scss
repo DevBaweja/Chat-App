@@ -67,8 +67,9 @@
     }
 }
 
-// Recent Chat
-.chat-panel-recent-chat {
+.chat-panel-active-now,
+.chat-panel-recent-chat,
+.chat-panel-friend {
     &__status {
         position: relative;
         @include flex();

@@ -351,11 +351,9 @@
     .chat-panel-request-receive {
     }
 
-    // Recent Chat
-    .chat-panel-recent-chat {
-        &__list {
-        }
-
+    .chat-panel-active-now,
+    .chat-panel-recent-chat,
+    .chat-panel-friend {
         &__item {
             transition: all 0.2s;
             &:hover {

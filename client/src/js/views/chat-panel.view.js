@@ -85,3 +85,38 @@ export const renderTitle = ({ label, count, className }) => `
         <span class="chat-panel-${className}__count">(${count})</span>
     </div>
 `;
+
+export const renderItem = ({ user, photo, name, state, setting }, className) => `
+<li class="chat-panel-${className}__item" data-user=${user} title="${name}" draggable="true">
+    <div class="chat-panel-${className}__link" role="button">
+        <div class="chat-panel-${className}__status">
+            <img src="${photo}" alt="" class="chat-panel-${className}__photo" />
+            <!-- STATE -->
+            <svg class="chat-panel-${className}__state chat-panel-${className}__state--${state}" data-type="${state}">
+                <use xlink:href="svg/sprite.svg#icon-dot"></use>
+            </svg>
+        </div>
+        <!-- USER INFO -->
+        <div class="chat-panel-${className}__info">
+            <span class="chat-panel-${className}__name">${name}</span>
+            <!-- SETTING -->
+            <div class="chat-panel-${className}__setting">
+            ${setting
+                .map(
+                    ({ type }) => `
+                <svg class="chat-panel-${className}__setting--icon chat-panel-${className}__setting--icon-${type}" title="">
+                    <use xlink:href="svg/sprite.svg#icon-${type}"></use>
+                </svg>
+            `
+                )
+                .join('')}
+            </div>
+        </div>
+        
+        <!-- OPTION -->
+        <svg class="chat-panel-${className}__option chat-panel__drop" title="Chat Options">
+            <use xlink:href="svg/sprite.svg#icon-down"></use>
+        </svg>
+    </div>
+</li>
+`;
