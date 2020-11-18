@@ -63,5 +63,28 @@ class Setting {
             throw err;
         }
     };
+    updateMySetting = async () => {
+        let headers = {};
+        addAuthorizationHeaders(headers);
+        const data = {
+            theme: this.theme,
+            color: this.color,
+        };
+        try {
+            this.data = await axios({
+                method: 'PATCH',
+                url: `${this.url}mySetting`,
+                headers,
+                data,
+                validateStatus: () => true,
+                // For validation
+            });
+
+            this.parseData();
+            return this.data;
+        } catch (err) {
+            throw err;
+        }
+    };
 }
 export default Setting;

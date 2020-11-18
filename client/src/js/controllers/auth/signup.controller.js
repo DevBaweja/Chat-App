@@ -69,8 +69,6 @@ export const controlSignup = async event => {
 
                     switch (settingData.status) {
                         case 'success': {
-                            // Getting Setting
-                            // const { setting } = settingData.data;
                             // 5) Success Alert
                             alertsController.controlAlerts({ mode: mode.alert.signup.success });
                             // 6) Clear form

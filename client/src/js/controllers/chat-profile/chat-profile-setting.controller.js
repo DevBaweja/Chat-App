@@ -55,7 +55,7 @@ const color = () => {
         chatProfileController.controlChatProfile({ mode: mode.chatProfile.setting })
     );
     // List
-    select(elementStrings.chatProfile.subSetting.color.list).addEventListener('click', event => {
+    select(elementStrings.chatProfile.subSetting.color.list).addEventListener('click', async event => {
         const { target } = event;
         // Item Element
         const itemElement = target.closest(elementStrings.chatProfile.subSetting.color.item);
@@ -71,8 +71,20 @@ const color = () => {
         const type = itemElement.dataset.type;
         if (!type) return;
 
-        // Render Theme
-        themeController.controlTheme({ color: type });
+        //  Changing State
+        state['setting'].setColor(type);
+        const settingData = await state['setting'].updateMySetting();
+
+        switch (settingData.status) {
+            case 'success': {
+                // Getting Setting
+                const { setting } = settingData.data;
+                // Assign Setting
+                state['setting'].setInput({ ...setting });
+                // Render Theme
+                themeController.controlTheme({ color: type });
+            }
+        }
     });
 };
 const wallpaper = () => {

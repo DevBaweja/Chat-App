@@ -9,6 +9,7 @@ import * as themeController from '../theme/theme.controller';
 import * as combinedController from '../combined.controller';
 // Models
 import Login from '../../models/Login';
+import Setting from '../../models/Setting';
 // Views
 import * as loginView from '../../views/auth/login.view';
 import * as formView from '../../views/auth/form.view';
@@ -53,22 +54,31 @@ export const controlLogin = async event => {
                     const { user } = data.data;
                     // Assign User
                     state['user'] = user;
+                    // 1) Initializing Setting
+                    if (!state['setting']) state['setting'] = new Setting();
                     // Getting Setting
-                    const { setting } = user;
-                    // Assign Setting
-                    // state['setting'] = new Setting()
-                    state['setting'] = setting;
-                    // 5) Success Alert
-                    alertsController.controlAlerts({ mode: mode.alert.login.success });
+                    const settingData = await state['setting'].getMySetting();
 
-                    // 6) Clear form
-                    formView.clearForm();
+                    switch (settingData.status) {
+                        case 'success': {
+                            // Getting Setting
+                            const { setting } = settingData.data;
+                            // Assign Setting
+                            state['setting'].setInput({ ...setting });
 
-                    // 7) Theme
-                    themeController.controlTheme({ mode: setting.theme, color: setting.color });
+                            // 5) Success Alert
+                            alertsController.controlAlerts({ mode: mode.alert.login.success });
 
-                    // 8) Combine User
-                    combinedController.controlAll({ mode: mode.combined.user });
+                            // 6) Clear form
+                            formView.clearForm();
+
+                            // 7) Theme
+                            themeController.controlTheme({ mode: setting.theme, color: setting.color });
+
+                            // 8) Combine User
+                            combinedController.controlAll({ mode: mode.combined.user });
+                        }
+                    }
                 }
                 break;
             case 'error':
