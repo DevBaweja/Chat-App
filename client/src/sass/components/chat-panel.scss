@@ -37,9 +37,11 @@
     }
 }
 
+// List
 .chat-panel-active-now,
 .chat-panel-recent-chat,
 .chat-panel-friend,
+.chat-panel-search,
 .chat-panel-request-sent,
 .chat-panel-request-receive {
     &__list {
@@ -56,20 +58,11 @@
         border-radius: 0.2rem;
         position: relative;
         cursor: pointer;
-
-        &--selected {
-            border-left: 0.35rem solid;
-        }
     }
     &__link {
         padding: 0.75rem 0;
         @include flex();
     }
-}
-
-.chat-panel-active-now,
-.chat-panel-recent-chat,
-.chat-panel-friend {
     &__visual {
         position: relative;
         @include flex();
@@ -79,6 +72,27 @@
         height: 3.5rem;
         width: 3.5rem;
         border-radius: 50%;
+    }
+
+    &__info {
+        margin-left: 0.5rem;
+        flex: 1;
+        @include flex(space-between);
+    }
+    &__name {
+        flex: 1;
+    }
+}
+
+// Specific
+.chat-panel-active-now,
+.chat-panel-recent-chat,
+.chat-panel-friend {
+    &__item {
+        // Selected
+        &--selected {
+            border-left: 0.35rem solid;
+        }
     }
     // Status
     &__status {
@@ -92,14 +106,6 @@
         }
         &--inactive {
         }
-    }
-    &__info {
-        margin-left: 0.5rem;
-        flex: 1;
-        @include flex(space-between);
-    }
-    &__name {
-        flex: 1;
     }
     // Setting
     &__setting {

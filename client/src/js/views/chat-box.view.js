@@ -190,7 +190,7 @@ export const renderUser = () => {
                                 <use xlink:href="svg/sprite.svg#icon-emoji"></use>
                             </svg>
                         </div>
-                        <div contentEditable="true" class="chat-box-user__footer--input" spellcheck="false" data-placeholder="Type a message"></div>
+                        <div contentEditable="true" class="chat-box-user__footer--input" spellcheck="false" autocomplete="off" data-placeholder="Type a message"></div>
                         <div class="chat-box-user__footer--location" title="Send Location">
                             <svg class="chat-box-user__footer--location-svg">
                                 <use xlink:href="svg/sprite.svg#icon-location"></use>

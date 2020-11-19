@@ -349,17 +349,23 @@
     .chat-panel-friend,
     .chat-panel-request-sent,
     .chat-panel-request-receive {
+        &__item {
+            transition: all 0.2s;
+            &:hover {
+                @include adjust($color-grey-1, 10%, $theme, background-color);
+            }
+        }
+        &__link {
+            @include adjust($color-grey-2, 65%, $theme, color);
+        }
+        &__info {
+        }
     }
 
     .chat-panel-active-now,
     .chat-panel-recent-chat,
     .chat-panel-friend {
         &__item {
-            transition: all 0.2s;
-            &:hover {
-                @include adjust($color-grey-1, 10%, $theme, background-color);
-            }
-
             &--selected {
                 background-color: $color-grey-1;
                 border-color: $color-primary;
@@ -367,10 +373,6 @@
                     background-color: $color-grey-1;
                 }
             }
-        }
-
-        &__link {
-            @include adjust($color-grey-2, 65%, $theme, color);
         }
         // Status
         &__status {
@@ -382,8 +384,6 @@
             &--inactive {
                 fill: transparent;
             }
-        }
-        &__info {
         }
         // Setting
         &__setting {
