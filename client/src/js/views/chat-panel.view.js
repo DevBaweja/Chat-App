@@ -1,4 +1,4 @@
-import { elementStrings, elementClasses, elements, select, selectAll } from '../utils/base.util';
+import { elementStrings, elementClasses, elements, select, selectAll, getTime } from '../utils/base.util';
 
 export const clearChatPanel = () => (select(elements.ChatPanel).innerHTML = '');
 
@@ -84,7 +84,7 @@ export const renderTitle = ({ label, count }, className) => `
         <span class="chat-panel-${className}__count">(${count})</span>
     </div>
 `;
-export const renderPartialItem = ({ _id, photo, name }, className) => `
+export const renderPartialItem = ({ _id, photo, name, createdAt }, className) => `
 <li class="chat-panel-${className}__item" data-user=${_id} title="${name}" draggable="true">
     <div class="chat-panel-${className}__link" role="button">
         <div class="chat-panel-${className}__visual">
@@ -93,7 +93,7 @@ export const renderPartialItem = ({ _id, photo, name }, className) => `
         <!-- USER INFO -->
         <div class="chat-panel-${className}__info">
             <span class="chat-panel-${className}__name">${name}</span>
-            <span class="chat-panel-${className}__time">1 day ago</span>
+            <span class="chat-panel-${className}__time">${getTime(createdAt)} ago</span>
         </div>
     </div>
 </li>

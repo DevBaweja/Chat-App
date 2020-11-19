@@ -66,7 +66,7 @@ const renderHeading = (className, heading) => `
             </svg>
         </div>
         <div class="chat-profile-setting-${className}__header--heading">${heading}</div>
-    </div>;
+    </div>
 `;
 
 // Remove, Add, Render Selected Function

@@ -2,7 +2,9 @@ import { elements, select } from '../../utils/base.util';
 import { renderTitle, renderPartialItem } from '../chat-panel.view';
 
 export const renderRequestReceive = ({ data }) => {
-    const parseData = data.map(item => item.from);
+    // Parse Data
+    const parseData = data.map(item => ({ ...item.from, createdAt: item.createdAt }));
+
     const className = 'request-receive';
     const title = {
         label: 'Request Received',
