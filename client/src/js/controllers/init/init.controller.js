@@ -1,6 +1,6 @@
 import state from '../../state';
 // Utils
-import { mode, elements, select, randomItem, color, getToken } from '../../utils/base.util';
+import { mode, elements, select, randomItem, color, theme, getToken } from '../../utils/base.util';
 // Controllers
 import * as dropdownsController from '../dropdowns/dropdowns.controller';
 import * as themeController from '../theme/theme.controller';
@@ -49,7 +49,7 @@ export const controlInit = async () => {
             alertsController.controlAlerts({ mode: mode.alert.misc.success, data: 'Welcome to #ChatFuel' });
 
             // Theme
-            themeController.controlTheme({ mode: mode.theme.dark, color: randomItem(color) });
+            themeController.controlTheme({ mode: randomItem(theme), color: randomItem(color) });
 
             // Combined Ideal
             combinedController.controlAll({ mode: mode.combined.ideal });
@@ -103,7 +103,7 @@ export const controlInit = async () => {
                     alertsController.controlAlerts({ mode: mode.alert.misc.failure, data: data.message });
 
                     // Theme
-                    themeController.controlTheme({ mode: mode.theme.dark, color: 'red' });
+                    themeController.controlTheme({ mode: randomItem(theme), color: randomItem(color) });
 
                     // Combined Ideal
                     combinedController.controlAll({ mode: mode.combined.ideal });

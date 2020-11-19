@@ -7,8 +7,10 @@ import * as themeController from '../theme/theme.controller';
 import * as backgroundImageController from '../background-image.controller';
 import * as formController from '../auth/form.controller';
 import * as alertsController from '../alerts/alerts.controller';
+import * as logoutController from '../auth/logout.controller';
 // Models
 import SubSetting from '../../models/SubSetting';
+import DeleteAccount from '../../models/DeleteAccount';
 // Views
 import * as chatProfileSettingView from '../../views/chat-profile/chat-profile-setting.view';
 
@@ -46,10 +48,10 @@ window.controlSetting = controlSetting;
 
 const color = () => {
     console.log('Color');
-    // Getting theme from state
-    const { theme } = state;
+    // Getting color from state
+    const { color } = state['theme'];
     // Render Color
-    chatProfileSettingView.renderColor(theme);
+    chatProfileSettingView.renderColor(color);
     // Event Listener
     // Back
     select(elementStrings.chatProfile.subSetting.color.back).addEventListener('click', () =>
@@ -145,6 +147,7 @@ const privacy = () => {
     chatProfileSettingView.renderPrivacy();
     // Event Listener
 };
+
 const updatePassword = () => {
     console.log('Update Password');
     // Re render Chat Profile
@@ -152,8 +155,47 @@ const updatePassword = () => {
     // Form
     formController.controlForm({ mode: mode.form.update });
 };
-const deleteAccount = () => {
+
+const deleteAccount = async () => {
     console.log('Delete Account');
     // Re render Chat Profile
     chatProfileController.controlChatProfile({ mode: mode.chatProfile.setting });
+
+    // Init Delete Account
+    if (!state['deleteAccount']) state['deleteAccount'] = new DeleteAccount();
+
+    try {
+        // Making API call
+        const data = await state['deleteAccount'].deleteAccount();
+        switch (data.status) {
+            case 'success':
+                {
+                    // Success Alert
+                    alertsController.controlAlerts({ mode: mode.alert.delete.account.success });
+                }
+                break;
+            case 'error':
+            case 'fail':
+                {
+                    console.log('ERROR : ', data.error);
+
+                    // 0) Error Alerts
+                    alertsController.controlAlerts({ data: mode.alert.delete.account.failure });
+                }
+                break;
+        }
+
+        // Clear deleteAccount
+        state['deleteAccount'] = null;
+    } catch (err) {
+        console.log('ERROR', err.message);
+        // 0) Error Alert
+        alertsController.controlAlerts({ data: mode.alert.delete.account.failure });
+
+        // State Changes
+        state['deleteAccount'] = null;
+    }
+
+    // Log out
+    logoutController.controlLogout();
 };

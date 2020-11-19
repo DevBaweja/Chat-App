@@ -19,6 +19,7 @@ const state = {
     backgroundImage: null,
     updateProfile: null,
     updatePassword: null,
+    deleteAccount: null,
     alert: null,
     loading: null,
     guide: null,

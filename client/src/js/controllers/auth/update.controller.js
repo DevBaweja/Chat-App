@@ -71,9 +71,6 @@ export const controlUpdate = async event => {
                     alertsController.controlAlerts({ mode: mode.alert.update.password.success });
                     // 6) Clear form
                     formView.clearForm();
-
-                    // Combined User
-                    combinedController.controlAll({ mode: mode.combined.user });
                 }
                 break;
             case 'error':

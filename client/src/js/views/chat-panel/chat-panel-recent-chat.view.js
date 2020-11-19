@@ -16,7 +16,7 @@ export const renderRecentChat = () => {
             user: faker.random.uuid(),
             name: faker.name.findName(),
             photo: faker.image.avatar(),
-            state: 'active',
+            status: 'active',
             setting: [
                 { type: 'mark-read' },
                 { type: 'pin-chat' },
@@ -28,21 +28,21 @@ export const renderRecentChat = () => {
             user: faker.random.uuid(),
             name: faker.name.findName(),
             photo: faker.image.avatar(),
-            state: 'inactive',
+            status: 'inactive',
             setting: [{ type: 'add-favourite' }],
         },
         {
             user: faker.random.uuid(),
             name: faker.name.findName(),
             photo: faker.image.avatar(),
-            state: 'inactive',
+            status: 'inactive',
             setting: [],
         },
         {
             user: faker.random.uuid(),
             name: faker.name.findName(),
             photo: faker.image.avatar(),
-            state: 'active',
+            status: 'active',
             setting: [{ type: 'pin-chat' }],
         },
     ];

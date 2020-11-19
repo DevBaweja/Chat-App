@@ -86,13 +86,13 @@ export const renderTitle = ({ label, count, className }) => `
     </div>
 `;
 
-export const renderItem = ({ user, photo, name, state, setting }, className) => `
+export const renderItem = ({ user, photo, name, status, setting }, className) => `
 <li class="chat-panel-${className}__item" data-user=${user} title="${name}" draggable="true">
     <div class="chat-panel-${className}__link" role="button">
-        <div class="chat-panel-${className}__status">
+        <div class="chat-panel-${className}__visual">
             <img src="${photo}" alt="" class="chat-panel-${className}__photo" />
-            <!-- STATE -->
-            <svg class="chat-panel-${className}__state chat-panel-${className}__state--${state}" data-type="${state}">
+            <!-- STATUS -->
+            <svg class="chat-panel-${className}__status chat-panel-${className}__status--${status}" data-type="${status}">
                 <use xlink:href="svg/sprite.svg#icon-dot"></use>
             </svg>
         </div>

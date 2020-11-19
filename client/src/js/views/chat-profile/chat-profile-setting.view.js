@@ -80,7 +80,7 @@ export const removeSelectedColor = () =>
 
 export const addSelectedColor = item => addSelected(item, elementClasses.selected.chatProfile.color);
 
-const renderSelectedColor = ({ color }) =>
+const renderSelectedColor = color =>
     renderSelected(
         color,
         elementStrings.chatProfile.subSetting.color.item,
@@ -88,7 +88,7 @@ const renderSelectedColor = ({ color }) =>
         elementClasses.selected.chatProfile.color
     );
 
-export const renderColor = theme => {
+export const renderColor = selectedColor => {
     // Data
 
     // Markup
@@ -129,7 +129,7 @@ export const renderColor = theme => {
     // Rendering Markup
     select(elements.ChatProfile).insertAdjacentHTML('beforeend', markup);
 
-    renderSelectedColor(theme);
+    renderSelectedColor(selectedColor);
 };
 
 // Wallpaper

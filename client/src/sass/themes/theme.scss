@@ -372,8 +372,8 @@
         &__link {
             @include adjust($color-grey-2, 65%, $theme, color);
         }
-        // State
-        &__state {
+        // Status
+        &__status {
             &--active {
                 fill: $color-active;
                 box-shadow: 0 0 0 0.4rem $color-grey-2;

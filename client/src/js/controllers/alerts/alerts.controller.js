@@ -74,6 +74,15 @@ export const controlAlerts = info => {
         case mode.alert.update.color:
             updateColorSuccess();
             break;
+        case mode.alert.update.background:
+            updateBackgroundSuccess();
+            break;
+        case mode.alert.delete.account.success:
+            deleteAccountSuccess();
+            break;
+        case mode.alert.delete.account.failure:
+            deleteAccountFailure();
+            break;
         case mode.alert.logout.success:
             logoutSuccess();
             break;
@@ -280,12 +289,41 @@ const updateThemeSuccess = () => {
     };
     alertsView.renderAlerts(data);
 };
+
 const updateColorSuccess = () => {
     // Getting color
     const { color } = state['setting'];
     const data = {
         text: `Color has been changed to ${bold(capitalize(color))}.`,
         type: 'success',
+    };
+    alertsView.renderAlerts(data);
+};
+
+const updateBackgroundSuccess = () => {
+    // Getting wallpaper
+    const { mode } = state['theme'];
+    const { wallpaper } = state['setting'];
+    const data = {
+        text: `Wallpaper has been changed to ${bold(capitalize(wallpaper[mode]))}.`,
+        type: 'success',
+    };
+    alertsView.renderAlerts(data);
+};
+
+const deleteAccountSuccess = () => {
+    console.log('Done');
+    const data = {
+        text: `Your account is successfully deactivated.`,
+        type: 'success',
+    };
+    alertsView.renderAlerts(data);
+};
+
+const deleteAccountFailure = () => {
+    const data = {
+        text: `There was error while deactivating your account.`,
+        type: 'failure',
     };
     alertsView.renderAlerts(data);
 };

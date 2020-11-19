@@ -70,7 +70,7 @@
 .chat-panel-active-now,
 .chat-panel-recent-chat,
 .chat-panel-friend {
-    &__status {
+    &__visual {
         position: relative;
         @include flex();
     }
@@ -80,8 +80,8 @@
         width: 3.5rem;
         border-radius: 50%;
     }
-    // State
-    &__state {
+    // Status
+    &__status {
         position: absolute;
         top: 57.5%;
         left: 65.5%;
