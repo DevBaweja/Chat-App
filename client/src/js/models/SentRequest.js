@@ -5,6 +5,9 @@ import { url, addAuthorizationHeaders } from '../utils/base.util';
 class SendRequest {
     constructor() {
         this.url = `${url[state['mode'].mode]}api/v1/requests/sent`;
+        this.params = {
+            sort: '-createdAt',
+        };
     }
 
     parseData = () => {
@@ -19,6 +22,7 @@ class SendRequest {
             this.data = await axios({
                 method: 'GET',
                 url: this.url,
+                params: this.params,
                 headers,
                 validateStatus: () => true,
                 // For validation

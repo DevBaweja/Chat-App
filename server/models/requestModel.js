@@ -23,10 +23,6 @@ const def = {
         ref: 'User',
         required: { value: true, message: 'A request must be to a user' },
     },
-    sentAt: {
-        type: Date,
-        default: Date.now(),
-    },
     createdAt: {
         type: Date,
         default: Date.now(),

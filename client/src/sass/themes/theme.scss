@@ -427,6 +427,12 @@
             fill: $color-grey-3;
         }
     }
+    .chat-panel-request-sent,
+    .chat-panel-request-receive {
+        &__time {
+            @include adjust($color-grey-2, 40%, $theme, color);
+        }
+    }
     // Ideal and Empty
     .chat-panel-ideal,
     .chat-panel-empty {

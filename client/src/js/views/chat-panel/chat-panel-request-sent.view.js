@@ -1,4 +1,3 @@
-import faker from 'faker';
 import { elements, select } from '../../utils/base.util';
 import { renderTitle, renderPartialItem } from '../chat-panel.view';
 

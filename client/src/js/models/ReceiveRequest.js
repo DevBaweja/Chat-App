@@ -5,6 +5,9 @@ import { url, addAuthorizationHeaders } from '../utils/base.util';
 class ReceiveRequest {
     constructor() {
         this.url = `${url[state['mode'].mode]}api/v1/requests/receive`;
+        this.params = {
+            sort: '-createdAt',
+        };
     }
 
     parseData = () => {
@@ -19,6 +22,7 @@ class ReceiveRequest {
             this.data = await axios({
                 method: 'GET',
                 url: this.url,
+                params: this.params,
                 headers,
                 validateStatus: () => true,
                 // For validation

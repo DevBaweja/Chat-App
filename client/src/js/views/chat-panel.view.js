@@ -93,6 +93,7 @@ export const renderPartialItem = ({ _id, photo, name }, className) => `
         <!-- USER INFO -->
         <div class="chat-panel-${className}__info">
             <span class="chat-panel-${className}__name">${name}</span>
+            <span class="chat-panel-${className}__time">1 day ago</span>
         </div>
     </div>
 </li>

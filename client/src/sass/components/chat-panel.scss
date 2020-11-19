@@ -193,6 +193,23 @@
     }
 }
 
+.chat-panel-request-sent,
+.chat-panel-request-receive {
+    /*
+    &__time {
+        margin-right: 1rem;
+        transition: all 0.2s;
+        opacity: 0;
+    }
+    &__item:hover &__time {
+        opacity: 1;
+    }
+    */
+
+    &__time {
+        margin-right: 1rem;
+    }
+}
 // Ideal and Empty
 
 // Title
