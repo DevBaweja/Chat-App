@@ -146,6 +146,10 @@ const privacy = () => {
     // Render Privacy
     chatProfileSettingView.renderPrivacy();
     // Event Listener
+    // Back
+    select(elementStrings.chatProfile.subSetting.privacy.back).addEventListener('click', () =>
+        chatProfileController.controlChatProfile({ mode: mode.chatProfile.setting })
+    );
 };
 
 const updatePassword = () => {

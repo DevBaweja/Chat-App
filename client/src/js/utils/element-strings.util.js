@@ -178,6 +178,9 @@ const elementStrings = {
                 item: '.chat-profile-setting-wallpaper__item',
                 content: '.chat-profile-setting-wallpaper__content',
             },
+            privacy: {
+                back: '.chat-profile-setting-privacy__header--back',
+            },
         },
     },
 };

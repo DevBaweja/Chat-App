@@ -62,13 +62,12 @@ export const renderEmpty = () => {
     const title = {
         label: 'Active Now',
         count: 0,
-        className: 'empty',
     };
-
+    const className = 'empty';
     // No users
     const markup = `
     <div class="chat-panel-empty">
-        ${renderTitle(title)}
+        ${renderTitle(title, className)}
         <div class="chat-panel-empty__dimmer">
         ${data.map(() => renderEmptyGroup()).join('')}
         </div>
@@ -79,7 +78,7 @@ export const renderEmpty = () => {
 };
 
 // User Title
-export const renderTitle = ({ label, count, className }) => `
+export const renderTitle = ({ label, count }, className) => `
     <div class="chat-panel-${className}__title">
         <span class="chat-panel-${className}__label">${label}</span> 
         <span class="chat-panel-${className}__count">(${count})</span>

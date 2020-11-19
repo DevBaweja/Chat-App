@@ -14,7 +14,7 @@ export const renderSetting = () => {
     // Data
     const data = ['color', 'wallpaper', 'privacy', 'password', 'delete'];
     const type = ['color', 'wallpaper', 'privacy', 'update-password', 'delete-account'];
-    const content = ['Color', 'Wallpaper', 'Privacy', 'Password', 'Delete Account'];
+    const content = ['Color', 'Wallpaper', 'Privacy', 'Password', 'Deactivate Account'];
     const description = [
         'Life is like a rainbow',
         'Customize your wallpaper like pro',

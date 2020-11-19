@@ -4,11 +4,6 @@ import { renderTitle, renderItem } from '../chat-panel.view';
 
 export const renderActiveNow = () => {
     // Data
-    const title = {
-        label: 'Active Now',
-        count: 10,
-        className: 'active-now',
-    };
     const className = 'active-now';
     const data = [
         {
@@ -40,10 +35,14 @@ export const renderActiveNow = () => {
             setting: [{ type: 'pin-chat' }],
         },
     ];
+    const title = {
+        label: 'Active Now',
+        count: data.length,
+    };
 
     const markup = `
     <div class="chat-panel-active-now">     
-        ${renderTitle(title)}
+        ${renderTitle(title, className)}
         <ul class="chat-panel-recent-chat__list">
             ${data.map(item => renderItem(item, className)).join('')}
         </ul>

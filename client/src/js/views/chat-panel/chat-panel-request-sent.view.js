@@ -3,15 +3,15 @@ import { renderTitle } from '../chat-panel.view';
 
 export const renderRequestSent = () => {
     // Data
+    const className = 'request-sent';
     const title = {
         label: 'Request Sent',
-        count: 37,
-        className: 'request-sent',
+        count: 0,
     };
 
     const markup = `
     <div class="chat-panel-request-sent">     
-        ${renderTitle(title)}
+        ${renderTitle(title, className)}
     </div>
     `;
 

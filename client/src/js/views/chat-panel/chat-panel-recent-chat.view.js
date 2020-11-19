@@ -4,12 +4,6 @@ import { elements, select } from '../../utils/base.util';
 
 export const renderRecentChat = () => {
     // Data
-    const title = {
-        label: 'Recent Chats',
-        count: 34,
-        className: 'recent-chat',
-    };
-
     const className = 'recent-chat';
     const data = [
         {
@@ -46,9 +40,13 @@ export const renderRecentChat = () => {
             setting: [{ type: 'pin-chat' }],
         },
     ];
+    const title = {
+        label: 'Recent Chats',
+        count: data.length,
+    };
     const markup = `
     <div class="chat-panel-recent-chat">                    
-            ${renderTitle(title)}
+            ${renderTitle(title, className)}
         <ul class="chat-panel-recent-chat__list">
             ${data.map(item => renderItem(item, className)).join('')}
         </ul>

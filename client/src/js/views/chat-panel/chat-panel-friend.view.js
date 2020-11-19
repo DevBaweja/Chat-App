@@ -4,11 +4,6 @@ import { renderTitle, renderItem } from '../chat-panel.view';
 
 export const renderFriend = () => {
     // Data
-    const title = {
-        label: 'Friends',
-        count: 132,
-        className: 'friend',
-    };
     const className = 'friend';
     const data = [
         {
@@ -59,9 +54,13 @@ export const renderFriend = () => {
             setting: [],
         },
     ];
+    const title = {
+        label: 'Friends',
+        count: data.length,
+    };
     const markup = `
     <div class="chat-panel-friend"> 
-        ${renderTitle(title)}
+        ${renderTitle(title, className)}
         <ul class="chat-panel-recent-chat__list">
             ${data.map(item => renderItem(item, className)).join('')}
         </ul>
