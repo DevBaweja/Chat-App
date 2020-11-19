@@ -84,8 +84,8 @@ export const renderTitle = ({ label, count }, className) => `
         <span class="chat-panel-${className}__count">(${count})</span>
     </div>
 `;
-export const renderPartialItem = ({ user, photo, name }, className) => `
-<li class="chat-panel-${className}__item" data-user=${user} title="${name}" draggable="true">
+export const renderPartialItem = ({ _id, photo, name }, className) => `
+<li class="chat-panel-${className}__item" data-user=${_id} title="${name}" draggable="true">
     <div class="chat-panel-${className}__link" role="button">
         <div class="chat-panel-${className}__visual">
             <img src="${photo}" alt="" class="chat-panel-${className}__photo" />

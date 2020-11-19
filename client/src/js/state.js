@@ -20,6 +20,8 @@ const state = {
     updateProfile: null,
     updatePassword: null,
     deleteAccount: null,
+    sentRequest: null,
+    receiveRequest: null,
     alert: null,
     loading: null,
     guide: null,

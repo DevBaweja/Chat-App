@@ -5,6 +5,8 @@ import { elementStrings, mode, select } from '../utils/base.util';
 import * as chatBoxController from '../controllers/chat-box.controller';
 // Models
 import ChatPanel from '../models/ChatPanel';
+import SentRequest from '../models/SentRequest';
+import ReceiveRequest from '../models/ReceiveRequest';
 // Views
 import * as chatPanelView from '../views/chat-panel.view';
 import * as chatPanelActiveNowView from '../views/chat-panel/chat-panel-active-now.view';
@@ -129,14 +131,44 @@ const friend = () => {
     chatPanelFriendView.renderFriend();
 };
 
-const requestSent = () => {
+const requestSent = async () => {
     console.log('Request Sent');
-    // Render Request Sent
-    chatPanelRequestSentView.renderRequestSent();
+
+    //  Init SentRequest
+    if (!state['sentRequest']) state['sentRequest'] = new SentRequest();
+    try {
+        // Making API call
+        const data = await state['sentRequest'].getAllSendRequest();
+        switch (data.status) {
+            case 'success':
+                {
+                    // Render Request Sent
+                    chatPanelRequestSentView.renderRequestSent(data.data);
+                }
+                break;
+        }
+    } catch (err) {
+        console.log('ERROR', err.message);
+    }
 };
 
-const requestReceive = () => {
+const requestReceive = async () => {
     console.log('Request Receive');
-    // Render Request Receive
-    chatPanelRequestReceiveView.renderRequestReceive();
+
+    //  Init ReceiveRequest
+    if (!state['receiveRequest']) state['receiveRequest'] = new ReceiveRequest();
+    try {
+        // Making API call
+        const data = await state['receiveRequest'].getAllReceiveRequest();
+        switch (data.status) {
+            case 'success':
+                {
+                    // Render Request Receive
+                    chatPanelRequestReceiveView.renderRequestReceive(data.data);
+                }
+                break;
+        }
+    } catch (err) {
+        console.log('ERROR', err.message);
+    }
 };
