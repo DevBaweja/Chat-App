@@ -24,10 +24,12 @@ const def = {
     from: {
         type: Schema.Types.ObjectId,
         ref: 'User',
+        required: { value: true, message: 'A message must be from a user' },
     },
     to: {
         type: Schema.Types.ObjectId,
         ref: 'User',
+        required: { value: true, message: 'A message must be to a user' },
     },
     sentAt: {
         type: Date,

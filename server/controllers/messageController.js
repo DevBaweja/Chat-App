@@ -1,7 +1,7 @@
 const factory = require('./handleFactory');
 const Message = require('../models/messageModel');
 
-// User Route Handlers
+// Message Route Handlers
 exports.getAllMessages = factory.getAll(Message);
 exports.getMessageById = factory.getOne(Message);
 exports.createNewMessage = factory.createOne(Message);

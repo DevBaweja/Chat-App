@@ -13,7 +13,9 @@ const compression = require('compression');
 // Routers
 const userRouter = require('./routes/userRoutes');
 const settingRouter = require('./routes/settingRoutes');
+const requestRouter = require('./routes/requestRoutes');
 const messageRouter = require('./routes/messageRoutes');
+
 // Controllers
 const globalErrorHandler = require('./controllers/errorController');
 // Utils
@@ -83,6 +85,7 @@ app.use((req, res, next) => {
 // Routes
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/settings', settingRouter);
+app.use('/api/v1/requests', requestRouter);
 app.use('/api/v1/messages', messageRouter);
 
 // Undefined Routes

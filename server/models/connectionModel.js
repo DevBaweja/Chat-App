@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const getMustHave = (str) => `A user must have ${str}`;
+const getMustHave = (str) => `A connection must have ${str}`;
 
 // ----------
 // Schema
