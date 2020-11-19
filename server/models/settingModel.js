@@ -86,7 +86,7 @@ const def = {
     },
     createdAt: {
         type: Date,
-        default: Date.now(),
+        default: Date.now,
     },
 };
 const options = {};

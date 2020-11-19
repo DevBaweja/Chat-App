@@ -33,7 +33,7 @@ const def = {
     },
     sentAt: {
         type: Date,
-        default: Date.now(),
+        default: Date.now,
     },
     deliveredAt: {
         type: Date,
@@ -43,7 +43,7 @@ const def = {
     },
     createdAt: {
         type: Date,
-        default: Date.now(),
+        default: Date.now,
     },
 };
 const options = {};
