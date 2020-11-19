@@ -743,8 +743,10 @@
 
         // Sub Setting
         &-setting {
+            // Heading
             &-color,
-            &-wallpaper {
+            &-wallpaper,
+            &-privacy {
                 &__header {
                     color: $color-primary;
                     &--heading {
@@ -759,7 +761,10 @@
                         }
                     }
                 }
-
+            }
+            // List
+            &-color,
+            &-wallpaper {
                 &__item {
                 }
                 &__content {

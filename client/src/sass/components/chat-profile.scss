@@ -295,8 +295,10 @@
     }
 
     &-setting {
+        // Heading
         &-color,
-        &-wallpaper {
+        &-wallpaper,
+        &-privacy {
             margin: 0.5rem;
 
             @include flex();
@@ -328,9 +330,13 @@
                     }
                 }
             }
+        }
+        // List
+        &-color,
+        &-wallpaper {
             &__list {
                 // ! For Development
-                max-height: 55rem;
+                max-height: 50rem;
                 overflow-x: hidden;
                 overflow-y: scroll;
                 margin-top: 1rem;

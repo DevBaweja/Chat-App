@@ -58,6 +58,17 @@ export const renderSetting = () => {
     select(elements.ChatProfile).insertAdjacentHTML('beforeend', markup);
 };
 
+const renderHeading = (className, heading) => `
+    <div class="chat-profile-setting-${className}__header">
+        <div class="chat-profile-setting-${className}__header--back">
+            <svg class="chat-profile-setting-${className}__header--back-svg">
+                <use xlink:href="svg/sprite.svg#icon-back"></use>
+            </svg>
+        </div>
+        <div class="chat-profile-setting-${className}__header--heading">${heading}</div>
+    </div>;
+`;
+
 // Remove, Add, Render Selected Function
 const removeSelected = (itemsClass, selectedClass) => {
     const items = selectAll(itemsClass);
@@ -90,20 +101,12 @@ const renderSelectedColor = color =>
 
 export const renderColor = selectedColor => {
     // Data
-
+    const className = 'color';
+    const heading = 'Color';
     // Markup
     let markup = `
 <div class="chat-profile-setting-color">
-    <div class="chat-profile-setting-color__header">
-        <div class="chat-profile-setting-color__header--back">
-            <svg class="chat-profile-setting-color__header--back-svg">
-                <use xlink:href="svg/sprite.svg#icon-back"></use>
-            </svg>
-        </div>
-        <div class="chat-profile-setting-color__header--heading">
-            Color
-        </div>
-    </div>
+    ${renderHeading(className, heading)}
     <ul class="chat-profile-setting-color__list">
     ${color
         .map(
@@ -170,20 +173,12 @@ export const renderWallpaper = ({ theme, backgroundImage }) => {
             'rgba(0,0,0,0.6)',
         ],
     };
-
+    const className = 'wallpaper';
+    const heading = 'Wallpaper';
     // Markup
     let markup = `
     <div class="chat-profile-setting-wallpaper">
-        <div class="chat-profile-setting-wallpaper__header">
-            <div class="chat-profile-setting-wallpaper__header--back">
-                <svg class="chat-profile-setting-wallpaper__header--back-svg">
-                    <use xlink:href="svg/sprite.svg#icon-back"></use>
-                </svg>
-            </div>
-            <div class="chat-profile-setting-wallpaper__header--heading">
-                Wallpaper
-            </div>
-        </div>
+        ${renderHeading(className, heading)}
         <ul class="chat-profile-setting-wallpaper__list">
         ${type[mode]
             .map(
@@ -206,4 +201,15 @@ export const renderWallpaper = ({ theme, backgroundImage }) => {
 };
 
 // Privacy
-export const renderPrivacy = () => {};
+export const renderPrivacy = () => {
+    const className = 'privacy';
+    const heading = 'Privacy';
+    // Markup
+    const markup = `
+    <div class="chat-profile-setting-wallpaper">
+        ${renderHeading(className, heading)}
+    </div>
+    `;
+    // Rendering Markup
+    select(elements.ChatProfile).insertAdjacentHTML('beforeend', markup);
+};
