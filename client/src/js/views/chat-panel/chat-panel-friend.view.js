@@ -61,7 +61,7 @@ export const renderFriend = () => {
     const markup = `
     <div class="chat-panel-friend"> 
         ${renderTitle(title, className)}
-        <ul class="chat-panel-recent-chat__list">
+        <ul class="chat-panel-friend__list">
             ${data.map(item => renderItem(item, className)).join('')}
         </ul>
     <//div>

@@ -4,7 +4,9 @@ const elementClasses = {
             item: 'navbar-user__item--selected',
         },
         chatPanel: {
+            activeNow: 'chat-panel-active-now__item--selected',
             recentChat: 'chat-panel-recent-chat__item--selected',
+            friend: 'chat-panel-friend__item--selected',
         },
         chatProfile: {
             avatar: 'chat-profile__user-avatar--icon-selected',

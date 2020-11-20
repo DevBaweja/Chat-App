@@ -350,7 +350,6 @@
     .chat-panel-request-sent,
     .chat-panel-request-receive {
         &__item {
-            transition: all 0.2s;
             &:hover {
                 @include adjust($color-grey-1, 10%, $theme, background-color);
             }

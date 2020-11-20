@@ -109,9 +109,29 @@ const elementStrings = {
     },
 
     chatPanel: {
+        activeNow: {
+            list: '.chat-panel-active-now__list',
+            item: '.chat-panel-active-now__item',
+        },
         recentChat: {
             list: '.chat-panel-recent-chat__list',
             item: '.chat-panel-recent-chat__item',
+        },
+        search: {
+            list: '.chat-panel-search__list',
+            item: '.chat-panel-search__item',
+        },
+        friend: {
+            list: '.chat-panel-friend__list',
+            item: '.chat-panel-friend__item',
+        },
+        sentRequest: {
+            list: '.chat-panel-request-sent__list',
+            item: '.chat-panel-request-sent__item',
+        },
+        receiveRequest: {
+            list: '.chat-panel-request-receive__list',
+            item: '.chat-panel-request-receive__item',
         },
     },
 

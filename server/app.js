@@ -14,6 +14,7 @@ const compression = require('compression');
 const userRouter = require('./routes/userRoutes');
 const settingRouter = require('./routes/settingRoutes');
 const requestRouter = require('./routes/requestRoutes');
+const friendRouter = require('./routes/friendRoutes');
 const messageRouter = require('./routes/messageRoutes');
 
 // Controllers
@@ -83,10 +84,12 @@ app.use((req, res, next) => {
 
 // -----------------------
 // Routes
-app.use('/api/v1/users', userRouter);
-app.use('/api/v1/settings', settingRouter);
-app.use('/api/v1/requests', requestRouter);
-app.use('/api/v1/messages', messageRouter);
+const url = '/api/v1/';
+app.use(`${url}users`, userRouter);
+app.use(`${url}settings`, settingRouter);
+app.use(`${url}requests`, requestRouter);
+app.use(`${url}friends`, friendRouter);
+app.use(`${url}messages`, messageRouter);
 
 // Undefined Routes
 app.all('*', (req, res, next) => {

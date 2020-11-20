@@ -1,13 +1,13 @@
-import { elementStrings, elementClasses, elements, select, selectAll, getTime } from '../utils/base.util';
+import { elementClasses, elements, select, selectAll, getTime } from '../utils/base.util';
 
 export const clearChatPanel = () => (select(elements.ChatPanel).innerHTML = '');
 
-export const addSelected = item => item.classList.add(elementClasses.selected.chatPanel.recentChat);
+export const addSelected = (itemElement, selectedClass) => itemElement.classList.add(selectedClass);
 
-export const removeSelected = () => {
-    const items = selectAll(elementStrings.chatPanel.recentChat.item);
+export const removeSelected = (itemClass, selectedClass) => {
+    const items = selectAll(itemClass);
     items.forEach(item => {
-        item.classList.remove(elementClasses.selected.chatPanel.recentChat);
+        item.classList.remove(selectedClass);
     });
 };
 
@@ -93,7 +93,7 @@ export const renderPartialItem = ({ _id, photo, name, createdAt }, className) =>
         <!-- USER INFO -->
         <div class="chat-panel-${className}__info">
             <span class="chat-panel-${className}__name">${name}</span>
-            <span class="chat-panel-${className}__time">${getTime(createdAt)} ago</span>
+            ${createdAt ? `<span class="chat-panel-${className}__time">${getTime(createdAt)} ago</span>` : ''}
         </div>
     </div>
 </li>

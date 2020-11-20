@@ -43,7 +43,7 @@ export const renderActiveNow = () => {
     const markup = `
     <div class="chat-panel-active-now">     
         ${renderTitle(title, className)}
-        <ul class="chat-panel-recent-chat__list">
+        <ul class="chat-panel-active-now__list">
             ${data.map(item => renderItem(item, className)).join('')}
         </ul>
     </div>

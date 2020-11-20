@@ -6,12 +6,12 @@ const Request = require('../models/requestModel');
 // Alias
 
 exports.getAllSentRequest = catchAsync(async (req, res, next) => {
-    req.query = { ...req.query, from: req.user.id };
+    req.query = { ...req.query, from: req.user.id, status: 'pending' };
     next();
 });
 
 exports.getAllReceiveRequest = catchAsync(async (req, res, next) => {
-    req.query = { ...req.query, to: req.user.id };
+    req.query = { ...req.query, to: req.user.id, status: 'pending' };
     next();
 });
 

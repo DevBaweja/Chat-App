@@ -66,7 +66,7 @@ const user = () => {
         // Add Selected
         navbarView.addSelected(item);
         // No render
-        if (state['chatPanel'].mode === type) return;
+        // if (state['chatPanel'].mode === type) return;
         chatPanelController.controlChatPanel({ mode: type });
     });
     // Photo
