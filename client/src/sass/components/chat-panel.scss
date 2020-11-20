@@ -48,6 +48,7 @@
         // ! For Development
         max-height: 55rem;
         margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
         padding: 1rem;
         overflow-x: hidden;
         overflow-y: scroll;
@@ -194,6 +195,7 @@
     }
 }
 
+.chat-panel-search,
 .chat-panel-request-sent,
 .chat-panel-request-receive {
     /*

@@ -7,14 +7,13 @@ class Reset {
         this.token = token;
         this.password = password;
         this.passwordConfirm = passwordConfirm;
-        this.url = `${url[state['mode'].mode]}api/v1/users/resetPassword/${token}`;
+        this.url = `${url[state['mode'].mode]}api/v1/users/resetPassword/`;
     }
 
     setUserInput = ({ token, password, passwordConfirm }) => {
         this.token = token;
         this.password = password;
         this.passwordConfirm = passwordConfirm;
-        this.url = `${url[state['mode'].mode]}api/v1/users/resetPassword/${token}`;
     };
 
     parseData = () => {
@@ -24,10 +23,11 @@ class Reset {
 
     resetPassword = async () => {
         try {
+            const url = `${this.url}${this.token}`;
             const obj = { password: this.password, passwordConfirm: this.passwordConfirm };
             this.data = await axios({
                 method: 'PATCH',
-                url: this.url,
+                url,
                 data: obj,
                 validateStatus: () => true,
                 // For validation

@@ -30,6 +30,21 @@ const upload = multer({
     fileFilter: multerFilter,
 });
 
+exports.search = (req, res, next) => {
+    // Getting name from params
+    const { name } = req.params;
+    // Constructing RegExp
+    req.query = { ...req.query, name: { $regex: `^${name}`, $options: 'i' } };
+    /*
+    req.query = {
+        $where: function () {
+            return this.name.startsWith(name);
+        },
+    };
+    */
+    next();
+};
+
 exports.uploadUserPhoto = upload.single('photo');
 
 exports.resizeUserPhoto = (req, res, next) => {

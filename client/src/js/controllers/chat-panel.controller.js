@@ -6,6 +6,7 @@ import * as chatBoxController from '../controllers/chat-box.controller';
 import * as chatProfileController from '../controllers/chat-profile.controller';
 // Models
 import ChatPanel from '../models/ChatPanel';
+import Search from '../models/Search';
 import SentRequest from '../models/SentRequest';
 import ReceiveRequest from '../models/ReceiveRequest';
 // Views
@@ -151,15 +152,55 @@ const activeNow = () => {
     );
 };
 
+const controlSearch = async event => {
+    event.preventDefault();
+    // 0) Prepare UI for changes
+    chatPanelSearchView.clearSearch();
+    // 1) Getting user inputs
+    const inputs = chatPanelSearchView.getUserInput();
+    // 2) Checking user inputs
+    // { name }
+
+    // 3) Init Search
+    if (!state['search']) state['search'] = new Search({ ...inputs });
+
+    state['search'].setUserInput({ ...inputs });
+
+    try {
+        // 4) Making API call
+        const data = await state['search'].getSearch();
+        switch (data.status) {
+            case 'success':
+                {
+                    // Render Search Results
+                    chatPanelSearchView.renderSearchResult(data.data, inputs['name']);
+                    // Add Event Listeners
+                    const list = select(elementStrings.chatPanel.search.list);
+                    // Click
+                    list.addEventListener('click', event =>
+                        controlChatPanelPartialItem(event, elementStrings.chatPanel.search.item)
+                    );
+                }
+                break;
+            case 'error':
+            case 'fail':
+                {
+                    console.log('ERROR : ', data.error);
+                }
+                break;
+        }
+    } catch (err) {
+        console.log('ERROR', err.message);
+        // 1) Initial UI
+    }
+};
+
 const search = () => {
     console.log('Search');
     // Render Search
     chatPanelSearchView.renderSearch();
-
-    // Add Event Listeners
-    const list = select(elementStrings.chatPanel.search.list);
-    // Click
-    list.addEventListener('click', event => controlChatPanelPartialItem(event, elementStrings.chatPanel.search.item));
+    // Adding event listener to form submit
+    select(elementStrings.forms.search.form).addEventListener('submit', controlSearch);
 };
 
 const friend = () => {

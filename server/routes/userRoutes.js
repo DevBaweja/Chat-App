@@ -9,6 +9,7 @@ const router = express.Router();
 
 // -----------
 // Alias
+router.get('/search/:name', userController.search, userController.getAllUsers);
 router.get('/isLogin', authController.isLogin);
 router.get('/logout', authController.logout);
 router.post('/signup', authController.signup);

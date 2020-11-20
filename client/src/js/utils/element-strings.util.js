@@ -63,6 +63,9 @@ const elementStrings = {
                 passwordConfirm: '.user-update__form--input-password-confirm',
             },
         },
+        search: {
+            form: '.chat-panel-search__form',
+        },
     },
     inputs: {
         signupInput: '.user-signup__form--input',
@@ -70,6 +73,7 @@ const elementStrings = {
         forgetInput: '.user-forget__form--input',
         resetInput: '.user-reset__form--input',
         updateInput: '.user-update__form--input',
+        searchInput: '.chat-panel-search__input',
     },
     drops: {
         aboutMeDrop: '.about-me__drop',

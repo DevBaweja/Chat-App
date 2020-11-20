@@ -1,6 +1,16 @@
-import { elementClasses, elements, select, selectAll, getTime } from '../utils/base.util';
+import { elements, select, selectAll, getTime, bold, capitalize } from '../utils/base.util';
 
 export const clearChatPanel = () => (select(elements.ChatPanel).innerHTML = '');
+
+// Get Input
+export const getInput = className => {
+    const inputs = selectAll(className);
+    let obj = {};
+    inputs.forEach(input => {
+        obj[input.id] = input.value;
+    });
+    return obj;
+};
 
 export const addSelected = (itemElement, selectedClass) => itemElement.classList.add(selectedClass);
 
@@ -84,7 +94,7 @@ export const renderTitle = ({ label, count }, className) => `
         <span class="chat-panel-${className}__count">(${count})</span>
     </div>
 `;
-export const renderPartialItem = ({ _id, photo, name, createdAt }, className) => `
+export const renderPartialItem = ({ _id, photo, name, createdAt }, className, real) => `
 <li class="chat-panel-${className}__item" data-user=${_id} title="${name}" draggable="true">
     <div class="chat-panel-${className}__link" role="button">
         <div class="chat-panel-${className}__visual">
@@ -92,7 +102,9 @@ export const renderPartialItem = ({ _id, photo, name, createdAt }, className) =>
         </div>
         <!-- USER INFO -->
         <div class="chat-panel-${className}__info">
-            <span class="chat-panel-${className}__name">${name}</span>
+            <span class="chat-panel-${className}__name">${
+    real ? bold(capitalize(real)) + name.slice(real.length) : name
+}</span>
             ${createdAt ? `<span class="chat-panel-${className}__time">${getTime(createdAt)} ago</span>` : ''}
         </div>
     </div>

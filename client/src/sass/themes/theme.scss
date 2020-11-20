@@ -426,6 +426,8 @@
             fill: $color-grey-3;
         }
     }
+
+    .chat-panel-search,
     .chat-panel-request-sent,
     .chat-panel-request-receive {
         &__time {
@@ -700,6 +702,9 @@
             &-content {
                 &--icon {
                     background-color: $color-primary;
+                    &:active {
+                        background-color: $color-primary-light;
+                    }
                 }
                 &--svg {
                     fill: $color-grey-1;
