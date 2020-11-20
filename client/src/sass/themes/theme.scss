@@ -618,14 +618,16 @@
         // User
         &__user,
         &__stranger,
-        &__friend {
-            &-pic,
+        &__friend,
+        &__receive-request,
+        &__sent-request {
+            &-content,
             &-avatar,
             &-about {
                 background-color: $color-grey-1;
             }
-            // Pic
-            &-pic {
+            // Content
+            &-content {
                 &--img {
                 }
                 &--label {
@@ -662,7 +664,7 @@
         }
         // User
         &__user {
-            &-pic {
+            &-content {
                 &--upload {
                 }
                 &--name {
@@ -690,22 +692,13 @@
                 }
             }
         }
-        // Stranger
-        &__stranger {
-            &-add {
-                &--friend {
-                    background-color: $color-primary;
-                }
-                &--svg {
-                    fill: $color-grey-1;
-                }
-            }
-        }
 
-        // Friend
-        &__friend {
-            &-remove {
-                &--stranger {
+        &__stranger,
+        &__friend,
+        &__receive-request,
+        &__sent-request {
+            &-content {
+                &--icon {
                     background-color: $color-primary;
                 }
                 &--svg {

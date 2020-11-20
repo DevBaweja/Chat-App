@@ -56,7 +56,7 @@ export const controlAvatar = event => {
     // Add Selected
     chatProfileUserView.addSelected(iconElement);
     // Set Preview
-    select(elementStrings.chatProfile.user.pic.img).setAttribute('src', src);
+    select(elementStrings.chatProfile.user.content.img).setAttribute('src', src);
     // Render Save Profile button
     chatProfileUserView.renderSaveProfile();
 };
@@ -70,7 +70,7 @@ export const controlUpload = event => {
     const [file] = target.files;
     if (!file) {
         // Backup
-        select(elementStrings.chatProfile.user.pic.img).setAttribute('src', state['user'].photo);
+        select(elementStrings.chatProfile.user.content.img).setAttribute('src', state['user'].photo);
         return;
     }
 
@@ -82,7 +82,7 @@ export const controlUpload = event => {
         const { target } = event;
         const src = target.result;
         // Set Preview
-        select(elementStrings.chatProfile.user.pic.img).setAttribute('src', src);
+        select(elementStrings.chatProfile.user.content.img).setAttribute('src', src);
     });
 
     // Remove Selected

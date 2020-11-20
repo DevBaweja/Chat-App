@@ -125,11 +125,11 @@ const elementStrings = {
             list: '.chat-panel-friend__list',
             item: '.chat-panel-friend__item',
         },
-        sentRequest: {
+        requestSent: {
             list: '.chat-panel-request-sent__list',
             item: '.chat-panel-request-sent__item',
         },
-        receiveRequest: {
+        requestReceive: {
             list: '.chat-panel-request-receive__list',
             item: '.chat-panel-request-receive__item',
         },
@@ -156,11 +156,11 @@ const elementStrings = {
         user: {
             form: '.chat-profile__user--form',
             update: '.chat-profile__user--update',
-            pic: {
-                pic: '.chat-profile__user-pic',
-                img: '.chat-profile__user-pic--img',
-                upload: '.chat-profile__user-pic--upload',
-                input: '.chat-profile__user-pic--input',
+            content: {
+                content: '.chat-profile__user-content',
+                img: '.chat-profile__user-content--img',
+                upload: '.chat-profile__user-content--upload',
+                input: '.chat-profile__user-content--input',
             },
             avatar: {
                 avatar: '.chat-profile__user-avatar',

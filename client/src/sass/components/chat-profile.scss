@@ -2,7 +2,9 @@
 .chat-profile {
     &__user,
     &__stranger,
-    &__friend {
+    &__friend,
+    &__receive-request,
+    &__sent-request {
         margin: 0.5rem;
         overflow-y: scroll;
         overflow-x: hidden;
@@ -13,18 +15,16 @@
             align-items: stretch;
         }
 
-        &-pic,
+        &-content,
         &-avatar,
         &-about {
             border-radius: 0.5rem;
             margin: 0.5rem;
         }
-        // Pic
-        &-pic {
+        // Content
+        &-content {
             @include flex();
             @include direction(column);
-            position: relative;
-
             &--img {
                 border-radius: 50%;
                 height: 15rem;
@@ -68,12 +68,15 @@
     }
     // User
     &__user {
-        // Pic
-        &-pic {
+        // Content
+        &-content {
+            &--pic {
+                position: relative;
+            }
             &--upload {
                 position: absolute;
-                top: 67.5%;
-                left: 67.5%;
+                top: 77.5%;
+                left: 77.5%;
                 transform: translate(-50%, -50%);
             }
 
@@ -174,43 +177,32 @@
             text-transform: capitalize;
         }
     }
-    // Stranger
-    &__stranger {
-        &-add {
-            &--friend {
-                position: absolute;
-                top: 67.5%;
-                left: 67.5%;
-                transform: translate(-50%, -50%);
-                @include flex();
-                height: 3.5rem;
-                width: 3.5rem;
-                border-radius: 50%;
-                cursor: pointer;
-            }
-            &--svg {
-                height: 2rem;
-                width: 2rem;
-            }
-        }
 
+    &__stranger,
+    &__friend,
+    &__receive-request,
+    &__sent-request {
         &-about {
             &--edit {
                 @include flex(flex-start);
             }
         }
     }
-    // Friend
-    &__friend {
-        &-remove {
-            &--stranger {
-                position: absolute;
-                top: 67.5%;
-                left: 67.5%;
-                transform: translate(-50%, -50%);
+
+    &__stranger,
+    &__sent-request {
+        &-content {
+            &--pic {
+                position: relative;
+            }
+            &--icon {
                 @include flex();
                 height: 3.5rem;
                 width: 3.5rem;
+                position: absolute;
+                top: 77.5%;
+                left: 77.5%;
+                transform: translate(-50%, -50%);
                 border-radius: 50%;
                 cursor: pointer;
             }
@@ -219,9 +211,28 @@
                 width: 2rem;
             }
         }
-        &-about {
-            &--edit {
-                @include flex(flex-start);
+    }
+
+    &__friend,
+    &__receive-request {
+        &-content {
+            &--container {
+                width: 100%;
+                @include flex();
+                justify-content: space-evenly;
+                padding: 0rem 7.5rem;
+                margin-bottom: 1.5rem;
+            }
+            &--icon {
+                @include flex();
+                height: 3.5rem;
+                width: 3.5rem;
+                border-radius: 1rem;
+                cursor: pointer;
+            }
+            &--svg {
+                width: 1.75rem;
+                height: 1.75rem;
             }
         }
     }

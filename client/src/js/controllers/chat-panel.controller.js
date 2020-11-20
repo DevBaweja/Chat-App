@@ -76,7 +76,7 @@ const controlChatPanelItem = (event, itemClass, selectedClass) => {
     });
 };
 
-const controlChatPanelPartialItem = (event, itemClass) => {
+const controlChatPanelPartialItem = (event, itemClass, modeType) => {
     const { target } = event;
     // Getting item
     const itemElement = target.closest(itemClass);
@@ -86,7 +86,7 @@ const controlChatPanelPartialItem = (event, itemClass) => {
     if (!user) return;
     // Mode of Chat Profile
     chatProfileController.controlChatProfile({
-        mode: mode.chatProfile.stranger,
+        mode: modeType || mode.chatProfile.stranger,
     });
 };
 
@@ -189,10 +189,14 @@ const requestSent = async () => {
                     // Render Request Sent
                     chatPanelRequestSentView.renderRequestSent(data.data);
                     // Add Event Listeners
-                    const list = select(elementStrings.chatPanel.sentRequest.list);
+                    const list = select(elementStrings.chatPanel.requestSent.list);
                     // Click
                     list.addEventListener('click', event =>
-                        controlChatPanelPartialItem(event, elementStrings.chatPanel.sentRequest.item)
+                        controlChatPanelPartialItem(
+                            event,
+                            elementStrings.chatPanel.requestSent.item,
+                            mode.chatProfile.sentRequest
+                        )
                     );
                 }
                 break;
@@ -216,12 +220,15 @@ const requestReceive = async () => {
                     // Render Request Receive
                     chatPanelRequestReceiveView.renderRequestReceive(data.data);
                     // Add Event Listeners
-                    const list = select(elementStrings.chatPanel.receiveRequest.list);
-                    console.log(list);
+                    const list = select(elementStrings.chatPanel.requestReceive.list);
 
                     // Click
                     list.addEventListener('click', event =>
-                        controlChatPanelPartialItem(event, elementStrings.chatPanel.receiveRequest.item)
+                        controlChatPanelPartialItem(
+                            event,
+                            elementStrings.chatPanel.requestReceive.item,
+                            mode.chatProfile.receiveRequest
+                        )
                     );
                 }
                 break;

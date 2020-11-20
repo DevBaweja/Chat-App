@@ -30,14 +30,16 @@ export const renderStranger = () => {
     const markup = `
     <div class="chat-profile__stranger">
         <form class="chat-profile__stranger--form">
-            <div class="chat-profile__stranger-pic">
-                <img src="img/avatar/girl.png" class="chat-profile__stranger-pic--img" alt="" />
-                <div class="chat-profile__stranger-add--friend" title="Add Friend">
-                    <svg class="chat-profile__stranger-add--svg">
-                        <use xlink:href="svg/sprite.svg#icon-user-plus"></use>
+            <div class="chat-profile__stranger-content">
+                <div class="chat-profile__stranger-content--pic">
+                <img src="img/avatar/girl.png" class="chat-profile__stranger-content--img" alt="" />
+                <div class="chat-profile__stranger-content--icon" title="Send Request">
+                    <svg class="chat-profile__stranger-content--svg">
+                        <use xlink:href="svg/sprite.svg#icon-send-request"></use>
                     </svg>
                 </div>
-                <div class="chat-profile__stranger-pic--name">${name}</div>
+            </div>
+                <div class="chat-profile__stranger-content--name">${name}</div>
             </div>
 
             <div class="chat-profile__stranger-about">

@@ -42,6 +42,8 @@ const mode = {
         user: 'user',
         friend: 'friend',
         stranger: 'stranger',
+        receiveRequest: 'receive-request',
+        sentRequest: 'sent-request',
         setting: 'setting',
         settingSub: 'setting-sub',
     },

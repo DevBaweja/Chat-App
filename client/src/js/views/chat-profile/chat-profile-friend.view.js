@@ -15,6 +15,14 @@ const renderFriendGroup = ({ type, label, id, value, isInput }) => `
 </div>
 `;
 
+const renderActionIcon = ({ type, title }, className) => `
+<div class="chat-profile__${className}-content--icon chat-profile__${className}-content--icon-${type}" title="${title}">
+    <svg class="chat-profile__${className}-content--svg">
+        <use xlink:href="svg/sprite.svg#icon-${type}"></use>
+    </svg>
+</div>
+`;
+
 export const renderFriend = () => {
     // ! For Development
     const name = faker.name.findName();
@@ -26,18 +34,27 @@ export const renderFriend = () => {
         { type: 'email', label: 'Email', id: 'email', value: email, isInput: true },
         { type: 'bio', label: 'Bio', id: 'bio', value: bio, isInput: false },
     ];
+    const className = 'friend';
+    const action = [
+        {
+            type: 'send-message',
+            title: 'Send Message',
+        },
+        {
+            type: 'remove-friend',
+            title: 'Unfriend',
+        },
+    ];
 
     const markup = `
     <div class="chat-profile__friend">
         <form class="chat-profile__friend--form">
-            <div class="chat-profile__friend-pic">
-                <img src="img/avatar/female.png" class="chat-profile__friend-pic--img" alt="" />
-                <div class="chat-profile__friend-remove--stranger" title="Remove Friend">
-                    <svg class="chat-profile__friend-remove--svg">
-                        <use xlink:href="svg/sprite.svg#icon-user-minus"></use>
-                    </svg>
+            <div class="chat-profile__friend-content">
+                <img src="img/avatar/female.png" class="chat-profile__friend-content--img" alt="" />
+                <div class="chat-profile__friend-content--name">${name}</div>
+                <div class="chat-profile__friend-content--container"> 
+                    ${action.map(item => renderActionIcon(item, className)).join('')}
                 </div>
-                <div class="chat-profile__friend-pic--name">${name}</div>
             </div>
 
             <div class="chat-profile__friend-about">

@@ -7,7 +7,7 @@ export const initialUIForUser = () => initialUI(elementStrings.chatProfile.user.
 
 export const getUserInput = () => getInput(elementStrings.chatProfile.user.about.input);
 
-export const getUserPhoto = inputs => getPhoto(elementStrings.chatProfile.user.pic.input, inputs);
+export const getUserPhoto = inputs => getPhoto(elementStrings.chatProfile.user.content.input, inputs);
 
 export const addSelected = item => item.classList.add(elementClasses.selected.chatProfile.avatar);
 
@@ -74,17 +74,19 @@ export const renderUser = user => {
     const markup = `
     <div class="chat-profile__user">
     <form class="chat-profile__user--form">
-        <div class="chat-profile__user-pic">
-            <img src="${photo}" class="chat-profile__user-pic--img" alt=" " />
-            <div class="chat-profile__user-pic--upload">
-                <label class="chat-profile__user-pic--label" for="photo" title="Change profile pic">
-                    <svg class="chat-profile__user-pic--svg">
-                        <use xlink:href="svg/sprite.svg#icon-camera"></use>
-                    </svg>
-                </label>
-                <input class="chat-profile__user-pic--input" accept="image/*" type="file" id="photo" name="photo" />
+        <div class="chat-profile__user-content">
+            <div class="chat-profile__user-content--pic">
+                <img src="${photo}" class="chat-profile__user-content--img" alt=" " />
+                <div class="chat-profile__user-content--upload">
+                    <label class="chat-profile__user-content--label" for="photo" title="Change profile image">
+                        <svg class="chat-profile__user-content--svg">
+                            <use xlink:href="svg/sprite.svg#icon-camera"></use>
+                        </svg>
+                    </label>
+                    <input class="chat-profile__user-content--input" accept="image/*" type="file" id="photo" name="photo" />
+                </div>
             </div>
-            <div class="chat-profile__user-pic--name">${name}</div>
+            <div class="chat-profile__user-content--name">${name}</div>
         </div>
         <div class="chat-profile__user-avatar">
             <div class="chat-profile__user-avatar--label">

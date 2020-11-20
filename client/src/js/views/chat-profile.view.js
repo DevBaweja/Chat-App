@@ -43,7 +43,7 @@ export const getPhoto = (className, inputs) => {
     }
 
     // Getting Avatar
-    const imgElement = select(elementStrings.chatProfile.user.pic.img);
+    const imgElement = select(elementStrings.chatProfile.user.content.img);
     const src = imgElement.getAttribute('src');
     inputs.append('photo', src);
 };

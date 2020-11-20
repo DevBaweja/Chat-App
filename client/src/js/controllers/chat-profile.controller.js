@@ -8,6 +8,9 @@ import * as chatProfileSettingController from './chat-profile/chat-profile-setti
 import ChatProfile from '../models/ChatProfile';
 // Views
 import * as chatProfileView from '../views/chat-profile.view';
+import * as chatProfileReceiveRequestView from '../views/chat-profile/chat-profile-receive-request.view';
+import * as chatProfileSentRequestView from '../views/chat-profile/chat-profile-sent-request.view';
+
 import * as chatProfileStrangerView from '../views/chat-profile/chat-profile-stranger.view';
 import * as chatProfileFriendView from '../views/chat-profile/chat-profile-friend.view';
 import * as chatProfileUserView from '../views/chat-profile/chat-profile-user.view';
@@ -32,6 +35,12 @@ export const controlChatProfile = info => {
             break;
         case mode.chatProfile.friend:
             friend();
+            break;
+        case mode.chatProfile.sentRequest:
+            sentRequest();
+            break;
+        case mode.chatProfile.receiveRequest:
+            receiveRequest();
             break;
         case mode.chatProfile.user:
             user();
@@ -60,13 +69,23 @@ const friend = () => {
     // Add Event Listeners
 };
 
+const sentRequest = () => {
+    // Render Sent Request
+    chatProfileSentRequestView.renderSentRequest();
+};
+
+const receiveRequest = () => {
+    // Render Receive Request
+    chatProfileReceiveRequestView.renderReceiveRequest();
+};
+
 const user = () => {
     // Getting user from state
     const { user } = state;
     // Render Profile
     chatProfileUserView.renderUser(user);
-    // Add Event Listeners for pic
-    select(elementStrings.chatProfile.user.pic.input).addEventListener(
+    // Add Event Listeners for content
+    select(elementStrings.chatProfile.user.content.input).addEventListener(
         'input',
         chatProfileUserController.controlUpload
     );
@@ -77,7 +96,7 @@ const user = () => {
     // Add Event Listeners to edit field
     const editItems = selectAll(elementStrings.chatProfile.user.about.edit);
     editItems.forEach(item => item.addEventListener('click', chatProfileUserController.controlDisable));
-    
+
     // Add Event Listeners for updating profile
     select(elementStrings.chatProfile.user.form).addEventListener(
         'submit',
