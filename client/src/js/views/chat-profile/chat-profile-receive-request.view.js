@@ -1,5 +1,5 @@
 import { elements, select } from '../../utils/base.util';
-import { renderAboutGroup } from '../chat-profile.view';
+import { renderAboutGroup, renderForm } from '../chat-profile.view';
 import faker from 'faker';
 
 const renderActionIcon = ({ type, title }, className) => `
@@ -12,6 +12,7 @@ const renderActionIcon = ({ type, title }, className) => `
 
 export const renderReceiveRequest = () => {
     // ! For Development
+    const id = faker.random.uuid();
     const name = faker.name.findName();
     const email = faker.internet.email();
     const bio = faker.hacker.phrase();
@@ -34,21 +35,17 @@ export const renderReceiveRequest = () => {
     ];
 
     const markup = `
-    <div class="chat-profile__receive-request">
-        <form class="chat-profile__receive-request--form">
-            <div class="chat-profile__receive-request-content">
-                <img src="img/avatar/female.png" class="chat-profile__receive-request-content--img" alt="" />
-                <div class="chat-profile__receive-request-content--name">${name}</div>
-                <div class="chat-profile__receive-request-content--container"> 
-                    ${action.map(item => renderActionIcon(item, className)).join('')}
-                </div>
-            </div>
+    <div class="chat-profile__${className}-content">
+        <img src="img/avatar/female.png" class="chat-profile__${className}-content--img" alt="" />
+        <div class="chat-profile__${className}-content--name">${name}</div>
+        <div class="chat-profile__${className}-content--container"> 
+            ${action.map(item => renderActionIcon(item, className)).join('')}
+        </div>
+    </div>
 
-            <div class="chat-profile__receive-request-about">
-                ${data.map(item => renderAboutGroup(item, className)).join('')}
-            </div>
-        </form>
-    </div>`;
-
-    select(elements.ChatProfile).insertAdjacentHTML('beforeend', markup);
+    <div class="chat-profile__${className}-about">
+        ${data.map(item => renderAboutGroup(item, className)).join('')}
+    </div>
+    `;
+    select(elements.ChatProfile).insertAdjacentHTML('beforeend', renderForm(markup, className, id));
 };

@@ -48,6 +48,15 @@ export const getPhoto = (className, inputs) => {
     inputs.append('photo', src);
 };
 
+// Form
+export const renderForm = (inner, className, user) => `
+<div class="chat-profile__${className}">
+    <form class="chat-profile__${className}--form"  data-user="${user}">
+        ${inner}
+    </form>
+</div>
+`;
+
 // About Group
 export const renderAboutGroup = (
     { type, label, id, value, isInput },
