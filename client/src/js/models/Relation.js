@@ -1,18 +1,15 @@
 import axios from 'axios';
 import state from '../state';
-import { url, generateQuery } from '../utils/base.util';
+import { url, addAuthorizationHeaders } from '../utils/base.util';
 
-class Search {
-    constructor({ name }) {
-        this.url = `${url[state['mode'].mode]}api/v1/users/search/`;
-        this.name = name;
-        this.params = {
-            sort: '+name',
-        };
+class Relation {
+    constructor({ id }) {
+        this.url = `${url[state['mode'].mode]}api/v1/users/relation/`;
+        this.id = id;
     }
 
-    setUserInput = ({ name }) => {
-        this.name = name;
+    setUserInput = ({ id }) => {
+        this.id = id;
     };
 
     parseData = () => {
@@ -20,9 +17,8 @@ class Search {
         this.data = data;
     };
 
-    getSearch = async () => {
-        this.query = generateQuery(this.params);
-        const url = `${this.url}${this.name}?${this.query}`;
+    getRelation = async () => {
+        const url = `${this.url}${this.id}`;
         try {
             this.data = await axios({
                 method: 'GET',

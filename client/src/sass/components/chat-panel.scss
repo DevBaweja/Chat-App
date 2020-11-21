@@ -195,10 +195,7 @@
     }
 }
 
-.chat-panel-search,
-.chat-panel-request-sent,
-.chat-panel-request-receive {
-    /*
+.chat-panel-search {
     &__time {
         margin-right: 1rem;
         transition: all 0.2s;
@@ -207,8 +204,9 @@
     &__item:hover &__time {
         opacity: 1;
     }
-    */
-
+}
+.chat-panel-request-sent,
+.chat-panel-request-receive {
     &__time {
         margin-right: 1rem;
     }

@@ -1,6 +1,6 @@
 import state from '../state';
 // Utils
-import { elementStrings, elementClasses, mode, select, throttle, debounce } from '../utils/base.util';
+import { elementStrings, elementClasses, mode, select, debounce } from '../utils/base.util';
 // Controllers
 import * as chatBoxController from '../controllers/chat-box.controller';
 import * as chatProfileController from '../controllers/chat-profile.controller';
@@ -201,12 +201,18 @@ const search = () => {
     // Render Search
     chatPanelSearchView.renderSearch();
     // Adding event listener to form submit
-    // select(elementStrings.forms.search.form).addEventListener('submit', controlSearch);
-    // Adding event listener to key stroke
-    // Throttling
+    select(elementStrings.forms.search.form).addEventListener('submit', controlSearch);
     // select(elementStrings.forms.search.form).addEventListener('keyup', throttle(controlSearch));
     // Debouncing
     select(elementStrings.forms.search.form).addEventListener('keyup', debounce(controlSearch));
+
+    // Add Event Listeners
+    const list = select(elementStrings.chatPanel.search.list);
+    // Click
+    list.addEventListener('click', event => {
+        // Getting Relation
+        controlChatPanelPartialItem(event, elementStrings.chatPanel.search.item);
+    });
 };
 
 const friend = () => {

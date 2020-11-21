@@ -122,3 +122,22 @@ exports.deleteMe = catchAsync(async (req, res, next) => {
         data: null,
     });
 });
+
+// Get Relation
+exports.getRelation = catchAsync(async (req, res, next) => {
+    // Getting user relation
+    const other = await User.findById(req.params.id);
+    if (!other) {
+        return next(new AppError('No relation found with that ID', 404));
+    }
+    // Establishing Relation
+    const relation = 'stranger';
+
+    res.status(200).json({
+        status: 'success',
+        relation,
+        data: {
+            other,
+        },
+    });
+});
