@@ -7,7 +7,7 @@ class Search {
         this.url = `${url[state['mode'].mode]}api/v1/users/search/`;
         this.name = name;
         this.params = {
-            sort: '+createdAt,+name',
+            sort: '+name',
         };
     }
 

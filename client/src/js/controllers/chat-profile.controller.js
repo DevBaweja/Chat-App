@@ -31,16 +31,16 @@ export const controlChatProfile = info => {
             empty();
             break;
         case mode.chatProfile.stranger:
-            stranger(info);
+            stranger();
             break;
         case mode.chatProfile.friend:
             friend();
             break;
         case mode.chatProfile.sentRequest:
-            sentRequest(info);
+            sentRequest();
             break;
         case mode.chatProfile.receiveRequest:
-            receiveRequest(info);
+            receiveRequest();
             break;
         case mode.chatProfile.user:
             user();
@@ -57,100 +57,85 @@ window.controlChatProfile = controlChatProfile;
 const ideal = () => {};
 const empty = () => {};
 
-const stranger = ({ data }) => {
-    // Getting user
-    const { user } = data;
+const stranger = () => {
+    // Getting data
+    const { data } = state['relation'];
+    // Getting other
+    const { other } = data.data;
     // Render Stranger
-    chatProfileStrangerView.renderStranger(user);
+    chatProfileStrangerView.renderStranger(other);
     // Add Event Listeners
     select(elementStrings.chatProfile.stranger.sendRequest).addEventListener('click', () => {
         console.log('Send Request');
-        // Getting data
-        const { data } = state['relation'];
-        // Getting other
-        const { other } = data.data;
         // Mode of Chat Profile
         controlChatProfile({
             mode: mode.chatProfile.sentRequest,
-            data: { user: other },
         });
     });
 };
 
 const friend = () => {
+    // Getting data
+    const { data } = state['relation'];
+    // Getting other
+    const { other } = data.data;
     // Render Friend
-    chatProfileFriendView.renderFriend();
+    chatProfileFriendView.renderFriend(other);
     // Add Event Listeners
     // Send Message
     select(elementStrings.chatProfile.friend.sendMessage).addEventListener('click', () => {
         console.log('Send Message');
+        // Chat Box
     });
     // Remove Friend
     select(elementStrings.chatProfile.friend.removeFriend).addEventListener('click', () => {
         console.log('Remove Friend');
-        // Getting data
-        const { data } = state['relation'];
-        // Getting other
-        const { other } = data.data;
         // Mode of Chat Profile
         controlChatProfile({
             mode: mode.chatProfile.stranger,
-            data: { user: other },
         });
     });
 };
 
-const sentRequest = ({ data }) => {
-    // Getting user
-    const { user } = data;
+const sentRequest = () => {
+    // Getting data
+    const { data } = state['relation'];
+    // Getting other
+    const { other } = data.data;
     // Render Sent Request
-    chatProfileSentRequestView.renderSentRequest(user);
+    chatProfileSentRequestView.renderSentRequest(other);
     // Add Event Listeners
     // Cancel Request
     select(elementStrings.chatProfile.requestSent.cancelRequest).addEventListener('click', () => {
-        console.log('Cancel Request');
-        // Getting data
-        const { data } = state['relation'];
-        // Getting other
-        const { other } = data.data;
         // Mode of Chat Profile
         controlChatProfile({
             mode: mode.chatProfile.stranger,
-            data: { user: other },
         });
     });
 };
 
-const receiveRequest = ({ data }) => {
-    // Getting user
-    const { user } = data;
+const receiveRequest = () => {
+    // Getting data
+    const { data } = state['relation'];
+    // Getting other
+    const { other } = data.data;
     // Render Receive Request
-    chatProfileReceiveRequestView.renderReceiveRequest(user);
+    chatProfileReceiveRequestView.renderReceiveRequest(other);
     // Add Event Listeners
     // Accept Request
     select(elementStrings.chatProfile.requestReceive.acceptRequest).addEventListener('click', () => {
         console.log('Accept Request');
-        // Getting data
-        const { data } = state['relation'];
-        // Getting other
-        const { other } = data.data;
         // Mode of Chat Profile
         controlChatProfile({
             mode: mode.chatProfile.friend,
-            data: { user: other },
         });
     });
     // Decline Request
     select(elementStrings.chatProfile.requestReceive.declineRequest).addEventListener('click', () => {
         console.log('Decline Request');
-        // Getting data
-        const { data } = state['relation'];
-        // Getting other
-        const { other } = data.data;
         // Mode of Chat Profile
         controlChatProfile({
             mode: mode.chatProfile.stranger,
-            data: { user: other },
         });
     });
 };

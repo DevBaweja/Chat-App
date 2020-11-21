@@ -6,7 +6,7 @@ import mode from './mode.util';
 import actions from './actions.util';
 import io from './io.util';
 import { select, selectAll } from './selector.util';
-import { capitalize, random, randomItem, bold, italic, generateQuery, getTime } from './utility.util';
+import { capitalize, capitalizeAll, random, randomItem, bold, italic, generateQuery, getTime } from './utility.util';
 import { color, hex } from './color.util';
 import { theme } from './theme.util';
 import { addAuthorizationHeaders, getToken, setToken } from './auth.util';
@@ -23,6 +23,7 @@ export {
     select,
     selectAll,
     capitalize,
+    capitalizeAll,
     random,
     randomItem,
     bold,

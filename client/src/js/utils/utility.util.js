@@ -52,6 +52,8 @@ export const getTime = time => {
 
 export const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
 
+export const capitalizeAll = str => str.split(' ').map(capitalize).join(' ');
+
 export const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
 export const randomItem = list => list[random(0, list.length)];

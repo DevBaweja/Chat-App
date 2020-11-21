@@ -1,6 +1,5 @@
 import { elements, select } from '../../utils/base.util';
 import { renderAboutGroup, renderForm } from '../chat-profile.view';
-import faker from 'faker';
 
 export const renderSentRequest = ({ _id, photo, name, email, bio }) => {
     // Data

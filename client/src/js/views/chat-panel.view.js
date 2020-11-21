@@ -1,4 +1,4 @@
-import { elements, select, selectAll, getTime, bold, capitalize } from '../utils/base.util';
+import { elements, select, selectAll, getTime, bold, capitalizeAll } from '../utils/base.util';
 
 export const clearChatPanel = () => (select(elements.ChatPanel).innerHTML = '');
 
@@ -107,7 +107,7 @@ export const renderPartialItem = ({ _id, photo, name, createdAt }, className, re
         <!-- USER INFO -->
         <div class="chat-panel-${className}__info">
             <span class="chat-panel-${className}__name">${
-    real ? bold(capitalize(real)) + name.slice(real.length) : name
+    real ? bold(capitalizeAll(real)) + name.slice(real.length) : name
 }</span>
             ${createdAt ? `<span class="chat-panel-${className}__time">${getTime(createdAt)} ago</span>` : ''}
         </div>
