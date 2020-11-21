@@ -7,6 +7,7 @@ import * as chatProfileController from '../controllers/chat-profile.controller';
 // Models
 import ChatPanel from '../models/ChatPanel';
 import Search from '../models/Search';
+import Relation from '../models/Relation';
 import SentRequest from '../models/SentRequest';
 import ReceiveRequest from '../models/ReceiveRequest';
 // Views
@@ -77,7 +78,7 @@ const controlChatPanelItem = (event, itemClass, selectedClass) => {
     });
 };
 
-const controlChatPanelPartialItem = (event, itemClass, modeType) => {
+const controlChatPanelPartialItem = async (event, itemClass, modeType) => {
     const { target } = event;
     // Getting item
     const itemElement = target.closest(itemClass);
@@ -85,10 +86,32 @@ const controlChatPanelPartialItem = (event, itemClass, modeType) => {
     // Getting user
     const user = itemElement.dataset.user;
     if (!user) return;
-    // Mode of Chat Profile
-    chatProfileController.controlChatProfile({
-        mode: modeType || mode.chatProfile.stranger,
-    });
+
+    //  Init Relation
+    if (!state['relation']) state['relation'] = new Relation({ user });
+    state['relation'].setUserInput({ user });
+
+    try {
+        // Making API call
+        const data = await state['relation'].getRelation();
+        switch (data.status) {
+            case 'success':
+                {
+                    // Getting data
+                    const { data } = state['relation'];
+                    // Geeting other
+                    const { other } = data.data;
+                    // Mode of Chat Profile
+                    chatProfileController.controlChatProfile({
+                        mode: modeType || data.relation,
+                        data: { user: other },
+                    });
+                }
+                break;
+        }
+    } catch (err) {
+        console.log('ERROR', err.message);
+    }
 };
 
 const empty = () => {
@@ -164,7 +187,6 @@ const controlSearch = async event => {
 
     // 3) Init Search
     if (!state['search']) state['search'] = new Search({ ...inputs });
-
     state['search'].setUserInput({ ...inputs });
 
     try {
@@ -175,12 +197,6 @@ const controlSearch = async event => {
                 {
                     // Render Search Results
                     chatPanelSearchView.renderSearchResult(data.data, inputs['name']);
-                    // Add Event Listeners
-                    const list = select(elementStrings.chatPanel.search.list);
-                    // Click
-                    list.addEventListener('click', event =>
-                        controlChatPanelPartialItem(event, elementStrings.chatPanel.search.item)
-                    );
                 }
                 break;
             case 'error':
@@ -209,10 +225,10 @@ const search = () => {
     // Add Event Listeners
     const list = select(elementStrings.chatPanel.search.list);
     // Click
-    list.addEventListener('click', event => {
-        // Getting Relation
-        controlChatPanelPartialItem(event, elementStrings.chatPanel.search.item);
-    });
+    list.addEventListener(
+        'click',
+        async event => await controlChatPanelPartialItem(event, elementStrings.chatPanel.search.item)
+    );
 };
 
 const friend = () => {
@@ -223,7 +239,7 @@ const friend = () => {
     // Add Event Listeners
     const list = select(elementStrings.chatPanel.friend.list);
     // Click
-    list.addEventListener('click', event =>
+    list.addEventListener('click', async event =>
         controlChatPanelItem(event, elementStrings.chatPanel.friend.item, elementClasses.selected.chatPanel.friend)
     );
 };
@@ -244,12 +260,14 @@ const requestSent = async () => {
                     // Add Event Listeners
                     const list = select(elementStrings.chatPanel.requestSent.list);
                     // Click
-                    list.addEventListener('click', event =>
-                        controlChatPanelPartialItem(
-                            event,
-                            elementStrings.chatPanel.requestSent.item,
-                            mode.chatProfile.sentRequest
-                        )
+                    list.addEventListener(
+                        'click',
+                        async event =>
+                            await controlChatPanelPartialItem(
+                                event,
+                                elementStrings.chatPanel.requestSent.item,
+                                mode.chatProfile.sentRequest
+                            )
                     );
                 }
                 break;
@@ -276,12 +294,14 @@ const requestReceive = async () => {
                     const list = select(elementStrings.chatPanel.requestReceive.list);
 
                     // Click
-                    list.addEventListener('click', event =>
-                        controlChatPanelPartialItem(
-                            event,
-                            elementStrings.chatPanel.requestReceive.item,
-                            mode.chatProfile.receiveRequest
-                        )
+                    list.addEventListener(
+                        'click',
+                        async event =>
+                            await controlChatPanelPartialItem(
+                                event,
+                                elementStrings.chatPanel.requestReceive.item,
+                                mode.chatProfile.receiveRequest
+                            )
                     );
                 }
                 break;

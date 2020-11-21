@@ -10,12 +10,7 @@ const renderActionIcon = ({ type, title }, className) => `
 </div>
 `;
 
-export const renderReceiveRequest = () => {
-    // ! For Development
-    const id = faker.random.uuid();
-    const name = faker.name.findName();
-    const email = faker.internet.email();
-    const bio = faker.hacker.phrase();
+export const renderReceiveRequest = ({ _id, name, email, bio }) => {
     // Data
     const data = [
         { type: 'name', label: 'Name', id: 'name', value: name, isInput: true },
@@ -47,5 +42,5 @@ export const renderReceiveRequest = () => {
         ${data.map(item => renderAboutGroup(item, className)).join('')}
     </div>
     `;
-    select(elements.ChatProfile).insertAdjacentHTML('beforeend', renderForm(markup, className, id));
+    select(elements.ChatProfile).insertAdjacentHTML('beforeend', renderForm(markup, className, _id));
 };

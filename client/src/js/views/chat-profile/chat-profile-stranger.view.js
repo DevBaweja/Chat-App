@@ -2,12 +2,7 @@ import faker from 'faker';
 import { elements, select } from '../../utils/base.util';
 import { renderAboutGroup, renderForm } from '../chat-profile.view';
 
-export const renderStranger = () => {
-    // ! For Development
-    const id = faker.random.uuid();
-    const name = faker.name.findName();
-    const email = faker.internet.email();
-    const bio = faker.hacker.phrase();
+export const renderStranger = ({ _id, name, email, bio }) => {
     // Data
     const data = [
         { type: 'name', label: 'Name', id: 'name', value: name, isInput: true },
@@ -34,5 +29,5 @@ export const renderStranger = () => {
     </div>
     `;
 
-    select(elements.ChatProfile).insertAdjacentHTML('beforeend', renderForm(markup, className, id));
+    select(elements.ChatProfile).insertAdjacentHTML('beforeend', renderForm(markup, className, _id));
 };

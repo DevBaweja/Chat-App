@@ -31,16 +31,16 @@ export const controlChatProfile = info => {
             empty();
             break;
         case mode.chatProfile.stranger:
-            stranger();
+            stranger(info);
             break;
         case mode.chatProfile.friend:
             friend();
             break;
         case mode.chatProfile.sentRequest:
-            sentRequest();
+            sentRequest(info);
             break;
         case mode.chatProfile.receiveRequest:
-            receiveRequest();
+            receiveRequest(info);
             break;
         case mode.chatProfile.user:
             user();
@@ -57,9 +57,11 @@ window.controlChatProfile = controlChatProfile;
 const ideal = () => {};
 const empty = () => {};
 
-const stranger = () => {
+const stranger = ({ data }) => {
+    // Getting user
+    const { user } = data;
     // Render Stranger
-    chatProfileStrangerView.renderStranger();
+    chatProfileStrangerView.renderStranger(user);
     // Add Event Listeners
 };
 
@@ -69,14 +71,18 @@ const friend = () => {
     // Add Event Listeners
 };
 
-const sentRequest = () => {
+const sentRequest = ({ data }) => {
+    // Getting user
+    const { user } = data;
     // Render Sent Request
-    chatProfileSentRequestView.renderSentRequest();
+    chatProfileSentRequestView.renderSentRequest(user);
 };
 
-const receiveRequest = () => {
+const receiveRequest = ({ data }) => {
+    // Getting user
+    const { user } = data;
     // Render Receive Request
-    chatProfileReceiveRequestView.renderReceiveRequest();
+    chatProfileReceiveRequestView.renderReceiveRequest(user);
 };
 
 const user = () => {

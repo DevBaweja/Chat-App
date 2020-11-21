@@ -3,13 +3,13 @@ import state from '../state';
 import { url, addAuthorizationHeaders } from '../utils/base.util';
 
 class Relation {
-    constructor({ id }) {
+    constructor({ user }) {
         this.url = `${url[state['mode'].mode]}api/v1/users/relation/`;
-        this.id = id;
+        this.user = user;
     }
 
-    setUserInput = ({ id }) => {
-        this.id = id;
+    setUserInput = ({ user }) => {
+        this.user = user;
     };
 
     parseData = () => {
@@ -18,11 +18,14 @@ class Relation {
     };
 
     getRelation = async () => {
-        const url = `${this.url}${this.id}`;
+        let headers = {};
+        addAuthorizationHeaders(headers);
+        const url = `${this.url}${this.user}`;
         try {
             this.data = await axios({
                 method: 'GET',
                 url,
+                headers,
                 validateStatus: () => true,
                 // For validation
             });
@@ -35,4 +38,4 @@ class Relation {
     };
 }
 
-export default Search;
+export default Relation;
