@@ -16,8 +16,9 @@
     align-items: stretch;
 
     &__title {
-        text-align: center;
-        padding: 1rem 1.5rem;
+        @include flex();
+        align-items: stretch;
+        padding: 1rem 0rem;
         margin: 0.75rem;
         margin-right: 5rem;
         margin-left: 5rem;
@@ -25,7 +26,14 @@
         border-radius: 1rem;
         line-height: 1.2;
     }
+
+    &__all {
+        text-align: center;
+        margin: 0 2rem;
+    }
+
     &__label {
+        flex: 1;
         font-size: $font-size-regular-2;
         font-weight: $font-weight-bold;
     }

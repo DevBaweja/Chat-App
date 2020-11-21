@@ -63,12 +63,23 @@ const stranger = ({ data }) => {
     // Render Stranger
     chatProfileStrangerView.renderStranger(user);
     // Add Event Listeners
+    select(elementStrings.chatProfile.stranger.sendRequest).addEventListener('click', () => {
+        console.log('Send Request');
+    });
 };
 
 const friend = () => {
     // Render Friend
     chatProfileFriendView.renderFriend();
     // Add Event Listeners
+    // Send Message
+    select(elementStrings.chatProfile.friend.sendMessage).addEventListener('click', () => {
+        console.log('Send Message');
+    });
+    // Remove Friend
+    select(elementStrings.chatProfile.friend.removeFriend).addEventListener('click', () => {
+        console.log('Remove Friend');
+    });
 };
 
 const sentRequest = ({ data }) => {
@@ -76,6 +87,11 @@ const sentRequest = ({ data }) => {
     const { user } = data;
     // Render Sent Request
     chatProfileSentRequestView.renderSentRequest(user);
+    // Add Event Listeners
+    // Cancel Request
+    select(elementStrings.chatProfile.requestSent.cancelRequest).addEventListener('click', () => {
+        console.log('Cancel Request');
+    });
 };
 
 const receiveRequest = ({ data }) => {
@@ -83,6 +99,15 @@ const receiveRequest = ({ data }) => {
     const { user } = data;
     // Render Receive Request
     chatProfileReceiveRequestView.renderReceiveRequest(user);
+    // Add Event Listeners
+    // Accept Request
+    select(elementStrings.chatProfile.requestReceive.acceptRequest).addEventListener('click', () => {
+        console.log('Accept Request');
+    });
+    // Decline Request
+    select(elementStrings.chatProfile.requestReceive.declineRequest).addEventListener('click', () => {
+        console.log('Decline Request');
+    });
 };
 
 const user = () => {

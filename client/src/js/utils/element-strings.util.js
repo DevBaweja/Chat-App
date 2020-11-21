@@ -185,6 +185,21 @@ const elementStrings = {
             },
             save: '.chat-profile__user-save',
         },
+        stranger: {
+            sendRequest: '.chat-profile__stranger-content--icon',
+        },
+
+        friend: {
+            sendMessage: '.chat-profile__friend-content--icon-send-message',
+            removeFriend: '.chat-profile__friend-content--icon-remove-friend',
+        },
+        requestSent: {
+            cancelRequest: '.chat-profile__sent-request-content--icon',
+        },
+        requestReceive: {
+            acceptRequest: '.chat-profile__receive-request-content--icon-accept-request',
+            declineRequest: '.chat-profile__receive-request-content--icon-decline-request',
+        },
         setting: {
             list: '.chat-profile-setting__list',
             item: '.chat-profile-setting__item',

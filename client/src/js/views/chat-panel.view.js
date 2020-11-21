@@ -90,8 +90,10 @@ export const renderEmpty = () => {
 // Title
 export const renderTitle = ({ label, count }, className) => `
     <div class="chat-panel-${className}__title">
-        <span class="chat-panel-${className}__label">${label}</span> 
-        <span class="chat-panel-${className}__count">(${count})</span>
+        <div class="chat-panel-${className}__all">
+            <span class="chat-panel-${className}__label">${label}</span> 
+            <span class="chat-panel-${className}__count">(${count})</span>
+        </div>
     </div>
 `;
 
