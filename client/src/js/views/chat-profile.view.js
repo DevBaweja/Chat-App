@@ -47,3 +47,20 @@ export const getPhoto = (className, inputs) => {
     const src = imgElement.getAttribute('src');
     inputs.append('photo', src);
 };
+
+// About Group
+export const renderAboutGroup = (
+    { type, label, id, value, isInput },
+    className
+) => `<div class="chat-profile__${className}-about--group">
+<div class="chat-profile__${className}-about--edit">
+    <label for="${type}" class="chat-profile__${className}-about--label"> ${label} </label>
+</div>
+${
+    isInput
+        ? ` <input type="text" id="${id}" class="chat-profile__${className}-about--input" value="${value}" disabled />`
+        : `<textarea id="${id}" class="chat-profile__${className}-about--input" rows="4" disabled>${value}</textarea>`
+}
+
+</div>
+`;

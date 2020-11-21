@@ -1,19 +1,6 @@
 import { elements, select } from '../../utils/base.util';
+import { renderAboutGroup } from '../chat-profile.view';
 import faker from 'faker';
-
-const renderSentRequestGroup = ({ type, label, id, value, isInput }) => `
-<div class="chat-profile__sent-request-about--group">
-    <div class="chat-profile__sent-request-about--edit">
-        <label for="${type}" class="chat-profile__sent-request-about--label"> ${label} </label>
-    </div>
-    ${
-        isInput
-            ? ` <input type="text" id="${id}" class="chat-profile__sent-request-about--input" value="${value}" disabled />`
-            : `<textarea id="${id}" class="chat-profile__sent-request-about--input" rows="4" disabled>${value}</textarea>`
-    }
-   
-</div>
-`;
 
 export const renderSentRequest = () => {
     // ! For Development
@@ -26,6 +13,8 @@ export const renderSentRequest = () => {
         { type: 'email', label: 'Email', id: 'email', value: email, isInput: true },
         { type: 'bio', label: 'Bio', id: 'bio', value: bio, isInput: false },
     ];
+
+    const className = 'sent-request';
 
     const markup = `
     <div class="chat-profile__sent-request">
@@ -43,7 +32,7 @@ export const renderSentRequest = () => {
             </div>
 
             <div class="chat-profile__sent-request-about">
-                ${data.map(item => renderSentRequestGroup(item)).join('')}
+                ${data.map(item => renderAboutGroup(item, className)).join('')}
             </div>
         </form>
     </div>

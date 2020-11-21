@@ -1,19 +1,6 @@
 import { elements, select } from '../../utils/base.util';
+import { renderAboutGroup } from '../chat-profile.view';
 import faker from 'faker';
-
-const renderFriendGroup = ({ type, label, id, value, isInput }) => `
-<div class="chat-profile__friend-about--group">
-    <div class="chat-profile__friend-about--edit">
-        <label for="${type}" class="chat-profile__friend-about--label"> ${label} </label>
-    </div>
-    ${
-        isInput
-            ? ` <input type="text" id="${id}" class="chat-profile__friend-about--input" value="${value}" disabled />`
-            : `<textarea id="${id}" class="chat-profile__friend-about--input" rows="4" disabled>${value}</textarea>`
-    }
-   
-</div>
-`;
 
 const renderActionIcon = ({ type, title }, className) => `
 <div class="chat-profile__${className}-content--icon chat-profile__${className}-content--icon-${type}" title="${title}">
@@ -58,7 +45,7 @@ export const renderFriend = () => {
             </div>
 
             <div class="chat-profile__friend-about">
-                ${data.map(item => renderFriendGroup(item)).join('')}
+                ${data.map(item => renderAboutGroup(item, className)).join('')}
             </div>
         </form>
     </div>`;

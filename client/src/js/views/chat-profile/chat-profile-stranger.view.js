@@ -1,19 +1,6 @@
-import { elements, select } from '../../utils/base.util';
 import faker from 'faker';
-
-const renderStrangerGroup = ({ type, label, id, value, isInput }) => `
-<div class="chat-profile__stranger-about--group">
-    <div class="chat-profile__stranger-about--edit">
-        <label for="${type}" class="chat-profile__stranger-about--label"> ${label} </label>
-    </div>
-    ${
-        isInput
-            ? ` <input type="text" id="${id}" class="chat-profile__stranger-about--input" value="${value}" disabled />`
-            : `<textarea id="${id}" class="chat-profile__stranger-about--input" rows="4" disabled>${value}</textarea>`
-    }
-   
-</div>
-`;
+import { elements, select } from '../../utils/base.util';
+import { renderAboutGroup } from '../chat-profile.view';
 
 export const renderStranger = () => {
     // ! For Development
@@ -26,6 +13,7 @@ export const renderStranger = () => {
         { type: 'email', label: 'Email', id: 'email', value: email, isInput: true },
         { type: 'bio', label: 'Bio', id: 'bio', value: bio, isInput: false },
     ];
+    const className = 'stranger';
 
     const markup = `
     <div class="chat-profile__stranger">
@@ -43,7 +31,7 @@ export const renderStranger = () => {
             </div>
 
             <div class="chat-profile__stranger-about">
-                ${data.map(item => renderStrangerGroup(item)).join('')}
+                ${data.map(item => renderAboutGroup(item, className)).join('')}
             </div>
         </form>
     </div>

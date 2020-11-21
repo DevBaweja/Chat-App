@@ -1,6 +1,6 @@
 import state from '../state';
 // Utils
-import { elementStrings, elementClasses, mode, select } from '../utils/base.util';
+import { elementStrings, elementClasses, mode, select, throttle, debounce } from '../utils/base.util';
 // Controllers
 import * as chatBoxController from '../controllers/chat-box.controller';
 import * as chatProfileController from '../controllers/chat-profile.controller';
@@ -160,6 +160,7 @@ const controlSearch = async event => {
     const inputs = chatPanelSearchView.getUserInput();
     // 2) Checking user inputs
     // { name }
+    if (!inputs.name) return;
 
     // 3) Init Search
     if (!state['search']) state['search'] = new Search({ ...inputs });
@@ -200,7 +201,12 @@ const search = () => {
     // Render Search
     chatPanelSearchView.renderSearch();
     // Adding event listener to form submit
-    select(elementStrings.forms.search.form).addEventListener('submit', controlSearch);
+    // select(elementStrings.forms.search.form).addEventListener('submit', controlSearch);
+    // Adding event listener to key stroke
+    // Throttling
+    // select(elementStrings.forms.search.form).addEventListener('keyup', throttle(controlSearch));
+    // Debouncing
+    select(elementStrings.forms.search.form).addEventListener('keyup', debounce(controlSearch));
 };
 
 const friend = () => {

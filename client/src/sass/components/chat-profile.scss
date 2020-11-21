@@ -224,16 +224,14 @@
     &__receive-request {
         &-content {
             &--container {
-                width: 100%;
                 @include flex();
-                justify-content: space-evenly;
-                padding: 0rem 7.5rem;
                 margin-bottom: 1.5rem;
             }
             &--icon {
                 @include flex();
                 height: 3.5rem;
                 width: 3.5rem;
+                margin: 0 1rem;
                 border-radius: 1rem;
                 cursor: pointer;
             }

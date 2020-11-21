@@ -1,6 +1,6 @@
 import axios from 'axios';
 import state from '../state';
-import { url, addAuthorizationHeaders } from '../utils/base.util';
+import { url, generateQuery } from '../utils/base.util';
 
 class Search {
     constructor({ name }) {
@@ -21,12 +21,12 @@ class Search {
     };
 
     getSearch = async () => {
-        const url = `${this.url}${this.name}`;
+        this.query = generateQuery(this.params);
+        const url = `${this.url}${this.name}?${this.query}`;
         try {
             this.data = await axios({
                 method: 'GET',
                 url,
-                params: this.params,
                 validateStatus: () => true,
                 // For validation
             });

@@ -9,8 +9,8 @@ import { select, selectAll } from './selector.util';
 import { capitalize, random, randomItem, bold, italic, generateQuery, getTime } from './utility.util';
 import { color, hex } from './color.util';
 import { theme } from './theme.util';
-
 import { addAuthorizationHeaders, getToken, setToken } from './auth.util';
+import { debounce, throttle } from './api-limit.util';
 
 export {
     url,
@@ -35,4 +35,6 @@ export {
     addAuthorizationHeaders,
     getToken,
     setToken,
+    debounce,
+    throttle,
 };

@@ -1,19 +1,6 @@
 import { elements, select } from '../../utils/base.util';
+import { renderAboutGroup } from '../chat-profile.view';
 import faker from 'faker';
-
-const renderReceiveRequestGroup = ({ type, label, id, value, isInput }) => `
-<div class="chat-profile__receive-request-about--group">
-    <div class="chat-profile__receive-request-about--edit">
-        <label for="${type}" class="chat-profile__receive-request-about--label"> ${label} </label>
-    </div>
-    ${
-        isInput
-            ? ` <input type="text" id="${id}" class="chat-profile__receive-request-about--input" value="${value}" disabled />`
-            : `<textarea id="${id}" class="chat-profile__receive-request-about--input" rows="4" disabled>${value}</textarea>`
-    }
-   
-</div>
-`;
 
 const renderActionIcon = ({ type, title }, className) => `
 <div class="chat-profile__${className}-content--icon chat-profile__${className}-content--icon-${type}" title="${title}">
@@ -58,7 +45,7 @@ export const renderReceiveRequest = () => {
             </div>
 
             <div class="chat-profile__receive-request-about">
-                ${data.map(item => renderReceiveRequestGroup(item)).join('')}
+                ${data.map(item => renderAboutGroup(item, className)).join('')}
             </div>
         </form>
     </div>`;

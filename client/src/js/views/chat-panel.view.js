@@ -87,13 +87,15 @@ export const renderEmpty = () => {
     select(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
 };
 
-// User Title
+// Title
 export const renderTitle = ({ label, count }, className) => `
     <div class="chat-panel-${className}__title">
         <span class="chat-panel-${className}__label">${label}</span> 
         <span class="chat-panel-${className}__count">(${count})</span>
     </div>
 `;
+
+// Partial Item
 export const renderPartialItem = ({ _id, photo, name, createdAt }, className, real) => `
 <li class="chat-panel-${className}__item" data-user=${_id} title="${name}" draggable="true">
     <div class="chat-panel-${className}__link" role="button">
@@ -111,6 +113,7 @@ export const renderPartialItem = ({ _id, photo, name, createdAt }, className, re
 </li>
 `;
 
+// Item
 export const renderItem = ({ user, photo, name, status, setting }, className) => `
 <li class="chat-panel-${className}__item" data-user=${user} title="${name}" draggable="true">
     <div class="chat-panel-${className}__link" role="button">
