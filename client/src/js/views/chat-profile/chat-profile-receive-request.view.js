@@ -10,7 +10,7 @@ const renderActionIcon = ({ type, title }, className) => `
 </div>
 `;
 
-export const renderReceiveRequest = ({ _id, name, email, bio }) => {
+export const renderReceiveRequest = ({ _id, photo, name, email, bio }) => {
     // Data
     const data = [
         { type: 'name', label: 'Name', id: 'name', value: name, isInput: true },
@@ -31,7 +31,7 @@ export const renderReceiveRequest = ({ _id, name, email, bio }) => {
 
     const markup = `
     <div class="chat-profile__${className}-content">
-        <img src="img/avatar/female.png" class="chat-profile__${className}-content--img" alt="" />
+        <img src="${photo}" class="chat-profile__${className}-content--img" alt="" />
         <div class="chat-profile__${className}-content--name">${name}</div>
         <div class="chat-profile__${className}-content--container"> 
             ${action.map(item => renderActionIcon(item, className)).join('')}

@@ -65,6 +65,15 @@ const stranger = ({ data }) => {
     // Add Event Listeners
     select(elementStrings.chatProfile.stranger.sendRequest).addEventListener('click', () => {
         console.log('Send Request');
+        // Getting data
+        const { data } = state['relation'];
+        // Getting other
+        const { other } = data.data;
+        // Mode of Chat Profile
+        controlChatProfile({
+            mode: mode.chatProfile.sentRequest,
+            data: { user: other },
+        });
     });
 };
 
@@ -79,6 +88,15 @@ const friend = () => {
     // Remove Friend
     select(elementStrings.chatProfile.friend.removeFriend).addEventListener('click', () => {
         console.log('Remove Friend');
+        // Getting data
+        const { data } = state['relation'];
+        // Getting other
+        const { other } = data.data;
+        // Mode of Chat Profile
+        controlChatProfile({
+            mode: mode.chatProfile.stranger,
+            data: { user: other },
+        });
     });
 };
 
@@ -91,6 +109,15 @@ const sentRequest = ({ data }) => {
     // Cancel Request
     select(elementStrings.chatProfile.requestSent.cancelRequest).addEventListener('click', () => {
         console.log('Cancel Request');
+        // Getting data
+        const { data } = state['relation'];
+        // Getting other
+        const { other } = data.data;
+        // Mode of Chat Profile
+        controlChatProfile({
+            mode: mode.chatProfile.stranger,
+            data: { user: other },
+        });
     });
 };
 
@@ -103,10 +130,28 @@ const receiveRequest = ({ data }) => {
     // Accept Request
     select(elementStrings.chatProfile.requestReceive.acceptRequest).addEventListener('click', () => {
         console.log('Accept Request');
+        // Getting data
+        const { data } = state['relation'];
+        // Getting other
+        const { other } = data.data;
+        // Mode of Chat Profile
+        controlChatProfile({
+            mode: mode.chatProfile.friend,
+            data: { user: other },
+        });
     });
     // Decline Request
     select(elementStrings.chatProfile.requestReceive.declineRequest).addEventListener('click', () => {
         console.log('Decline Request');
+        // Getting data
+        const { data } = state['relation'];
+        // Getting other
+        const { other } = data.data;
+        // Mode of Chat Profile
+        controlChatProfile({
+            mode: mode.chatProfile.stranger,
+            data: { user: other },
+        });
     });
 };
 

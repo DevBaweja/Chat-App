@@ -99,7 +99,7 @@ const controlChatPanelPartialItem = async (event, itemClass, modeType) => {
                 {
                     // Getting data
                     const { data } = state['relation'];
-                    // Geeting other
+                    // Getting other
                     const { other } = data.data;
                     // Mode of Chat Profile
                     chatProfileController.controlChatProfile({
