@@ -66,6 +66,18 @@ const elementStrings = {
         search: {
             form: '.chat-panel-search__form',
         },
+        stranger: {
+            form: '.chat-profile__stranger--form',
+        },
+        friend: {
+            form: '.chat-profile__friend--form',
+        },
+        requestSent: {
+            form: '.chat-profile__sent-request--form',
+        },
+        requestReceive: {
+            form: '.chat-profile__receive-request--form',
+        },
     },
     inputs: {
         signupInput: '.user-signup__form--input',

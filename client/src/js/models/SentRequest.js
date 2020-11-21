@@ -4,7 +4,7 @@ import { url, addAuthorizationHeaders } from '../utils/base.util';
 
 class SendRequest {
     constructor() {
-        this.url = `${url[state['mode'].mode]}api/v1/requests/sent`;
+        this.url = `${url[state['mode'].mode]}api/v1/requests/sent/`;
         this.params = {
             sort: '-createdAt',
         };
@@ -13,6 +13,32 @@ class SendRequest {
     parseData = () => {
         const { data } = this.data;
         this.data = data;
+    };
+
+    setUserInput = ({ user }) => {
+        this.user = user;
+    };
+
+    createSendRequest = async () => {
+        let headers = {};
+        addAuthorizationHeaders(headers);
+        const url = `${this.url}${this.user}`;
+        const obj = {};
+        try {
+            this.data = await axios({
+                method: 'POST',
+                url,
+                data: obj,
+                headers,
+                validateStatus: () => true,
+                // For validation
+            });
+
+            this.parseData();
+            return this.data;
+        } catch (err) {
+            throw err;
+        }
     };
 
     getAllSendRequest = async () => {

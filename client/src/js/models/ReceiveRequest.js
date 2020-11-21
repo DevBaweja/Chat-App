@@ -4,7 +4,7 @@ import { url, addAuthorizationHeaders } from '../utils/base.util';
 
 class ReceiveRequest {
     constructor() {
-        this.url = `${url[state['mode'].mode]}api/v1/requests/receive`;
+        this.url = `${url[state['mode'].mode]}api/v1/requests/receive/`;
         this.params = {
             sort: '-createdAt',
         };
@@ -13,6 +13,40 @@ class ReceiveRequest {
     parseData = () => {
         const { data } = this.data;
         this.data = data;
+    };
+
+    setUserInput = ({ user }) => {
+        this.user = user;
+    };
+
+    updateReceiveRequest = async obj => {
+        let headers = {};
+        addAuthorizationHeaders(headers);
+        const url = `${this.url}${this.user}`;
+        try {
+            this.data = await axios({
+                method: 'PATCH',
+                url,
+                data: obj,
+                headers,
+                validateStatus: () => true,
+                // For validation
+            });
+
+            this.parseData();
+            return this.data;
+        } catch (err) {
+            throw err;
+        }
+    };
+    declineReceiveRequest = async () => {
+        const obj = { status: 'declined' };
+        return await this.updateReceiveRequest(obj);
+    };
+
+    acceptReceiveRequest = async () => {
+        const obj = { status: 'accepted' };
+        return await this.updateReceiveRequest(obj);
     };
 
     getAllReceiveRequest = async () => {

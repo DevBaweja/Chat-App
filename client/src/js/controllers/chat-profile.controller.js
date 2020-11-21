@@ -6,6 +6,8 @@ import * as chatProfileUserController from './chat-profile/chat-profile-user.con
 import * as chatProfileSettingController from './chat-profile/chat-profile-setting.controller';
 // Models
 import ChatProfile from '../models/ChatProfile';
+import SentRequest from '../models/SentRequest';
+import ReceiveRequest from '../models/ReceiveRequest';
 // Views
 import * as chatProfileView from '../views/chat-profile.view';
 import * as chatProfileReceiveRequestView from '../views/chat-profile/chat-profile-receive-request.view';
@@ -65,12 +67,31 @@ const stranger = () => {
     // Render Stranger
     chatProfileStrangerView.renderStranger(other);
     // Add Event Listeners
-    select(elementStrings.chatProfile.stranger.sendRequest).addEventListener('click', () => {
+    select(elementStrings.chatProfile.stranger.sendRequest).addEventListener('click', async () => {
         console.log('Send Request');
-        // Mode of Chat Profile
-        controlChatProfile({
-            mode: mode.chatProfile.sentRequest,
-        });
+        // Getting user
+        const user = chatProfileView.getUserForm(elementStrings.forms.stranger.form);
+        if (!user) return;
+
+        //  Init SentRequest
+        if (!state['sentRequest']) state['sentRequest'] = new SentRequest();
+        state['sentRequest'].setUserInput({ user });
+        try {
+            // Making API call
+            const data = await state['sentRequest'].createSendRequest();
+            switch (data.status) {
+                case 'success':
+                    {
+                        // Mode of Chat Profile
+                        controlChatProfile({
+                            mode: mode.chatProfile.sentRequest,
+                        });
+                    }
+                    break;
+            }
+        } catch (err) {
+            console.log('ERROR', err.message);
+        }
     });
 };
 
@@ -123,20 +144,60 @@ const receiveRequest = () => {
     chatProfileReceiveRequestView.renderReceiveRequest(other);
     // Add Event Listeners
     // Accept Request
-    select(elementStrings.chatProfile.requestReceive.acceptRequest).addEventListener('click', () => {
+    select(elementStrings.chatProfile.requestReceive.acceptRequest).addEventListener('click', async () => {
         console.log('Accept Request');
-        // Mode of Chat Profile
-        controlChatProfile({
-            mode: mode.chatProfile.friend,
-        });
+        // Getting User
+        const user = chatProfileView.getUserForm(elementStrings.forms.requestReceive.form);
+        if (!user) return;
+
+        //  Init ReceiveRequest
+        if (!state['receiveRequest']) state['receiveRequest'] = new ReceiveRequest();
+        state['receiveRequest'].setUserInput({ user });
+
+        try {
+            // Making API call
+            const data = await state['receiveRequest'].acceptReceiveRequest();
+            switch (data.status) {
+                case 'success':
+                    {
+                        // Mode of Chat Profile
+                        controlChatProfile({
+                            mode: mode.chatProfile.friend,
+                        });
+                    }
+                    break;
+            }
+        } catch (err) {
+            console.log('ERROR', err.message);
+        }
     });
     // Decline Request
-    select(elementStrings.chatProfile.requestReceive.declineRequest).addEventListener('click', () => {
+    select(elementStrings.chatProfile.requestReceive.declineRequest).addEventListener('click', async () => {
         console.log('Decline Request');
-        // Mode of Chat Profile
-        controlChatProfile({
-            mode: mode.chatProfile.stranger,
-        });
+        // Getting User
+        const user = chatProfileView.getUserForm(elementStrings.forms.requestReceive.form);
+        if (!user) return;
+
+        //  Init ReceiveRequest
+        if (!state['receiveRequest']) state['receiveRequest'] = new ReceiveRequest();
+        state['receiveRequest'].setUserInput({ user });
+
+        try {
+            // Making API call
+            const data = await state['receiveRequest'].declineReceiveRequest();
+            switch (data.status) {
+                case 'success':
+                    {
+                        // Mode of Chat Profile
+                        controlChatProfile({
+                            mode: mode.chatProfile.stranger,
+                        });
+                    }
+                    break;
+            }
+        } catch (err) {
+            console.log('ERROR', err.message);
+        }
     });
 };
 

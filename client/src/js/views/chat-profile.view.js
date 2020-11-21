@@ -48,6 +48,11 @@ export const getPhoto = (className, inputs) => {
     inputs.append('photo', src);
 };
 
+export const getUserForm = formClass => {
+    const form = select(formClass);
+    const { user } = form.dataset;
+    return user;
+};
 // Form
 export const renderForm = (inner, className, user) => `
 <div class="chat-profile__${className}">
