@@ -143,6 +143,10 @@ exports.getRelation = catchAsync(async (req, res, next) => {
     }
     // Establishing Relation
     let relation = relations.stranger;
+
+    // User
+    if (req.user.id === req.params.id) relation = relations.user;
+
     // Sent Request
     const sentRequestRelation = await Request.findOne({
         from: req.user.id,
