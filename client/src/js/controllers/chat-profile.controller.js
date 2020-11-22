@@ -6,6 +6,7 @@ import * as chatProfileUserController from './chat-profile/chat-profile-user.con
 import * as chatProfileSettingController from './chat-profile/chat-profile-setting.controller';
 // Models
 import ChatProfile from '../models/ChatProfile';
+import Friend from '../models/Friend';
 import SentRequest from '../models/SentRequest';
 import ReceiveRequest from '../models/ReceiveRequest';
 // Views
@@ -181,10 +182,26 @@ const receiveRequest = () => {
             switch (data.status) {
                 case 'success':
                     {
-                        // Mode of Chat Profile
-                        controlChatProfile({
-                            mode: mode.chatProfile.friend,
-                        });
+                        const { data: requestData } = data.data;
+                        // Getting to user
+                        const { _id: user } = requestData.from;
+                        // Init Friend
+                        if (!state['friend']) state['friend'] = new Friend();
+
+                        state['friend'].setUserInput({ user });
+
+                        // Making API call
+                        const friendData = await state['friend'].createFriend();
+                        switch (friendData.status) {
+                            case 'success':
+                                {
+                                    // Mode of Chat Profile
+                                    controlChatProfile({
+                                        mode: mode.chatProfile.friend,
+                                    });
+                                }
+                                break;
+                        }
                     }
                     break;
             }

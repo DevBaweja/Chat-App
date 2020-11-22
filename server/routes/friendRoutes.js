@@ -15,13 +15,9 @@ router
     .route('/myFriend')
     .get(friendController.getAllMyFriends, friendController.getAllFriends);
 
-// router
-//     .route('/sent/:id')
-//     .post(
-//         requestController.createSentRequest,
-//         requestController.createNewRequest
-//     )
-//     .delete(requestController.deleteSentRequest);
+router
+    .route('/myFriend/:id')
+    .post(friendController.createMyFriend, friendController.createNewFriend);
 
 router.use(authController.restrictTo('admin'));
 // -----------

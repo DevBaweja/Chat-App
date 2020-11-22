@@ -14,7 +14,7 @@ export const extractData = (data, user) => {
             default: {
             }
         }
-        result['status'] = 'actgit ive';
+        result['status'] = 'active';
         result['setting'] = [
             { type: 'mark-read' },
             { type: 'pin-chat' },

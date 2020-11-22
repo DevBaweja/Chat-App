@@ -12,6 +12,11 @@ exports.getAllMyFriends = (req, res, next) => {
     next();
 };
 
+exports.createMyFriend = (req, res, next) => {
+    req.body = { ...req.body, from: req.user.id, to: req.params.id };
+    next();
+};
+
 // Friend Route Handlers
 exports.getAllFriends = factory.getAll(Friend);
 exports.getFriendById = factory.getOne(Friend);
