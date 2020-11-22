@@ -21,6 +21,7 @@ const state = {
     updatePassword: null,
     deleteAccount: null,
     search: null,
+    friend: null,
     sentRequest: null,
     receiveRequest: null,
     alert: null,

@@ -127,11 +127,32 @@ const sentRequest = () => {
     chatProfileSentRequestView.renderSentRequest(other);
     // Add Event Listeners
     // Cancel Request
-    select(elementStrings.chatProfile.requestSent.cancelRequest).addEventListener('click', () => {
-        // Mode of Chat Profile
-        controlChatProfile({
-            mode: mode.chatProfile.stranger,
-        });
+    select(elementStrings.chatProfile.requestSent.cancelRequest).addEventListener('click', async () => {
+        console.log('Cancel Request');
+        // Getting User
+        const user = chatProfileView.getUserForm(elementStrings.forms.requestSent.form);
+        if (!user) return;
+
+        //  Init SentRequest
+        if (!state['sentRequest']) state['sentRequest'] = new SentRequest();
+        state['sentRequest'].setUserInput({ user });
+
+        try {
+            // Making API call
+            const data = await state['sentRequest'].deleteSentRequest();
+            switch (data.status) {
+                case 'success':
+                    {
+                    }
+                    break;
+            }
+            // Mode of Chat Profile
+            controlChatProfile({
+                mode: mode.chatProfile.stranger,
+            });
+        } catch (err) {
+            console.log('ERROR', err.message);
+        }
     });
 };
 

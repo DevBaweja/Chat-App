@@ -25,8 +25,23 @@ const def = {
 const options = {};
 const friendSchema = Schema(def, options);
 
-// ----------
+// Indexing
+friendSchema.index({ to: 1, from: 1 }, { unique: true });
+
+// --------
 // Middlewares
+friendSchema.pre(/^find/, function () {
+    // Populate from
+    this.populate({
+        path: 'from',
+        select: 'photo name bio',
+    });
+    // Populate to
+    this.populate({
+        path: 'to',
+        select: 'photo name bio',
+    });
+});
 
 // ----------
 // Model

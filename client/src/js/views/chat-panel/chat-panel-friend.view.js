@@ -1,68 +1,43 @@
-import faker from 'faker';
 import { elements, select } from '../../utils/base.util';
 import { renderTitle, renderItem } from '../chat-panel.view';
 
-export const renderFriend = () => {
-    // Data
+export const extractData = (data, user) => {
+    return data.map(item => {
+        let result = {};
+        switch (user.id) {
+            case item.from.id:
+                result = { ...item.to };
+                break;
+            case item.to.id:
+                result = { ...item.from };
+                break;
+            default: {
+            }
+        }
+        result['status'] = 'actgit ive';
+        result['setting'] = [
+            { type: 'mark-read' },
+            { type: 'pin-chat' },
+            { type: 'mute-notification' },
+            { type: 'add-favourite' },
+        ];
+        return result;
+    });
+};
+export const renderFriend = ({ data }, user) => {
+    // Parse Data
+    const parseData = extractData(data, user);
     const className = 'friend';
-    const data = [
-        {
-            user: faker.random.uuid(),
-            name: faker.name.findName(),
-            photo: faker.image.avatar(),
-            status: 'active',
-            setting: [
-                { type: 'mark-read' },
-                { type: 'pin-chat' },
-                { type: 'mute-notification' },
-                { type: 'add-favourite' },
-            ],
-        },
-        {
-            user: faker.random.uuid(),
-            name: faker.name.findName(),
-            photo: faker.image.avatar(),
-            status: 'inactive',
-            setting: [{ type: 'add-favourite' }],
-        },
-        {
-            user: faker.random.uuid(),
-            name: faker.name.findName(),
-            photo: faker.image.avatar(),
-            status: 'inactive',
-            setting: [],
-        },
-        {
-            user: faker.random.uuid(),
-            name: faker.name.findName(),
-            photo: faker.image.avatar(),
-            status: 'active',
-            setting: [{ type: 'pin-chat' }],
-        },
-        {
-            user: faker.random.uuid(),
-            name: faker.name.findName(),
-            photo: faker.image.avatar(),
-            status: 'inactive',
-            setting: [],
-        },
-        {
-            user: faker.random.uuid(),
-            name: faker.name.findName(),
-            photo: faker.image.avatar(),
-            status: 'inactive',
-            setting: [],
-        },
-    ];
+
     const title = {
         label: 'Friends',
-        count: data.length,
+        count: parseData.length,
     };
     const markup = `
     <div class="chat-panel-friend"> 
         ${renderTitle(title, className)}
         <ul class="chat-panel-friend__list">
-            ${data.map(item => renderItem(item, className)).join('')}
+            ${parseData.map(item => renderItem(item, className)).join('')}
         </ul>
     <//div>
     `;

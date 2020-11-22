@@ -8,6 +8,7 @@ import * as chatProfileController from '../controllers/chat-profile.controller';
 import ChatPanel from '../models/ChatPanel';
 import Search from '../models/Search';
 import Relation from '../models/Relation';
+import Friend from '../models/Friend';
 import SentRequest from '../models/SentRequest';
 import ReceiveRequest from '../models/ReceiveRequest';
 // Views
@@ -228,17 +229,37 @@ const search = () => {
     );
 };
 
-const friend = () => {
+const friend = async () => {
     console.log('Friend');
-    // Render Friend
-    chatPanelFriendView.renderFriend();
 
-    // Add Event Listeners
-    const list = select(elementStrings.chatPanel.friend.list);
-    // Click
-    list.addEventListener('click', async event =>
-        controlChatPanelItem(event, elementStrings.chatPanel.friend.item, elementClasses.selected.chatPanel.friend)
-    );
+    //  Init SentRequest
+    if (!state['friend']) state['friend'] = new Friend();
+    try {
+        // Making API call
+        const data = await state['friend'].getAllFriend();
+        switch (data.status) {
+            case 'success':
+                {
+                    // Getting user
+                    const user = state['user'];
+                    // Render Friend
+                    chatPanelFriendView.renderFriend(data.data, user);
+                    // Add Event Listeners
+                    const list = select(elementStrings.chatPanel.friend.list);
+                    // Click
+                    list.addEventListener('click', async event =>
+                        controlChatPanelItem(
+                            event,
+                            elementStrings.chatPanel.friend.item,
+                            elementClasses.selected.chatPanel.friend
+                        )
+                    );
+                }
+                break;
+        }
+    } catch (err) {
+        console.log('ERROR', err.message);
+    }
 };
 
 const requestSent = async () => {

@@ -2,11 +2,11 @@ import axios from 'axios';
 import state from '../state';
 import { url, addAuthorizationHeaders } from '../utils/base.util';
 
-class SendRequest {
+class Friend {
     constructor() {
-        this.url = `${url[state['mode'].mode]}api/v1/requests/sent/`;
+        this.url = `${url[state['mode'].mode]}api/v1/friends/myFriend/`;
         this.params = {
-            sort: '-createdAt',
+            sort: '+name',
         };
     }
 
@@ -19,7 +19,7 @@ class SendRequest {
         this.user = user;
     };
 
-    createSendRequest = async () => {
+    createFriend = async () => {
         let headers = {};
         addAuthorizationHeaders(headers);
         const url = `${this.url}${this.user}`;
@@ -41,7 +41,7 @@ class SendRequest {
         }
     };
 
-    getAllSendRequest = async () => {
+    getAllFriend = async () => {
         let headers = {};
         addAuthorizationHeaders(headers);
         try {
@@ -60,26 +60,5 @@ class SendRequest {
             throw err;
         }
     };
-
-    deleteSentRequest = async () => {
-        let headers = {};
-        addAuthorizationHeaders(headers);
-        const url = `${this.url}${this.user}`;
-
-        try {
-            this.data = await axios({
-                method: 'DELETE',
-                url,
-                headers,
-                validateStatus: () => true,
-                // For validation
-            });
-
-            this.parseData();
-            return this.data;
-        } catch (err) {
-            throw err;
-        }
-    };
 }
-export default SendRequest;
+export default Friend;

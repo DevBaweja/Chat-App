@@ -5,20 +5,20 @@ const Request = require('../models/requestModel');
 
 // Alias
 
-exports.getAllSentRequest = catchAsync(async (req, res, next) => {
+exports.getAllSentRequest = (req, res, next) => {
     req.query = { ...req.query, from: req.user.id, status: 'pending' };
     next();
-});
+};
 
-exports.getAllReceiveRequest = catchAsync(async (req, res, next) => {
+exports.getAllReceiveRequest = (req, res, next) => {
     req.query = { ...req.query, to: req.user.id, status: 'pending' };
     next();
-});
+};
 
-exports.createSentRequest = catchAsync(async (req, res, next) => {
+exports.createSentRequest = (req, res, next) => {
     req.body = { ...req.body, from: req.user.id, to: req.params.id };
     next();
-});
+};
 
 exports.updateReceiveRequest = catchAsync(async (req, res, next) => {
     // Update Request
