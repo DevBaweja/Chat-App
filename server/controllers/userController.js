@@ -2,6 +2,9 @@ const multer = require('multer');
 const sharp = require('sharp');
 const factory = require('./handleFactory');
 const User = require('../models/userModel');
+const Request = require('../models/requestModel');
+const Friend = require('../models/friendModel');
+
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 
@@ -125,13 +128,45 @@ exports.deleteMe = catchAsync(async (req, res, next) => {
 
 // Get Relation
 exports.getRelation = catchAsync(async (req, res, next) => {
+    const relations = {
+        stranger: 'stranger',
+        sentRequest: 'sent-request',
+        receiveRequest: 'receive-request',
+        friend: 'friend',
+        user: 'user',
+    };
+
     // Getting user relation
     const other = await User.findById(req.params.id);
     if (!other) {
-        return next(new AppError('No relation found with that ID', 404));
+        return next(new AppError('No user found with that ID', 404));
     }
     // Establishing Relation
-    const relation = 'stranger';
+    let relation = relations.stranger;
+    // Sent Request
+    const sentRequestRelation = await Request.findOne({
+        from: req.user.id,
+        to: req.params.id,
+        status: 'pending',
+    });
+    if (sentRequestRelation) relation = relations.sentRequest;
+
+    // Receive Request
+    const receiveRequestRelation = await Request.findOne({
+        from: req.params.id,
+        to: req.user.id,
+        status: 'pending',
+    });
+    if (receiveRequestRelation) relation = relations.receiveRequest;
+
+    // Friend
+    const friendRelation = await Friend.findOne({
+        $or: [
+            { from: req.user.id, to: req.params.id },
+            { from: req.params.id, to: req.user.id },
+        ],
+    });
+    if (friendRelation) relation = relations.friend;
 
     res.status(200).json({
         status: 'success',
