@@ -16,10 +16,8 @@
         border-width: 0.1rem;
         border-style: solid;
         overflow: hidden;
-        //! For Development
-        // visibility: hidden;
-        // opacity: 0;
-        // display: none;
+        transition: transform 0.5s;
+        transform: scale(0);
 
         &--list {
             @include flex();
@@ -49,8 +47,6 @@
 }
 .about-me {
     &__dropdown {
-        border-top-right-radius: 0;
-
         &--list {
             padding: 1.25rem 0;
         }
@@ -75,9 +71,6 @@
 .chat-panel-user {
     &__dropdown {
         // clip-path: polygon(11.25% 5%, 16% 0, 100% 0, 100% 100%, 0 100%, 0 0, 6.5% 0);
-        transition: all 0.5s;
-        transform: scale(0);
-        transform-origin: top left;
         &--svg {
             &-unpin-chat {
                 height: 1.2rem;

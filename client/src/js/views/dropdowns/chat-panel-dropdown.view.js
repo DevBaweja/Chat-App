@@ -40,7 +40,7 @@ export const renderChatPanelDropdown = ({ user, setting, coordinate }) => {
         delete: 'Delete Chat',
     };
     // Reversing and Texting
-    setting = setting.map(item => {
+    let groups = setting.map(item => {
         const key = item.key;
         const value = reverse[key][item.value];
         const type = `${value}-${key}`;
@@ -48,7 +48,7 @@ export const renderChatPanelDropdown = ({ user, setting, coordinate }) => {
     });
 
     // Adding Delete
-    setting.push({
+    groups.push({
         type: 'delete',
         text: text.delete,
     });
@@ -57,7 +57,7 @@ export const renderChatPanelDropdown = ({ user, setting, coordinate }) => {
         user,
         coordinate,
         className: elementClasses.dropdowns.chatPanelDropdown,
-        setting,
+        groups,
     };
     // Rendering Dropdown
     renderDropdowns(data);

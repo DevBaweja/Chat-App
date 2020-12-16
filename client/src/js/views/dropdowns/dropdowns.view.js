@@ -1,12 +1,71 @@
 import { elements, select } from '../../utils/base.util';
 
-const transform = className => {
-    select(className).style.setProperty('transform', 'scale(1)');
+const transform = element => {
+    element.style.setProperty('transform', 'scale(1)');
 };
 
-const assignCoordinate = (className, coordinate) => {
-    const style = select(className).style;
-    Object.assign(style, coordinate);
+const assignCoordinate = (element, coordinate) => {
+    const style = element.style;
+    const unitCoordinate = {
+        top: `${coordinate.top}px`,
+        left: `${coordinate.left}px`,
+    };
+    Object.assign(style, unitCoordinate);
+};
+
+// 1 2
+// 3 4
+// 1 - top left
+// 2 - top right
+// 3 - bottom left
+// 4 - bottom right
+
+const positionCoordinate = (dropdown, coordinate) => {
+    const { top, left } = coordinate;
+    const height = window.innerHeight / 2;
+    const width = window.innerWidth / 2;
+
+    switch (true) {
+        case top < height && left < width:
+            {
+                console.log('First');
+                // Styles
+                dropdown.style.setProperty('transform-origin', 'top left');
+                dropdown.style.setProperty('border-top-left-radius', 0);
+            }
+            break;
+        case top < height && left > width:
+            {
+                console.log('Second');
+                // Coordinates
+                coordinate.left = left - dropdown.offsetWidth;
+                // Styles
+                dropdown.style.setProperty('transform-origin', 'top right');
+                dropdown.style.setProperty('border-top-right-radius', 0);
+            }
+            break;
+        case top > height && left < width:
+            {
+                console.log('Third');
+                // Coordinates
+                coordinate.top = top - dropdown.offsetWidth;
+                // Styles
+                dropdown.style.setProperty('transform-origin', 'bottom left');
+                dropdown.style.setProperty('border-bottom-left-radius', 0);
+            }
+            break;
+        case top > height && left > width:
+            {
+                console.log('Fourth');
+                // Coordinates
+                coordinate.top = top - dropdown.offsetWidth;
+                coordinate.left = left - dropdown.offsetWidth;
+                // Styles
+                dropdown.style.setProperty('transform-origin', 'bottom right');
+                dropdown.style.setProperty('border-bottom-right-radius', 0);
+            }
+            break;
+    }
 };
 const getDropdownsItem = (item, className) => `
     <li class="${className}--item" data-type="${item.type}">
@@ -17,12 +76,12 @@ const getDropdownsItem = (item, className) => `
     </li>
 `;
 
-export const renderDropdowns = ({ setting, className, coordinate }) => {
+export const renderDropdowns = ({ groups, className, coordinate }) => {
     // Creating Markup
     let markup = `
     <div class="${className}">
         <ul class="${className}--list">
-            ${setting.map(item => getDropdownsItem(item, className)).join('')}
+            ${groups.map(item => getDropdownsItem(item, className)).join('')}
         </ul>
     </div>
     `;
@@ -30,12 +89,19 @@ export const renderDropdowns = ({ setting, className, coordinate }) => {
     // Adding it to dropdowns
     select(elements.Dropdowns).innerHTML = markup;
 
+    const dropdown = select(`.${className}`);
     // Assign coordinates
-    assignCoordinate(`.${className}`, coordinate);
+    assignCoordinate(dropdown, coordinate);
+
+    // Position coordinates
+    positionCoordinate(dropdown, coordinate);
+
+    // Reassign coordinates
+    assignCoordinate(dropdown, coordinate);
 
     // Adding transform
     setTimeout(() => {
-        transform(`.${className}`);
+        transform(dropdown);
     }, 10);
 };
 
@@ -47,15 +113,7 @@ export const getCoordinate = ({ x, y }) => {
     const coordinateX = window.pageXOffset + x;
     const coordinateY = window.pageYOffset + y;
     return {
-        top: `${coordinateY}px`,
-        left: `${coordinateX}px`,
+        top: coordinateY,
+        left: coordinateX,
     };
 };
-
-// 2 1
-// 3 4
-
-// 1 - top right
-// 2 - top left
-// 3 - bottom left
-// 4 - bottom right
