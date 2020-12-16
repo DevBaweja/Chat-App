@@ -1,4 +1,4 @@
-import { elements, select, bold, capitalize } from '../utils/base.util';
+import { elements, elementStrings, select, bold, capitalize, longDate, shortDate } from '../utils/base.util';
 import faker from 'faker';
 
 export const clearChatBox = () => (select(elements.ChatBox).innerHTML = '');
@@ -39,70 +39,22 @@ export const renderIdeal = color => {
     select(elements.ChatBox).insertAdjacentHTML('beforeend', markup);
 };
 
-export const renderUser = () => {
-    const date = '2020-08-01T00:00:00.000+00:00';
-    const messageIn = () => `
-    <li class="chat-box-user__main--item">
-        <div class="chat-box-user__main--message">
-            <div class="chat-box-user__main--message-in">
-                <div class="chat-box-user__drop-in" title="Message Options">
-                    <svg class="chat-box-user__drop-in--svg">
-                        <use xlink:href="svg/sprite.svg#icon-down"></use>
-                    </svg>
-                </div>
-                <span class="chat-box-user__main--message-in-span">${faker.lorem.sentence().trim()}</span>
-                <span class="chat-box-user__main--message-in-info">
-                    ${new Date(date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}
-                </span>
-            </div>
-        </div>
-    </li>
-    `;
-    const reg = new RegExp(
-        '([a-zA-Z0-9]+://)?([a-zA-Z0-9_]+:[a-zA-Z0-9_]+@)?([a-zA-Z0-9.-]+\\.[A-Za-z]{2,4})(:[0-9]+)?(/.*)?'
-    );
-    // console.log(reg.test('https://web.whatsapp.com'));
-    // console.log('https://web.whatsapp.com'.match(reg));
-    const messageOut = () => `
-    <li class="chat-box-user__main--item">
-        <div class="chat-box-user__main--message">
-            <div class="chat-box-user__main--message-out">
-                <div class="chat-box-user__drop-out" title="Message Options">
-                    <svg class="chat-box-user__drop-out--svg">
-                        <use xlink:href="svg/sprite.svg#icon-down"></use>
-                    </svg>
-                </div>
-                <span class="chat-box-user__main--message-out-span">${faker.lorem.sentence().trim()}
-                </span>
-                <span class="chat-box-user__main--message-out-info">
-                    <span class="chat-box-user__main--message-out-info--time">
-                    ${new Date(date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}
-                    </span>
-                    <!-- sent, delivered, seen -->
-                    <svg class="chat-box-user__main--message-out-info--svg chat-box-user__main--message-out-info--svg-delivered" title="Delivered">
-                        <use xlink:href="svg/sprite.svg#icon-delivered"></use>
-                    </svg>
-                </span>
-            </div>
-        </div>
-    </li>
-
-    `;
+export const renderUser = ({ photo, name }) => {
     const markup = `
     <div class="chat-box-user">
         <header class="chat-box-user__header">
 
             <div class="chat-box-user__header--back" title="Go back">
                 <svg class="chat-box-user__header--back-svg">
-                <use xlink:href="svg/sprite.svg#icon-back"></use>
+                    <use xlink:href="svg/sprite.svg#icon-back"></use>
                 </svg>
             </div>
 
-            <img src=${faker.image.avatar()} alt="" class="chat-box-user__header--img" title="View Profile"/>
+            <img src=${photo} alt="" class="chat-box-user__header--img" title="View Profile"/>
 
             <div class="chat-box-user__header--content">
-                <div class="chat-box-user__header--content-name" title="View Profile">${faker.name.findName()}</div>
-                <div class="chat-box-user__header--content-status">online</div>
+                <div class="chat-box-user__header--content-name">${name}</div>
+                <div class="chat-box-user__header--content-status">...</div>
             </div>
 
 
@@ -115,70 +67,12 @@ export const renderUser = () => {
         </header>
         <div class="chat-box-user__field">
             <main class="chat-box-user__main">
-                <div class="chat-box-user__main--date-fix" title="Conversation Date">
-                    <span class="chat-box-user__main--date-fix-span">${new Date(date).toLocaleDateString([], {
-                        dateStyle: 'long',
-                    })}</span>
-                </div>
-                <div class="chat-box-user__main--container">
+            <div class="chat-box-user__main--container">
+                    <div class="chat-box-user__main--date-fix" title="Conversation Date">
+                        <span class="chat-box-user__main--date-fix-span">${longDate(Date.now())}</span>
+                    </div>
                     <ul class="chat-box-user__main--list">
-                        ${messageIn()}
-                        ${messageOut()}
-                        ${messageIn()}
-                        ${messageOut()}
-                        ${messageIn()}
-                        ${messageIn()}
-                        ${messageOut()}
-                        ${messageIn()}
-                        ${messageOut()}
-                        ${messageOut()}
-                        ${messageIn()}
-                        ${messageOut()}
-                        ${messageIn()}
-                        ${messageIn()}
-                        ${messageOut()}
-                        ${messageIn()}
-                        ${messageOut()}
-                        ${messageOut()}
-                        <li class="chat-box-user__main--item">
-                            <div class="chat-box-user__main--message">
-                                <div class="chat-box-user__main--date" title="Conversation Date">
-                                    <span class="chat-box-user__main--date-span">${new Date(date).toLocaleDateString(
-                                        [],
-                                        {
-                                            dateStyle: 'long',
-                                        }
-                                    )}</span>
-                                </div>
-                            </div>
-                        </li>
-                        ${messageOut()}
-                        <li class="chat-box-user__main--item">
-                        <div class="chat-box-user__main--message">
-                            <div class="chat-box-user__main--message-out">
-                                <div class="chat-box-user__drop-out" title="Message Options">
-                                    <svg class="chat-box-user__drop-out--svg">
-                                        <use xlink:href="svg/sprite.svg#icon-down"></use>
-                                    </svg>
-                                </div>
-                                <span class="chat-box-user__main--message-out-span">.
-                                </span>
-                                <span class="chat-box-user__main--message-out-info">
-                                    <span class="chat-box-user__main--message-out-info--time">
-                                        ${new Date(date).toLocaleTimeString([], {
-                                            hour: '2-digit',
-                                            minute: '2-digit',
-                                            hour12: true,
-                                        })}
-                                    </span>
-                                    <!-- sent, delivered, seen -->
-                                    <svg class="chat-box-user__main--message-out-info--svg chat-box-user__main--message-out-info--svg-seen" title="Seen">
-                                        <use xlink:href="svg/sprite.svg#icon-seen"></use>
-                                    </svg>
-                                </span>
-                            </div>
-                        </div>
-                    </li>
+
                     </ul>
                 </div>
             </main>
@@ -219,11 +113,118 @@ export const renderUser = () => {
 `;
 
     select(elements.ChatBox).insertAdjacentHTML('beforeend', markup);
-
-    const chatBoxList = select('.chat-box-user__main--list');
-    chatBoxList.scrollTop = chatBoxList.scrollHeight - chatBoxList.scrollTop;
 };
 
+export const renderMessages = () => {
+    const date = '2020-08-01T00:00:00.000+00:00';
+    const messageIn = () => `
+    <li class="chat-box-user__main--item">
+        <div class="chat-box-user__main--message">
+            <div class="chat-box-user__main--message-in">
+                <div class="chat-box-user__drop-in" title="Message Options">
+                    <svg class="chat-box-user__drop-in--svg">
+                        <use xlink:href="svg/sprite.svg#icon-down"></use>
+                    </svg>
+                </div>
+                <span class="chat-box-user__main--message-in-span">${faker.lorem.sentence().trim()}</span>
+                <span class="chat-box-user__main--message-in-info">
+                    ${new Date(date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}
+                </span>
+            </div>
+        </div>
+    </li>
+    `;
+    const reg = new RegExp(
+        '([a-zA-Z0-9]+://)?([a-zA-Z0-9_]+:[a-zA-Z0-9_]+@)?([a-zA-Z0-9.-]+\\.[A-Za-z]{2,4})(:[0-9]+)?(/.*)?'
+    );
+    // console.log(reg.test('https://web.whatsapp.com'));
+    // console.log('https://web.whatsapp.com'.match(reg));
+    const messageOut = () => `
+    <li class="chat-box-user__main--item">
+        <div class="chat-box-user__main--message">
+            <div class="chat-box-user__main--message-out">
+                <div class="chat-box-user__drop-out" title="Message Options">
+                    <svg class="chat-box-user__drop-out--svg">
+                        <use xlink:href="svg/sprite.svg#icon-down"></use>
+                    </svg>
+                </div>
+                <span class="chat-box-user__main--message-out-span">${faker.lorem.sentence().trim()}
+                </span>
+                <span class="chat-box-user__main--message-out-info">
+                    <span class="chat-box-user__main--message-out-info--time">
+                    ${shortDate(date)}
+                    </span>
+                    <!-- sent, delivered, seen -->
+                    <svg class="chat-box-user__main--message-out-info--svg chat-box-user__main--message-out-info--svg-delivered" title="Delivered">
+                        <use xlink:href="svg/sprite.svg#icon-delivered"></use>
+                    </svg>
+                </span>
+            </div>
+        </div>
+    </li>
+
+    `;
+    const markup = `
+    ${messageIn()}
+    ${messageOut()}
+    ${messageIn()}
+    ${messageOut()}
+    ${messageIn()}
+    ${messageIn()}
+    ${messageOut()}
+    ${messageIn()}
+    ${messageOut()}
+    ${messageOut()}
+    ${messageIn()}
+    ${messageOut()}
+    ${messageIn()}
+    ${messageIn()}
+    ${messageOut()}
+    ${messageIn()}
+    ${messageOut()}
+    ${messageOut()}
+    <li class="chat-box-user__main--item">
+        <div class="chat-box-user__main--message">
+            <div class="chat-box-user__main--date" title="Conversation Date">
+                <span class="chat-box-user__main--date-span">${new Date(date).toLocaleDateString([], {
+                    dateStyle: 'long',
+                })}</span>
+            </div>
+        </div>
+    </li>
+    ${messageOut()}
+    <li class="chat-box-user__main--item">
+    <div class="chat-box-user__main--message">
+        <div class="chat-box-user__main--message-out">
+            <div class="chat-box-user__drop-out" title="Message Options">
+                <svg class="chat-box-user__drop-out--svg">
+                    <use xlink:href="svg/sprite.svg#icon-down"></use>
+                </svg>
+            </div>
+            <span class="chat-box-user__main--message-out-span">.
+            </span>
+            <span class="chat-box-user__main--message-out-info">
+                <span class="chat-box-user__main--message-out-info--time">
+                    ${shortDate(date)}
+                </span>
+                <!-- sent, delivered, seen -->
+                <svg class="chat-box-user__main--message-out-info--svg chat-box-user__main--message-out-info--svg-seen" title="Seen">
+                    <use xlink:href="svg/sprite.svg#icon-seen"></use>
+                </svg>
+            </span>
+        </div>
+    </div>
+</li>
+    `;
+
+    const list = select(elementStrings.chatBox.main.list);
+    list.insertAdjacentHTML('beforeend', markup);
+    scroll(list);
+};
+
+export const scroll = element => {
+    element.scrollTop = element.scrollHeight - element.scrollTop;
+};
 export const renderDrag = () => {
     const markup = `
     <div class="chat-box-drag">

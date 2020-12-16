@@ -158,7 +158,6 @@ const elementStrings = {
         header: {
             back: '.chat-box-user__header--back',
             img: '.chat-box-user__header--img',
-            name: '.chat-box-user__header--content-name',
         },
         background: '.chat-box-user__field',
         footer: {
@@ -168,6 +167,9 @@ const elementStrings = {
             camera: '.chat-box-user__footer--camera',
             input: '.chat-box-user__footer--input',
             send: '.chat-box-user__footer--send',
+        },
+        main: {
+            list: '.chat-box-user__main--list',
         },
     },
 

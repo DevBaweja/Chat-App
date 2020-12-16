@@ -66,7 +66,7 @@ const controlChatPanelItem = (event, itemClass, selectedClass) => {
     const itemElement = target.closest(itemClass);
     if (!itemElement) return;
     // Getting user
-    const user = itemElement.dataset.user;
+    const user = JSON.parse(itemElement.dataset.user);
     if (!user) return;
     // Remove Selected
     chatPanelView.removeSelected(itemClass, selectedClass);

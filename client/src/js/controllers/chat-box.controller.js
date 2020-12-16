@@ -24,7 +24,7 @@ export const controlChatBox = info => {
             empty();
             break;
         case mode.chatBox.user:
-            user();
+            user(info);
             break;
         case mode.chatBox.drag:
             drag();
@@ -47,12 +47,14 @@ const empty = () => {
     // Render Empty
     chatBoxView.renderEmpty(theme.color);
 };
-const user = () => {
-    // Getting theme, backgroundImage from state
+const user = ({ data }) => {
+    const { user } = data;
+    // Getting wallpaper from state
     const { wallpaper } = state['setting'];
     // Render User
-    chatBoxView.renderUser();
-
+    chatBoxView.renderUser(user);
+    // Render Messages
+    chatBoxView.renderMessages();
     // Render Background Image
     backgroundImageController.controlBackgroundImage({ mode: wallpaper[state['theme'].mode] });
 

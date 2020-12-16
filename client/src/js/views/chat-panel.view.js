@@ -161,7 +161,11 @@ export const renderPartialItem = ({ _id, photo, name, createdAt }, className, re
 
 // Item
 export const renderItem = ({ _id, photo, name, status, setting }, className) => `
-<li class="chat-panel-${className}__item chat-panel__item" data-user=${_id} title="${name}" draggable="true">
+<li class="chat-panel-${className}__item chat-panel__item" data-user='${JSON.stringify({
+    _id,
+    photo,
+    name,
+})}' title="${name}" draggable="true">
     <div class="chat-panel-${className}__link" role="button">
         <div class="chat-panel-${className}__visual">
             <img src="${photo}" alt="" class="chat-panel-${className}__photo" />

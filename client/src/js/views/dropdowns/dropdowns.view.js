@@ -22,8 +22,8 @@ const assignCoordinate = (element, coordinate) => {
 
 const positionCoordinate = (dropdown, coordinate) => {
     const { top, left } = coordinate;
-    const height = window.innerHeight / 2;
-    const width = window.innerWidth / 2;
+    const height = (2 * window.innerHeight) / 3;
+    const width = (2 * window.innerWidth) / 3;
 
     switch (true) {
         case top < height && left < width:
@@ -102,7 +102,7 @@ export const renderDropdowns = ({ groups, className, coordinate }) => {
     // Adding transform
     setTimeout(() => {
         transform(dropdown);
-    }, 10);
+    }, 100);
 };
 
 export const clearDropdowns = () => (select(elements.Dropdowns).innerHTML = '');
