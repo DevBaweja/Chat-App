@@ -1,4 +1,13 @@
-import { elements, select, selectAll, getTime, bold, capitalizeAll } from '../utils/base.util';
+import {
+    elements,
+    select,
+    selectAll,
+    getTime,
+    bold,
+    capitalizeAll,
+    relationOptions,
+    relationInterest,
+} from '../utils/base.util';
 
 export const clearChatPanel = () => (select(elements.ChatPanel).innerHTML = '');
 
@@ -35,8 +44,7 @@ export const extractOtherUser = (user, item) => {
 };
 
 export const extractSetting = item => {
-    const options = ['read', 'chat', 'notification', 'favourite'];
-    return options.map(option => {
+    return relationOptions.map(option => {
         const key = option;
         const value = item[option];
         return { key, value, type: `${value}-${key}` };
@@ -139,7 +147,7 @@ export const renderPartialItem = ({ _id, photo, name, createdAt }, className, re
 
 // Item
 export const renderItem = ({ _id, photo, name, status, setting }, className) => `
-<li class="chat-panel-${className}__item" data-user=${_id} title="${name}" draggable="true">
+<li class="chat-panel-${className}__item chat-panel__item" data-user=${_id} title="${name}" draggable="true">
     <div class="chat-panel-${className}__link" role="button">
         <div class="chat-panel-${className}__visual">
             <img src="${photo}" alt="" class="chat-panel-${className}__photo" />
@@ -152,7 +160,7 @@ export const renderItem = ({ _id, photo, name, status, setting }, className) => 
         <div class="chat-panel-${className}__info">
             <span class="chat-panel-${className}__name">${name}</span>
             <!-- SETTING -->
-            <div class="chat-panel-${className}__setting">
+            <div class="chat-panel-${className}__setting chat-panel__setting" data-setting='${JSON.stringify(setting)}'>
             ${renderSetting(className, setting)}
             </div>
         </div>
@@ -164,21 +172,19 @@ export const renderItem = ({ _id, photo, name, status, setting }, className) => 
     </div>
 </li>
 `;
+
 // Setting
-export const renderSetting = (className, setting) => {
-    console.log(setting);
-    const interest = { read: 'unmark', chat: 'pin', notification: 'mute', favourite: 'add' };
-    return `
-        ${setting
-            .map(({ key, value, type }) => {
-                let markup = '';
-                if (interest[key] == value)
-                    markup = `<svg class="chat-panel-${className}__setting--icon chat-panel-${className}__setting--icon-${type}">
-                            <use xlink:href="svg/sprite.svg#icon-${type}"></use>
-                        </svg>
-                        `;
-                return markup;
-            })
-            .join('')}
-    `;
-};
+export const renderSetting = (className, setting) =>
+    `
+    ${setting
+        .map(({ key, value, type }) => {
+            let markup = '';
+            if (relationInterest[key] == value)
+                markup = `<svg class="chat-panel-${className}__setting--icon chat-panel-${className}__setting--icon-${type}">
+                        <use xlink:href="svg/sprite.svg#icon-${type}"></use>
+                    </svg>
+                    `;
+            return markup;
+        })
+        .join('')}
+`.trim();

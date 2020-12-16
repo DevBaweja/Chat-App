@@ -17,12 +17,12 @@ const getDropdownsItem = (item, className) => `
     </li>
 `;
 
-export const renderDropdowns = ({ groups, className, coordinate }) => {
+export const renderDropdowns = ({ setting, className, coordinate }) => {
     // Creating Markup
     let markup = `
     <div class="${className}">
         <ul class="${className}--list">
-            ${groups.map(item => getDropdownsItem(item, className)).join('')}
+            ${setting.map(item => getDropdownsItem(item, className)).join('')}
         </ul>
     </div>
     `;

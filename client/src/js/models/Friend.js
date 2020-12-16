@@ -6,7 +6,7 @@ class Friend {
     constructor() {
         this.url = `${url[state['mode'].mode]}api/v1/friends/myFriend/`;
         this.params = {
-            sort: '+name',
+            sort: '-createdAt',
         };
     }
 

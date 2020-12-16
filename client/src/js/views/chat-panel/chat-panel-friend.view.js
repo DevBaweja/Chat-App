@@ -3,7 +3,6 @@ import { renderTitle, renderItem, extractOtherUser, extractSetting } from '../ch
 
 export const extractData = (data, user) => {
     return data.map(item => {
-        console.log(item);
         // Getting user
         const newItem = extractOtherUser(user, item);
 
@@ -12,7 +11,6 @@ export const extractData = (data, user) => {
 
         newItem['status'] = 'active';
 
-        console.log(newItem);
         return newItem;
     });
 };

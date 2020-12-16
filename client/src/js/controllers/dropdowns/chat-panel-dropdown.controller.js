@@ -2,7 +2,6 @@
 import { elementStrings, select, actions } from '../../utils/base.util';
 
 // Views
-import * as chatPanelView from '../../views/chat-panel.view';
 import * as chatPanelDropdownView from '../../views/dropdowns/chat-panel-dropdown.view';
 import { getCoordinate } from '../../views/dropdowns/dropdowns.view';
 
@@ -13,17 +12,16 @@ const controlChatPanelDropdown = event => {
 
     // 0) Getting User Id
     // Getting item
-    const item = target.closest(elementStrings.chatPanel.recentChat.item);
-    if (!item) return;
+    const itemElement = target.closest(elementStrings.chatPanel.item);
+    if (!itemElement) return;
     // Getting user
-    const user = item.dataset.user;
-    if (!user) return;
-    // 0) Get User Info
-    // const data  = state['chatPanel'].getUserInfo(user)
-
+    const user = itemElement.dataset.user;
+    // Getting setting
+    const settingElement = select(elementStrings.chatPanel.setting, itemElement);
+    const setting = JSON.parse(settingElement.dataset.setting);
     // 1) Render Dropdown For About Me
     // data
-    chatPanelDropdownView.renderChatPanelDropdown({ coordinate });
+    chatPanelDropdownView.renderChatPanelDropdown({ user, setting, coordinate });
     // 2) Add Event Listener
     select(elementStrings.dropdowns.chatPanelDropdown).addEventListener('click', controlAboutMeDropdownItems);
 };

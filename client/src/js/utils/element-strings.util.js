@@ -149,6 +149,9 @@ const elementStrings = {
             list: '.chat-panel-request-receive__list',
             item: '.chat-panel-request-receive__item',
         },
+        list: '.chat-panel__list',
+        item: '.chat-panel__item',
+        setting: '.chat-panel__setting',
     },
 
     chatBox: {

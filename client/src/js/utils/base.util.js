@@ -9,6 +9,7 @@ import { select, selectAll } from './selector.util';
 import { capitalize, capitalizeAll, random, randomItem, bold, italic, generateQuery, getTime } from './utility.util';
 import { color, hex } from './color.util';
 import { theme } from './theme.util';
+import { relationOptions, relationDefault, relationInterest } from './relation.util';
 import { addAuthorizationHeaders, getToken, setToken } from './auth.util';
 import { debounce, throttle } from './api-limit.util';
 
@@ -31,8 +32,11 @@ export {
     generateQuery,
     getTime,
     color,
-    theme,
     hex,
+    theme,
+    relationOptions,
+    relationDefault,
+    relationInterest,
     addAuthorizationHeaders,
     getToken,
     setToken,
