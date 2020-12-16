@@ -224,15 +224,15 @@ export const renderUser = () => {
     chatBoxList.scrollTop = chatBoxList.scrollHeight - chatBoxList.scrollTop;
 };
 
-export const renderDrag = ({ user }) => {
+export const renderDrag = () => {
     const markup = `
     <div class="chat-box-drag">
         <div class="chat-box-drag--container">
             <svg class="chat-box-drag--svg">
                 <use xlink:href="svg/sprite.svg#icon-drag"></use>
             </svg>
-            <div class="chat-box-drag--content">Drop here to start chat with <span class="chat-box-drag--classifier"> ${bold(
-                capitalize(user)
+            <div class="chat-box-drag--content">Drop here to start chat. <span class="chat-box-drag--classifier"> ${bold(
+                capitalize('')
             )}</span></div>
         </div>
     </div>

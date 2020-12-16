@@ -1,19 +1,6 @@
 import { elements, select } from '../../utils/base.util';
-import { renderTitle, renderItem, extractOtherUser, extractSetting } from '../chat-panel.view';
+import { renderTitle, renderItem, extractData } from '../chat-panel.view';
 
-export const extractData = (data, user) => {
-    return data.map(item => {
-        // Getting user
-        const newItem = extractOtherUser(user, item);
-
-        // Getting setting
-        newItem['setting'] = extractSetting(item);
-
-        newItem['status'] = 'active';
-
-        return newItem;
-    });
-};
 export const renderFriend = ({ data }, user) => {
     // Parse Data
     const parseData = extractData(data, user);

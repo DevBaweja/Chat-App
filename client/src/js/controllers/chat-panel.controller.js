@@ -121,34 +121,27 @@ const ideal = () => {
     chatPanelView.renderIdeal();
 };
 
-const recentChat = () => {
-    console.log('Recent Chat');
-    // Render Recent Chat
-    chatPanelRecentChatView.renderRecentChat();
-
-    // Add Event Listeners
-    const list = select(elementStrings.chatPanel.recentChat.list);
+const eventListeners = (listClass, itemClass, selectedClass) => {
+    const list = select(listClass);
     // Click
-    list.addEventListener('click', event =>
-        controlChatPanelItem(
-            event,
-            elementStrings.chatPanel.recentChat.item,
-            elementClasses.selected.chatPanel.recentChat
-        )
-    );
+    list.addEventListener('click', event => controlChatPanelItem(event, itemClass, selectedClass));
+
     // Drag Start
     list.addEventListener('dragstart', event => {
         const { target } = event;
         // Getting item
-        const item = target.closest(elementStrings.chatPanel.recentChat.item);
+        const item = target.closest(itemClass);
         if (!item) return;
         // Getting user
         const user = item.dataset.user;
         if (!user) return;
         // Saving user
         event.dataTransfer.setData('user', user);
+        // event.dataTransfer.setData('itemClass', itemClass);
+        // event.dataTransfer.setData('selectedClass', selectedClass);
+
         // Drag Mode of chat box
-        chatBoxController.controlChatBox({ mode: mode.chatBox.drag, data: { user: user } });
+        chatBoxController.controlChatBox({ mode: mode.chatBox.drag });
     });
     // Drag End
     list.addEventListener('dragend', () => {
@@ -156,21 +149,63 @@ const recentChat = () => {
     });
 };
 
-const activeNow = () => {
-    console.log('Active Now');
-    // Render Active Now
-    chatPanelActiveNowView.renderActiveNow();
+const recentChat = async () => {
+    console.log('Recent Chat');
 
-    // Add Event Listeners
-    const list = select(elementStrings.chatPanel.activeNow.list);
-    // Click
-    list.addEventListener('click', event =>
-        controlChatPanelItem(
-            event,
-            elementStrings.chatPanel.activeNow.item,
-            elementClasses.selected.chatPanel.activeNow
-        )
-    );
+    //  Init Friend
+    if (!state['friend']) state['friend'] = new Friend();
+    try {
+        // Making API call
+        const data = await state['friend'].getAllFriend();
+        switch (data.status) {
+            case 'success':
+                {
+                    // Getting user
+                    const user = state['user'];
+                    // Render Recent Chat
+                    chatPanelRecentChatView.renderRecentChat(data.data, user);
+                    // Add Event Listeners
+                    eventListeners(
+                        elementStrings.chatPanel.recentChat.list,
+                        elementStrings.chatPanel.recentChat.item,
+                        elementClasses.selected.chatPanel.recentChat
+                    );
+                }
+                break;
+        }
+    } catch (err) {
+        console.log('ERROR', err.message);
+    }
+};
+
+const activeNow = async () => {
+    console.log('Active Now');
+
+    //  Init Friend
+    if (!state['friend']) state['friend'] = new Friend();
+    try {
+        // Making API call
+        const data = await state['friend'].getAllFriend();
+        switch (data.status) {
+            case 'success':
+                {
+                    // Getting user
+                    const user = state['user'];
+                    // Render Active Now
+                    chatPanelActiveNowView.renderActiveNow(data.data, user);
+
+                    // Add Event Listeners
+                    eventListeners(
+                        elementStrings.chatPanel.activeNow.list,
+                        elementStrings.chatPanel.activeNow.item,
+                        elementClasses.selected.chatPanel.activeNow
+                    );
+                }
+                break;
+        }
+    } catch (err) {
+        console.log('ERROR', err.message);
+    }
 };
 
 const controlSearch = async event => {
@@ -232,7 +267,7 @@ const search = () => {
 const friend = async () => {
     console.log('Friend');
 
-    //  Init SentRequest
+    //  Init Friend
     if (!state['friend']) state['friend'] = new Friend();
     try {
         // Making API call
@@ -245,14 +280,10 @@ const friend = async () => {
                     // Render Friend
                     chatPanelFriendView.renderFriend(data.data, user);
                     // Add Event Listeners
-                    const list = select(elementStrings.chatPanel.friend.list);
-                    // Click
-                    list.addEventListener('click', async event =>
-                        controlChatPanelItem(
-                            event,
-                            elementStrings.chatPanel.friend.item,
-                            elementClasses.selected.chatPanel.friend
-                        )
+                    eventListeners(
+                        elementStrings.chatPanel.friend.list,
+                        elementStrings.chatPanel.friend.item,
+                        elementClasses.selected.chatPanel.friend
                     );
                 }
                 break;

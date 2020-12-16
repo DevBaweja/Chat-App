@@ -30,7 +30,7 @@ export const removeSelected = (itemClass, selectedClass) => {
     });
 };
 
-export const extractOtherUser = (user, item) => {
+const extractOtherUser = (user, item) => {
     let newItem = {};
     switch (user._id) {
         case item.from._id:
@@ -43,11 +43,25 @@ export const extractOtherUser = (user, item) => {
     return newItem;
 };
 
-export const extractSetting = item => {
+const extractSetting = item => {
     return relationOptions.map(option => {
         const key = option;
         const value = item[option];
         return { key, value, type: `${value}-${key}` };
+    });
+};
+
+export const extractData = (data, user) => {
+    return data.map(item => {
+        // Getting user
+        const newItem = extractOtherUser(user, item);
+
+        // Getting setting
+        newItem['setting'] = extractSetting(item);
+
+        newItem['status'] = 'active';
+
+        return newItem;
     });
 };
 

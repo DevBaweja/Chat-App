@@ -36,12 +36,14 @@ const controlAboutMeDropdownItems = event => {
     if (!item) return;
 
     const { type } = item.dataset;
-    switch (type) {
-        case actions.chatPanel.read:
-            read();
+    const [value] = type.split('-');
+
+    switch (value) {
+        case actions.chatPanel.mark:
+            mark();
             break;
-        case actions.chatPanel.unread:
-            unread();
+        case actions.chatPanel.unmark:
+            unmark();
             break;
         case actions.chatPanel.pin:
             pin();
@@ -68,11 +70,11 @@ const controlAboutMeDropdownItems = event => {
 };
 
 // Actions
-const read = () => {
-    console.log('Read');
+const mark = () => {
+    console.log('Mark');
 };
-const unread = () => {
-    console.log('Unread');
+const unmark = () => {
+    console.log('Unmark');
 };
 const pin = () => {
     console.log('Pin');

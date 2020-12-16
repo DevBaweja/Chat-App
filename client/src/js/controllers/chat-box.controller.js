@@ -27,7 +27,7 @@ export const controlChatBox = info => {
             user();
             break;
         case mode.chatBox.drag:
-            drag(info);
+            drag();
             break;
     }
 };
@@ -64,9 +64,9 @@ const user = () => {
         controlChatBox({ mode: mode.chatBox.empty });
     });
 };
-const drag = ({ data }) => {
+const drag = () => {
     // Render Drag
-    chatBoxView.renderDrag(data);
+    chatBoxView.renderDrag();
     // Add Event Listeners
     // To make it dropable elements
     const dropable = select(elementStrings.drags.chatPanelDrag);
@@ -74,21 +74,25 @@ const drag = ({ data }) => {
     dropable.addEventListener('dragover', event => {
         event.preventDefault();
     });
+
     dropable.addEventListener('drop', event => {
-        const user = event.dataTransfer.getData('user');
+        const data = event.dataTransfer;
+        const user = data.getData('user');
+        // const itemClass = data.getData('itemClass');
+        // const selectedClass = data.getData('selectedData');
         // Model
         if (!user) return;
-
         controlChatBox({
             mode: mode.chatBox.user,
             data: { user: user },
         });
+
         // Remove Selected
-        chatPanelView.removeSelected();
+        chatPanelView.removeSelected(itemClass, selectedClass);
         // Getting Item
-        const item = select(`${elementStrings.chatPanel.recentChat.item}[data-user="${user}"]`);
-        if (!item) return;
+        const itemElement = select(`.${itemClass}[data-user="${user}"]`);
+        if (!itemElement) return;
         // Add Selected
-        chatPanelView.addSelected(item);
+        chatPanelView.addSelected(itemElement, selectedClass);
     });
 };

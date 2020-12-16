@@ -6,8 +6,8 @@ const actions = {
         logout: 'logout',
     },
     chatPanel: {
-        read: 'read',
-        unread: 'unread',
+        mark: 'mark',
+        unmark: 'unmark',
         pin: 'pin',
         unpin: 'unpin',
         mute: 'mute',
