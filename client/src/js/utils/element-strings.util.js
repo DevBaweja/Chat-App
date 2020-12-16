@@ -155,12 +155,14 @@ const elementStrings = {
     },
 
     chatBox: {
+        user: '.chat-box-user',
         header: {
             back: '.chat-box-user__header--back',
             img: '.chat-box-user__header--img',
         },
         background: '.chat-box-user__field',
         footer: {
+            form: '.chat-box-user__footer--form',
             emoji: '.chat-box-user__footer--emoji',
             location: '.chat-box-user__footer--location',
             attach: '.chat-box-user__footer--attach',

@@ -9,8 +9,13 @@ const router = express.Router();
 
 // -----------
 // Alias
+router.use(authController.protect);
 
-router.use(authController.protect, authController.restrictTo('admin'));
+router
+    .route('/all/:id')
+    .get(messageController.getAllMyMessages, messageController.getAllMessages);
+
+router.use(authController.restrictTo('admin'));
 // -----------
 // Routes
 router

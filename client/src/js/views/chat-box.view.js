@@ -39,38 +39,34 @@ export const renderIdeal = color => {
     select(elements.ChatBox).insertAdjacentHTML('beforeend', markup);
 };
 
-export const renderUser = ({ photo, name }) => {
+export const renderUser = ({ _id, photo, name }) => {
     const markup = `
-    <div class="chat-box-user">
+    <div class="chat-box-user" data-user="${_id}">
         <header class="chat-box-user__header">
-
             <div class="chat-box-user__header--back" title="Go back">
                 <svg class="chat-box-user__header--back-svg">
                     <use xlink:href="svg/sprite.svg#icon-back"></use>
                 </svg>
             </div>
-
             <img src=${photo} alt="" class="chat-box-user__header--img" title="View Profile"/>
-
             <div class="chat-box-user__header--content">
                 <div class="chat-box-user__header--content-name">${name}</div>
                 <div class="chat-box-user__header--content-status">...</div>
             </div>
-
-
             <div class="chat-box-user__header--options" title="User Options">
                 <svg class="chat-box-user__header--options-svg">
                 <use xlink:href="svg/sprite.svg#icon-dots"></use>
                 </svg>
             </div>
-        
         </header>
         <div class="chat-box-user__field">
             <main class="chat-box-user__main">
             <div class="chat-box-user__main--container">
+                    <!--
                     <div class="chat-box-user__main--date-fix" title="Conversation Date">
                         <span class="chat-box-user__main--date-fix-span">${longDate(Date.now())}</span>
                     </div>
+                    -->
                     <ul class="chat-box-user__main--list">
 
                     </ul>
@@ -116,7 +112,6 @@ export const renderUser = ({ photo, name }) => {
 };
 
 export const renderMessages = () => {
-    const date = '2020-08-01T00:00:00.000+00:00';
     const messageIn = () => `
     <li class="chat-box-user__main--item">
         <div class="chat-box-user__main--message">
@@ -128,17 +123,13 @@ export const renderMessages = () => {
                 </div>
                 <span class="chat-box-user__main--message-in-span">${faker.lorem.sentence().trim()}</span>
                 <span class="chat-box-user__main--message-in-info">
-                    ${new Date(date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}
+                    ${shortDate(Date.now())}
                 </span>
             </div>
         </div>
     </li>
     `;
-    const reg = new RegExp(
-        '([a-zA-Z0-9]+://)?([a-zA-Z0-9_]+:[a-zA-Z0-9_]+@)?([a-zA-Z0-9.-]+\\.[A-Za-z]{2,4})(:[0-9]+)?(/.*)?'
-    );
-    // console.log(reg.test('https://web.whatsapp.com'));
-    // console.log('https://web.whatsapp.com'.match(reg));
+
     const messageOut = () => `
     <li class="chat-box-user__main--item">
         <div class="chat-box-user__main--message">
@@ -152,7 +143,7 @@ export const renderMessages = () => {
                 </span>
                 <span class="chat-box-user__main--message-out-info">
                     <span class="chat-box-user__main--message-out-info--time">
-                    ${shortDate(date)}
+                    ${shortDate(Date.now())}
                     </span>
                     <!-- sent, delivered, seen -->
                     <svg class="chat-box-user__main--message-out-info--svg chat-box-user__main--message-out-info--svg-delivered" title="Delivered">
@@ -186,35 +177,11 @@ export const renderMessages = () => {
     <li class="chat-box-user__main--item">
         <div class="chat-box-user__main--message">
             <div class="chat-box-user__main--date" title="Conversation Date">
-                <span class="chat-box-user__main--date-span">${new Date(date).toLocaleDateString([], {
-                    dateStyle: 'long',
-                })}</span>
+                <span class="chat-box-user__main--date-span">${longDate(Date.now())}</span>
             </div>
         </div>
     </li>
     ${messageOut()}
-    <li class="chat-box-user__main--item">
-    <div class="chat-box-user__main--message">
-        <div class="chat-box-user__main--message-out">
-            <div class="chat-box-user__drop-out" title="Message Options">
-                <svg class="chat-box-user__drop-out--svg">
-                    <use xlink:href="svg/sprite.svg#icon-down"></use>
-                </svg>
-            </div>
-            <span class="chat-box-user__main--message-out-span">.
-            </span>
-            <span class="chat-box-user__main--message-out-info">
-                <span class="chat-box-user__main--message-out-info--time">
-                    ${shortDate(date)}
-                </span>
-                <!-- sent, delivered, seen -->
-                <svg class="chat-box-user__main--message-out-info--svg chat-box-user__main--message-out-info--svg-seen" title="Seen">
-                    <use xlink:href="svg/sprite.svg#icon-seen"></use>
-                </svg>
-            </span>
-        </div>
-    </div>
-</li>
     `;
 
     const list = select(elementStrings.chatBox.main.list);
@@ -222,6 +189,13 @@ export const renderMessages = () => {
     scroll(list);
 };
 
+export const messageLinks = () => {
+    // const reg = new RegExp(
+    //     '([a-zA-Z0-9]+://)?([a-zA-Z0-9_]+:[a-zA-Z0-9_]+@)?([a-zA-Z0-9.-]+\\.[A-Za-z]{2,4})(:[0-9]+)?(/.*)?'
+    // );
+    // console.log(reg.test('https://web.whatsapp.com'));
+    // console.log('https://web.whatsapp.com'.match(reg));
+};
 export const scroll = element => {
     element.scrollTop = element.scrollHeight - element.scrollTop;
 };

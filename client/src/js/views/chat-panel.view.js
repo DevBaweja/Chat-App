@@ -109,12 +109,12 @@ const renderEmptyGroup = () => `
 </div>
 `;
 // Empty
-export const renderEmpty = () => {
+export const renderEmpty = text => {
     // Data
     const data = new Array(8).fill(0);
 
     const title = {
-        label: 'Active Now',
+        label: text,
         count: 0,
     };
     const className = 'empty';

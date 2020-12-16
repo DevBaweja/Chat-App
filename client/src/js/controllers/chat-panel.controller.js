@@ -32,7 +32,7 @@ export const controlChatPanel = info => {
             ideal();
             break;
         case mode.chatPanel.empty:
-            empty();
+            empty(info);
             break;
         case mode.chatPanel.user.activeNow:
             activeNow();
@@ -112,9 +112,10 @@ const controlChatPanelPartialItem = async (event, itemClass, modeType) => {
     }
 };
 
-const empty = () => {
+const empty = info => {
+    const { text } = info;
     // Render Empty
-    chatPanelView.renderEmpty();
+    chatPanelView.renderEmpty(text);
 };
 const ideal = () => {
     // Render Ideal
@@ -151,7 +152,8 @@ const eventListeners = (listClass, itemClass, selectedClass) => {
 
 const recentChat = async () => {
     console.log('Recent Chat');
-
+    // Render Ideal Loading
+    controlChatPanel({ mode: mode.chatPanel.ideal });
     //  Init Friend
     if (!state['friend']) state['friend'] = new Friend();
     try {
@@ -162,6 +164,8 @@ const recentChat = async () => {
                 {
                     // Getting user
                     const user = state['user'];
+                    // Prepare UI
+                    chatPanelView.clearChatPanel();
                     // Render Recent Chat
                     chatPanelRecentChatView.renderRecentChat(data.data, user);
                     // Add Event Listeners
@@ -180,7 +184,8 @@ const recentChat = async () => {
 
 const activeNow = async () => {
     console.log('Active Now');
-
+    // Render Ideal Loading
+    controlChatPanel({ mode: mode.chatPanel.ideal });
     //  Init Friend
     if (!state['friend']) state['friend'] = new Friend();
     try {
@@ -191,9 +196,10 @@ const activeNow = async () => {
                 {
                     // Getting user
                     const user = state['user'];
+                    // Prepare UI
+                    chatPanelView.clearChatPanel();
                     // Render Active Now
                     chatPanelActiveNowView.renderActiveNow(data.data, user);
-
                     // Add Event Listeners
                     eventListeners(
                         elementStrings.chatPanel.activeNow.list,
@@ -266,7 +272,8 @@ const search = () => {
 
 const friend = async () => {
     console.log('Friend');
-
+    // Render Ideal Loading
+    controlChatPanel({ mode: mode.chatPanel.ideal });
     //  Init Friend
     if (!state['friend']) state['friend'] = new Friend();
     try {
@@ -277,6 +284,8 @@ const friend = async () => {
                 {
                     // Getting user
                     const user = state['user'];
+                    // Prepare UI
+                    chatPanelView.clearChatPanel();
                     // Render Friend
                     chatPanelFriendView.renderFriend(data.data, user);
                     // Add Event Listeners
@@ -295,7 +304,8 @@ const friend = async () => {
 
 const requestSent = async () => {
     console.log('Request Sent');
-
+    // Render Ideal Loading
+    controlChatPanel({ mode: mode.chatPanel.ideal });
     //  Init SentRequest
     if (!state['sentRequest']) state['sentRequest'] = new SentRequest();
     try {
@@ -304,6 +314,8 @@ const requestSent = async () => {
         switch (data.status) {
             case 'success':
                 {
+                    // Prepare UI
+                    chatPanelView.clearChatPanel();
                     // Render Request Sent
                     chatPanelRequestSentView.renderRequestSent(data.data);
                     // Add Event Listeners
@@ -328,7 +340,8 @@ const requestSent = async () => {
 
 const requestReceive = async () => {
     console.log('Request Receive');
-
+    // Render Ideal Loading
+    controlChatPanel({ mode: mode.chatPanel.ideal });
     //  Init ReceiveRequest
     if (!state['receiveRequest']) state['receiveRequest'] = new ReceiveRequest();
     try {
@@ -337,11 +350,12 @@ const requestReceive = async () => {
         switch (data.status) {
             case 'success':
                 {
+                    // Prepare UI
+                    chatPanelView.clearChatPanel();
                     // Render Request Receive
                     chatPanelRequestReceiveView.renderRequestReceive(data.data);
                     // Add Event Listeners
                     const list = select(elementStrings.chatPanel.requestReceive.list);
-
                     // Click
                     list.addEventListener(
                         'click',

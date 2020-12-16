@@ -5,6 +5,7 @@ const state = {
     user: null,
     setting: null,
     token: null,
+    message: null,
     form: null,
     login: null,
     signup: null,
