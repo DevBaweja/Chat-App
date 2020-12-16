@@ -137,7 +137,7 @@
                 @include adjust($color-grey-3, 50%, $theme, fill);
 
                 &-mark-read,
-                &-mark-unread {
+                &-unmark-read {
                 }
                 &-pin-chat,
                 &-unpin-chat {

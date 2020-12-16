@@ -1,11 +1,11 @@
-import { elementClasses, elementStrings, select } from '../../utils/base.util';
+import { elementClasses } from '../../utils/base.util';
 import { renderDropdowns } from './dropdowns.view';
 
 export const renderChatPanelDropdown = ({ coordinate }) => {
     const data = {
         groups: [
             {
-                // mark-read or mark-unread
+                // mark-read or unmark-read
                 type: 'mark-read',
                 // Mark as read/unread
                 text: 'Mark as read',

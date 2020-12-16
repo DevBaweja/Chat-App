@@ -17,6 +17,38 @@ const def = {
         ref: 'User',
         required: { value: true, message: 'A friend must be to a user' },
     },
+    read: {
+        type: String,
+        enum: {
+            values: ['mark', 'unmark'],
+            message: 'Mark or Unmark.',
+        },
+        default: 'mark',
+    },
+    chat: {
+        type: String,
+        enum: {
+            values: ['pin', 'unpin'],
+            message: 'Pin or Unpin.',
+        },
+        default: 'unpin',
+    },
+    notification: {
+        type: String,
+        enum: {
+            values: ['mute', 'unmute'],
+            message: 'Mute or Unmute.',
+        },
+        default: 'unmute',
+    },
+    favourite: {
+        type: String,
+        enum: {
+            values: ['add', 'remove'],
+            message: 'Mute or Unmute.',
+        },
+        default: 'remove',
+    },
     createdAt: {
         type: Date,
         default: Date.now,

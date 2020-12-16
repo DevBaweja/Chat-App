@@ -21,6 +21,28 @@ export const removeSelected = (itemClass, selectedClass) => {
     });
 };
 
+export const extractOtherUser = (user, item) => {
+    let newItem = {};
+    switch (user._id) {
+        case item.from._id:
+            newItem = { ...item.to };
+            break;
+        case item.to._id:
+            newItem = { ...item.from };
+            break;
+    }
+    return newItem;
+};
+
+export const extractSetting = item => {
+    const options = ['read', 'chat', 'notification', 'favourite'];
+    return options.map(option => {
+        const key = option;
+        const value = item[option];
+        return { key, value, type: `${value}-${key}` };
+    });
+};
+
 const renderIdealGroup = () => `
 <div class="chat-panel-ideal__dimmer--item">
     <div class="chat-panel-ideal__dimmer--circle">
@@ -116,8 +138,8 @@ export const renderPartialItem = ({ _id, photo, name, createdAt }, className, re
 `;
 
 // Item
-export const renderItem = ({ user, photo, name, status, setting }, className) => `
-<li class="chat-panel-${className}__item" data-user=${user} title="${name}" draggable="true">
+export const renderItem = ({ _id, photo, name, status, setting }, className) => `
+<li class="chat-panel-${className}__item" data-user=${_id} title="${name}" draggable="true">
     <div class="chat-panel-${className}__link" role="button">
         <div class="chat-panel-${className}__visual">
             <img src="${photo}" alt="" class="chat-panel-${className}__photo" />
@@ -131,15 +153,7 @@ export const renderItem = ({ user, photo, name, status, setting }, className) =>
             <span class="chat-panel-${className}__name">${name}</span>
             <!-- SETTING -->
             <div class="chat-panel-${className}__setting">
-            ${setting
-                .map(
-                    ({ type }) => `
-                <svg class="chat-panel-${className}__setting--icon chat-panel-${className}__setting--icon-${type}">
-                    <use xlink:href="svg/sprite.svg#icon-${type}"></use>
-                </svg>
-            `
-                )
-                .join('')}
+            ${renderSetting(className, setting)}
             </div>
         </div>
         
@@ -150,3 +164,21 @@ export const renderItem = ({ user, photo, name, status, setting }, className) =>
     </div>
 </li>
 `;
+// Setting
+export const renderSetting = (className, setting) => {
+    console.log(setting);
+    const interest = { read: 'unmark', chat: 'pin', notification: 'mute', favourite: 'add' };
+    return `
+        ${setting
+            .map(({ key, value, type }) => {
+                let markup = '';
+                if (interest[key] == value)
+                    markup = `<svg class="chat-panel-${className}__setting--icon chat-panel-${className}__setting--icon-${type}">
+                            <use xlink:href="svg/sprite.svg#icon-${type}"></use>
+                        </svg>
+                        `;
+                return markup;
+            })
+            .join('')}
+    `;
+};

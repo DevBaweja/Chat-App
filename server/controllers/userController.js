@@ -178,6 +178,33 @@ exports.getRelation = catchAsync(async (req, res, next) => {
     // User
     if (req.user.id === req.params.id) relation = relations.user;
 
+    /*
+     // Sent Request
+    const sentRequestRelation = await Request.findOne({
+        from: req.user.id,
+        to: req.params.id,
+        status: 'pending',
+    });
+    if (sentRequestRelation) relation = relations.sentRequest;
+
+    // Receive Request
+    const receiveRequestRelation = await Request.findOne({
+        from: req.params.id,
+        to: req.user.id,
+        status: 'pending',
+    });
+    if (receiveRequestRelation) relation = relations.receiveRequest;
+
+    // Friend
+    const friendRelation = await Friend.findOne({
+        $or: [
+            { from: req.user.id, to: req.params.id },
+            { from: req.params.id, to: req.user.id },
+        ],
+    });
+    if (friendRelation) relation = relations.friend;
+    */
+
     res.status(200).json({
         status: 'success',
         relation,

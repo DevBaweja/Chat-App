@@ -7,28 +7,28 @@ export const renderActiveNow = () => {
     const className = 'active-now';
     const data = [
         {
-            user: faker.random.uuid(),
+            _id: faker.random.uuid(),
             name: faker.name.findName(),
             photo: faker.image.avatar(),
             status: 'active',
             setting: [],
         },
         {
-            user: faker.random.uuid(),
+            _id: faker.random.uuid(),
             name: faker.name.findName(),
             photo: faker.image.avatar(),
             status: 'inactive',
             setting: [{ type: 'add-favourite' }],
         },
         {
-            user: faker.random.uuid(),
+            _id: faker.random.uuid(),
             name: faker.name.findName(),
             photo: faker.image.avatar(),
             status: 'inactive',
             setting: [],
         },
         {
-            user: faker.random.uuid(),
+            _id: faker.random.uuid(),
             name: faker.name.findName(),
             photo: faker.image.avatar(),
             status: 'active',

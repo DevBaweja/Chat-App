@@ -1,27 +1,19 @@
 import { elements, select } from '../../utils/base.util';
-import { renderTitle, renderItem } from '../chat-panel.view';
+import { renderTitle, renderItem, extractOtherUser, extractSetting } from '../chat-panel.view';
 
 export const extractData = (data, user) => {
     return data.map(item => {
-        let result = {};
-        switch (user.id) {
-            case item.from.id:
-                result = { ...item.to };
-                break;
-            case item.to.id:
-                result = { ...item.from };
-                break;
-            default: {
-            }
-        }
-        result['status'] = 'active';
-        result['setting'] = [
-            { type: 'mark-read' },
-            { type: 'pin-chat' },
-            { type: 'mute-notification' },
-            { type: 'add-favourite' },
-        ];
-        return result;
+        console.log(item);
+        // Getting user
+        const newItem = extractOtherUser(user, item);
+
+        // Getting setting
+        newItem['setting'] = extractSetting(item);
+
+        newItem['status'] = 'active';
+
+        console.log(newItem);
+        return newItem;
     });
 };
 export const renderFriend = ({ data }, user) => {

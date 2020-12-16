@@ -50,7 +50,7 @@ export const getTime = time => {
     return str;
 };
 
-export const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
+export const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 
 export const capitalizeAll = str => str.split(' ').map(capitalize).join(' ');
 
