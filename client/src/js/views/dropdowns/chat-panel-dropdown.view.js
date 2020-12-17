@@ -1,7 +1,7 @@
 import { elementClasses } from '../../utils/base.util';
 import { renderDropdowns } from './dropdowns.view';
 
-export const renderChatPanelDropdown = ({ user, setting, coordinate }) => {
+export const renderChatPanelDropdown = ({ user, set, setting, coordinate }) => {
     const reverse = {
         read: {
             mark: 'unmark',
@@ -54,7 +54,10 @@ export const renderChatPanelDropdown = ({ user, setting, coordinate }) => {
     });
 
     const data = {
-        user,
+        additional: [
+            { text: 'user', value: user._id },
+            { text: 'set', value: set },
+        ],
         coordinate,
         className: elementClasses.dropdowns.chatPanelDropdown,
         groups,

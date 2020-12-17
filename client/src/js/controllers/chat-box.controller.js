@@ -108,9 +108,10 @@ const eventListener = () => {
             switch (data.status) {
                 case 'success':
                     {
+                        // Getting user
+                        const user = state['user'];
                         // Prepare UI
                         chatBoxView.clearUserInput();
-                        console.log(data.data);
                     }
                     break;
             }

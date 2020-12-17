@@ -3,6 +3,7 @@ import { elementClasses } from '../../utils/base.util';
 
 export const renderMessageOutDropdown = ({ coordinate }) => {
     const data = {
+        additional: [{ text: 'message', value: '#' }],
         groups: [
             {
                 type: 'copy',
@@ -30,6 +31,7 @@ export const renderMessageOutDropdown = ({ coordinate }) => {
 
 export const renderMessageInDropdown = ({ coordinate }) => {
     const data = {
+        additional: [{ text: 'message', value: '#' }],
         groups: [
             {
                 type: 'copy',

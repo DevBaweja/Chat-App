@@ -32,7 +32,7 @@ export const controlChatPanel = info => {
             ideal();
             break;
         case mode.chatPanel.empty:
-            empty(info);
+            empty();
             break;
         case mode.chatPanel.user.activeNow:
             activeNow();
@@ -112,10 +112,9 @@ const controlChatPanelPartialItem = async (event, itemClass, modeType) => {
     }
 };
 
-const empty = info => {
-    const { text } = info;
+const empty = () => {
     // Render Empty
-    chatPanelView.renderEmpty(text);
+    chatPanelView.renderEmpty();
 };
 const ideal = () => {
     // Render Ideal

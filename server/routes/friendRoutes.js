@@ -17,7 +17,8 @@ router
 
 router
     .route('/myFriend/:id')
-    .post(friendController.createMyFriend, friendController.createNewFriend);
+    .post(friendController.createMyFriend, friendController.createNewFriend)
+    .patch(friendController.updateMyFriend);
 
 router.use(authController.restrictTo('admin'));
 // -----------

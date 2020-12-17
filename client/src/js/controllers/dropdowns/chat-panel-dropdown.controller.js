@@ -1,5 +1,5 @@
 // Utils
-import { elementStrings, select, actions } from '../../utils/base.util';
+import { elementStrings, select, actions, capitalize } from '../../utils/base.util';
 
 // Views
 import * as chatPanelDropdownView from '../../views/dropdowns/chat-panel-dropdown.view';
@@ -15,28 +15,41 @@ const controlChatPanelDropdown = event => {
     const itemElement = target.closest(elementStrings.chatPanel.item);
     if (!itemElement) return;
     // Getting user
-    const user = itemElement.dataset.user;
+    const user = JSON.parse(itemElement.dataset.user);
+    // Getting set
+    const set = itemElement.dataset.set;
     // Getting setting
     const settingElement = select(elementStrings.chatPanel.setting, itemElement);
     const setting = JSON.parse(settingElement.dataset.setting);
     // 1) Render Dropdown For About Me
     // data
-    chatPanelDropdownView.renderChatPanelDropdown({ user, setting, coordinate });
+    chatPanelDropdownView.renderChatPanelDropdown({ user, set, setting, coordinate });
     // 2) Add Event Listener
-    select(elementStrings.dropdowns.chatPanelDropdown).addEventListener('click', controlAboutMeDropdownItems);
+    select(elementStrings.dropdowns.chatPanelDropdown).addEventListener('click', event =>
+        controlAboutMeDropdownItems(event, { user, set })
+    );
 };
 
 // ! For Development
 window.controlChatPanelDropdown = controlChatPanelDropdown;
 
 // Items
-const controlAboutMeDropdownItems = event => {
+const controlAboutMeDropdownItems = (event, { user, set }) => {
     const { target } = event;
     const item = target.closest(elementStrings.dropdownItems.chatPanelDropdownItem);
     if (!item) return;
 
     const { type } = item.dataset;
-    const [value] = type.split('-');
+    const [value, key] = type.split('-');
+
+    if (!key) {
+        deleteChat();
+        return;
+    }
+
+    const action = `${key}${capitalize(set)}`;
+    const update = { [action]: value };
+    call(user, update);
 
     switch (value) {
         case actions.chatPanel.mark:
@@ -64,8 +77,27 @@ const controlAboutMeDropdownItems = event => {
             remove();
             break;
         case actions.chatPanel.delete:
-            deleteChat();
+            deleteChat;
             break;
+    }
+};
+
+const call = async (user, update) => {
+    state['friend'].setUserInput({ user: user._id });
+    state['friend'].setUpdateObject({ update });
+
+    // Making API call
+    const data = await state['friend'].updateFriend();
+    try {
+        switch (data.status) {
+            case 'success':
+                {
+                }
+                git;
+                break;
+        }
+    } catch (err) {
+        console.log('ERROR', err.message);
     }
 };
 

@@ -4,6 +4,7 @@ import {
     selectAll,
     getTime,
     bold,
+    capitalize,
     capitalizeAll,
     relationOptions,
     relationInterest,
@@ -34,10 +35,10 @@ const extractOtherUser = (user, item) => {
     let newItem = {};
     switch (user._id) {
         case item.from._id:
-            newItem = { ...item.to };
+            newItem = { ...item, user: { ...item.to }, set: 'from' };
             break;
         case item.to._id:
-            newItem = { ...item.from };
+            newItem = { ...item, user: { ...item.from }, set: 'to' };
             break;
     }
     return newItem;
@@ -46,7 +47,8 @@ const extractOtherUser = (user, item) => {
 const extractSetting = item => {
     return relationOptions.map(option => {
         const key = option;
-        const value = item[option];
+        const setKey = `${option}${capitalize(item.set)}`;
+        const value = item[setKey];
         return { key, value, type: `${value}-${key}` };
     });
 };
@@ -55,10 +57,9 @@ export const extractData = (data, user) => {
     return data.map(item => {
         // Getting user
         const newItem = extractOtherUser(user, item);
-
         // Getting setting
-        newItem['setting'] = extractSetting(item);
-
+        newItem['setting'] = extractSetting(newItem);
+        // Getting Status
         newItem['status'] = 'active';
 
         return newItem;
@@ -109,12 +110,12 @@ const renderEmptyGroup = () => `
 </div>
 `;
 // Empty
-export const renderEmpty = text => {
+export const renderEmpty = () => {
     // Data
     const data = new Array(8).fill(0);
 
     const title = {
-        label: text,
+        label: '#ChatFuel',
         count: 0,
     };
     const className = 'empty';
@@ -160,12 +161,12 @@ export const renderPartialItem = ({ _id, photo, name, createdAt }, className, re
 `;
 
 // Item
-export const renderItem = ({ _id, photo, name, status, setting }, className) => `
+export const renderItem = ({ user: { _id, photo, name }, set, status, setting }, className) => `
 <li class="chat-panel-${className}__item chat-panel__item" data-user='${JSON.stringify({
     _id,
     photo,
     name,
-})}' title="${name}" draggable="true">
+})}' data-set="${set}" title="${name}" draggable="true">
     <div class="chat-panel-${className}__link" role="button">
         <div class="chat-panel-${className}__visual">
             <img src="${photo}" alt="" class="chat-panel-${className}__photo" />

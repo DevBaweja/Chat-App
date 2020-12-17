@@ -1,6 +1,6 @@
 const factory = require('./handleFactory');
-// const AppError = require('../utils/appError');
-// const catchAsync = require('../utils/catchAsync');
+const AppError = require('../utils/appError');
+const catchAsync = require('../utils/catchAsync');
 const Friend = require('../models/friendModel');
 
 // Alias
@@ -16,6 +16,32 @@ exports.createMyFriend = (req, res, next) => {
     req.body = { ...req.body, from: req.user.id, to: req.params.id };
     next();
 };
+
+exports.updateMyFriend = catchAsync(async (req, res, next) => {
+    // Update Request
+    const updatedRequest = await Friend.findOneAndUpdate(
+        {
+            $or: [
+                { from: req.user.id, to: req.params.id },
+                { to: req.user.id, from: req.params.id },
+            ],
+        },
+        req.body,
+        {
+            new: true,
+            runValidators: true,
+        }
+    );
+    if (!updatedRequest) {
+        return next(new AppError('No document found with that ID', 404));
+    }
+    res.status(200).json({
+        status: 'success',
+        data: {
+            data: updatedRequest,
+        },
+    });
+});
 
 // Friend Route Handlers
 exports.getAllFriends = factory.getAll(Friend);

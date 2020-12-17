@@ -1,5 +1,4 @@
 import { elements, elementStrings, select, bold, capitalize, longDate, shortDate } from '../utils/base.util';
-import faker from 'faker';
 
 export const clearChatBox = () => (select(elements.ChatBox).innerHTML = '');
 
@@ -200,24 +199,24 @@ export const extractData = (data, user) => {
     });
 };
 
+export const determineMode = item => {
+    let template = '';
+    switch (item.mode) {
+        case 'in':
+            template = renderMessageIn(item);
+            break;
+        case 'out':
+            template = renderMessageOut(item);
+            break;
+    }
+    return template;
+};
+
 export const renderMessages = ({ data }, user) => {
     // Parse Data
     const parseData = extractData(data, user);
 
-    const markup = parseData
-        .map(item => {
-            let template = '';
-            switch (item.mode) {
-                case 'in':
-                    template = renderMessageIn(item);
-                    break;
-                case 'out':
-                    template = renderMessageOut(item);
-                    break;
-            }
-            return template;
-        })
-        .join('');
+    const markup = parseData.map(item => determineMode(item)).join('');
 
     const list = select(elementStrings.chatBox.main.list);
     list.insertAdjacentHTML('beforeend', markup);
@@ -227,6 +226,7 @@ export const renderMessages = ({ data }, user) => {
 export const scroll = element => {
     element.scrollTop = element.scrollHeight - element.scrollTop;
 };
+
 export const renderDrag = () => {
     const markup = `
     <div class="chat-box-drag">

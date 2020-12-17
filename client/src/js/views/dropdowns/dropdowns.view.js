@@ -67,6 +67,7 @@ const positionCoordinate = (dropdown, coordinate) => {
             break;
     }
 };
+
 const getDropdownsItem = (item, className) => `
     <li class="${className}--item" data-type="${item.type}">
         <svg class="${className}--svg ${className}--svg-${item.type}">
@@ -76,10 +77,15 @@ const getDropdownsItem = (item, className) => `
     </li>
 `;
 
-export const renderDropdowns = ({ groups, className, coordinate }) => {
+const renderAdditional = additional => {
+    if (!additional) return '';
+    return additional.map(item => `data-${item.text} = "${item.value}"`).join(' ');
+};
+
+export const renderDropdowns = ({ groups, className, coordinate, additional }) => {
     // Creating Markup
     let markup = `
-    <div class="${className}">
+    <div class="${className}" ${renderAdditional(additional)}>
         <ul class="${className}--list">
             ${groups.map(item => getDropdownsItem(item, className)).join('')}
         </ul>

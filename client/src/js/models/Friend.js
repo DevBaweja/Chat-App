@@ -18,6 +18,9 @@ class Friend {
     setUserInput = ({ user }) => {
         this.user = user;
     };
+    setUpdateObject = ({ update }) => {
+        this.update = update;
+    };
 
     createFriend = async () => {
         let headers = {};
@@ -49,6 +52,28 @@ class Friend {
                 method: 'GET',
                 url: this.url,
                 params: this.params,
+                headers,
+                validateStatus: () => true,
+                // For validation
+            });
+
+            this.parseData();
+            return this.data;
+        } catch (err) {
+            throw err;
+        }
+    };
+
+    updateFriend = async () => {
+        let headers = {};
+        addAuthorizationHeaders(headers);
+        const url = `${this.url}${this.user}`;
+        const obj = { ...this.update };
+        try {
+            this.data = await axios({
+                method: 'PATCH',
+                url,
+                data: obj,
                 headers,
                 validateStatus: () => true,
                 // For validation
