@@ -13,6 +13,11 @@ exports.getAllMyMessages = (req, res, next) => {
     next();
 };
 
+exports.createMyMessage = (req, res, next) => {
+    req.body = { ...req.body, from: req.user.id, to: req.params.id };
+    next();
+};
+
 // Message Route Handlers
 exports.getAllMessages = factory.getAll(Message);
 exports.getMessageById = factory.getOne(Message);

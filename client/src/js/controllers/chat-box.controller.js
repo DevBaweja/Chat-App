@@ -95,6 +95,28 @@ const eventListener = () => {
     // Send Message
     select(elementStrings.chatBox.footer.form).addEventListener('submit', async event => {
         event.preventDefault();
+        // 1) Getting user inputs
+        const inputs = chatBoxView.getUserInput();
+        // 2) Checking user inputs
+        // { content }
+
+        // Create Message
+        state['message'].setContent(inputs);
+        try {
+            // Making API call
+            const data = await state['message'].createMyMessage();
+            switch (data.status) {
+                case 'success':
+                    {
+                        // Prepare UI
+                        chatBoxView.clearUserInput();
+                        console.log(data.data);
+                    }
+                    break;
+            }
+        } catch (err) {
+            console.log('ERROR', err.message);
+        }
     });
 };
 const user = async ({ data }) => {
@@ -107,15 +129,17 @@ const user = async ({ data }) => {
     backgroundImageController.controlBackgroundImage({ mode: wallpaper[state['theme'].mode] });
     //  Init Message
     if (!state['message']) state['message'] = new Message({ user: user._id });
+    state['message'].setUser({ user: user._id });
     try {
         // Making API call
         const data = await state['message'].getAllMyMessage();
         switch (data.status) {
             case 'success':
                 {
-                    console.log(data.data);
+                    // Getting user
+                    const user = state['user'];
                     // Render Messages
-                    chatBoxView.renderMessages();
+                    chatBoxView.renderMessages(data.data, user);
                 }
                 break;
         }

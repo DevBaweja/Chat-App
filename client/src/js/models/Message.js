@@ -7,7 +7,7 @@ class Message {
         this.user = user;
         this.url = `${url[state['mode'].mode]}api/v1/messages/`;
         this.params = {
-            sort: '-createdAt',
+            sort: '+createdAt',
         };
     }
 
@@ -16,19 +16,47 @@ class Message {
         this.data = data;
     };
 
-    setUserInput = ({ user }) => {
+    setUser = ({ user }) => {
         this.user = user;
+    };
+
+    setContent = ({ content }) => {
+        this.type = 'text';
+        this.content = content;
     };
 
     getAllMyMessage = async () => {
         let headers = {};
         addAuthorizationHeaders(headers);
-        const url = `${this.url}all/${this.user}`;
+        const url = `${this.url}my/${this.user}`;
         try {
             this.data = await axios({
                 method: 'GET',
-                url: this.url,
+                url,
                 params: this.params,
+                headers,
+                validateStatus: () => true,
+                // For validation
+            });
+
+            this.parseData();
+            return this.data;
+        } catch (err) {
+            throw err;
+        }
+    };
+
+    createMyMessage = async () => {
+        let headers = {};
+        addAuthorizationHeaders(headers);
+        const url = `${this.url}my/${this.user}`;
+        const obj = { type: this.type, content: this.content };
+        try {
+            this.data = await axios({
+                method: 'POST',
+                url,
+                params: this.params,
+                data: obj,
                 headers,
                 validateStatus: () => true,
                 // For validation

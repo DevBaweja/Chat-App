@@ -12,8 +12,12 @@ const router = express.Router();
 router.use(authController.protect);
 
 router
-    .route('/all/:id')
-    .get(messageController.getAllMyMessages, messageController.getAllMessages);
+    .route('/my/:id')
+    .get(messageController.getAllMyMessages, messageController.getAllMessages)
+    .post(
+        messageController.createMyMessage,
+        messageController.createNewMessage
+    );
 
 router.use(authController.restrictTo('admin'));
 // -----------

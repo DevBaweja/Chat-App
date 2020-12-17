@@ -163,11 +163,11 @@ const elementStrings = {
         background: '.chat-box-user__field',
         footer: {
             form: '.chat-box-user__footer--form',
+            input: '.chat-box-user__footer--input',
             emoji: '.chat-box-user__footer--emoji',
             location: '.chat-box-user__footer--location',
             attach: '.chat-box-user__footer--attach',
             camera: '.chat-box-user__footer--camera',
-            input: '.chat-box-user__footer--input',
             send: '.chat-box-user__footer--send',
         },
         main: {

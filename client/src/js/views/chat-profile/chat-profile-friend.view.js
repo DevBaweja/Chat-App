@@ -1,6 +1,5 @@
 import { elements, select } from '../../utils/base.util';
 import { renderAboutGroup, renderForm } from '../chat-profile.view';
-import faker from 'faker';
 
 const renderActionIcon = ({ type, title }, className) => `
 <div class="chat-profile__${className}-content--icon chat-profile__${className}-content--icon-${type}" title="${title}">

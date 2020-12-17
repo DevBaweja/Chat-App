@@ -3,6 +3,15 @@ import faker from 'faker';
 
 export const clearChatBox = () => (select(elements.ChatBox).innerHTML = '');
 
+export const clearUserInput = () => (select(elementStrings.chatBox.footer.input).innerHTML = '');
+
+export const getUserInput = () => {
+    const input = select(elementStrings.chatBox.footer.input);
+    let obj = {};
+    obj['content'] = input.innerText;
+    return obj;
+};
+
 export const renderEmpty = color => {
     const markup = `
     <div class="chat-box-empty">
@@ -110,92 +119,111 @@ export const renderUser = ({ _id, photo, name }) => {
 
     select(elements.ChatBox).insertAdjacentHTML('beforeend', markup);
 };
-
-export const renderMessages = () => {
-    const messageIn = () => `
-    <li class="chat-box-user__main--item">
-        <div class="chat-box-user__main--message">
-            <div class="chat-box-user__main--message-in">
-                <div class="chat-box-user__drop-in" title="Message Options">
-                    <svg class="chat-box-user__drop-in--svg">
-                        <use xlink:href="svg/sprite.svg#icon-down"></use>
-                    </svg>
-                </div>
-                <span class="chat-box-user__main--message-in-span">${faker.lorem.sentence().trim()}</span>
-                <span class="chat-box-user__main--message-in-info">
-                    ${shortDate(Date.now())}
-                </span>
+const renderMessageIn = ({ content, createdAt }) => `
+<li class="chat-box-user__main--item">
+    <div class="chat-box-user__main--message">
+        <div class="chat-box-user__main--message-in">
+            <div class="chat-box-user__drop-in" title="Message Options">
+                <svg class="chat-box-user__drop-in--svg">
+                    <use xlink:href="svg/sprite.svg#icon-down"></use>
+                </svg>
             </div>
+            <span class="chat-box-user__main--message-in-span">${content}</span>
+            <span class="chat-box-user__main--message-in-info">
+                ${shortDate(createdAt)}
+            </span>
         </div>
-    </li>
-    `;
+    </div>
+</li>
+`;
 
-    const messageOut = () => `
-    <li class="chat-box-user__main--item">
-        <div class="chat-box-user__main--message">
-            <div class="chat-box-user__main--message-out">
-                <div class="chat-box-user__drop-out" title="Message Options">
-                    <svg class="chat-box-user__drop-out--svg">
-                        <use xlink:href="svg/sprite.svg#icon-down"></use>
-                    </svg>
-                </div>
-                <span class="chat-box-user__main--message-out-span">${faker.lorem.sentence().trim()}
-                </span>
-                <span class="chat-box-user__main--message-out-info">
-                    <span class="chat-box-user__main--message-out-info--time">
-                    ${shortDate(Date.now())}
-                    </span>
-                    <!-- sent, delivered, seen -->
-                    <svg class="chat-box-user__main--message-out-info--svg chat-box-user__main--message-out-info--svg-delivered" title="Delivered">
-                        <use xlink:href="svg/sprite.svg#icon-delivered"></use>
-                    </svg>
-                </span>
+const renderMessageOut = ({ content, createdAt }) => `
+<li class="chat-box-user__main--item">
+    <div class="chat-box-user__main--message">
+        <div class="chat-box-user__main--message-out">
+            <div class="chat-box-user__drop-out" title="Message Options">
+                <svg class="chat-box-user__drop-out--svg">
+                    <use xlink:href="svg/sprite.svg#icon-down"></use>
+                </svg>
             </div>
+            <span class="chat-box-user__main--message-out-span">${content}
+            </span>
+            <span class="chat-box-user__main--message-out-info">
+                <span class="chat-box-user__main--message-out-info--time">
+                ${shortDate(createdAt)}
+                </span>
+                <!-- sent, delivered, seen -->
+                <svg class="chat-box-user__main--message-out-info--svg chat-box-user__main--message-out-info--svg-delivered" title="Delivered">
+                    <use xlink:href="svg/sprite.svg#icon-delivered"></use>
+                </svg>
+            </span>
         </div>
-    </li>
+    </div>
+</li>
+`;
 
-    `;
-    const markup = `
-    ${messageIn()}
-    ${messageOut()}
-    ${messageIn()}
-    ${messageOut()}
-    ${messageIn()}
-    ${messageIn()}
-    ${messageOut()}
-    ${messageIn()}
-    ${messageOut()}
-    ${messageOut()}
-    ${messageIn()}
-    ${messageOut()}
-    ${messageIn()}
-    ${messageIn()}
-    ${messageOut()}
-    ${messageIn()}
-    ${messageOut()}
-    ${messageOut()}
+const renderMessageDate = () => `
     <li class="chat-box-user__main--item">
         <div class="chat-box-user__main--message">
             <div class="chat-box-user__main--date" title="Conversation Date">
                 <span class="chat-box-user__main--date-span">${longDate(Date.now())}</span>
             </div>
         </div>
-    </li>
-    ${messageOut()}
-    `;
+    </li>`;
 
-    const list = select(elementStrings.chatBox.main.list);
-    list.insertAdjacentHTML('beforeend', markup);
-    scroll(list);
-};
-
-export const messageLinks = () => {
+export const renderMessageLinks = () => {
     // const reg = new RegExp(
     //     '([a-zA-Z0-9]+://)?([a-zA-Z0-9_]+:[a-zA-Z0-9_]+@)?([a-zA-Z0-9.-]+\\.[A-Za-z]{2,4})(:[0-9]+)?(/.*)?'
     // );
     // console.log(reg.test('https://web.whatsapp.com'));
     // console.log('https://web.whatsapp.com'.match(reg));
 };
+
+const extractOtherUser = (user, item) => {
+    let newItem = {};
+    switch (user._id) {
+        case item.from._id:
+            newItem = { ...item, mode: 'out' };
+            break;
+        case item.to._id:
+            newItem = { ...item, mode: 'in' };
+            break;
+    }
+    return newItem;
+};
+
+export const extractData = (data, user) => {
+    return data.map(item => {
+        // Getting user
+        const newItem = extractOtherUser(user, item);
+        return newItem;
+    });
+};
+
+export const renderMessages = ({ data }, user) => {
+    // Parse Data
+    const parseData = extractData(data, user);
+
+    const markup = parseData
+        .map(item => {
+            let template = '';
+            switch (item.mode) {
+                case 'in':
+                    template = renderMessageIn(item);
+                    break;
+                case 'out':
+                    template = renderMessageOut(item);
+                    break;
+            }
+            return template;
+        })
+        .join('');
+
+    const list = select(elementStrings.chatBox.main.list);
+    list.insertAdjacentHTML('beforeend', markup);
+    scroll(list);
+};
+
 export const scroll = element => {
     element.scrollTop = element.scrollHeight - element.scrollTop;
 };
