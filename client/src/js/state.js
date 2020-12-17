@@ -18,6 +18,7 @@ const state = {
     chatProfile: null,
     subSetting: null,
     backgroundImage: null,
+    status: null,
     updateProfile: null,
     updatePassword: null,
     deleteAccount: null,

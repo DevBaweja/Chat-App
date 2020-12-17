@@ -124,5 +124,9 @@ const mode = {
         empty: 'empty',
         user: 'user',
     },
+    status: {
+        online: 'online',
+        offline: 'offline',
+    },
 };
 export default mode;

@@ -53,6 +53,10 @@ const extractSetting = item => {
     });
 };
 
+const extractStatus = item => {
+    return item.user.status;
+};
+
 export const extractData = (data, user) => {
     return data.map(item => {
         // Getting user
@@ -60,7 +64,7 @@ export const extractData = (data, user) => {
         // Getting setting
         newItem['setting'] = extractSetting(newItem);
         // Getting Status
-        newItem['status'] = 'active';
+        newItem['status'] = extractStatus(newItem);
 
         return newItem;
     });
@@ -166,6 +170,7 @@ export const renderItem = ({ user: { _id, photo, name }, set, status, setting },
     _id,
     photo,
     name,
+    status,
 })}' data-set="${set}" title="${name}" draggable="true">
     <div class="chat-panel-${className}__link" role="button">
         <div class="chat-panel-${className}__visual">

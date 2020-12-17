@@ -7,7 +7,7 @@ class UpdatePassword {
         this.passwordCurrent = passwordCurrent;
         this.password = password;
         this.passwordConfirm = passwordConfirm;
-        this.url = `${url[state['mode'].mode]}api/v1/users/updateMyPassword`;
+        this.url = `${url[state['mode'].mode]}api/v1/users/password`;
     }
 
     setUserInput = ({ passwordCurrent, password, passwordConfirm }) => {

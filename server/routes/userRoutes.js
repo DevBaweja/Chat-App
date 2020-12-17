@@ -22,14 +22,19 @@ router.use(authController.protect);
 
 router.get('/relation/:id', userController.getRelation);
 
-router.patch('/updateMyPassword', authController.updatePassword);
-router.patch(
-    '/updateMe',
-    userController.uploadUserPhoto,
-    userController.resizeUserPhoto,
-    userController.updateMe
-);
-router.delete('/deleteMe', userController.deleteMe);
+router.patch('/password', authController.updatePassword);
+
+router.patch('/status', userController.noPassword, userController.updateStatus);
+
+router
+    .route('/me')
+    .patch(
+        userController.noPassword,
+        userController.uploadUserPhoto,
+        userController.resizeUserPhoto,
+        userController.updateMe
+    )
+    .delete(userController.deleteMe);
 
 // Authorization
 router.use(authController.restrictTo('admin'));

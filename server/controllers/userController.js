@@ -4,7 +4,6 @@ const sharp = require('sharp');
 const factory = require('./handleFactory');
 const User = require('../models/userModel');
 const Request = require('../models/requestModel');
-const Friend = require('../models/friendModel');
 
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
@@ -88,9 +87,8 @@ exports.getUserById = factory.getOne(User);
 exports.updateUserById = factory.updateOne(User);
 exports.deleteUserById = factory.deleteOne(User);
 
-// Update Me
-exports.updateMe = catchAsync(async (req, res, next) => {
-    // 1) Create error is user post password
+exports.noPassword = (req, res, next) => {
+    // Create error is user post password
     if (req.body.password || req.body.passwordConfirm)
         return next(
             new AppError(
@@ -98,21 +96,56 @@ exports.updateMe = catchAsync(async (req, res, next) => {
                 400
             )
         );
-    // 2) Filter unwanted field names that are not allowed to be updated
+    next();
+};
+
+// Update Me
+exports.updateMe = catchAsync(async (req, res, next) => {
+    // 1) Filter unwanted field names that are not allowed to be updated
     const filterBody = filter(req.body, 'name', 'email', 'bio', 'photo');
     // Photo
     if (req.file) filterBody.photo = `img/users/${req.file.filename}`;
 
-    // 3) Update user document
+    // 2) Update user document
     // findByIdAndUpdate can now be used
     const updatedUser = await User.findByIdAndUpdate(req.user.id, filterBody, {
         new: true,
         runValidators: true,
     });
+    if (!updatedUser) {
+        return next(new AppError('No document found with that ID', 404));
+    }
     // Send Response
     res.status(200).json({
         status: 'success',
-        data: { user: updatedUser },
+        data: {
+            user: updatedUser,
+        },
+    });
+});
+
+// Update Status
+exports.updateStatus = catchAsync(async (req, res, next) => {
+    // 1) Filter unwanted field names that are not allowed to be updated
+    const filterBody = filter(req.body, 'status');
+    filterBody.lastSeen = Date.now();
+
+    // 2) Update user document
+    // findByIdAndUpdate can now be used
+    const updatedUser = await User.findByIdAndUpdate(req.user.id, filterBody, {
+        new: true,
+        runValidators: true,
+    });
+
+    if (!updatedUser) {
+        return next(new AppError('No document found with that ID', 404));
+    }
+
+    res.status(200).json({
+        status: 'success',
+        data: {
+            data: updatedUser,
+        },
     });
 });
 

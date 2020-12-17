@@ -375,12 +375,12 @@
         }
         // Status
         &__status {
-            &--active {
+            &--online {
                 fill: $color-active;
                 box-shadow: 0 0 0 0.4rem $color-grey-2;
             }
 
-            &--inactive {
+            &--offline {
                 fill: transparent;
             }
         }

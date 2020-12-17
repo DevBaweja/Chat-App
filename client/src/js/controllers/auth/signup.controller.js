@@ -7,6 +7,8 @@ import * as formController from './form.controller';
 import * as alertsController from '../alerts/alerts.controller';
 import * as combinedController from '../combined.controller';
 import * as backgroundImageController from '../background-image.controller';
+import * as statusController from './status.controller';
+
 // Models
 import Signup from '../../models/Signup';
 import Setting from '../../models/Setting';
@@ -61,6 +63,10 @@ export const controlSignup = async event => {
                     const { user } = data.data;
                     // User Assign
                     state['user'] = user;
+
+                    // Status
+                    statusController.controlStatus({ mode: mode.status.online });
+
                     // 1) Initializing Setting
                     if (!state['setting']) state['setting'] = new Setting();
                     state['setting'].setTheme(state['theme'].mode);

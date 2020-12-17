@@ -26,12 +26,10 @@ class Friend {
         let headers = {};
         addAuthorizationHeaders(headers);
         const url = `${this.url}${this.user}`;
-        const obj = {};
         try {
             this.data = await axios({
                 method: 'POST',
                 url,
-                data: obj,
                 headers,
                 validateStatus: () => true,
                 // For validation
@@ -68,12 +66,11 @@ class Friend {
         let headers = {};
         addAuthorizationHeaders(headers);
         const url = `${this.url}${this.user}`;
-        const obj = { ...this.update };
         try {
             this.data = await axios({
                 method: 'PATCH',
                 url,
-                data: obj,
+                data: this.update,
                 headers,
                 validateStatus: () => true,
                 // For validation

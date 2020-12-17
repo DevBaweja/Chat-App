@@ -98,12 +98,12 @@ friendSchema.pre(/^find/, function () {
     // Populate from
     this.populate({
         path: 'from',
-        select: 'photo name bio',
+        select: 'photo name bio status lastSeen',
     });
     // Populate to
     this.populate({
         path: 'to',
-        select: 'photo name bio',
+        select: 'photo name bio status lastSeen',
     });
 });
 

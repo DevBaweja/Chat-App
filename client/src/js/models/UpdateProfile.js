@@ -5,7 +5,7 @@ import { url, addAuthorizationHeaders } from '../utils/base.util';
 class UpdateProfile {
     constructor({ inputs }) {
         this.inputs = inputs;
-        this.url = `${url[state['mode'].mode]}api/v1/users/updateMe`;
+        this.url = `${url[state['mode'].mode]}api/v1/users/me`;
     }
 
     setUserInput = ({ inputs }) => {

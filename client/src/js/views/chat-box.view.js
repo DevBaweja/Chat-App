@@ -47,7 +47,7 @@ export const renderIdeal = color => {
     select(elements.ChatBox).insertAdjacentHTML('beforeend', markup);
 };
 
-export const renderUser = ({ _id, photo, name }) => {
+export const renderUser = ({ _id, photo, name, status }) => {
     const markup = `
     <div class="chat-box-user" data-user="${_id}">
         <header class="chat-box-user__header">
@@ -59,7 +59,7 @@ export const renderUser = ({ _id, photo, name }) => {
             <img src=${photo} alt="" class="chat-box-user__header--img" title="View Profile"/>
             <div class="chat-box-user__header--content">
                 <div class="chat-box-user__header--content-name">${name}</div>
-                <div class="chat-box-user__header--content-status">...</div>
+                <div class="chat-box-user__header--content-status">${status}</div>
             </div>
             <div class="chat-box-user__header--options" title="User Options">
                 <svg class="chat-box-user__header--options-svg">

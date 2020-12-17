@@ -36,7 +36,18 @@ const def = {
     role: {
         type: String,
         enum: ['user', 'admin'],
+        required: { value: true, message: getMustHave('role') },
         default: 'user',
+    },
+    status: {
+        type: String,
+        enum: ['online', 'offline'],
+        required: { value: true, message: getMustHave('status') },
+        default: 'online',
+    },
+    lastSeen: {
+        type: Date,
+        default: Date.now,
     },
     password: {
         type: String,

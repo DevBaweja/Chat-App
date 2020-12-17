@@ -1,11 +1,12 @@
 // State
 import state from '../../state';
 // Utils
-import { elementStrings, select, mode,setToken } from '../../utils/base.util';
+import { elementStrings, select, mode, setToken } from '../../utils/base.util';
 // Controllers
 import * as formController from './form.controller';
 import * as alertsController from '../alerts/alerts.controller';
 import * as combinedController from '../combined.controller';
+import * as statusController from './status.controller';
 // Models
 import Reset from '../../models/Reset';
 // Views
@@ -70,7 +71,7 @@ export const controlReset = async event => {
                     // Token Assign
                     state['token'] = data.token;
                     setToken(state['token']);
-                    
+
                     // Getting User
                     const { user } = data.data;
                     // User Assign
@@ -81,8 +82,11 @@ export const controlReset = async event => {
                     // 6) Clear form
                     formView.clearForm();
 
-                    // Combined User
+                    // 7) Combined User
                     combinedController.controlAll({ mode: mode.combined.user });
+
+                    // 8) Status
+                    statusController.controlStatus({ mode: mode.status.online });
                 }
                 break;
             case 'error':
@@ -112,11 +116,11 @@ export const controlReset = async event => {
         // State Changes
         state['token'] = null;
         setToken(state['token']);
-    
+
         state['user'] = null;
         state['reset'] = null;
     }
 };
 
 // ! For Development
-window.controlReset = controlReset
+window.controlReset = controlReset;

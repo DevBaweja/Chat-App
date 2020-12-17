@@ -18,8 +18,8 @@ exports.createMyFriend = (req, res, next) => {
 };
 
 exports.updateMyFriend = catchAsync(async (req, res, next) => {
-    // Update Request
-    const updatedRequest = await Friend.findOneAndUpdate(
+    // Update Friend
+    const updatedFriend = await Friend.findOneAndUpdate(
         {
             $or: [
                 { from: req.user.id, to: req.params.id },
@@ -32,13 +32,13 @@ exports.updateMyFriend = catchAsync(async (req, res, next) => {
             runValidators: true,
         }
     );
-    if (!updatedRequest) {
+    if (!updatedFriend) {
         return next(new AppError('No document found with that ID', 404));
     }
     res.status(200).json({
         status: 'success',
         data: {
-            data: updatedRequest,
+            data: updatedFriend,
         },
     });
 });
