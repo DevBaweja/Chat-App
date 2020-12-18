@@ -36,6 +36,7 @@ state.set = (key, info, Model) => {
     state[key].setMode(info.mode);
 };
 
+// ! For Development
 window.state = state;
 
 export default state;
