@@ -313,6 +313,17 @@
     }
 
     .about-me {
+        &__icon {
+            &:hover {
+                background-color: $color-grey-2;
+            }
+        }
+        &__svg {
+            @include adjust($color-grey-3, 35%, $theme, fill);
+            &--logout {
+                fill: $color-danger;
+            }
+        }
         &__link {
             color: $color-primary;
             @include adjust($color-grey-3, 10%, $theme, background-color);

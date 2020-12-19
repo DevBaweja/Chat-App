@@ -2,12 +2,32 @@
 .about-me {
     @include flex(flex-end);
 
+    &__list {
+        @include flex();
+        margin: 0 1rem;
+    }
+    &__item {
+        cursor: pointer;
+        margin: 0 0.25rem;
+    }
+    &__icon {
+        @include flex();
+        transform: all 0.2s;
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+    }
+    &__svg {
+        height: 1.75rem;
+        width: 1.75rem;
+    }
+
     &__link {
         @include flex();
         text-decoration: capitalize;
         padding: 0.25rem 0.5rem;
         margin: 0.5rem;
-        margin-right: 1rem;
+        margin-right: 2rem;
         border-radius: 1rem;
         transition: all 0.2s;
         cursor: pointer;

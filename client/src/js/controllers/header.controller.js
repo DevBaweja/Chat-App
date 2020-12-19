@@ -1,12 +1,13 @@
 import state from '../state';
 // Utils
-import { elementStrings, mode, select } from '../utils/base.util';
+import { elementStrings, mode, select, actions } from '../utils/base.util';
 // Models
 import Header from '../models/Header';
 // Views
 import * as headerView from '../views/header.view';
 // Controllers
 import * as formController from './auth/form.controller';
+import * as aboutMeDropdownController from './dropdowns/about-me-dropdown.controller';
 
 export const controlHeader = info => {
     // Init Header
@@ -47,4 +48,25 @@ const user = () => {
     const { user } = state;
     // Render User
     headerView.renderUser(user);
+    // Event Listeners
+    select(elementStrings.aboutMe.list).addEventListener('click', event => {
+        const item = event.target.closest(elementStrings.aboutMe.item);
+        if (!item) return;
+        const { type } = item.dataset;
+        console.log(type);
+        switch (type) {
+            case actions.aboutMe.profile:
+                aboutMeDropdownController.profile();
+                break;
+            case actions.aboutMe.setting:
+                aboutMeDropdownController.setting();
+                break;
+            case actions.aboutMe.theme:
+                aboutMeDropdownController.theme();
+                break;
+            case actions.aboutMe.logout:
+                aboutMeDropdownController.logout();
+                break;
+        }
+    });
 };

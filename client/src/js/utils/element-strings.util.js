@@ -104,6 +104,10 @@ const elementStrings = {
             out: '.chat-box-user-out__dropdown',
         },
     },
+    aboutMe: {
+        list: '.about-me__list',
+        item: '.about-me__item',
+    },
     dropdownItems: {
         aboutMeDropdownItem: '.about-me__dropdown--item',
         chatPanelDropdownItem: '.chat-panel-user__dropdown--item',

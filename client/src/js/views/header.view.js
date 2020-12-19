@@ -26,24 +26,45 @@ export const renderIdeal = () => {
     select(elements.Header).insertAdjacentHTML('beforeend', markup);
 };
 
-const renderMenuItem = ({ type, title }) => `
-<li class="menu__item">
-    <div class="menu__link" role="button" data-type="${type}" title="${title}">
-        ${title}
+const renderUserItem = ({ type, text }) => `
+<li class="about-me__item" title="${text}" data-type="${type}">
+    <div class="about-me__icon">
+        <svg class="about-me__svg about-me__svg--${type}">
+            <use xlink:href="svg/sprite.svg#icon-${type}"></use>
+        </svg>
     </div>
 </li>
 `;
+
 export const renderUser = user => {
     // Data
     const { photo, name } = user;
-
+    const groups = [
+        {
+            type: 'profile',
+            text: 'My Profile',
+        },
+        {
+            type: 'setting',
+            text: 'Setting',
+        },
+        {
+            type: 'logout',
+            text: 'Log out',
+        },
+    ];
     // Markup
     const markup = `
     <div class="about-me">
-        <div class="about-me__link about-me__drop" title="User Options">
+
+        <ul class="about-me__list">   
+            ${groups.map(item => renderUserItem(item)).join('')}             
+        </ul>
+
+        <div class="about-me__link about-me__drop" title="">
             <img src="${photo}" alt=" " class="about-me__photo"/>
             
-            <span class="about-me__name">${name}</span>
+           <!--  <span class="about-me__name">${name}</span> -->
         </div>
     </div>
     `;
