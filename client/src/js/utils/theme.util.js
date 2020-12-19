@@ -1,2 +1,10 @@
 const theme = ['light', 'dark'];
-export { theme };
+const getReverseTheme = theme => {
+    switch (theme) {
+        case 'light':
+            return 'dark';
+        case 'dark':
+            return 'light';
+    }
+};
+export { theme, getReverseTheme };

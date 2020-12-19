@@ -1,3 +1,4 @@
+import { mode } from '../utils/base.util';
 class Theme {
     constructor({ mode, color }) {
         this.mode = mode;
@@ -11,10 +12,10 @@ class Theme {
     }
     toggleMode() {
         switch (this.mode) {
-            case 'light':
-                return 'dark';
-            case 'dark':
-                return 'light';
+            case mode.theme.light:
+                return mode.theme.dark;
+            case mode.theme.dark:
+                return mode.theme.light;
         }
     }
 }

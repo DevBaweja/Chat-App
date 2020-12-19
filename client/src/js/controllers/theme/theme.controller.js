@@ -1,6 +1,7 @@
 import state from '../../state';
 import { mode, select, elements } from '../../utils/base.util';
 // Controllers
+import * as headerController from '../header.controller';
 import * as chatBoxController from '../chat-box.controller';
 import * as backgroundImageController from '../background-image.controller';
 import * as chatProfileSettingController from '../chat-profile/chat-profile-setting.controller';
@@ -32,6 +33,8 @@ export const controlTheme = info => {
     controlImage();
     // Wallpaper
     controlWallpaper();
+    // Header
+    controlHeader();
 };
 
 const controlFavicon = () => {
@@ -68,6 +71,10 @@ const controlWallpaper = () => {
         valid => valid.chatProfile === state['chatProfile'].mode && valid.setting === state['subSetting'].mode
     );
     if (isValid) chatProfileSettingController.controlSetting({ mode: state['subSetting'].mode });
+};
+
+const controlHeader = () => {
+    headerController.controlHeader({ mode: mode.header.user });
 };
 // ! For Development
 window.controlTheme = controlTheme;

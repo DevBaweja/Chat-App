@@ -14,12 +14,10 @@ const controlAboutMeDropdown = event => {
     // 0) Positioning of Dropdown
     const coordinate = getCoordinate(event);
 
+    // Getting Theme
+    const { mode: theme } = state['theme'];
     // 1) Render Dropdown For About Me
-    aboutMeDropdownView.renderAboutMeDropdown({ coordinate });
-
-    const height = select(elementStrings.dropdowns.aboutMeDropdown).offsetHeight;
-    const width = select(elementStrings.dropdowns.aboutMeDropdown).offsetWidth;
-    // console.log({ height, width });
+    aboutMeDropdownView.renderAboutMeDropdown({ coordinate, theme });
 
     // 2) Add Event Listener
     select(elementStrings.dropdowns.aboutMeDropdown).addEventListener('click', controlAboutMeDropdownItems);
@@ -42,6 +40,9 @@ const controlAboutMeDropdownItems = event => {
             break;
         case actions.aboutMe.setting:
             setting();
+            break;
+        case actions.aboutMe.activity:
+            activity();
             break;
         case actions.aboutMe.logout:
             logout();
@@ -80,6 +81,12 @@ export const setting = () => {
     console.log('Setting');
     if (state['chatProfile'].mode === mode.chatProfile.setting) return;
     chatProfileController.controlChatProfile({ mode: mode.chatProfile.setting });
+};
+
+export const activity = () => {
+    console.log('Activity');
+    if (state['chatProfile'].mode === mode.chatProfile.activity) return;
+    chatProfileController.controlChatProfile({ mode: mode.chatProfile.activity });
 };
 
 export const logout = () => {

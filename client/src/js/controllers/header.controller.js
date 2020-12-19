@@ -46,23 +46,27 @@ const ideal = () => {
 const user = () => {
     // Getting user from state
     const { user } = state;
+    const { theme } = state;
     // Render User
-    headerView.renderUser(user);
+    headerView.renderUser({ user, theme });
     // Event Listeners
     select(elementStrings.aboutMe.list).addEventListener('click', event => {
         const item = event.target.closest(elementStrings.aboutMe.item);
         if (!item) return;
         const { type } = item.dataset;
-        console.log(type);
+
         switch (type) {
             case actions.aboutMe.profile:
                 aboutMeDropdownController.profile();
                 break;
+            case actions.aboutMe.theme:
+                aboutMeDropdownController.theme();
+                break;
             case actions.aboutMe.setting:
                 aboutMeDropdownController.setting();
                 break;
-            case actions.aboutMe.theme:
-                aboutMeDropdownController.theme();
+            case actions.aboutMe.activity:
+                aboutMeDropdownController.activity();
                 break;
             case actions.aboutMe.logout:
                 aboutMeDropdownController.logout();

@@ -1,6 +1,6 @@
 import { renderDropdowns } from './dropdowns.view';
-import { elementClasses } from '../../utils/base.util';
-export const renderAboutMeDropdown = ({ coordinate }) => {
+import { elementClasses, capitalize, getReverseTheme } from '../../utils/base.util';
+export const renderAboutMeDropdown = ({ coordinate, theme }) => {
     const data = {
         groups: [
             {
@@ -9,11 +9,15 @@ export const renderAboutMeDropdown = ({ coordinate }) => {
             },
             {
                 type: 'theme',
-                text: 'Theme',
+                text: `${capitalize(getReverseTheme(theme))} Theme`,
             },
             {
                 type: 'setting',
                 text: 'Settings',
+            },
+            {
+                type: 'activity',
+                text: 'Activities',
             },
             {
                 type: 'logout',

@@ -20,6 +20,18 @@
     &__svg {
         height: 1.75rem;
         width: 1.75rem;
+        &--theme {
+            height: 2rem;
+            width: 2rem;
+        }
+        &--activity {
+            height: 1.85rem;
+            width: 1.85rem;
+        }
+        &--logout {
+            height: 1.65rem;
+            width: 1.65rem;
+        }
     }
 
     &__link {

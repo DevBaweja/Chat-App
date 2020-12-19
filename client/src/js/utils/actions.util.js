@@ -3,6 +3,7 @@ const actions = {
         profile: 'profile',
         theme: 'theme',
         setting: 'setting',
+        activity: 'activity',
         logout: 'logout',
     },
     chatPanel: {

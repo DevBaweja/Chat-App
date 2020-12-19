@@ -51,6 +51,9 @@ export const controlChatProfile = info => {
         case mode.chatProfile.setting:
             setting();
             break;
+        case mode.chatProfile.activity:
+            activity();
+            break;
     }
 };
 
@@ -279,4 +282,21 @@ const setting = () => {
         if (!type) return;
         chatProfileSettingController.controlSetting({ mode: type });
     });
+};
+
+const activity = () => {
+    // Render Activity
+    chatProfileSettingView.renderActivity();
+    // Add Event Listeners on list
+    // select(elementStrings.chatProfile.setting.list).addEventListener('click', event => {
+    //     const { target } = event;
+    //     // Item Element
+    //     const item = target.closest(elementStrings.chatProfile.setting.item);
+    //     if (!item) return;
+
+    //     // Type
+    //     const type = item.dataset.type;
+    //     if (!type) return;
+    //     chatProfileSettingController.controlSetting({ mode: type });
+    // });
 };

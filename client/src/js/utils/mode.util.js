@@ -45,6 +45,7 @@ const mode = {
         receiveRequest: 'receive-request',
         sentRequest: 'sent-request',
         setting: 'setting',
+        activity: 'activity',
         settingSub: 'setting-sub',
     },
     setting: {

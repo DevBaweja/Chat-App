@@ -242,8 +242,9 @@
         }
     }
 
-    // Setting
-    &-setting {
+    // Setting and Activity
+    &-setting,
+    &-activity {
         margin: 0.5rem;
 
         @include flex();
@@ -299,6 +300,15 @@
             &--password {
                 height: 1.75rem;
                 width: 1.75rem;
+            }
+            &--wallpaper {
+                height: 2.25rem;
+                width: 2.25rem;
+            }
+            &--animate,
+            &--game {
+                height: 2.5rem;
+                width: 2.5rem;
             }
         }
         &__span {

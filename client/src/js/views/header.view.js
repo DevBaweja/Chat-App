@@ -1,5 +1,4 @@
-import state from '../state';
-import { elements, select } from '../utils/base.util';
+import { elements, select, capitalize, getReverseTheme } from '../utils/base.util';
 
 export const clearHeader = () => (select(elements.Header).innerHTML = '');
 
@@ -36,17 +35,26 @@ const renderUserItem = ({ type, text }) => `
 </li>
 `;
 
-export const renderUser = user => {
+export const renderUser = ({ user, theme }) => {
     // Data
     const { photo, name } = user;
+    const { mode } = theme;
     const groups = [
         {
             type: 'profile',
             text: 'My Profile',
         },
         {
+            type: 'theme',
+            text: `${capitalize(getReverseTheme(mode))} Theme`,
+        },
+        {
             type: 'setting',
-            text: 'Setting',
+            text: 'Settings',
+        },
+        {
+            type: 'activity',
+            text: 'Activities',
         },
         {
             type: 'logout',
