@@ -227,6 +227,10 @@ const elementStrings = {
             list: '.chat-profile-setting__list',
             item: '.chat-profile-setting__item',
         },
+        activity: {
+            list: '.chat-profile-activity__list',
+            item: '.chat-profile-activity__item',
+        },
         subSetting: {
             color: {
                 back: '.chat-profile-setting-color__header--back',

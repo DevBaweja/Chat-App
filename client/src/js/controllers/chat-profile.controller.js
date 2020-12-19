@@ -4,6 +4,8 @@ import { mode, elementStrings, select, selectAll } from '../utils/base.util';
 // Controllers
 import * as chatProfileUserController from './chat-profile/chat-profile-user.controller';
 import * as chatProfileSettingController from './chat-profile/chat-profile-setting.controller';
+import * as chatProfileActivityController from './chat-profile/chat-profile-activity.controller';
+
 // Models
 import ChatProfile from '../models/ChatProfile';
 import Friend from '../models/Friend';
@@ -18,6 +20,7 @@ import * as chatProfileStrangerView from '../views/chat-profile/chat-profile-str
 import * as chatProfileFriendView from '../views/chat-profile/chat-profile-friend.view';
 import * as chatProfileUserView from '../views/chat-profile/chat-profile-user.view';
 import * as chatProfileSettingView from '../views/chat-profile/chat-profile-setting.view';
+import * as chatProfileActivityView from '../views/chat-profile/chat-profile-activity.view';
 
 export const controlChatProfile = info => {
     // Init Chat Profile
@@ -286,17 +289,17 @@ const setting = () => {
 
 const activity = () => {
     // Render Activity
-    chatProfileSettingView.renderActivity();
+    chatProfileActivityView.renderActivity();
     // Add Event Listeners on list
-    // select(elementStrings.chatProfile.setting.list).addEventListener('click', event => {
-    //     const { target } = event;
-    //     // Item Element
-    //     const item = target.closest(elementStrings.chatProfile.setting.item);
-    //     if (!item) return;
+    select(elementStrings.chatProfile.activity.list).addEventListener('click', event => {
+        const { target } = event;
+        // Item Element
+        const item = target.closest(elementStrings.chatProfile.activity.item);
+        if (!item) return;
 
-    //     // Type
-    //     const type = item.dataset.type;
-    //     if (!type) return;
-    //     chatProfileSettingController.controlSetting({ mode: type });
-    // });
+        // Type
+        const type = item.dataset.type;
+        if (!type) return;
+        chatProfileActivityController.controlActivity({ mode: type });
+    });
 };

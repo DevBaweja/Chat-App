@@ -6,6 +6,7 @@ import { elementStrings, mode, setToken } from '../../utils/base.util';
 import * as formController from './form.controller';
 import * as alertsController from '../alerts/alerts.controller';
 import * as themeController from '../theme/theme.controller';
+import * as backgroundImageController from '../background-image.controller';
 import * as combinedController from '../combined.controller';
 import * as statusController from './status.controller';
 // Models
@@ -78,6 +79,11 @@ export const controlLogin = async event => {
 
                             // 8) Combine User
                             combinedController.controlAll({ mode: mode.combined.user });
+
+                            // Background Image
+                            backgroundImageController.controlBackgroundImage({
+                                mode: setting.wallpaper[setting.theme],
+                            });
 
                             // 9) Status
                             statusController.controlStatus({ mode: mode.status.online });

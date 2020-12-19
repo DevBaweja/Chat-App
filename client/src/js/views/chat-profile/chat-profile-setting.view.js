@@ -7,6 +7,8 @@ import {
     capitalize,
     color,
     hex,
+    backgroundImages,
+    rgbaBackground,
 } from '../../utils/base.util';
 
 // Setting
@@ -58,7 +60,7 @@ export const renderSetting = () => {
     select(elements.ChatProfile).insertAdjacentHTML('beforeend', markup);
 };
 
-// Setting
+// Activity
 export const renderActivity = () => {
     // Data
     const data = ['animate', 'game'];
@@ -196,26 +198,10 @@ const renderSelectedWallpaper = ({ mode }) =>
     );
 
 export const renderWallpaper = ({ theme, backgroundImage }) => {
+    console.log(backgroundImage);
     // Data
-    const mode = theme.mode;
-    const type = {
-        light: ['light-1'],
-        dark: ['dark-1', 'dark-2', 'dark-3', 'dark-4', 'dark-5', 'dark-6', 'dark-7', 'dark-8', 'dark-9'],
-    };
-    const rgba = {
-        light: ['rgba(0,0,0,0.06)'],
-        dark: [
-            'rgba(0,0,0,0.4)',
-            'rgba(0,0,0,0.1)',
-            'rgba(255, 255, 255, 0.035)',
-            'rgba(255,255,255,0.085)',
-            'rgba(255,255,255,0.05)',
-            'rgba(255,255,255,0.01)',
-            'rgba(255,255,255,0.08)',
-            'rgba(0,0,0,0.6)',
-            'rgba(0,0,0,0.6)',
-        ],
-    };
+    const { mode } = theme;
+
     const className = 'wallpaper';
     const heading = 'Wallpaper';
     // Markup
@@ -223,11 +209,11 @@ export const renderWallpaper = ({ theme, backgroundImage }) => {
     <div class="chat-profile-setting-wallpaper">
         ${renderHeading(className, heading)}
         <ul class="chat-profile-setting-wallpaper__list">
-        ${type[mode]
+        ${backgroundImages[mode]
             .map(
                 (item, index) => `
             <li class="chat-profile-setting-wallpaper__item" data-type="${item}">
-                <div class="chat-profile-setting-wallpaper__content" style="background-image: linear-gradient(to right bottom, ${rgba[mode][index]},${rgba[mode][index]}), url(img/background-image/${item}.jpg); background-size: cover;">
+                <div class="chat-profile-setting-wallpaper__content" style="background-image: linear-gradient(to right bottom, ${rgbaBackground[mode][index]},${rgbaBackground[mode][index]}), url(img/background-image/${item}.jpg); background-size: cover;">
                 </div>
             </li>
             `

@@ -8,6 +8,7 @@ import io from './io.util';
 import { select, selectAll } from './selector.util';
 import { capitalize, capitalizeAll, random, randomItem, bold, italic, generateQuery, getTime } from './utility.util';
 import { color, hex } from './color.util';
+import { backgroundImages, rgbaBackground } from './background-image.util';
 import { theme, getReverseTheme } from './theme.util';
 import { longDate, shortDate } from './date.util';
 import { relationOptions, relationDefault, relationInterest } from './relation.util';
@@ -34,6 +35,8 @@ export {
     getTime,
     color,
     hex,
+    backgroundImages,
+    rgbaBackground,
     theme,
     getReverseTheme,
     longDate,

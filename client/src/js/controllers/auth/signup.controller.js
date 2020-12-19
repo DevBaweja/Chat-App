@@ -84,9 +84,11 @@ export const controlSignup = async event => {
 
                             // Combined Empty
                             combinedController.controlAll({ mode: mode.combined.empty });
-                            const { wallpaper } = setting;
+
                             // Background Image
-                            backgroundImageController.controlBackgroundImage({ mode: wallpaper[state['theme'].mode] });
+                            backgroundImageController.controlBackgroundImage({
+                                mode: setting.wallpaper[setting.theme],
+                            });
                         }
                     }
                 }

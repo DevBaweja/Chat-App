@@ -3,6 +3,7 @@ import state from '../../state';
 import { mode, elements, select, randomItem, color, theme, getToken } from '../../utils/base.util';
 // Controllers
 import * as dropdownsController from '../dropdowns/dropdowns.controller';
+import * as backgroundImageController from '../background-image.controller';
 import * as themeController from '../theme/theme.controller';
 import * as alertsController from '../alerts/alerts.controller';
 import * as combinedController from '../combined.controller';
@@ -90,6 +91,11 @@ export const controlInit = async () => {
 
                                 // Combined User
                                 combinedController.controlAll({ mode: mode.combined.user });
+
+                                // Background Image
+                                backgroundImageController.controlBackgroundImage({
+                                    mode: setting.wallpaper[setting.theme],
+                                });
                             }
                             break;
                     }

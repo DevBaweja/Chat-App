@@ -47,6 +47,7 @@ const mode = {
         setting: 'setting',
         activity: 'activity',
         settingSub: 'setting-sub',
+        activitySub: 'activity-sub',
     },
     setting: {
         color: 'color',
@@ -54,6 +55,10 @@ const mode = {
         privacy: 'privacy',
         updatePassword: 'update-password',
         deleteAccount: 'delete-account',
+    },
+    activity: {
+        animate: 'animate',
+        game: 'game',
     },
     theme: {
         dark: 'dark',

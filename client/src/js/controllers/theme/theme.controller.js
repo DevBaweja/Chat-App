@@ -27,10 +27,11 @@ export const controlTheme = info => {
 
     // Favicon
     controlFavicon();
+
+    // Only User
+    if (!state['user']) return;
     // SVG
     controlSvg();
-    // Image
-    controlImage();
     // Wallpaper
     controlWallpaper();
     // Header
@@ -56,15 +57,10 @@ const controlSvg = () => {
         });
 };
 
-const controlImage = () => {
-    if (!state['chatBox']) return;
-    const valids = [mode.chatBox.user];
-    const isValid = valids.find(valid => valid === state['chatBox'].mode);
-    const { wallpaper } = state['setting'];
-    if (isValid) backgroundImageController.controlBackgroundImage({ mode: wallpaper[state['theme'].mode] });
-};
-
 const controlWallpaper = () => {
+    const { wallpaper } = state['setting'];
+    backgroundImageController.controlBackgroundImage({ mode: wallpaper[state['theme'].mode] });
+
     if (!state['chatProfile'] || !state['subSetting']) return;
     const valids = [{ chatProfile: mode.chatProfile.settingSub, setting: mode.setting.wallpaper }];
     const isValid = valids.find(
