@@ -249,6 +249,13 @@ const elementStrings = {
                 back: '.chat-profile-setting-privacy__header--back',
             },
         },
+        subActivity: {
+            animate: {
+                back: '.chat-profile-activity-animate__header--back',
+                list: '.chat-profile-activity-animate__list',
+                item: '.chat-profile-activity-animate__item',
+            },
+        },
     },
 };
 export default elementStrings;

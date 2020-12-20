@@ -63,10 +63,14 @@ const controlAnimate = () => {
     if (!state['chatBox']) return;
     const valids = [mode.chatBox.animate];
     const isValid = valids.find(valid => valid === state['chatBox'].mode);
-    if (isValid)
+
+    if (isValid) {
+        const { mode: type } = state['animate'];
         chatBoxController.controlChatBox({
             mode: state['chatBox'].mode,
+            type,
         });
+    }
 };
 
 const controlWallpaper = () => {

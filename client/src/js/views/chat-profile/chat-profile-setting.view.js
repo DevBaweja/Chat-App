@@ -63,7 +63,6 @@ export const renderSetting = () => {
 // Activity
 export const renderActivity = () => {
     // Data
-    const data = ['animate', 'game'];
     const type = ['animate', 'game'];
     const content = ['Animations', 'Gaming'];
     const description = ['Creating the illusion of life.', 'Play to win, But enjoy the fun.'];
@@ -75,7 +74,7 @@ export const renderActivity = () => {
             Activities
         </div>
         <ul class="chat-profile-activity__list">
-        ${data
+        ${type
             .map(
                 (item, index) => `
         <li class="chat-profile-activity__item" data-type="${type[index]}">
@@ -235,7 +234,7 @@ export const renderPrivacy = () => {
     const heading = 'Privacy';
     // Markup
     const markup = `
-    <div class="chat-profile-setting-wallpaper">
+    <div class="chat-profile-setting-privacy">
         ${renderHeading(className, heading)}
     </div>
     `;

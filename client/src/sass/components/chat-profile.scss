@@ -320,6 +320,7 @@
         }
     }
 
+    // Sub Setting
     &-setting {
         // Heading
         &-color,
@@ -416,6 +417,95 @@
                 width: 12rem;
                 transition: all 0.2s;
                 border: 0.2rem solid;
+            }
+        }
+    }
+
+    // Sub Activity
+    &-activity {
+        &-animate {
+            margin: 0.5rem;
+
+            @include flex();
+            @include direction(column);
+            align-items: stretch;
+
+            // Heading
+            &__header {
+                @include flex();
+                &--heading {
+                    flex: 1;
+                    padding: 0.5rem 0rem;
+                    margin: 0.75rem 3rem;
+                    margin-left: 1.5rem;
+                    font-weight: $font-weight-bold;
+                    font-size: $font-size-medium;
+                    border-radius: 1rem;
+                    letter-spacing: 0.05rem;
+                    text-align: center;
+                }
+                &--back {
+                    @include flex();
+                    border-radius: 50%;
+                    padding: 1rem;
+                    margin-left: 1rem;
+                    cursor: pointer;
+                    &-svg {
+                        height: 1.5rem;
+                        width: 1.5rem;
+                    }
+                }
+            }
+            // List
+            &__list {
+                // ! For Development
+                max-height: 55rem;
+                overflow-x: hidden;
+                overflow-y: scroll;
+                padding: 1rem;
+            }
+            &__item {
+                @include flex();
+                @include direction(column);
+                align-items: stretch;
+                margin: 1rem 0;
+            }
+            &__title {
+                @include flex(flex-start);
+                letter-spacing: 0.02rem;
+                border-radius: 0.2rem;
+                transition: all 0.2s;
+                padding: 0.5rem 0;
+                cursor: pointer;
+            }
+            // Content
+            &__content {
+                margin: 0.5rem;
+                flex: 1;
+                @include flex();
+                @include direction(column);
+                align-items: flex-start;
+            }
+
+            &__svg {
+                height: 2rem;
+                width: 2rem;
+                margin: 0.5rem 1rem;
+                &--fractal-tree {
+                    height: 2.5rem;
+                    width: 2.5rem;
+                }
+                &--mandelbrot-set {
+                    height: 4rem;
+                    width: 3rem;
+                }
+            }
+            &__span {
+                font-size: $font-size-regular-2;
+                letter-spacing: 0.04rem;
+            }
+            &__description {
+                font-size: $font-size-regular;
             }
         }
     }

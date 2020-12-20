@@ -42,3 +42,60 @@ export const renderActivity = () => {
     // Rendering Markup
     select(elements.ChatProfile).insertAdjacentHTML('beforeend', markup);
 };
+
+const renderHeading = (className, heading) => `
+    <div class="chat-profile-activity-${className}__header">
+        <div class="chat-profile-activity-${className}__header--back">
+            <svg class="chat-profile-activity-${className}__header--back-svg">
+                <use xlink:href="svg/sprite.svg#icon-back"></use>
+            </svg>
+        </div>
+        <div class="chat-profile-activity-${className}__header--heading">${heading}</div>
+    </div>
+`;
+
+// Animate
+export const renderAnimate = () => {
+    // Data
+    const type = ['fractal-tree', 'mandelbrot-set'];
+    const content = ['Fractal Tree', 'Mandelbrot Set'];
+    const description = [
+        "It's all about the branches.",
+        'My life is series of accidents. Yet when I look back, I see a pattern.',
+    ];
+
+    const className = 'animate';
+    const heading = 'Animations';
+    // Markup
+    const markup = `
+    <div class="chat-profile-activity-animate">
+        ${renderHeading(className, heading)}
+
+        <ul class="chat-profile-activity-animate__list">
+        ${type
+            .map(
+                (item, index) => `
+        <li class="chat-profile-activity-animate__item" data-type="${type[index]}">
+            <div class="chat-profile-activity-animate__title">
+                <svg class="chat-profile-activity-animate__svg chat-profile-activity-animate__svg--${item}">
+                    <use xlink:href="svg/sprite.svg#icon-animate-${item}"></use>
+                </svg>
+                <div class="chat-profile-activity-animate__content chat-profile-activity-animate__content--${item}">
+                    <span class="chat-profile-activity-animate__span">
+                        ${content[index]}
+                    </span>
+                    <span class="chat-profile-activity-animate__description">
+                        ${description[index]}
+                    </span>
+                </div>
+            </div>
+        </li>
+        `
+            )
+            .join('')}
+        </ul>
+    </div>
+    `;
+    // Rendering Markup
+    select(elements.ChatProfile).insertAdjacentHTML('beforeend', markup);
+};

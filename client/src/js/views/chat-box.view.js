@@ -6,7 +6,6 @@ import {
     capitalize,
     longDate,
     shortDate,
-    animateSrc,
     getHexColor,
     getHexTheme,
 } from '../utils/base.util';
@@ -58,16 +57,17 @@ export const renderIdeal = color => {
     select(elements.ChatBox).insertAdjacentHTML('beforeend', markup);
 };
 
-export const renderAnimate = ({ theme, index = 0 }) => {
+export const renderAnimate = ({ theme, type }) => {
+    const types = ['fractal-tree', 'mandelbrot-set'];
+    const index = types.indexOf(type);
     // Data
-    const title = ['Mandelbrot Set'];
+    const title = ['Fractal Tree', 'Mandelbrot Set'];
     const content = [
-        'The Mandelbrot set is the set of complex numbers for which the function does not diverge when iterated from, i.e. for which the sequence remains bounded in absolute value. Its definition is credited to Adrien Douady who named it in tribute to the mathematician Benoit Mandelbrot, a pioneer of fractal geometry.',
+        'A Binary Fractal Tree is defined recursively by symmetric binary branching. The trunk of length 1 splits into two branches of length r, each making an angle q with the direction of the trunk. Both of these branches divides into two branches of length r2, each making an angle q with the direction of its parent branch. Continuing in this way for infinitely many branchings, the tree is the set of branches, together with their limit points, called branch tips.',
+        'The Mandelbrot Set is the set of complex numbers c for which the function fc(z)=z^2+c does not diverge when iterated from z=0, for which the sequence fc(0), fc(fc(0)), ... remains bounded in absolute value. Its definition is credited to Adrien Douady who named it in tribute to the mathematician Benoit Mandelbrot, a pioneer of fractal geometry.',
     ];
 
-    const src = `animate/index.html?theme=${getHexTheme[theme.mode]}&color=${getHexColor[theme.color]}&animate=${
-        animateSrc[index]
-    }`;
+    const src = `animate/index.html?theme=${getHexTheme[theme.mode]}&color=${getHexColor[theme.color]}&animate=${type}`;
 
     const markup = `
     <div class="chat-box-animate">
