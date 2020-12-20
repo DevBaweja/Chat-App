@@ -73,4 +73,6 @@ const user = () => {
                 break;
         }
     });
+    // Profile
+    select(elementStrings.aboutMe.link).addEventListener('click', aboutMeDropdownController.profile);
 };

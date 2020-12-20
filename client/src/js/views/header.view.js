@@ -41,10 +41,6 @@ export const renderUser = ({ user, theme }) => {
     const { mode } = theme;
     const groups = [
         {
-            type: 'profile',
-            text: 'My Profile',
-        },
-        {
             type: 'theme',
             text: `${capitalize(getReverseTheme(mode))} Theme`,
         },
@@ -69,7 +65,7 @@ export const renderUser = ({ user, theme }) => {
             ${groups.map(item => renderUserItem(item)).join('')}             
         </ul>
 
-        <div class="about-me__link about-me__drop" title="">
+        <div class="about-me__link about-me__drop" title="My Profile">
             <img src="${photo}" alt=" " class="about-me__photo"/>
             
            <!--  <span class="about-me__name">${name}</span> -->

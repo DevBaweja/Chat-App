@@ -7,9 +7,9 @@ import actions from './actions.util';
 import io from './io.util';
 import { select, selectAll } from './selector.util';
 import { capitalize, capitalizeAll, random, randomItem, bold, italic, generateQuery, getTime } from './utility.util';
-import { color, hex } from './color.util';
+import { color, hex, getHexColor } from './color.util';
 import { backgroundImages, rgbaBackground } from './background-image.util';
-import { theme, getReverseTheme } from './theme.util';
+import { theme, getHexTheme, getReverseTheme } from './theme.util';
 import { animateSrc } from './animate.util';
 import { longDate, shortDate } from './date.util';
 import { relationOptions, relationDefault, relationInterest } from './relation.util';
@@ -36,9 +36,11 @@ export {
     getTime,
     color,
     hex,
+    getHexColor,
     backgroundImages,
     rgbaBackground,
     theme,
+    getHexTheme,
     getReverseTheme,
     animateSrc,
     longDate,

@@ -37,10 +37,10 @@
     &__link {
         @include flex();
         text-decoration: capitalize;
-        padding: 0.25rem 0.5rem;
+        padding: 0.5rem;
         margin: 0.5rem;
         margin-right: 2rem;
-        border-radius: 1rem;
+        border-radius: 50%;
         transition: all 0.2s;
         cursor: pointer;
     }

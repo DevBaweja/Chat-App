@@ -319,7 +319,7 @@
             }
         }
         &__svg {
-            @include adjust($color-grey-3, 35%, $theme, fill);
+            fill: $color-primary;
             &--logout {
                 fill: $color-danger;
             }
@@ -327,9 +327,6 @@
         &__link {
             color: $color-primary;
             @include adjust($color-grey-3, 10%, $theme, background-color);
-            &:hover {
-                background-color: $color-grey-2;
-            }
         }
     }
 

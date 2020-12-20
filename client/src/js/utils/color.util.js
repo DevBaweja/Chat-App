@@ -1,3 +1,27 @@
+const getHexColor = {
+    red: '#fd122e',
+    aqua: '#01c0c8',
+    green: '#0ad80a',
+    blueberry: '#4286f4',
+    peach: '#ef5b5b',
+    blue: '#0448ff',
+    pink: '#f44286',
+    purple: '#a613f6',
+    metal: '#738491',
+    gold: '#9c9e3c',
+    yellow: '#e1ad01',
+    lilac: '#b666d2',
+    forest: '#42af66',
+    orange: '#db4906',
+    teal: '#37b49b',
+    carrot: '#f37e3b',
+    maroon: '#c70b37',
+    blood: '#f10043',
+    mud: '#965326',
+    grass: '#089e37',
+    grey: '#6f6f6f',
+};
+
 const hex = [
     '#fd122e',
     '#01c0c8',
@@ -45,4 +69,4 @@ const color = [
     'grey',
 ];
 
-export { hex, color };
+export { hex, color, getHexColor };

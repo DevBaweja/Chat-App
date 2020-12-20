@@ -107,6 +107,7 @@ const elementStrings = {
     aboutMe: {
         list: '.about-me__list',
         item: '.about-me__item',
+        link: '.about-me__link',
     },
     dropdownItems: {
         aboutMeDropdownItem: '.about-me__dropdown--item',

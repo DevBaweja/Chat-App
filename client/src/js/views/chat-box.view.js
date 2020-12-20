@@ -7,6 +7,8 @@ import {
     longDate,
     shortDate,
     animateSrc,
+    getHexColor,
+    getHexTheme,
 } from '../utils/base.util';
 
 export const clearChatBox = () => (select(elements.ChatBox).innerHTML = '');
@@ -62,11 +64,16 @@ export const renderAnimate = ({ theme, index = 0 }) => {
     const content = [
         'The Mandelbrot set is the set of complex numbers for which the function does not diverge when iterated from, i.e. for which the sequence remains bounded in absolute value. Its definition is credited to Adrien Douady who named it in tribute to the mathematician Benoit Mandelbrot, a pioneer of fractal geometry.',
     ];
+
+    const src = `animate/index.html?theme=${getHexTheme[theme.mode]}&color=${getHexColor[theme.color]}&animate=${
+        animateSrc[index]
+    }`;
+
     const markup = `
     <div class="chat-box-animate">
         <div class="chat-box-animate--container">
             <div class="chat-box-animate--frame">
-                <iframe class="chat-box-animate--editor" scrolling="no" frameborder="0" src="animate/index.html" style="color: white"></iframe>
+                <iframe class="chat-box-animate--editor" scrolling="no" frameborder="0" src=${src}></iframe>
             </div>
             <div class="chat-box-animate--title">
                 ${title[index]}

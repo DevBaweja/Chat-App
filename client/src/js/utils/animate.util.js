@@ -1,2 +1,2 @@
-const animateSrc = ['animate/'];
+const animateSrc = ['mandelbrot-set'];
 export { animateSrc };

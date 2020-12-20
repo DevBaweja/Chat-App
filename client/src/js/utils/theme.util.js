@@ -1,4 +1,8 @@
 const theme = ['light', 'dark'];
+const getHexTheme = {
+    light: '#e0e0e0',
+    dark: '#1e1e1e',
+};
 const getReverseTheme = theme => {
     switch (theme) {
         case 'light':
@@ -7,4 +11,5 @@ const getReverseTheme = theme => {
             return 'light';
     }
 };
-export { theme, getReverseTheme };
+
+export { theme, getHexTheme, getReverseTheme };

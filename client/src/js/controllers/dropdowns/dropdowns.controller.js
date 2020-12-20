@@ -19,11 +19,12 @@ export const controlDropdowns = event => {
     const { target } = event;
 
     switch (true) {
+        /*
         // About Me Dropdown
         case target.matches(`${elementStrings.drops.aboutMeDrop},${elementStrings.drops.aboutMeDrop} *`):
             controlAboutMeDropdown(event);
             break;
-
+        */
         // Chat Panel Dropdown
         case target.matches(`${elementStrings.drops.chatPanelDrop},${elementStrings.drops.chatPanelDrop} *`):
             controlChatPanelDropdown(event);
