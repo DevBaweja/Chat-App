@@ -1,12 +1,18 @@
-const minX = -3;
-const maxX = 2;
+const minX = -2.5;
+const maxX = 2.5;
 const minY = -1.5;
 const maxY = 1.5;
 const maxIterations = 100;
-
+let clicked;
+let ca;
+let cb;
 function setup() {
     createCanvas(640, 360);
     pixelDensity(1);
+    frameRate(50);
+    clicked = true;
+    ca = 0;
+    cb = 0.8;
 }
 
 function draw() {
@@ -17,8 +23,6 @@ function draw() {
             let a = map(x, 0, width, minX, maxX);
             let b = map(y, 0, height, minY, maxY);
 
-            let ca = a;
-            let cb = b;
             let n = 0;
 
             while (n < maxIterations) {
@@ -55,5 +59,15 @@ function draw() {
     }
 
     updatePixels();
-    noLoop();
+
+    if (!clicked) {
+        ca = map(mouseX, 0, width, -1, 1);
+        cb = map(mouseY, 0, height, -1, 1);
+    } else noLoop();
+}
+
+function mouseClicked() {
+    clicked = !clicked;
+    if (clicked) noLoop();
+    else loop();
 }

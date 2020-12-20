@@ -21,6 +21,7 @@ function setup() {
     rate = 1.5;
     clicked = false;
     flow = false;
+    frameRate(50);
 }
 
 function draw() {
@@ -28,7 +29,6 @@ function draw() {
     stroke(attribute['color']);
     translate(width / 2, height);
     angleMode(DEGREES);
-    frameRate(100);
     if (!flow) {
         angle += rate;
         length += rate;

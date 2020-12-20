@@ -57,11 +57,12 @@ const renderHeading = (className, heading) => `
 // Animate
 export const renderAnimate = () => {
     // Data
-    const type = ['fractal-tree', 'mandelbrot-set'];
-    const content = ['Fractal Tree', 'Mandelbrot Set'];
+    const type = ['fractal-tree', 'mandelbrot-set', 'julia-set'];
+    const content = ['Fractal Tree', 'Mandelbrot Set', 'Julia Set'];
     const description = [
-        "It's all about the branches.",
-        'My life is series of accidents. Yet when I look back, I see a pattern.',
+        `It's all about the branches.`,
+        `My life is series of accidents. Yet when I look back, I see a pattern.`,
+        `I accept chaos, I'm not sure whether it accepts me.`,
     ];
 
     const className = 'animate';

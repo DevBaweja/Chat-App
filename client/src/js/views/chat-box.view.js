@@ -58,15 +58,20 @@ export const renderIdeal = color => {
 };
 
 export const renderAnimate = ({ theme, type }) => {
-    const types = ['fractal-tree', 'mandelbrot-set'];
+    const types = ['fractal-tree', 'mandelbrot-set', 'julia-set'];
     const index = types.indexOf(type);
     // Data
-    const title = ['Fractal Tree', 'Mandelbrot Set'];
+    const title = ['Fractal Tree', 'Mandelbrot Set', 'Julia Set'];
     const content = [
-        'A Fractal is a self-similar subset of Euclidean space whose fractal dimension strictly exceeds its topological dimension. $ Fractals exhibit similar patterns at increasingly small scales called self-similarity, also known as expanding symmetry or unfolding symmetry. $ Fractals appear the same at different levels, as in the Mandelbrot Set. $ If this replication is exactly the same at every scale, as in the Menger Sponge it is called affine self-similar. $ Fractal geometry lies within the mathematical branch of measure theory.',
-        'The Mandelbrot Set is the set of complex numbers c for which the function $ fc(z)=z^2+c does not diverge when iterated from z=0, $ for which the sequence fc(0), fc(fc(0)), ... remains bounded in absolute value. $ Its definition is credited to Adrien Douady who named it in tribute to the mathematician Benoit Mandelbrot, a pioneer of fractal geometry.',
+        `A Fractal is a self-similar subset of Euclidean space whose fractal dimension strictly exceeds its topological dimension. $ Fractals exhibit similar patterns at increasingly small scales called self-similarity, also known as expanding symmetry or unfolding symmetry. $ Fractals appear the same at different levels, as in the Mandelbrot Set. $ If this replication is exactly the same at every scale, as in the Menger Sponge it is called affine self-similar. $ Fractal geometry lies within the mathematical branch of measure theory.`,
+        `The Mandelbrot Set is the set of complex numbers c for which the function $ fc(z)=z^2+c does not diverge when iterated from z=0, $ for which the sequence fc(0), fc(fc(0)), ... remains bounded in absolute value. $ Its definition is credited to Adrien Douady who named it in tribute to the mathematician Benoit Mandelbrot, a pioneer of fractal geometry.`,
+        `The Julia set and The Fatou set are two complementary sets, Julia-"laces" Fatou-"dusts", defined from a function. $ The Fatou set of the function consists of values with the property that all nearby values behave similarly under repeated iteration of the function. $ The Julia set consists of values such that an arbitrarily small perturbation can cause drastic changes in the sequence of iterated function values. $ Thus the behavior of the function on the Fatou set is "regular", while on the Julia set its behavior is "chaotic".`,
     ];
-    const anchor = ['https://en.wikipedia.org/wiki/Fractal', 'https://en.wikipedia.org/wiki/Mandelbrot_set'];
+    const anchor = [
+        'https://en.wikipedia.org/wiki/Fractal',
+        'http://paulbourke.net/fractals/mandelbrot/',
+        'http://paulbourke.net/fractals/juliaset/',
+    ];
 
     const src = `animate/index.html?theme=${getHexTheme[theme.mode]}&color=${
         getHexColor[theme.color]

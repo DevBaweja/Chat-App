@@ -79,5 +79,5 @@ const user = () => {
     // Chat Box
     chatBoxController.controlChatBox({ mode: mode.chatBox.empty });
     // Chat Profile
-    chatProfileController.controlChatProfile({ mode: mode.chatProfile.user });
+    chatProfileController.controlChatProfile({ mode: mode.chatProfile.activity });
 };

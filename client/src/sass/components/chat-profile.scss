@@ -491,13 +491,10 @@
                 height: 2rem;
                 width: 2rem;
                 margin: 0.5rem 1rem;
-                &--fractal-tree {
+                &--fractal-tree,
+                &--mandelbrot-set {
                     height: 2.5rem;
                     width: 2.5rem;
-                }
-                &--mandelbrot-set {
-                    height: 4rem;
-                    width: 3rem;
                 }
             }
             &__span {
