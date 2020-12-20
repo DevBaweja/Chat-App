@@ -626,6 +626,15 @@
             color: $color-primary;
         }
     }
+    .chat-box-animate {
+        &--title {
+            color: $color-primary;
+        }
+        &--content {
+            @include adjust($color-grey-2, 50%, $theme, color);
+        }
+    }
+
     // Chat Profile
     .chat-profile {
         // User

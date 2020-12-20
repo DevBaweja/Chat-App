@@ -35,6 +35,7 @@ const mode = {
         empty: 'empty',
         user: 'user',
         drag: 'drag',
+        animate: 'animate',
     },
     chatProfile: {
         ideal: 'ideal',

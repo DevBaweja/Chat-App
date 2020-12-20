@@ -1,4 +1,13 @@
-import { elements, elementStrings, select, bold, capitalize, longDate, shortDate } from '../utils/base.util';
+import {
+    elements,
+    elementStrings,
+    select,
+    bold,
+    capitalize,
+    longDate,
+    shortDate,
+    animateSrc,
+} from '../utils/base.util';
 
 export const clearChatBox = () => (select(elements.ChatBox).innerHTML = '');
 
@@ -40,6 +49,30 @@ export const renderIdeal = color => {
             </div>
             <div class="chat-box-ideal--title">
                 No one's around to play with Wumpus.
+            </div>
+        </div>
+    </div>
+    `;
+    select(elements.ChatBox).insertAdjacentHTML('beforeend', markup);
+};
+
+export const renderAnimate = ({ theme, index = 0 }) => {
+    // Data
+    const title = ['Mandelbrot Set'];
+    const content = [
+        'The Mandelbrot set is the set of complex numbers for which the function does not diverge when iterated from, i.e. for which the sequence remains bounded in absolute value. Its definition is credited to Adrien Douady who named it in tribute to the mathematician Benoit Mandelbrot, a pioneer of fractal geometry.',
+    ];
+    const markup = `
+    <div class="chat-box-animate">
+        <div class="chat-box-animate--container">
+            <div class="chat-box-animate--frame">
+                <iframe class="chat-box-animate--editor" scrolling="no" frameborder="0" src="animate/index.html" style="color: white"></iframe>
+            </div>
+            <div class="chat-box-animate--title">
+                ${title[index]}
+            </div>
+            <div class="chat-box-animate--content">
+                ${content[index]}
             </div>
         </div>
     </div>

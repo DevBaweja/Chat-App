@@ -32,6 +32,8 @@ export const controlTheme = info => {
     if (!state['user']) return;
     // SVG
     controlSvg();
+    // Control Animate
+    controlAnimate();
     // Wallpaper
     controlWallpaper();
     // Header
@@ -50,6 +52,16 @@ const controlFavicon = () => {
 const controlSvg = () => {
     if (!state['chatBox']) return;
     const valids = [mode.chatBox.ideal, mode.chatBox.empty];
+    const isValid = valids.find(valid => valid === state['chatBox'].mode);
+    if (isValid)
+        chatBoxController.controlChatBox({
+            mode: state['chatBox'].mode,
+        });
+};
+
+const controlAnimate = () => {
+    if (!state['chatBox']) return;
+    const valids = [mode.chatBox.animate];
     const isValid = valids.find(valid => valid === state['chatBox'].mode);
     if (isValid)
         chatBoxController.controlChatBox({

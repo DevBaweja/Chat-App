@@ -329,6 +329,36 @@
 }
 .chat-box-empty {
 }
+
+.chat-box-animate {
+    @include flex();
+
+    &--container {
+        @include flex(space-between);
+        @include direction(column);
+    }
+    &--frame {
+        @include flex();
+        margin: 2rem 0;
+        margin-top: 4rem;
+        height: 36rem;
+        width: 64rem;
+    }
+    &--editor {
+        height: 100%;
+        width: 100%;
+    }
+    &--title {
+        font-size: $font-size-medium;
+        letter-spacing: 0.04rem;
+        margin: 1rem 0;
+    }
+    &--content {
+        margin: 0 5rem;
+        font-size: $font-size-regular;
+    }
+}
+
 .chat-box-drag {
     height: 100%;
     width: 100%;

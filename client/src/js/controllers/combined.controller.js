@@ -77,7 +77,7 @@ const user = () => {
     // Chat Panel
     chatPanelController.controlChatPanel({ mode: mode.chatPanel.user.recentChat });
     // Chat Box
-    chatBoxController.controlChatBox({ mode: mode.chatBox.empty });
+    chatBoxController.controlChatBox({ mode: mode.chatBox.animate });
     // Chat Profile
     chatProfileController.controlChatProfile({ mode: mode.chatProfile.user });
 };

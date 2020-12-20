@@ -29,7 +29,7 @@ window.controlActivity = controlActivity;
 
 const animate = () => {
     console.log('Animate');
-    chatBoxController.controlChatBox({ mode: mode.chatBox.ideal });
+    chatBoxController.controlChatBox({ mode: mode.chatBox.animate });
 };
 
 const game = () => {

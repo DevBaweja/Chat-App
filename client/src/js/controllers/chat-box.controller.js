@@ -33,6 +33,9 @@ export const controlChatBox = info => {
         case mode.chatBox.drag:
             drag();
             break;
+        case mode.chatBox.animate:
+            animate();
+            break;
     }
 };
 
@@ -41,15 +44,21 @@ window.controlChatBox = controlChatBox;
 
 const ideal = () => {
     // Getting theme from state
-    const theme = state['theme'];
+    const { theme } = state;
     // Render Ideal
     chatBoxView.renderIdeal(theme.color);
 };
 const empty = () => {
     // Getting theme from state
-    const theme = state['theme'];
+    const { theme } = state;
     // Render Empty
     chatBoxView.renderEmpty(theme.color);
+};
+
+const animate = () => {
+    // Getting theme from state
+    const { theme } = state;
+    chatBoxView.renderAnimate({ theme });
 };
 
 const eventListener = () => {
