@@ -37,7 +37,7 @@ const renderUserItem = ({ type, text }) => `
 
 export const renderUser = ({ user, theme }) => {
     // Data
-    const { photo, name } = user;
+    const { photo } = user;
     const { mode } = theme;
     const groups = [
         {
@@ -67,8 +67,6 @@ export const renderUser = ({ user, theme }) => {
 
         <div class="about-me__link about-me__drop" title="My Profile">
             <img src="${photo}" alt=" " class="about-me__photo"/>
-            
-           <!--  <span class="about-me__name">${name}</span> -->
         </div>
     </div>
     `;

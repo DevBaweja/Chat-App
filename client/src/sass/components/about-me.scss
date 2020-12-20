@@ -36,7 +36,6 @@
 
     &__link {
         @include flex();
-        text-decoration: capitalize;
         padding: 0.5rem;
         margin: 0.5rem;
         margin-right: 2rem;
@@ -49,9 +48,5 @@
         height: 3.5rem;
         width: 3.5rem;
         border-radius: 50%;
-    }
-    &__name {
-        margin: 0.75rem 1rem;
-        font-size: $font-size-regular-2;
     }
 }
