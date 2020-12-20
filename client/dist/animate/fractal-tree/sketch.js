@@ -1,11 +1,13 @@
 let angle;
 let length;
 let rate;
-let clicked = false;
+let clicked;
+let flow;
 const minAngle = 15;
 const minLength = 75;
 const maxAngle = 40;
 const maxLength = 100;
+const maxRate = 4;
 const weight = 8;
 const minWeight = 4;
 const lengthFactor = 3 / 4;
@@ -15,8 +17,9 @@ function setup() {
     createCanvas(640, 360);
     angle = minAngle;
     length = minLength;
-    rate = +1;
+    rate = 1;
     clicked = false;
+    flow = false;
 }
 
 function draw() {
@@ -25,22 +28,32 @@ function draw() {
     translate(width / 2, height);
     angleMode(DEGREES);
     frameRate(10);
-    angle += rate;
-    length += rate;
-    if (angle == maxAngle && length == maxLength) rate = -1;
-    if (angle == minAngle && length == minLength) rate = +1;
+    if (!flow) {
+        angle += rate;
+        length += rate;
+    } else {
+        angle -= rate;
+        length -= rate;
+    }
+    if ((angle >= maxAngle && length >= maxLength) || (angle <= minAngle && length <= minLength)) flow = !flow;
 
     branch(length, weight);
 }
 
 function mouseClicked() {
-    if (!clicked) {
-        noLoop();
-        clicked = true;
-    } else {
-        loop();
-        clicked = false;
+    if (!clicked) noLoop();
+    else loop();
+    clicked = !clicked;
+}
+
+function keyPressed() {
+    if (keyCode == UP_ARROW) {
+        if (rate != maxRate) rate += 1;
     }
+    if (keyCode == DOWN_ARROW) {
+        if (rate != 0) rate -= 1;
+    }
+    if (keyCode == ENTER) flow = !flow;
 }
 
 const branch = (size, width) => {
