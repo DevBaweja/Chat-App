@@ -15,7 +15,7 @@ const maxIterations = 100;
 function setup() {
     createCanvas(640, 360);
     pixelDensity(1);
-    console.log('Here');
+    console.log(red(attribute['theme']));
 }
 
 function draw() {
@@ -38,18 +38,26 @@ function draw() {
                 a = aa + ca;
                 b = bb + cb;
                 n++;
-                if (abs(a + b) > 36) break;
+                if (abs(a + b) > 4) break;
             }
 
             let bright = map(n, 0, maxIterations, 0, 1);
-            bright = map(sqrt(bright), 0, 1, 0, 255);
+            if (attribute['themeType'] == 'light') bright = map(bright, 0, 1, green(attribute['theme']), 0);
+            if (attribute['themeType'] == 'dark') bright = map(bright, 0, 1, green(attribute['theme']), 255);
 
             if (n == maxIterations) bright = 0;
 
-            var pix = (x + y * width) * 4;
-            pixels[pix + 0] = bright;
-            pixels[pix + 1] = bright;
-            pixels[pix + 2] = bright;
+            let pix = (x + y * width) * 4;
+            let color = attribute['color'];
+            if (!bright) {
+                pixels[pix + 0] = red(color);
+                pixels[pix + 1] = green(color);
+                pixels[pix + 2] = blue(color);
+            } else {
+                pixels[pix + 0] = bright;
+                pixels[pix + 1] = bright;
+                pixels[pix + 2] = bright;
+            }
             pixels[pix + 3] = 255;
         }
     }

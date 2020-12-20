@@ -63,11 +63,13 @@ export const renderAnimate = ({ theme, type }) => {
     // Data
     const title = ['Fractal Tree', 'Mandelbrot Set'];
     const content = [
-        'A Binary Fractal Tree is defined recursively by symmetric binary branching. The trunk of length 1 splits into two branches of length r, each making an angle q with the direction of the trunk. Both of these branches divides into two branches of length r2, each making an angle q with the direction of its parent branch. Continuing in this way for infinitely many branchings, the tree is the set of branches, together with their limit points, called branch tips.',
-        'The Mandelbrot Set is the set of complex numbers c for which the function fc(z)=z^2+c does not diverge when iterated from z=0, for which the sequence fc(0), fc(fc(0)), ... remains bounded in absolute value. Its definition is credited to Adrien Douady who named it in tribute to the mathematician Benoit Mandelbrot, a pioneer of fractal geometry.',
+        'A Binary Fractal Tree is defined recursively by symmetric binary branching. $ The trunk of length 1 splits into two branches of length r, each making an angle q with the direction of the trunk. $ Both of these branches divides into two branches of length r2, each making an angle q with the direction of its parent branch. $ Continuing in this way for infinitely many branchings, the tree is the set of branches, together with their limit points, called branch tips.',
+        'The Mandelbrot Set is the set of complex numbers c for which the function $ fc(z)=z^2+c does not diverge when iterated from z=0, $ for which the sequence fc(0), fc(fc(0)), ... remains bounded in absolute value. $ Its definition is credited to Adrien Douady who named it in tribute to the mathematician Benoit Mandelbrot, a pioneer of fractal geometry.',
     ];
 
-    const src = `animate/index.html?theme=${getHexTheme[theme.mode]}&color=${getHexColor[theme.color]}&animate=${type}`;
+    const src = `animate/index.html?theme=${getHexTheme[theme.mode]}&color=${
+        getHexColor[theme.color]
+    }&animate=${type}&themeType=${theme.mode}&colorType=${theme.color}`;
 
     const markup = `
     <div class="chat-box-animate">
@@ -79,7 +81,7 @@ export const renderAnimate = ({ theme, type }) => {
                 ${title[index]}
             </div>
             <div class="chat-box-animate--content">
-                ${content[index]}
+                ${content[index].replaceAll('$', '<br/>').trim()}
             </div>
         </div>
     </div>

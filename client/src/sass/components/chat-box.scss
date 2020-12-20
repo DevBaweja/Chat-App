@@ -340,7 +340,7 @@
     &--frame {
         @include flex();
         margin: 2rem 0;
-        margin-top: 4rem;
+        margin-top: 3rem;
         height: 36rem;
         width: 64rem;
     }
@@ -355,6 +355,7 @@
     }
     &--content {
         margin: 0 5rem;
+        margin-bottom: 2rem;
         font-size: $font-size-regular;
     }
 }
