@@ -63,9 +63,10 @@ export const renderAnimate = ({ theme, type }) => {
     // Data
     const title = ['Fractal Tree', 'Mandelbrot Set'];
     const content = [
-        'A Binary Fractal Tree is defined recursively by symmetric binary branching. $ The trunk of length 1 splits into two branches of length r, each making an angle q with the direction of the trunk. $ Both of these branches divides into two branches of length r2, each making an angle q with the direction of its parent branch. $ Continuing in this way for infinitely many branchings, the tree is the set of branches, together with their limit points, called branch tips.',
+        'A Fractal is a self-similar subset of Euclidean space whose fractal dimension strictly exceeds its topological dimension. $ Fractals exhibit similar patterns at increasingly small scales called self-similarity, also known as expanding symmetry or unfolding symmetry. $ Fractals appear the same at different levels, as in the Mandelbrot Set. $ If this replication is exactly the same at every scale, as in the Menger Sponge it is called affine self-similar. $ Fractal geometry lies within the mathematical branch of measure theory.',
         'The Mandelbrot Set is the set of complex numbers c for which the function $ fc(z)=z^2+c does not diverge when iterated from z=0, $ for which the sequence fc(0), fc(fc(0)), ... remains bounded in absolute value. $ Its definition is credited to Adrien Douady who named it in tribute to the mathematician Benoit Mandelbrot, a pioneer of fractal geometry.',
     ];
+    const anchor = ['https://en.wikipedia.org/wiki/Fractal', 'https://en.wikipedia.org/wiki/Mandelbrot_set'];
 
     const src = `animate/index.html?theme=${getHexTheme[theme.mode]}&color=${
         getHexColor[theme.color]
@@ -75,10 +76,10 @@ export const renderAnimate = ({ theme, type }) => {
     <div class="chat-box-animate">
         <div class="chat-box-animate--container">
             <div class="chat-box-animate--frame">
-                <iframe class="chat-box-animate--editor" scrolling="no" frameborder="0" src=${src}></iframe>
+                <iframe class="chat-box-animate--editor" scrolling="no" frameborder="0" src="${src}"></iframe>
             </div>
             <div class="chat-box-animate--title">
-                ${title[index]}
+                <a href="${anchor[index]}"  class="chat-box-animate--anchor" target="_blank">${title[index]}</a>
             </div>
             <div class="chat-box-animate--content">
                 ${content[index].replaceAll('$', '<br/>').trim()}

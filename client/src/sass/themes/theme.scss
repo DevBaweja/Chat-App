@@ -625,8 +625,12 @@
     }
     .chat-box-animate {
         &--title {
-            // color: $color-primary;
+        }
+        &--anchor {
             @include adjust($color-grey-2, 60%, $theme, color);
+            &:hover {
+                color: $color-primary;
+            }
         }
         &--content {
             @include adjust($color-grey-2, 50%, $theme, color);
