@@ -85,6 +85,8 @@ export const renderAnimate = ({ theme, type }) => {
     </div>
     `;
     select(elements.ChatBox).insertAdjacentHTML('beforeend', markup);
+    // Focus
+    select(elementStrings.chatBox.animate.iframe).contentDocument.body.focus();
 };
 
 export const renderUser = ({ _id, photo, name, status }) => {

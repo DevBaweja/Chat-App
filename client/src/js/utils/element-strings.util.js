@@ -178,6 +178,9 @@ const elementStrings = {
         main: {
             list: '.chat-box-user__main--list',
         },
+        animate: {
+            iframe: '.chat-box-animate--editor',
+        },
     },
 
     chatProfile: {
