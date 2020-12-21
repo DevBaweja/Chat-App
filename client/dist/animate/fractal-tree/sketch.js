@@ -19,7 +19,7 @@ function setup() {
     angle = 25;
     length = 85;
     rate = 1.5;
-    clicked = true;
+    clicked = false;
     flow = false;
     frameRate(50);
 }

@@ -61,17 +61,20 @@ export const renderIdeal = color => {
 export const renderAnimate = ({ theme, type }) => {
     const index = animateType.indexOf(type);
     // Data
-    const title = ['Fractal Tree', 'Mandelbrot Set', 'Julia Set', 'Flocking'];
+    const title = ['Fractal Tree', 'Mandelbrot Set', 'Julia Set', 'Flocking', 'Maze Generator'];
     const content = [
         `A Fractal is a self-similar subset of Euclidean space whose fractal dimension strictly exceeds its topological dimension. $ Fractals exhibit similar patterns at increasingly small scales called self-similarity, also known as expanding symmetry or unfolding symmetry. $ Fractals appear the same at different levels, as in the Mandelbrot Set. $ If this replication is exactly the same at every scale, as in the Menger Sponge it is called affine self-similar. $ Fractal geometry lies within the mathematical branch of measure theory.`,
         `The Mandelbrot Set is the set of complex numbers c for which the function $ fc(z)=z^2+c does not diverge when iterated from z=0, $ for which the sequence fc(0), fc(fc(0)), ... remains bounded in absolute value. $ Its definition is credited to Adrien Douady who named it in tribute to the mathematician Benoit Mandelbrot, a pioneer of fractal geometry.`,
         `The Julia set and The Fatou set are two complementary sets, Julia-"laces" Fatou-"dusts", defined from a function. $ The Fatou set of the function consists of values with the property that all nearby values behave similarly under repeated iteration of the function. $ The Julia set consists of values such that an arbitrarily small perturbation can cause drastic changes in the sequence of iterated function values. $ Thus the behavior of the function on the Fatou set is "regular", while on the Julia set its behavior is "chaotic".`,
-        ``,
+        `Boids is an artificial life program, developed by Craig Reynolds, which simulates the flocking behaviour of birds. $
+        As with most artificial life simulations, Boids is an example of emergent behavior $ i.e. the complexity of Boids arises from the interaction of individual agents (the boids) adhering to a set of simple rules. $ 1. Separation - Steer to avoid crowding of the local flockmates. $ 2. Alignment - Steer towards the average heading of local flockmates. $ 3. Cohesion - Steer to move towards the average position of local flockmates.`,
+        `Maze generation implemented using backtracking. This can be described with a recursive routine: $ 1. Given a current cell as a parameter, mark it as visited. $ 2. While the current cell has any unvisited neighbour cells. $ - Choose one of the unvisited neighbours. $ - Remove the wall between the current cell and the chosen cell. $ - Invoke the routine recursively for a chosen cell which is invoked once for any initial cell in the area.`,
     ];
     const anchor = [
         'https://en.wikipedia.org/wiki/Fractal',
         'http://paulbourke.net/fractals/mandelbrot/',
         'http://paulbourke.net/fractals/juliaset/',
+        '',
         '',
     ];
 
