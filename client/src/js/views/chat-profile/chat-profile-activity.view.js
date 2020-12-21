@@ -1,4 +1,4 @@
-import { elements, select } from '../../utils/base.util';
+import { elements, select, animateType } from '../../utils/base.util';
 
 // Activity
 export const renderActivity = () => {
@@ -57,12 +57,12 @@ const renderHeading = (className, heading) => `
 // Animate
 export const renderAnimate = () => {
     // Data
-    const type = ['fractal-tree', 'mandelbrot-set', 'julia-set'];
-    const content = ['Fractal Tree', 'Mandelbrot Set', 'Julia Set'];
+    const content = ['Fractal Tree', 'Mandelbrot Set', 'Julia Set', 'Flocking'];
     const description = [
         `It's all about the branches.`,
         `My life is series of accidents. Yet when I look back, I see a pattern.`,
         `I accept chaos, I'm not sure whether it accepts me.`,
+        '',
     ];
 
     const className = 'animate';
@@ -73,10 +73,10 @@ export const renderAnimate = () => {
         ${renderHeading(className, heading)}
 
         <ul class="chat-profile-activity-animate__list">
-        ${type
+        ${animateType
             .map(
                 (item, index) => `
-        <li class="chat-profile-activity-animate__item" data-type="${type[index]}">
+        <li class="chat-profile-activity-animate__item" data-type="${item}">
             <div class="chat-profile-activity-animate__title">
                 <svg class="chat-profile-activity-animate__svg chat-profile-activity-animate__svg--${item}">
                     <use xlink:href="svg/sprite.svg#icon-animate-${item}"></use>

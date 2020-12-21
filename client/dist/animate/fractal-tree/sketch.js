@@ -16,10 +16,10 @@ const weightFactor = 2 / 3;
 
 function setup() {
     createCanvas(640, 360);
-    angle = minAngle;
-    length = minLength;
+    angle = 25;
+    length = 85;
     rate = 1.5;
-    clicked = false;
+    clicked = true;
     flow = false;
     frameRate(50);
 }
@@ -39,12 +39,14 @@ function draw() {
     if ((angle > maxAngle && length > maxLength) || (angle < minAngle && length < minLength)) flow = !flow;
 
     branch(length, weight);
+
+    if (clicked) noLoop();
 }
 
 function mouseClicked() {
-    if (!clicked) noLoop();
-    else loop();
     clicked = !clicked;
+    if (clicked) noLoop();
+    else loop();
 }
 
 function keyPressed() {
