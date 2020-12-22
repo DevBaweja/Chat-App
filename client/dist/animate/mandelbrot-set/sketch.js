@@ -34,9 +34,14 @@ function draw() {
 
             let bright = map(n, 0, maxIterations, 0, 1);
             // According to Theme
-            if (attribute['themeType'] == 'light') bright = map(bright, 0, 1, green(attribute['theme']), 0);
-            if (attribute['themeType'] == 'dark') bright = map(bright, 0, 1, green(attribute['theme']), 255);
-
+            switch (attribute['themeType']) {
+                case 'light':
+                    bright = map(bright, 0, 1, green(attribute['theme']), 0);
+                    break;
+                case 'dark':
+                    bright = map(bright, 0, 1, green(attribute['theme']), 255);
+                    break;
+            }
             if (n == maxIterations) bright = 0;
 
             let pix = (x + y * width) * 4;

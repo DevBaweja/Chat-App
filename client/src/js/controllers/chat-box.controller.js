@@ -6,7 +6,6 @@ import * as chatProfileController from './chat-profile.controller';
 import * as backgroundImageController from './background-image.controller';
 // Models
 import ChatBox from '../models/ChatBox';
-import Animate from '../models/Animate';
 import Relation from '../models/Relation';
 import Message from '../models/Message';
 
@@ -59,8 +58,6 @@ const empty = () => {
 const animate = ({ type }) => {
     // Getting theme from state
     const { theme } = state;
-    // Init Animate Image
-    state.set('animate', { mode: type }, Animate);
     // Render Chat Box
     chatBoxView.renderAnimate({ theme, type });
 };

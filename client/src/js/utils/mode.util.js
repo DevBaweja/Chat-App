@@ -29,6 +29,7 @@ const mode = {
             requestSent: 'request-sent',
             requestReceive: 'request-receive',
         },
+        instruction: 'instruction',
     },
     chatBox: {
         ideal: 'ideal',

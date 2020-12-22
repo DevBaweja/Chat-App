@@ -8,6 +8,7 @@ import {
     shortDate,
     getHexColor,
     getHexTheme,
+    getHexMoreTheme,
     animateType,
 } from '../utils/base.util';
 
@@ -90,9 +91,8 @@ export const renderAnimate = ({ theme, type }) => {
         '',
     ];
 
-    const src = `animate/index.html?theme=${getHexTheme[theme.mode]}&color=${
-        getHexColor[theme.color]
-    }&animate=${type}&themeType=${theme.mode}&colorType=${theme.color}`;
+    const { mode, color } = theme;
+    const src = `animate/index.html?theme=${getHexTheme[mode]}&color=${getHexColor[color]}&animate=${type}&themeType=${mode}&colorType=${color}&themeMore=${getHexMoreTheme[mode]}`;
 
     const markup = `
     <div class="chat-box-animate">

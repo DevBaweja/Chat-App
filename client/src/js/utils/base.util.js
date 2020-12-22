@@ -9,7 +9,7 @@ import { select, selectAll } from './selector.util';
 import { capitalize, capitalizeAll, random, randomItem, bold, italic, generateQuery, getTime } from './utility.util';
 import { color, hex, getHexColor } from './color.util';
 import { backgroundImages, rgbaBackground } from './background-image.util';
-import { theme, getHexTheme, getReverseTheme } from './theme.util';
+import { theme, getHexTheme, getHexMoreTheme, getReverseTheme } from './theme.util';
 import { animateType } from './animate.util';
 import { longDate, shortDate } from './date.util';
 import { relationOptions, relationDefault, relationInterest } from './relation.util';
@@ -41,6 +41,7 @@ export {
     rgbaBackground,
     theme,
     getHexTheme,
+    getHexMoreTheme,
     animateType,
     getReverseTheme,
     longDate,

@@ -19,6 +19,7 @@ import * as chatPanelSearchView from '../views/chat-panel/chat-panel-search.view
 import * as chatPanelFriendView from '../views/chat-panel/chat-panel-friend.view';
 import * as chatPanelRequestSentView from '../views/chat-panel/chat-panel-request-sent.view';
 import * as chatPanelRequestReceiveView from '../views/chat-panel/chat-panel-request-receive.view';
+import * as chatPanelInstructionView from '../views/chat-panel/chat-panel-instruction.view';
 
 export const controlChatPanel = info => {
     // Init Chat Panel
@@ -51,6 +52,9 @@ export const controlChatPanel = info => {
             break;
         case mode.chatPanel.user.requestReceive:
             requestReceive();
+            break;
+        case mode.chatPanel.instruction:
+            instruction(info);
             break;
     }
 };
@@ -116,9 +120,16 @@ const empty = () => {
     // Render Empty
     chatPanelView.renderEmpty();
 };
+
 const ideal = () => {
     // Render Ideal
     chatPanelView.renderIdeal();
+};
+
+const instruction = ({ type }) => {
+    console.log('Instruction');
+    // Render Active Now
+    chatPanelInstructionView.renderInstruction({ type });
 };
 
 const eventListeners = (listClass, itemClass, selectedClass) => {

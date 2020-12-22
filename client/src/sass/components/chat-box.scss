@@ -332,6 +332,10 @@
 
 .chat-box-animate {
     @include flex();
+    // ! For Development
+    max-height: 62.5rem;
+    overflow-x: hidden;
+    overflow-y: scroll;
 
     &--container {
         @include flex(space-between);

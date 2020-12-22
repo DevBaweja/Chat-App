@@ -2,10 +2,12 @@ import state from '../../state';
 // Utils
 import { mode, elementStrings, select } from '../../utils/base.util';
 // Controllers
+import * as chatPanelController from '../chat-panel.controller';
 import * as chatBoxController from '../chat-box.controller';
 import * as chatProfileController from '../chat-profile.controller';
 // Models
 import SubActivity from '../../models/SubActivity';
+import Animate from '../../models/Animate';
 // Views
 import * as chatProfileActivityView from '../../views/chat-profile/chat-profile-activity.view';
 
@@ -47,6 +49,11 @@ const animate = () => {
         const type = item.dataset.type;
         if (!type) return;
 
+        // Init Animate State
+        state.set('animate', { mode: type }, Animate);
+
+        // Animate Type
+        // chatPanelController.controlChatPanel({ mode: mode.chatPanel.instruction, type });
         chatBoxController.controlChatBox({ mode: mode.chatBox.animate, type });
     });
 };

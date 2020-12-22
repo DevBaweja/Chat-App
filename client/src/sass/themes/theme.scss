@@ -341,7 +341,8 @@
     .chat-panel-search,
     .chat-panel-friend,
     .chat-panel-request-sent,
-    .chat-panel-request-receive {
+    .chat-panel-request-receive,
+    .chat-panel-instruction {
         &__title {
             color: $color-primary;
             background-color: $color-grey-3;
@@ -440,6 +441,23 @@
     .chat-panel-request-receive {
         &__time {
             @include adjust($color-grey-2, 40%, $theme, color);
+        }
+    }
+    // Instruction
+    .chat-panel-instruction {
+        &__content {
+            @include adjust($color-grey-2, 60%, $theme, color);
+        }
+        &__description {
+            @include adjust($color-grey-2, 40%, $theme, color);
+        }
+        &__span {
+        }
+        &__highlight {
+            color: $color-primary;
+        }
+        &__svg {
+            fill: $color-primary;
         }
     }
     // Ideal and Empty
