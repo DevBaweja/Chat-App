@@ -53,7 +53,7 @@ const animate = () => {
         state.set('animate', { mode: type }, Animate);
 
         // Animate Type
-        // chatPanelController.controlChatPanel({ mode: mode.chatPanel.instruction, type });
+        chatPanelController.controlChatPanel({ mode: mode.chatPanel.instruction, type });
         chatBoxController.controlChatBox({ mode: mode.chatBox.animate, type });
     });
 };

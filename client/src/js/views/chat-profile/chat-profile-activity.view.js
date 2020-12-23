@@ -1,4 +1,4 @@
-import { elements, select, animateType } from '../../utils/base.util';
+import { elements, select, animateType, animateHeading, animateQuote } from '../../utils/base.util';
 
 // Activity
 export const renderActivity = () => {
@@ -57,25 +57,6 @@ const renderHeading = (className, heading) => `
 // Animate
 export const renderAnimate = () => {
     // Data
-    const content = [
-        'Fractal Tree',
-        'Mandelbrot Set',
-        'Julia Set',
-        'Flocking',
-        'Maze Generator',
-        'Fourier Series',
-        'xyz',
-    ];
-    const description = [
-        `It's all about the branches.`,
-        `My life is series of accidents. Yet when I look back, I see a pattern.`,
-        `I accept chaos, I'm not sure whether it accepts me.`,
-        `Eagle don't flock, you have to find them one at a time.`,
-        `Life is a maze from which we never escape.`,
-        `Fourier is a mathematical poem`,
-        ``,
-    ];
-
     const className = 'animate';
     const heading = 'Animations';
     // Markup
@@ -94,10 +75,10 @@ export const renderAnimate = () => {
                 </svg>
                 <div class="chat-profile-activity-animate__content chat-profile-activity-animate__content--${item}">
                     <span class="chat-profile-activity-animate__span">
-                        ${content[index]}
+                        ${animateHeading[index]}
                     </span>
                     <span class="chat-profile-activity-animate__description">
-                        ${description[index]}
+                        ${animateQuote[index]}
                     </span>
                 </div>
             </div>

@@ -3,12 +3,16 @@ let length;
 let rate;
 let clicked;
 let flow;
+const initAngle = 25;
+const initLength = 85;
 const minAngle = 15;
 const minLength = 75;
 const maxAngle = 40;
 const maxLength = 100;
+const initRate = 1.5;
 const minRate = 1;
-const maxRate = 4;
+const maxRate = 5;
+const incRate = 0.5;
 const weight = 8;
 const minWeight = 3;
 const lengthFactor = 3 / 4;
@@ -16,10 +20,10 @@ const weightFactor = 2 / 3;
 
 function setup() {
     createCanvas(640, 360);
-    angle = 25;
-    length = 85;
-    rate = 1.5;
-    clicked = false;
+    angle = initAngle;
+    length = initLength;
+    rate = initRate;
+    clicked = true;
     flow = false;
     frameRate(50);
 }
@@ -49,12 +53,13 @@ function mouseClicked() {
     else loop();
 }
 
-function keyPressed() {
-    if (keyCode == UP_ARROW) {
-        if (rate < maxRate) rate += 0.5;
+function keyPressed(event) {
+    const { key } = event;
+    if (key == KEY_D) {
+        if (rate < maxRate) rate += incRate;
     }
-    if (keyCode == DOWN_ARROW) {
-        if (rate > minRate) rate -= 0.5;
+    if (key == KEY_A) {
+        if (rate > minRate) rate -= incRate;
     }
     if (keyCode == ENTER) flow = !flow;
 }

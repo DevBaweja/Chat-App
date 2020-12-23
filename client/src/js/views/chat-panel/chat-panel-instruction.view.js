@@ -1,4 +1,4 @@
-import { animateType, select, elements } from '../../utils/base.util';
+import { animateType, animateInstruction, select, elements } from '../../utils/base.util';
 import { renderTitle } from '../chat-panel.view';
 
 const getHighlight = (title, className) => {
@@ -20,7 +20,7 @@ const renderInstructionItem = ({ title, description }, className) => `
                 ${getHighlight(title, className)}
             </span>
             <span class="chat-panel-${className}__description">
-                ${description}
+                ${description ? description : ''}
             </span>
         </div>
     </div>
@@ -29,34 +29,18 @@ const renderInstructionItem = ({ title, description }, className) => `
 
 export const renderInstruction = ({ type }) => {
     const index = animateType.indexOf(type);
-    // Data
-    const data = [
-        [
-            {
-                title: 'Click to play/stop.',
-                description: 'It will make animation to play or stop. Must be done over the canvas.',
-            },
-            {
-                title: 'Press [W] to increase speed.',
-                description: 'It will cause animation to move faster.',
-            },
-            { title: 'Press [S] to decrease speed.', description: 'It will cause animation to move slowley.' },
-            { title: 'Press [D] to increase rate.', description: 'It will increase frequency of wave.' },
-            { title: 'Press [A] to decrease rate.', description: 'It will decrease frequency of wave.' },
-        ],
-    ];
 
     const className = 'instruction';
     const title = {
         label: 'Instructions',
-        count: data[index].length,
+        count: animateInstruction[index].length,
     };
 
     const markup = `
     <div class="chat-panel-${className}">                    
         ${renderTitle(title, className)}
         <ul class="chat-panel-${className}__list">
-        ${data[index].map(item => renderInstructionItem(item, className)).join('')}
+        ${animateInstruction[index].map(item => renderInstructionItem(item, className)).join('')}
         </ul>
     </div>    
     `;

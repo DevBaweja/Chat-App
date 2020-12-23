@@ -1,16 +1,32 @@
 let cells;
-const size = 40;
 let rows;
 let cols;
 let current;
+let clicked;
+let stack;
+let size;
 let done = false;
-const stack = [];
+const initRate = 20;
+const incRate = 4;
+const minRate = 4;
+const maxRate = 64;
+const initSize = 40;
+const incSize = 5;
+const minSize = 20;
+const maxSize = 80;
 
 function setup() {
     createCanvas(640, 360);
-    background(attribute['theme']);
-    frameRate(10);
 
+    clicked = true;
+    rate = initRate;
+    size = initSize;
+
+    initMaze(size);
+}
+
+const initMaze = size => {
+    stack = [];
     rows = floor(height / size) - 1;
     cols = floor(width / size) - 1;
     // Generate Cells
@@ -27,9 +43,12 @@ function setup() {
 
     current = cells[0][0];
     current.visited = true;
-}
+};
 
 function draw() {
+    background(attribute['theme']);
+    frameRate(rate);
+
     for (let x = 0; x < rows; x++) {
         for (let y = 0; y < cols; y++) {
             cells[x][y].show();
@@ -52,10 +71,38 @@ function draw() {
                 cells[x][y].show();
             }
         }
-        noLoop();
     }
+    if (clicked) noLoop();
 }
 
+function keyPressed(event) {
+    const { key } = event;
+    if (key == KEY_D) {
+        if (rate < maxRate) rate += incRate;
+    }
+    if (key == KEY_A) {
+        if (rate > minRate) rate -= incRate;
+    }
+    if (key == KEY_W) {
+        if (size < maxSize) {
+            size += incSize;
+            initMaze(size);
+        }
+    }
+    if (key == KEY_S) {
+        if (size > minSize) {
+            size -= incSize;
+            initMaze(size);
+        }
+    }
+    if (keyCode == ENTER) flow = !flow;
+}
+
+function mouseClicked() {
+    clicked = !clicked;
+    if (clicked) noLoop();
+    else loop();
+}
 class Cell {
     constructor(x, y) {
         this.x = x;

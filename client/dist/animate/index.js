@@ -1,3 +1,8 @@
+// Keys
+const KEY_W = 'w';
+const KEY_D = 'd';
+const KEY_S = 's';
+const KEY_A = 'a';
 // Getting Data From URL
 const attribute = {};
 

@@ -3,16 +3,18 @@ let rate = 0.025;
 let minRate = 0.01;
 let maxRate = 0.05;
 let incRate = 0.005;
+let clicked;
 
 const wave = [];
 const maxLength = 500;
-let number = 3;
+let number = 6;
 let minNumber = 1;
-let maxNumber = 8;
+let maxNumber = 30;
 
 function setup() {
     createCanvas(640, 360);
     frameRate(100);
+    clicked = true;
 }
 
 function draw() {
@@ -20,6 +22,7 @@ function draw() {
     stroke(attribute['color']);
     strokeWeight(2);
     translate(width / 4, height / 2);
+    fill(attribute['color']);
     ellipse(0, 0, 4);
 
     let x = 0;
@@ -63,19 +66,26 @@ function draw() {
     if (wave.length > maxLength) wave.pop();
 
     time += rate;
+    if (clicked) noLoop();
 }
 
-function keyPressed() {
-    if (keyCode == UP_ARROW) {
+function keyPressed(event) {
+    const { key } = event;
+    if (key == KEY_W) {
         if (number < maxNumber) number++;
     }
-    if (keyCode == DOWN_ARROW) {
+    if (key == KEY_S) {
         if (number > minNumber) number--;
     }
-    if (keyCode == LEFT_ARROW) {
+    if (key == KEY_A) {
         if (rate > minRate) rate -= incRate;
     }
-    if (keyCode == RIGHT_ARROW) {
+    if (key == KEY_D) {
         if (rate < maxRate) rate += incRate;
     }
+}
+function mouseClicked() {
+    clicked = !clicked;
+    if (clicked) noLoop();
+    else loop();
 }
