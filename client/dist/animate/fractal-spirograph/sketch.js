@@ -1,63 +1,92 @@
-let time = 0;
+let path;
+let k = -4;
+
+let angle = 0;
+let resolution = 1;
 let rate = 0.025;
 let minRate = 0.01;
 let maxRate = 0.05;
 let incRate = 0.005;
 
-const waveX = [];
-const waveY = [];
-
-const maxLength = 500;
 let number = 5;
 let minNumber = 1;
 let maxNumber = 30;
 
+let root;
+let final;
+let radius = 75;
+const radiusFactor = 3;
+
 function setup() {
     createCanvas(640, 360);
-    frameRate(100);
+    path = [];
+    root = new Orbit(width / 2, height / 2, radius, 0);
+    let next = root;
+    for (let i = 0; i < number; i++) {
+        next = next.addChild();
+    }
+    final = next;
 }
 
 function draw() {
     background(attribute['theme']);
-    stroke(attribute['color']);
-    strokeWeight(2);
-    translate(width / 2, height / 2);
-    fill(attribute['color']);
-    ellipse(0, 0, 4);
-    push();
-    let x = 0;
-    let y = 0;
-    let radius;
-    let initRadius = 200;
-    for (let i = 1; i <= number; i++) {
-        const n = 2 * i;
-        radius = initRadius / n;
-        noFill();
-        strokeWeight(1);
-        ellipse(0, 0, 2 * radius);
 
-        nextx = (radius + radius / 2) * cos(i * time);
-        nexty = (radius + radius / 2) * sin(i * time);
-
-        translate(nextx, nexty);
-        x += nextx;
-        y += nexty;
-        ellipse(0, 0, 4);
+    for (let i = 0; i < resolution; i++) {
+        let next = root;
+        while (next) {
+            next.update();
+            next = next.child;
+        }
+        path.push(createVector(final.x, final.y));
     }
-    waveX.unshift(x);
-    waveY.unshift(y);
-    pop();
+
+    let next = root;
+    while (next != null) {
+        next.show();
+        next = next.child;
+    }
 
     beginShape();
+    stroke(attribute['color']);
+    strokeWeight(2);
     noFill();
-    for (let index = 0; index < waveX.length; index++) {
-        vertex(waveX[index], waveY[index]);
-    }
+    path.forEach(pos => vertex(pos.x, pos.y));
     endShape();
-    time += rate;
 }
 
-getIndex = index => {
-    if (index % 2 != 0) return index;
-    return -index;
-};
+class Orbit {
+    constructor(x, y, r, n, parent) {
+        this.x = x;
+        this.y = y;
+        this.r = r;
+        this.n = n;
+        this.parent = parent;
+        this.child = null;
+        this.speed = radians(pow(k, n - 1)) / resolution;
+        this.angle = -PI / 2;
+    }
+
+    addChild = () => {
+        let newr = this.r / radiusFactor;
+        let newx = this.x + this.r + newr;
+        let newy = this.y;
+        this.child = new Orbit(newx, newy, newr, this.n + 1, this);
+        return this.child;
+    };
+
+    update = () => {
+        if (this.parent) {
+            this.angle += this.speed;
+            let rsum = this.r + this.parent.r;
+            this.x = this.parent.x + rsum * cos(this.angle);
+            this.y = this.parent.y + rsum * sin(this.angle);
+        }
+    };
+
+    show = () => {
+        stroke(attribute['color']);
+        strokeWeight(1);
+        noFill();
+        ellipse(this.x, this.y, this.r * 2, this.r * 2);
+    };
+}
