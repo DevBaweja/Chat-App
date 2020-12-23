@@ -84,14 +84,14 @@ function keyPressed(event) {
         if (rate > minRate) rate -= incRate;
     }
     if (key == KEY_W) {
-        if (size < maxSize) {
-            size += incSize;
+        if (size > minSize) {
+            size -= incSize;
             initMaze(size);
         }
     }
     if (key == KEY_S) {
-        if (size > minSize) {
-            size -= incSize;
+        if (size < maxSize) {
+            size += incSize;
             initMaze(size);
         }
     }
