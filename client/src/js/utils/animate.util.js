@@ -93,13 +93,11 @@ const animateInstruction = [
     ],
     [
         {
-            title: '[Click] over animation to play/stop.',
-            description: 'It will make animation to play or stop. Must be done over the canvas.',
+            title: '[Click] over animation to add boid.',
+            description: 'It will add boid at the desired position.',
         },
-        { title: 'Press [W] to increase speed.', description: 'It will cause animation to move faster.' },
-        { title: 'Press [S] to decrease speed.', description: 'It will cause animation to move slowley.' },
-        { title: 'Press [D] to increase rate.', description: 'It will increase frequency of wave.' },
-        { title: 'Press [A] to decrease rate.', description: 'It will decrease frequency of wave.' },
+        { title: 'Press [D] to increase speed.', description: 'It will cause animation to move faster.' },
+        { title: 'Press [A] to decrease speed.', description: 'It will cause animation to move slowley.' },
     ],
     [
         {
