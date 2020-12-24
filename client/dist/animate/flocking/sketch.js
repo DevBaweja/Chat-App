@@ -1,6 +1,5 @@
 const boidSize = 200;
 const boids = [];
-let clicked;
 let rate;
 const initRate = 4;
 const incRate = 0.5;
@@ -25,16 +24,8 @@ function draw() {
         boid.show();
     });
     if (clicked) noLoop();
-}
-/*
-function mouseClicked() {
-    clicked = !clicked;
-    if (clicked) noLoop();
-    else loop();
-}
-*/
-function mouseClicked() {
-    boids.push(new Boid(mouseX, mouseY));
+
+    if (mouseIsPressed) boids.push(new Boid(mouseX, mouseY));
 }
 
 function keyPressed(event) {
