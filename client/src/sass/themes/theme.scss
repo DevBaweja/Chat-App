@@ -641,7 +641,8 @@
             color: $color-primary;
         }
     }
-    .chat-box-animate {
+    .chat-box-animate,
+    .chat-box-game {
         &--title {
         }
         &--anchor {
@@ -835,7 +836,8 @@
 
         // Sub Activity
         &-activity {
-            &-animate {
+            &-animate,
+            &-game {
                 // Heading
                 &__header {
                     color: $color-primary;

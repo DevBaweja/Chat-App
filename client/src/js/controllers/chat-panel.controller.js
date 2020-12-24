@@ -126,10 +126,17 @@ const ideal = () => {
     chatPanelView.renderIdeal();
 };
 
-const instruction = ({ type }) => {
+const instruction = ({ type, about }) => {
     console.log('Instruction');
-    // Render Active Now
-    chatPanelInstructionView.renderInstruction({ type });
+    // Render Instruction
+    switch (about) {
+        case 'animate':
+            chatPanelInstructionView.renderAnimateInstruction({ type, about });
+            break;
+        case 'game':
+            chatPanelInstructionView.renderGameInstruction({ type, about });
+            break;
+    }
 };
 
 const eventListeners = (listClass, itemClass, selectedClass) => {

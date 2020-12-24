@@ -423,7 +423,8 @@
 
     // Sub Activity
     &-activity {
-        &-animate {
+        &-animate,
+        &-game {
             margin: 0.5rem;
 
             @include flex();

@@ -8,6 +8,7 @@ import * as chatProfileController from '../chat-profile.controller';
 // Models
 import SubActivity from '../../models/SubActivity';
 import Animate from '../../models/Animate';
+import Game from '../../models/Game';
 // Views
 import * as chatProfileActivityView from '../../views/chat-profile/chat-profile-activity.view';
 
@@ -53,11 +54,34 @@ const animate = () => {
         state.set('animate', { mode: type }, Animate);
 
         // Animate Type
-        chatPanelController.controlChatPanel({ mode: mode.chatPanel.instruction, type });
+        chatPanelController.controlChatPanel({ mode: mode.chatPanel.instruction, type, about: 'animate' });
         chatBoxController.controlChatBox({ mode: mode.chatBox.animate, type });
     });
 };
 
 const game = () => {
     console.log('Game');
+    // Render Game
+    chatProfileActivityView.renderGame();
+    // Back
+    select(elementStrings.chatProfile.subActivity.game.back).addEventListener('click', () =>
+        chatProfileController.controlChatProfile({ mode: mode.chatProfile.activity })
+    );
+    // List
+    select(elementStrings.chatProfile.subActivity.game.list).addEventListener('click', event => {
+        const { target } = event;
+        // Item Element
+        const item = target.closest(elementStrings.chatProfile.subActivity.game.item);
+        if (!item) return;
+        // Type
+        const type = item.dataset.type;
+        if (!type) return;
+
+        // Init Game State
+        state.set('game', { mode: type }, Game);
+
+        // Animate Type
+        chatPanelController.controlChatPanel({ mode: mode.chatPanel.instruction, type, about: 'game' });
+        chatBoxController.controlChatBox({ mode: mode.chatBox.game, type });
+    });
 };

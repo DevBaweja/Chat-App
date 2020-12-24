@@ -1,4 +1,4 @@
-import { animateType, animateInstruction, select, elements } from '../../utils/base.util';
+import { animateType, animateInstruction, gameType, gameInstruction, select, elements } from '../../utils/base.util';
 import { renderTitle } from '../chat-panel.view';
 
 const getHighlight = (title, className) => {
@@ -27,7 +27,7 @@ const renderInstructionItem = ({ title, description }, className) => `
 </li>
 `;
 
-export const renderInstruction = ({ type }) => {
+export const renderAnimateInstruction = ({ type }) => {
     const index = animateType.indexOf(type);
 
     const className = 'instruction';
@@ -41,6 +41,26 @@ export const renderInstruction = ({ type }) => {
         ${renderTitle(title, className)}
         <ul class="chat-panel-${className}__list">
         ${animateInstruction[index].map(item => renderInstructionItem(item, className)).join('')}
+        </ul>
+    </div>    
+    `;
+
+    select(elements.ChatPanel).insertAdjacentHTML('beforeend', markup);
+};
+export const renderGameInstruction = ({ type }) => {
+    const index = gameType.indexOf(type);
+
+    const className = 'instruction';
+    const title = {
+        label: 'Instructions',
+        count: gameInstruction[index].length,
+    };
+
+    const markup = `
+    <div class="chat-panel-${className}">                    
+        ${renderTitle(title, className)}
+        <ul class="chat-panel-${className}__list">
+        ${gameInstruction[index].map(item => renderInstructionItem(item, className)).join('')}
         </ul>
     </div>    
     `;

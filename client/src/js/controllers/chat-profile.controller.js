@@ -303,5 +303,5 @@ const activity = () => {
         chatProfileActivityController.controlActivity({ mode: type });
     });
     // !For Development
-    chatProfileActivityController.controlActivity({ mode: 'animate' });
+    // chatProfileActivityController.controlActivity({ mode: 'animate' });
 };

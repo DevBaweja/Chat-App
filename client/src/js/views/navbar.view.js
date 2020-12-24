@@ -85,5 +85,5 @@ export const renderUser = user => {
     `;
     select(elements.Navbar).insertAdjacentHTML('beforeend', markup);
 
-    renderSelected('recent-chat');
+    renderSelected('search');
 };

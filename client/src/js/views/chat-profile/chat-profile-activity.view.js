@@ -1,4 +1,13 @@
-import { elements, select, animateType, animateHeading, animateQuote } from '../../utils/base.util';
+import {
+    elements,
+    select,
+    animateType,
+    animateHeading,
+    animateQuote,
+    gameType,
+    gameHeading,
+    gameQuote,
+} from '../../utils/base.util';
 
 // Activity
 export const renderActivity = () => {
@@ -61,24 +70,63 @@ export const renderAnimate = () => {
     const heading = 'Animations';
     // Markup
     const markup = `
-    <div class="chat-profile-activity-animate">
+    <div class="chat-profile-activity-${className}">
         ${renderHeading(className, heading)}
 
-        <ul class="chat-profile-activity-animate__list">
+        <ul class="chat-profile-activity-${className}__list">
         ${animateType
             .map(
                 (item, index) => `
-        <li class="chat-profile-activity-animate__item" data-type="${item}">
-            <div class="chat-profile-activity-animate__title">
-                <svg class="chat-profile-activity-animate__svg chat-profile-activity-animate__svg--${item}">
-                    <use xlink:href="svg/sprite.svg#icon-animate-${item}"></use>
+        <li class="chat-profile-activity-${className}__item" data-type="${item}">
+            <div class="chat-profile-activity-${className}__title">
+                <svg class="chat-profile-activity-${className}__svg chat-profile-activity-${className}__svg--${item}">
+                    <use xlink:href="svg/sprite.svg#icon-${className}-${item}"></use>
                 </svg>
-                <div class="chat-profile-activity-animate__content chat-profile-activity-animate__content--${item}">
-                    <span class="chat-profile-activity-animate__span">
+                <div class="chat-profile-activity-${className}__content chat-profile-activity-${className}__content--${item}">
+                    <span class="chat-profile-activity-${className}__span">
                         ${animateHeading[index]}
                     </span>
-                    <span class="chat-profile-activity-animate__description">
+                    <span class="chat-profile-activity-${className}__description">
                         ${animateQuote[index]}
+                    </span>
+                </div>
+            </div>
+        </li>
+        `
+            )
+            .join('')}
+        </ul>
+    </div>
+    `;
+    // Rendering Markup
+    select(elements.ChatProfile).insertAdjacentHTML('beforeend', markup);
+};
+
+// Game
+export const renderGame = () => {
+    // Data
+    const className = 'game';
+    const heading = 'Gaming';
+    // Markup
+    const markup = `
+    <div class="chat-profile-activity-${className}">
+        ${renderHeading(className, heading)}
+
+        <ul class="chat-profile-activity-${className}__list">
+        ${gameType
+            .map(
+                (item, index) => `
+        <li class="chat-profile-activity-${className}__item" data-type="${item}">
+            <div class="chat-profile-activity-${className}__title">
+                <svg class="chat-profile-activity-${className}__svg chat-profile-activity-${className}__svg--${item}">
+                    <use xlink:href="svg/sprite.svg#icon-${className}-${item}"></use>
+                </svg>
+                <div class="chat-profile-activity-${className}__content chat-profile-activity-${className}__content--${item}">
+                    <span class="chat-profile-activity-${className}__span">
+                        ${gameHeading[index]}
+                    </span>
+                    <span class="chat-profile-activity-${className}__description">
+                        ${gameQuote[index]}
                     </span>
                 </div>
             </div>

@@ -18,6 +18,7 @@ import {
     animateAnchor,
     animateInstruction,
 } from './animate.util';
+import { gameType, gameHeading, gameQuote, gameAnchor, gameInstruction } from './game.util';
 import { longDate, shortDate } from './date.util';
 import { relationOptions, relationDefault, relationInterest } from './relation.util';
 import { addAuthorizationHeaders, getToken, setToken } from './auth.util';
@@ -55,6 +56,11 @@ export {
     animateContent,
     animateAnchor,
     animateInstruction,
+    gameType,
+    gameHeading,
+    gameQuote,
+    gameAnchor,
+    gameInstruction,
     getReverseTheme,
     longDate,
     shortDate,

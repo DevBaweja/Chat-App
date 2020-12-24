@@ -36,6 +36,9 @@ export const controlChatBox = info => {
         case mode.chatBox.animate:
             animate(info);
             break;
+        case mode.chatBox.game:
+            game(info);
+            break;
     }
 };
 
@@ -60,6 +63,12 @@ const animate = ({ type }) => {
     const { theme } = state;
     // Render Chat Box
     chatBoxView.renderAnimate({ theme, type });
+};
+const game = ({ type }) => {
+    // Getting theme from state
+    const { theme } = state;
+    // Render Chat Box
+    chatBoxView.renderGame({ theme, type });
 };
 
 const eventListener = () => {

@@ -11,8 +11,11 @@ import {
     getHexMoreTheme,
     animateType,
     animateHeading,
-    animateContent,
     animateAnchor,
+    animateContent,
+    gameType,
+    gameHeading,
+    gameAnchor,
 } from '../utils/base.util';
 
 export const clearChatBox = () => (select(elements.ChatBox).innerHTML = '');
@@ -88,6 +91,29 @@ export const renderAnimate = ({ theme, type }) => {
     select(elements.ChatBox).insertAdjacentHTML('beforeend', markup);
     // Focus
     select(elementStrings.chatBox.animate.iframe).contentDocument.body.focus();
+};
+
+export const renderGame = ({ theme, type }) => {
+    const index = gameType.indexOf(type);
+
+    const { mode, color } = theme;
+    const src = `game/index.html?theme=${getHexTheme[mode]}&color=${getHexColor[color]}&game=${type}&themeType=${mode}&colorType=${color}&themeMore=${getHexMoreTheme[mode]}`;
+
+    const markup = `
+    <div class="chat-box-game">
+        <div class="chat-box-game--container">
+            <div class="chat-box-game--frame">
+                <iframe class="chat-box-game--editor" scrolling="no" frameborder="0" src="${src}"></iframe>
+            </div>
+            <div class="chat-box-game--title">
+                <a href="${gameAnchor[index]}"  class="chat-box-game--anchor" target="_blank">${gameHeading[index]}</a>
+            </div>
+        </div>
+    </div>
+    `;
+    select(elements.ChatBox).insertAdjacentHTML('beforeend', markup);
+    // Focus
+    select(elementStrings.chatBox.game.iframe).contentDocument.body.focus();
 };
 
 export const renderUser = ({ _id, photo, name, status }) => {

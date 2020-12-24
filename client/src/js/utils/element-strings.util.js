@@ -181,6 +181,9 @@ const elementStrings = {
         animate: {
             iframe: '.chat-box-animate--editor',
         },
+        game: {
+            iframe: '.chat-box-game--editor',
+        },
     },
 
     chatProfile: {
@@ -257,6 +260,11 @@ const elementStrings = {
                 back: '.chat-profile-activity-animate__header--back',
                 list: '.chat-profile-activity-animate__list',
                 item: '.chat-profile-activity-animate__item',
+            },
+            game: {
+                back: '.chat-profile-activity-game__header--back',
+                list: '.chat-profile-activity-game__list',
+                item: '.chat-profile-activity-game__item',
             },
         },
     },
