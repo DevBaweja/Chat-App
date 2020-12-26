@@ -34,6 +34,8 @@ export const controlTheme = info => {
     controlSvg();
     // Control Animate
     controlAnimate();
+    // Control Game
+    controlGame();
     // Wallpaper
     controlWallpaper();
     // Header
@@ -66,6 +68,20 @@ const controlAnimate = () => {
 
     if (isValid) {
         const { mode: type } = state['animate'];
+        chatBoxController.controlChatBox({
+            mode: state['chatBox'].mode,
+            type,
+        });
+    }
+};
+
+const controlGame = () => {
+    if (!state['chatBox']) return;
+    const valids = [mode.chatBox.game];
+    const isValid = valids.find(valid => valid === state['chatBox'].mode);
+
+    if (isValid) {
+        const { mode: type } = state['game'];
         chatBoxController.controlChatBox({
             mode: state['chatBox'].mode,
             type,

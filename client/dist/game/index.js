@@ -16,7 +16,7 @@ const getData = () => {
 
 const applyAnimate = () => {
     const script = document.createElement('script');
-    script.src = `${attribute['animate']}/sketch.js`;
+    script.src = `${attribute['game']}/sketch.js`;
     document.head.append(script);
 };
 
