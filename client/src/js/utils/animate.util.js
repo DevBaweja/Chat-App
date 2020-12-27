@@ -63,15 +63,17 @@ const animateAnchor = [
 const animateInstruction = [
     [
         {
-            title: '[Click] over animation to play/pause.',
+            title: '[Click] over animation to play/stop.',
             description: 'It will make animation to play or stop. Must be done over the canvas.',
         },
+        { title: 'Press [D] to increase the speed.' },
+        { title: 'Press [A] to decrease the speed.' },
         {
-            title: 'Press [D] to increase the speed.',
+            title: 'Press [Enter] to change the flow.',
+            description: 'It will make elements to sort in either ascending or descending order.',
         },
-        {
-            title: 'Press [A] to decrease the speed.',
-        },
+        { title: 'Press [W] to increase the number of elements.' },
+        { title: 'Press [S] to decrease the number of elements.' },
     ],
     [
         {

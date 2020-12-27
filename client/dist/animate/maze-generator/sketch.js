@@ -5,7 +5,7 @@ let current;
 let clicked;
 let stack;
 let size;
-let done = false;
+let done;
 const initRate = 20;
 const incRate = 4;
 const minRate = 4;
@@ -21,11 +21,11 @@ function setup() {
     clicked = true;
     rate = initRate;
     size = initSize;
-
     initMaze(size);
 }
 
 const initMaze = size => {
+    done = false;
     stack = [];
     rows = floor(height / size) - 1;
     cols = floor(width / size) - 1;
@@ -95,7 +95,6 @@ function keyPressed(event) {
             initMaze(size);
         }
     }
-    if (keyCode == ENTER) flow = !flow;
 }
 
 function mouseClicked() {
