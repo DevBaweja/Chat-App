@@ -40,7 +40,7 @@ const display = current => {
     if (flow) values.forEach((value, index) => line(w * index, w * index + w, w * index, -value));
     if (!flow) values.forEach((value, index) => line(w * index, w * index + w, w * index, value - height));
 
-    stroke('#0f0');
+    stroke(0, 255, 0, 200);
     if (flow && current) line(w * current, w * current + w, w * current, -values[current]);
     if (!flow && current) line(w * current, w * current + w, w * current, values[current] - height);
 };

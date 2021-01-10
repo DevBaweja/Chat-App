@@ -1,5 +1,6 @@
 const animateType = [
     'bubble-sort',
+    'uniform-random',
     'fractal-tree',
     'mandelbrot-set',
     'julia-set',
@@ -12,6 +13,7 @@ const animateType = [
 ];
 const animateHeading = [
     'Bubble Sort',
+    'Uniform Random',
     'Fractal Tree',
     'Mandelbrot Set',
     'Julia Set',
@@ -23,7 +25,8 @@ const animateHeading = [
     'Reaction Diffusion',
 ];
 const animateQuote = [
-    `Sorting out life one load at a time`,
+    `Sorting out life one load at a time.`,
+    `If it requires a uniform, it's a worthless endeavor.`,
     `It's all about the branches.`,
     `My life is series of accidents. Yet when I look back, I see a pattern.`,
     `I accept chaos, I'm not sure whether it accepts me.`,
@@ -36,6 +39,7 @@ const animateQuote = [
 ];
 const animateContent = [
     `Sorting Algorithms are algorithms that puts elements of a list in a certain order. Classification of sorting algorithm are done by space and time complexity. $ Bubble Sort : It is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted. The algorithm, which is a comparison sort, is named for the way smaller or larger elements 'bubble' to the top of the list.`,
+    ``,
     `A Fractal is a self-similar subset of Euclidean space whose fractal dimension strictly exceeds its topological dimension. $ Fractals exhibit similar patterns at increasingly small scales called self-similarity, also known as expanding symmetry or unfolding symmetry. $ Fractals appear the same at different levels, as in the Mandelbrot Set. $ If this replication is exactly the same at every scale, as in the Menger Sponge it is called affine self-similar. $ Fractal geometry lies within the mathematical branch of measure theory.`,
     `The Mandelbrot Set is the set of complex numbers c for which the function $ fc(z)=z^2+c does not diverge when iterated from z=0, $ for which the sequence fc(0), fc(fc(0)), ... remains bounded in absolute value. $ Its definition is credited to Adrien Douady who named it in tribute to the mathematician Benoit Mandelbrot, a pioneer of fractal geometry.`,
     `Julia set consists of values such that an arbitrarily small perturbation can cause drastic changes in the sequence of iterated function values. $ The Julia set is now associated with those points z = x + iy on the complex plane for which the series zn+1 = zn2 + c does not tend to infinity. c is a complex constant, one gets a different Julia set for each c. $ Julia was interested in the iterative properties of a more general expression, namely z4 + z3/(z-1) + z2/(z3 + 4 z2 + 5) + c.`,
@@ -49,6 +53,7 @@ const animateContent = [
 ];
 const animateAnchor = [
     'https://en.wikipedia.org/wiki/Bubble_sort',
+    'https://bost.ocks.org/mike/algorithms/#sampling',
     'http://benice-equation.blogspot.com/2013/01/binary-fractal-tree.html',
     'http://paulbourke.net/fractals/mandelbrot/',
     'http://paulbourke.net/fractals/juliaset/',
@@ -61,6 +66,20 @@ const animateAnchor = [
 ];
 
 const animateInstruction = [
+    [
+        {
+            title: '[Click] over animation to play/stop.',
+            description: 'It will make animation to play or stop. Must be done over the canvas.',
+        },
+        { title: 'Press [D] to increase the speed.' },
+        { title: 'Press [A] to decrease the speed.' },
+        {
+            title: 'Press [Enter] to change the flow.',
+            description: 'It will make elements to sort in either ascending or descending order.',
+        },
+        { title: 'Press [W] to increase the number of elements.' },
+        { title: 'Press [S] to decrease the number of elements.' },
+    ],
     [
         {
             title: '[Click] over animation to play/stop.',
