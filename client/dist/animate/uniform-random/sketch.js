@@ -1,19 +1,37 @@
 let max, candidate;
 let total;
 let coordinate;
+let clicked;
+let rate;
+
+const initRate = 25;
+const incRate = 5;
+const minRate = 5;
+const maxRate = 100;
+
+const initCandidate = 5;
+const incCandidate = 1;
+const minCandidate = 1;
+const maxCandidate = 10;
 
 function setup() {
     createCanvas(640, 360);
-    max = 750;
-    candidate = 5;
+    clicked = true;
+    rate = initRate;
+    candidate = initCandidate;
+    init();
+}
+
+const init = () => {
+    max = 30;
     total = 0;
     coordinate = [];
     coordinate.push({ x: width / 2, y: height / 2 });
     total++;
-}
+};
 
 function draw() {
-    console.log(total);
+    frameRate(rate);
     background(attribute['theme']);
     stroke(attribute['color']);
     strokeWeight(4);
@@ -23,7 +41,7 @@ function draw() {
     coordinate[total] = generate(coordinate);
     point(coordinate[total].x, coordinate[total].y);
     total++;
-    if (total >= max) noLoop();
+    if (clicked || total > max) noLoop();
 }
 
 const generate = coordinate => {
@@ -86,3 +104,28 @@ const maxDistance = config => {
         distance: config[max].distance,
     };
 };
+
+function mouseClicked() {
+    clicked = !clicked;
+    if (clicked) noLoop();
+    else {
+        if (total >= max) init();
+        loop();
+    }
+}
+
+function keyPressed(event) {
+    const { key } = event;
+    if (key == KEY_D) {
+        if (rate < maxRate) rate += incRate;
+    }
+    if (key == KEY_A) {
+        if (rate > minRate) rate -= incRate;
+    }
+    if (key == KEY_W) {
+        if (candidate < maxCandidate) candidate += incCandidate;
+    }
+    if (key == KEY_S) {
+        if (candidate > minCandidate) candidate -= incCandidate;
+    }
+}

@@ -87,12 +87,8 @@ const animateInstruction = [
         },
         { title: 'Press [D] to increase the speed.' },
         { title: 'Press [A] to decrease the speed.' },
-        {
-            title: 'Press [Enter] to change the flow.',
-            description: 'It will make elements to sort in either ascending or descending order.',
-        },
-        { title: 'Press [W] to increase the number of elements.' },
-        { title: 'Press [S] to decrease the number of elements.' },
+        { title: 'Press [W] to increase the number of candidates.' },
+        { title: 'Press [S] to decrease the number of candidates.' },
     ],
     [
         {
