@@ -5,7 +5,7 @@ let clicked;
 let rate;
 
 const initRate = 25;
-const incRate = 5;
+const incRate = 10;
 const minRate = 5;
 const maxRate = 100;
 
@@ -23,7 +23,7 @@ function setup() {
 }
 
 const init = () => {
-    max = 30;
+    max = 750;
     total = 0;
     coordinate = [];
     coordinate.push({ x: width / 2, y: height / 2 });
@@ -32,17 +32,22 @@ const init = () => {
 
 function draw() {
     frameRate(rate);
-    background(attribute['theme']);
-    stroke(attribute['color']);
-    strokeWeight(4);
-
-    for (let index = 0; index < total; index++) point(coordinate[index].x, coordinate[index].y);
+    display();
 
     coordinate[total] = generate(coordinate);
     point(coordinate[total].x, coordinate[total].y);
     total++;
-    if (clicked || total > max) noLoop();
+    if (clicked || total > max) {
+        display();
+        noLoop();
+    }
 }
+const display = () => {
+    strokeWeight(4);
+    stroke(attribute['color']);
+    background(attribute['theme']);
+    for (let index = 0; index < total; index++) point(coordinate[index].x, coordinate[index].y);
+};
 
 const generate = coordinate => {
     const temp = new Array(candidate);
