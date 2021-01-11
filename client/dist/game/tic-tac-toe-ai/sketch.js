@@ -6,8 +6,9 @@ const playerY = 'Y';
 const initSize = 3;
 const incSize = 1;
 const minSize = 2;
-const maxSize = 10;
+const maxSize = 3;
 
+let count;
 let winnerLine;
 let done;
 let currentPlayer;
@@ -120,7 +121,7 @@ const checkWinner = () => {
     else if (winner) return winner;
     else return '';
 };
-
+/*
 const nextTurn = () => {
     // If available space then choose randomly and place it
     if (available.length != 0) {
@@ -134,6 +135,83 @@ const nextTurn = () => {
         calculateAvailable();
     }
 };
+*/
+function nextTurn() {
+    if (available.length != 0) {
+        count = 0;
+        let bestScore = -Infinity;
+        let bestMove;
+        for (let { x, y } of available) {
+            board[x][y] = playerY;
+            calculateAvailable();
+            // Let suppose ai choose this x and y
+            // Next move will be minimization by human
+            let score = minimax(board, false);
+            // Reset as if move was not choosen
+            board[x][y] = '';
+            available.push({ x, y });
+
+            // AI trys to get maximum score
+            if (score == max(score, bestScore)) {
+                bestScore = score;
+                bestMove = { x, y };
+            }
+        }
+        board[bestMove.x][bestMove.y] = playerY;
+        // Change player
+        changePlayer();
+        // Recalculating available
+        calculateAvailable();
+    }
+}
+
+let score = {
+    X: -1,
+    Y: 1,
+    Tie: 0,
+};
+
+function minimax(board, isMaximizing) {
+    // For Base Case
+    var result = checkWinner();
+    if (result) {
+        count++;
+        return score[result];
+    }
+
+    if (isMaximizing) {
+        // AI Turn
+        let bestScore = -Infinity;
+        // Checking for each spot
+        for (let { x, y } of available) {
+            board[x][y] = playerY;
+            calculateAvailable();
+            let score = minimax(board, false);
+            board[x][y] = '';
+            available.push({ x, y });
+            bestScore = max(score, bestScore);
+            // If it goes with this path and other will play optimal even then it wins
+            // so no need to check any other path go to this path only
+            if (bestScore == 1) break;
+        }
+        return bestScore;
+    } else {
+        let bestScore = Infinity;
+        // Checking for each spot
+        for (let { x, y } of available) {
+            board[x][y] = playerX;
+            calculateAvailable();
+            let score = minimax(board, true);
+            board[x][y] = '';
+            available.push({ x, y });
+            bestScore = min(score, bestScore);
+            // If it goes with this path and other will play optimal even then it wins
+            // so no need to check any other path go to this path only
+            if (bestScore == -1) break;
+        }
+        return bestScore;
+    }
+}
 
 function mousePressed() {
     if (done) {
