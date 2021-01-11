@@ -25,14 +25,12 @@ const init = () => {
     img.loadPixels();
     spots = [];
     circles = [];
-    for (var x = 0; x < img.width; x++) {
-        for (var y = 0; y < img.height; y++) {
-            var index = x + y * img.width;
-            var c = img.pixels[index * 4];
-            var b = brightness([c]);
-            if (b > 0) {
-                spots.push({ x, y });
-            }
+    for (let x = 0; x < img.width; x++) {
+        for (let y = 0; y < img.height; y++) {
+            let index = x + y * img.width;
+            let c = img.pixels[index * 4];
+            let b = brightness([c]);
+            if (b > 0) spots.push({ x, y });
         }
     }
 };
