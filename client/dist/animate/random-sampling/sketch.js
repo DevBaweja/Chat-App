@@ -65,4 +65,7 @@ function keyPressed(event) {
     if (key == KEY_A) {
         if (rate > minRate) rate -= incRate;
     }
+    if (keyCode == ENTER) {
+        init();
+    }
 }

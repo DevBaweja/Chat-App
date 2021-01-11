@@ -133,4 +133,7 @@ function keyPressed(event) {
     if (key == KEY_S) {
         if (candidate > minCandidate) candidate -= incCandidate;
     }
+    if (keyCode == ENTER) {
+        init();
+    }
 }
