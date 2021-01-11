@@ -905,6 +905,11 @@
     ::-webkit-scrollbar-thumb:hover {
         background-color: $color-primary-light;
     }
+    // Selection
+    ::selection {
+        color: $color-grey-1;
+        background: $color-primary;
+    }
 }
 
 // Themes
