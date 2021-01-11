@@ -1,7 +1,14 @@
 let board;
+let size;
 const playerX = 'X';
 const playerY = 'Y';
-const size = 3;
+
+const initSize = 3;
+const incSize = 1;
+const minSize = 2;
+const maxSize = 10;
+
+let winnerLine;
 let done;
 let currentPlayer;
 let h, w;
@@ -9,6 +16,11 @@ let available;
 
 function setup() {
     createCanvas(500, 500);
+    size = initSize;
+    init();
+}
+
+const init = () => {
     done = false;
     board = [];
     for (let x = 0; x < size; x++) {
@@ -19,7 +31,7 @@ function setup() {
     }
     currentPlayer = playerX;
     calculateAvailable();
-}
+};
 
 const calculateAvailable = () => {
     // Recalculating available
@@ -30,35 +42,83 @@ const calculateAvailable = () => {
         }
 };
 
-const changePlayer = () => (currentPlayer = currentPlayer == playerX ? playerY : playerX);
+const changePlayer = () => {
+    switch (currentPlayer) {
+        case playerX:
+            currentPlayer = playerY;
+            break;
+        case playerY:
+            currentPlayer = playerX;
+            break;
+    }
+};
 
-const equal = (a, b, c) => a == b && b == c && c == a && a != '';
+const equal = (a, b) => a == b && a != '';
 
 const checkWinner = () => {
     let winner;
+    winnerLine = [];
     // Horizontal
-    for (var i = 0; i < size; i++) {
-        if (equal(board[i][0], board[i][1], board[i][2])) {
-            winner = board[i][0];
+    for (let i = 0; i < size; i++) {
+        let temp = board[i][0];
+        winnerLine.push({ i, j: 0 });
+        let found = true;
+        for (let j = 1; j < size; j++) {
+            if (!equal(temp, board[i][j])) {
+                found = false;
+                break;
+            }
+            winnerLine.push({ i, j });
+        }
+        if (found) {
+            winner = temp;
+            break;
         }
     }
+    winnerLine = [];
     // Vertical
-    for (var j = 0; j < size; j++) {
-        if (equal(board[0][j], board[1][j], board[2][j])) {
-            winner = board[0][j];
+    for (let j = 0; j < size; j++) {
+        let temp = board[0][j];
+        let found = true;
+        winnerLine.push({ i: 0, j });
+        for (let i = 1; i < size; i++) {
+            if (!equal(temp, board[i][j])) {
+                found = false;
+                break;
+            }
+            winnerLine.push({ i, j });
+        }
+        if (found) {
+            winner = temp;
+            break;
         }
     }
 
     // Diagonal
-    if (equal(board[0][0], board[1][1], board[2][2])) {
-        winner = board[1][1];
+    let found, temp;
+    found = true;
+    temp = board[0][0];
+    for (let i = 1; i < size; i++) {
+        if (!equal(temp, board[i][i])) {
+            found = false;
+            break;
+        }
     }
-    if (equal(board[2][0], board[1][1], board[0][2])) {
-        winner = board[1][1];
+    if (found) winner = temp;
+
+    found = true;
+    temp = board[size - 1][0];
+    for (let i = 1; i < size; i++) {
+        if (!equal(temp, board[size - i - 1][i])) {
+            found = false;
+            break;
+        }
     }
-    // No winner and no space available
+    if (found) winner = temp;
+
     if (!winner && !available.length) return 'Tie';
-    if (winner) return winner;
+    else if (winner) return winner;
+    else return '';
 };
 
 const nextTurn = () => {
@@ -74,8 +134,12 @@ const nextTurn = () => {
         calculateAvailable();
     }
 };
+
 function mousePressed() {
-    if (done) return;
+    if (done) {
+        init();
+        return;
+    }
     switch (currentPlayer) {
         case playerX:
             {
@@ -85,7 +149,7 @@ function mousePressed() {
                 let index = available.findIndex(spot => spot.x == x && spot.y == y);
                 if (index != -1) {
                     board[x][y] = playerX;
-                    currentPlayer = playerY;
+                    changePlayer();
                     available.splice(index, 1);
                 }
             }
@@ -105,12 +169,9 @@ function mousePressed() {
             console.log('Tie');
             break;
         case playerX:
-            console.log('X');
-            break;
-        case playerY:
-            console.log('Y');
-            break;
-        default: {
+        case playerY: {
+            console.log(result);
+            drawWinnerLine();
         }
     }
 }
@@ -147,5 +208,24 @@ function draw() {
                     break;
             }
         }
+    }
+}
+
+function keyPressed(event) {
+    const { key } = event;
+    if (key == KEY_S) {
+        if (size > minSize) {
+            size -= incSize;
+            init(size);
+        }
+    }
+    if (key == KEY_W) {
+        if (size < maxSize) {
+            size += incSize;
+            init(size);
+        }
+    }
+    if (keyCode == ENTER) {
+        init(size);
     }
 }

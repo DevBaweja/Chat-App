@@ -6,19 +6,18 @@ const gameAnchor = ['https://en.wikipedia.org/wiki/Tic-tac-toe'];
 const gameInstruction = [
     [
         {
-            title: '[Click] over animation to play/pause.',
-            description: 'It will make animation to play or stop. Must be done over the canvas.',
+            title: '[How] to play tic tac toe.',
+            description:
+                'In order to win the game, a player must place three of their marks in a horizontal, vertical, or diagonal row.',
         },
         {
-            title: 'Press [Enter] to reverse the direction.',
+            title: 'Press [D] to increase the board size.',
         },
         {
-            title: 'Press [D] to increase the speed of growing.',
-            description: 'It will cause animation to move faster.',
+            title: 'Press [A] to decrease the board size.',
         },
         {
-            title: 'Press [A] to decrease the speed of growing.',
-            description: 'It will cause animation to move slowley.',
+            title: 'Press [Enter] to clear the board.',
         },
     ],
 ];

@@ -73,8 +73,8 @@ const animateAnchor = [
 const animateInstruction = [
     [
         {
-            title: '[Click] over animation to play/stop.',
-            description: 'It will make animation to play or stop. Must be done over the canvas.',
+            title: '[Click] over animation to play/pause.',
+            description: 'It will make animation to play or pause. Must be done over the canvas.',
         },
         { title: 'Press [D] to increase the speed.' },
         { title: 'Press [A] to decrease the speed.' },
@@ -87,16 +87,16 @@ const animateInstruction = [
     ],
     [
         {
-            title: '[Click] over animation to play/stop.',
-            description: 'It will make animation to play or stop. Must be done over the canvas.',
+            title: '[Click] over animation to play/pause.',
+            description: 'It will make animation to play or pause. Must be done over the canvas.',
         },
         { title: 'Press [D] to increase the speed.' },
         { title: 'Press [A] to decrease the speed.' },
     ],
     [
         {
-            title: '[Click] over animation to play/stop.',
-            description: 'It will make animation to play or stop. Must be done over the canvas.',
+            title: '[Click] over animation to play/pause.',
+            description: 'It will make animation to play or pause. Must be done over the canvas.',
         },
         { title: 'Press [D] to increase the speed.' },
         { title: 'Press [A] to decrease the speed.' },
@@ -112,7 +112,7 @@ const animateInstruction = [
     [
         {
             title: '[Click] over animation to play/pause.',
-            description: 'It will make animation to play or stop. Must be done over the canvas.',
+            description: 'It will make animation to play or pause. Must be done over the canvas.',
         },
         {
             title: 'Press [Enter] to reverse the direction.',
@@ -140,8 +140,8 @@ const animateInstruction = [
     ],
     [
         {
-            title: '[Click] over animation to play/stop.',
-            description: 'It will make animation to play or stop. Must be done over the canvas.',
+            title: '[Click] over animation to play/pause.',
+            description: 'It will make animation to play or pause. Must be done over the canvas.',
         },
         {
             title: '[Hover] over animation to view different dust.',
@@ -159,8 +159,8 @@ const animateInstruction = [
     ],
     [
         {
-            title: '[Click] over animation to play/stop.',
-            description: 'It will make animation to play or stop. Must be done over the canvas.',
+            title: '[Click] over animation to play/pause.',
+            description: 'It will make animation to play or pause. Must be done over the canvas.',
         },
         {
             title: 'Press [D] to increase the speed of the head.',
@@ -176,8 +176,8 @@ const animateInstruction = [
 
     [
         {
-            title: '[Click] over animation to play/stop.',
-            description: 'It will make animation to play or stop. Must be done over the canvas.',
+            title: '[Click] over animation to play/pause.',
+            description: 'It will make animation to play or pause. Must be done over the canvas.',
         },
         {
             title: 'Press [D] to increase the rpm of the circles.',
@@ -198,8 +198,8 @@ const animateInstruction = [
     ],
     [
         {
-            title: '[Click] over animation to play/stop.',
-            description: 'It will make animation to play or stop. Must be done over the canvas.',
+            title: '[Click] over animation to play/pause.',
+            description: 'It will make animation to play or pause. Must be done over the canvas.',
         },
         { title: 'Press [Enter] to change pattern.' },
         { title: 'Press [D] to increase speed.', description: 'It will cause animation to move faster.' },
@@ -215,8 +215,8 @@ const animateInstruction = [
     ],
     [
         {
-            title: '[Click] over animation to play/stop.',
-            description: 'It will make animation to play or stop. Must be done over the canvas.',
+            title: '[Click] over animation to play/pause.',
+            description: 'It will make animation to play or pause. Must be done over the canvas.',
         },
         { title: 'Press [D] to increase speed.', description: 'It will cause animation to move faster.' },
         { title: 'Press [A] to decrease speed.', description: 'It will cause animation to move slowley.' },
