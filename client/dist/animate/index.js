@@ -3,6 +3,9 @@ const KEY_W = 'w';
 const KEY_D = 'd';
 const KEY_S = 's';
 const KEY_A = 'a';
+const KEY_R = 'r';
+const KEY_T = 't';
+const KEY_I = 'i';
 // Getting Data From URL
 const attribute = {};
 

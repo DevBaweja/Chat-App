@@ -119,9 +119,12 @@ const animateInstruction = [
     ],
     [
         {
-            title: '[Click] over animation to add circle.',
+            title: '[Click] or [Drag] over animation to add circle.',
             description: `It will add circle at the desired position only if circle doesn't lies inside another circle.`,
         },
+        { title: 'Press [R] to apply circle packing randomly.' },
+        { title: 'Press [T] to apply circle packing on text.' },
+        { title: 'Press [I] to apply circle packing on image.' },
         { title: 'Press [D] to increase the speed.' },
         { title: 'Press [A] to decrease the speed.' },
         { title: 'Press [Enter] to restart animation.' },
@@ -168,7 +171,7 @@ const animateInstruction = [
     ],
     [
         {
-            title: '[Click] over animation to add boid.',
+            title: '[Click] or [Drag] over animation to add boid.',
             description: 'It will add boid at the desired position.',
         },
         { title: 'Press [D] to increase speed.', description: 'It will cause animation to move faster.' },
