@@ -35,14 +35,10 @@ const init = size => {
     for (let x = 0; x < size; x++) values[x] = random(height / 8, height - height / 8);
 };
 
-const display = current => {
+const display = () => {
     stroke(attribute['color']);
     if (flow) values.forEach((value, index) => line(w * index, w * index + w, w * index, -value));
     if (!flow) values.forEach((value, index) => line(w * index, w * index + w, w * index, value - height));
-
-    stroke(0, 255, 0, 200);
-    if (flow && current) line(w * current, w * current + w, w * current, -values[current]);
-    if (!flow && current) line(w * current, w * current + w, w * current, values[current] - height);
 };
 
 function draw() {
@@ -56,7 +52,7 @@ function draw() {
 }
 
 const sort = () => {
-    display(j);
+    display();
     if (i < values.length - 1) {
         if (values[j] > values[j + 1]) swap(j, j + 1);
         j++;

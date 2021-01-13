@@ -1,5 +1,6 @@
 const animateType = [
     'bubble-sort',
+    'pathfinding-visualization',
     'random-sampling',
     'uniform-sampling',
     'circle-packing',
@@ -16,6 +17,7 @@ const animateType = [
 ];
 const animateHeading = [
     'Bubble Sort',
+    'Pathfinding Visualization',
     'Random Sampling',
     'Uniform Sampling',
     'Circle Packing',
@@ -32,6 +34,7 @@ const animateHeading = [
 ];
 const animateQuote = [
     `Sorting out life one load at a time.`,
+    `Some beautiful paths can't be discovered without getting lost.`,
     `Expose yourself to as much randomness as possible.`,
     `If it requires a uniform, it's a worthless endeavor.`,
     `Life is a circle. The end of one journey is the beginning of the next.`,
@@ -48,6 +51,7 @@ const animateQuote = [
 ];
 const animateContent = [
     `Sorting Algorithms are algorithms that puts elements of a list in a certain order. Classification of sorting algorithm are done by space and time complexity. $ Bubble Sort : It is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted. The algorithm, which is a comparison sort, is named for the way smaller or larger elements 'bubble' to the top of the list.`,
+    ``,
     `Random Sampling is pretty terrible.$ There is both severe under and over sampling, many samples are densely-packed, even overlapping, leading to large empty areas.$ (Uniform sampling also represents the lower bound of quality for the best-candidate algorithm, as when the number of candidates per sample is set to one.)`,
     `Uniform Sampling is made difficult by competing goals.$ On the one hand, samples should be evenly distributed so there are no gaps. But we must also avoid repeating, regular patterns, which cause aliasing. $ For each new sample, the best-candidate algorithm generates a fixed number of candidates.$ The best candidate is the one that is farthest away from all previous samples. The distance from each candidate to the closest sample is measured, the best candidate becomes the new sample, and the remaining candidates are discarded.`,
     `Circle Packing is the study of the arrangement of circles (of equal or varying sizes) on a given surface such that no overlapping occurs and so that no circle can be enlarged without creating an overlap.$ The associated packing density (n), of an arrangement is the proportion of the surface covered by the circles. Generalisations can be made to higher dimensions – this is called sphere packing, which usually deals only with identical spheres.$
@@ -66,10 +70,11 @@ const animateContent = [
 ];
 const animateAnchor = [
     'https://en.wikipedia.org/wiki/Bubble_sort',
+    'https://en.wikipedia.org/wiki/Pathfinding',
     'https://bost.ocks.org/mike/algorithms/#sampling',
     'https://bost.ocks.org/mike/algorithms/#sampling',
-    'https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm',
     'https://en.wikipedia.org/wiki/Circle_packing',
+    'https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm',
     'http://benice-equation.blogspot.com/2013/01/binary-fractal-tree.html',
     'http://paulbourke.net/fractals/mandelbrot/',
     'http://paulbourke.net/fractals/juliaset/',
@@ -82,6 +87,20 @@ const animateAnchor = [
 ];
 
 const animateInstruction = [
+    [
+        {
+            title: '[Click] over animation to play/pause.',
+            description: 'It will make animation to play or pause. Must be done over the canvas.',
+        },
+        { title: 'Press [D] to increase the speed.' },
+        { title: 'Press [A] to decrease the speed.' },
+        {
+            title: 'Press [Enter] to change the flow.',
+            description: 'It will make elements to sort in either ascending or descending order.',
+        },
+        { title: 'Press [W] to increase the number of elements.' },
+        { title: 'Press [S] to decrease the number of elements.' },
+    ],
     [
         {
             title: '[Click] over animation to play/pause.',

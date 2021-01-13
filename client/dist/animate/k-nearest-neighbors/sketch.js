@@ -1,72 +1,62 @@
 let cells;
-let rows;
-let cols;
-let size;
+let num;
 let k;
-
+const size = 4;
 const types = {
     positive: 'positive',
-    negatve: 'negative',
+    negative: 'negative',
     neutral: 'neutral',
 };
 
 const p = 1 / 4;
-const initSize = 20;
-const incSize = 5;
-const minSize = 10;
-const maxSize = 40;
-const initK = 3;
-const maxK = 8;
-const incK = 1;
-const minK = 1;
+const initNum = 400;
+const incNum = 100;
+const minNum = 200;
+const maxNum = 600;
+const initK = 10;
+const incK = 5;
+const maxK = 30;
+const minK = 5;
 
 function setup() {
     createCanvas(640, 360);
-    size = initSize;
     k = initK;
+    num = initNum;
     init();
 }
 
 const init = () => {
-    rows = floor(height / size) - 1;
-    cols = floor(width / size) - 1;
     // Generate Cells
-    cells = new Array(rows);
-    for (let x = 0; x < rows; x++) {
-        cells[x] = new Array(cols);
-    }
-    // Assigning Cells
-    for (let x = 0; x < rows; x++) {
-        for (let y = 0; y < cols; y++) {
-            let r = random();
-            switch (true) {
-                case r < p:
-                    cells[x][y] = new Cell(x, y, types.positive);
-                    break;
-                case r > 3 * p:
-                    cells[x][y] = new Cell(x, y, types.negatve);
-                    break;
-                default:
-                    cells[x][y] = new Cell(x, y);
-            }
+    cells = [];
+    for (let index = 0; index < num; index++) {
+        let r = random();
+        let x = random(width);
+        let y = random(height);
+        switch (true) {
+            case r < p:
+                cells.push(new Cell(x, y, types.positive));
+                break;
+            case r > 3 * p:
+                cells.push(new Cell(x, y, types.negative));
+                break;
+            default:
+                cells.push(new Cell(x, y));
         }
     }
 };
 
 function draw() {
     background(attribute['theme']);
-    for (let x = 0; x < rows; x++) {
-        for (let y = 0; y < cols; y++) {
-            cells[x][y].show();
-        }
+    for (let index = 0; index < cells.length; index++) {
+        cells[index].show();
     }
 }
 
 function mousePressed() {
-    let x = floor(mouseY / size);
-    let y = floor(mouseX / size);
-    if (cells[x][y].type != types.neutral) return;
-    knn(cells[x][y]);
+    let x = mouseX;
+    let y = mouseY;
+    let cell = new Cell(x, y);
+    knn(cell);
 }
 
 function keyPressed(event) {
@@ -78,42 +68,43 @@ function keyPressed(event) {
         if (k > minK) k -= incK;
     }
     if (key == KEY_W) {
-        if (size > minSize) {
-            size -= incSize;
+        if (num > minNum) {
+            num -= incNum;
             init();
         }
     }
     if (key == KEY_S) {
-        if (size < maxSize) {
-            size += incSize;
+        if (num < maxNum) {
+            num += incNum;
             init();
         }
     }
+    if (keyCode == ENTER) {
+        init();
+    }
 }
 
-const edges = (x, y) => x < 0 || y < 0 || x >= rows || y >= cols;
-
 const knn = cell => {
-    // Getting Nearest Neighbour
-    let start = { x: cell.x - k, y: cell.y - k };
-    let end = { x: cell.x + k, y: cell.y + k };
+    // Getting Neighbors
+    const neighbors = cells.map(other => ({ ...other, distance: dist(cell.x, cell.y, other.x, other.y) }));
+    // Getting Nearest Neighbors
+    neighbors.sort((a, b) => a.distance - b.distance);
+    // Getting K Nearest Neighbors
+    neighbors.splice(k);
+
     // Determine Type
     let positive = 0,
         negative = 0;
-    for (let i = start.x; i <= end.x; i++) {
-        for (let j = start.y; j <= end.y; j++) {
-            if (!edges(i, j)) {
-                switch (cells[i][j].type) {
-                    case types.positive:
-                        positive++;
-                        break;
-                    case types.negatve:
-                        negative++;
-                        break;
-                }
-            }
+    neighbors.forEach(neighbor => {
+        switch (neighbor.type) {
+            case types.positive:
+                positive += 1 / (neighbor.distance * neighbor.distance);
+                break;
+            case types.negative:
+                negative += 1 / (neighbor.distance * neighbor.distance);
+                break;
         }
-    }
+    });
     // Assigning
     let majority = max(positive, negative);
     switch (majority) {
@@ -121,10 +112,10 @@ const knn = cell => {
             cell.type = types.positive;
             break;
         case negative:
-            cell.type = types.negatve;
+            cell.type = types.negative;
             break;
     }
-    console.log({ positive, negative });
+    cells.push(cell);
 };
 
 class Cell {
@@ -135,26 +126,14 @@ class Cell {
     }
 
     show = () => {
-        this.coordinateX = this.y * size + size / 4;
-        this.coordinateY = this.x * size + size / 4;
         strokeWeight(2);
         stroke(attribute['color']);
 
         switch (this.type) {
             case types.positive:
-                line(
-                    this.coordinateX + size / 2,
-                    this.coordinateY + size / 2 - size / 4,
-                    this.coordinateX + size / 2,
-                    this.coordinateY + size - size / 4
-                );
-            case types.negatve:
-                line(
-                    this.coordinateX + size / 2 - size / 4,
-                    this.coordinateY + size / 2,
-                    this.coordinateX + size - size / 4,
-                    this.coordinateY + size / 2
-                );
+                line(this.x, this.y - size, this.x, this.y + size);
+            case types.negative:
+                line(this.x - size, this.y, this.x + size, this.y);
         }
     };
 }
