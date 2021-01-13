@@ -75,28 +75,6 @@ function draw() {
     if (clicked) noLoop();
 }
 
-function keyPressed(event) {
-    const { key } = event;
-    if (key == KEY_D) {
-        if (rate < maxRate) rate += incRate;
-    }
-    if (key == KEY_A) {
-        if (rate > minRate) rate -= incRate;
-    }
-    if (key == KEY_W) {
-        if (size > minSize) {
-            size -= incSize;
-            initMaze(size);
-        }
-    }
-    if (key == KEY_S) {
-        if (size < maxSize) {
-            size += incSize;
-            initMaze(size);
-        }
-    }
-}
-
 function mouseClicked() {
     clicked = !clicked;
     if (clicked) noLoop();
