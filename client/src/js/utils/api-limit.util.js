@@ -8,7 +8,7 @@ const debounce = (fn, limit = 500) => {
         clearTimeout(timer);
 
         timer = setTimeout(() => {
-            fn.apply(context, arguments);
+            fn.apply(context, args);
         }, limit);
     };
 };
