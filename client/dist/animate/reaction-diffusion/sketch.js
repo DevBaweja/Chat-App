@@ -50,9 +50,10 @@ function draw() {
             var b = next[x][y].b;
             var c = floor((a - b) * 255);
             c = constrain(c, 0, 255);
-            pixels[px + 0] = c;
-            pixels[px + 1] = c;
-            pixels[px + 2] = c;
+            c = attribute['theme'];
+            pixels[px + 0] = red(c);
+            pixels[px + 1] = green(c);
+            pixels[px + 2] = blue(c);
             pixels[px + 3] = 255;
         }
     updatePixels();
