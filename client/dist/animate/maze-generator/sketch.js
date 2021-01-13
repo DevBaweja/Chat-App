@@ -21,10 +21,10 @@ function setup() {
     clicked = true;
     rate = initRate;
     size = initSize;
-    initMaze(size);
+    initMaze();
 }
 
-const initMaze = size => {
+const initMaze = () => {
     done = false;
     stack = [];
     rows = floor(height / size) - 1;

@@ -3,6 +3,7 @@ const animateType = [
     'random-sampling',
     'uniform-sampling',
     'circle-packing',
+    'k-nearest-neighbours',
     'fractal-tree',
     'mandelbrot-set',
     'julia-set',
@@ -18,6 +19,7 @@ const animateHeading = [
     'Random Sampling',
     'Uniform Sampling',
     'Circle Packing',
+    'K Nearest Neighbours',
     'Fractal Tree',
     'Mandelbrot Set',
     'Julia Set',
@@ -33,6 +35,7 @@ const animateQuote = [
     `Expose yourself to as much randomness as possible.`,
     `If it requires a uniform, it's a worthless endeavor.`,
     `Life is a circle. The end of one journey is the beginning of the next.`,
+    `Good  fences make good neighbors`,
     `It's all about the branches.`,
     `My life is series of accidents. Yet when I look back, I see a pattern.`,
     `I accept chaos, I'm not sure whether it accepts me.`,
@@ -49,6 +52,7 @@ const animateContent = [
     `Uniform Sampling is made difficult by competing goals.$ On the one hand, samples should be evenly distributed so there are no gaps. But we must also avoid repeating, regular patterns, which cause aliasing. $ For each new sample, the best-candidate algorithm generates a fixed number of candidates.$ The best candidate is the one that is farthest away from all previous samples. The distance from each candidate to the closest sample is measured, the best candidate becomes the new sample, and the remaining candidates are discarded.`,
     `Circle Packing is the study of the arrangement of circles (of equal or varying sizes) on a given surface such that no overlapping occurs and so that no circle can be enlarged without creating an overlap.$ The associated packing density (n), of an arrangement is the proportion of the surface covered by the circles. Generalisations can be made to higher dimensions – this is called sphere packing, which usually deals only with identical spheres.$
     While the circle has a relatively low maximum packing density of 0.9069 on the Euclidean plane. The worst such shape to pack onto a plane has not been determined, but the smoothed octagon has a packing density of 0.902414, which is the lowest maximum packing density known of any centrally symmetric convex shape.`,
+    ``,
     `A Fractal is a self-similar subset of Euclidean space whose fractal dimension strictly exceeds its topological dimension. $ Fractals exhibit similar patterns at increasingly small scales called self-similarity, also known as expanding symmetry or unfolding symmetry. $ Fractals appear the same at different levels, as in the Mandelbrot Set. $ If this replication is exactly the same at every scale, as in the Menger Sponge it is called affine self-similar. $ Fractal geometry lies within the mathematical branch of measure theory.`,
     `The Mandelbrot Set is the set of complex numbers c for which the function $ fc(z)=z^2+c does not diverge when iterated from z=0, $ for which the sequence fc(0), fc(fc(0)), ... remains bounded in absolute value. $ Its definition is credited to Adrien Douady who named it in tribute to the mathematician Benoit Mandelbrot, a pioneer of fractal geometry.`,
     `Julia set consists of values such that an arbitrarily small perturbation can cause drastic changes in the sequence of iterated function values. $ The Julia set is now associated with those points z = x + iy on the complex plane for which the series zn+1 = zn2 + c does not tend to infinity. c is a complex constant, one gets a different Julia set for each c. $ Julia was interested in the iterative properties of a more general expression, namely z4 + z3/(z-1) + z2/(z3 + 4 z2 + 5) + c.`,
@@ -64,6 +68,7 @@ const animateAnchor = [
     'https://en.wikipedia.org/wiki/Bubble_sort',
     'https://bost.ocks.org/mike/algorithms/#sampling',
     'https://bost.ocks.org/mike/algorithms/#sampling',
+    'https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm',
     'https://en.wikipedia.org/wiki/Circle_packing',
     'http://benice-equation.blogspot.com/2013/01/binary-fractal-tree.html',
     'http://paulbourke.net/fractals/mandelbrot/',
@@ -131,6 +136,29 @@ const animateInstruction = [
     ],
     [
         {
+            title: '[Click] over animation to add test data for classification.',
+            description: 'It must be done over empty spaces on animation.',
+        },
+        {
+            title: 'Press [Enter] to change data points.',
+        },
+        {
+            title: 'Press [D] to increase the k value.',
+            description: 'It will classify with more k closest training data points.',
+        },
+        {
+            title: 'Press [A] to decrease the k value.',
+            description: 'It will classify with less k closest training data points.',
+        },
+        {
+            title: 'Press [W] to increase the density of data points.',
+        },
+        {
+            title: 'Press [S] to decrease the density of data points',
+        },
+    ],
+    [
+        {
             title: '[Click] over animation to play/pause.',
             description: 'It will make animation to play or pause. Must be done over the canvas.',
         },
@@ -193,7 +221,6 @@ const animateInstruction = [
         { title: 'Press [W] to increase the size of maze.' },
         { title: 'Press [S] to decrease the size of maze.' },
     ],
-
     [
         {
             title: '[Click] over animation to play/pause.',
@@ -222,8 +249,8 @@ const animateInstruction = [
             description: 'It will make animation to play or pause. Must be done over the canvas.',
         },
         { title: 'Press [Enter] to change pattern.' },
-        { title: 'Press [D] to increase speed.', description: 'It will cause animation to move faster.' },
-        { title: 'Press [A] to decrease speed.', description: 'It will cause animation to move slowley.' },
+        { title: 'Press [D] to increase speed.' },
+        { title: 'Press [A] to decrease speed.' },
         { title: 'Press [W] to increase the number of the circles.' },
         { title: 'Press [S] to decrease the number of the circles.' },
     ],
@@ -238,10 +265,8 @@ const animateInstruction = [
             title: '[Click] over animation to play/pause.',
             description: 'It will make animation to play or pause. Must be done over the canvas.',
         },
-        { title: 'Press [D] to increase speed.', description: 'It will cause animation to move faster.' },
-        { title: 'Press [A] to decrease speed.', description: 'It will cause animation to move slowley.' },
-        { title: 'Press [W] to increase the number of the circles.' },
-        { title: 'Press [S] to decrease the number of the circles.' },
+        { title: 'Press [D] to increase speed.' },
+        { title: 'Press [A] to decrease speed.' },
     ],
 ];
 export { animateType, animateHeading, animateQuote, animateContent, animateAnchor, animateInstruction };
