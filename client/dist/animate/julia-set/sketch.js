@@ -26,8 +26,8 @@ function draw() {
             let n = 0;
 
             while (n < maxIterations) {
-                var aa = a * a - b * b;
-                var bb = 2 * a * b;
+                let aa = a * a - b * b;
+                let bb = 2 * a * b;
 
                 if (abs(a * a + b * b) > 12) break;
 

@@ -25,8 +25,8 @@ function setup() {
         }
     }
 
-    for (var i = floor(width / 2 - width / 8); i < floor(width / 2 + width / 8); i++) {
-        for (var j = floor(height / 2 - height / 8); j < floor(height / 2 + height / 8); j++) {
+    for (let i = floor(width / 2 - width / 8); i < floor(width / 2 + width / 8); i++) {
+        for (let j = floor(height / 2 - height / 8); j < floor(height / 2 + height / 8); j++) {
             grid[i][j].b = 1;
         }
     }
@@ -46,9 +46,9 @@ function draw() {
     for (let x = 0; x < width; x++)
         for (let y = 0; y < height; y++) {
             let px = (x + y * width) * 4;
-            var a = next[x][y].a;
-            var b = next[x][y].b;
-            var c = floor((a - b) * 255);
+            let a = next[x][y].a;
+            let b = next[x][y].b;
+            let c = floor((a - b) * 255);
             c = constrain(c, 0, 255);
             c = attribute['theme'];
             pixels[px + 0] = red(c);

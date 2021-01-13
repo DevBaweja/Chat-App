@@ -36,8 +36,8 @@ const init = () => {
 const calculateAvailable = () => {
     // Recalculating available
     available = [];
-    for (var x = 0; x < size; x++)
-        for (var y = 0; y < size; y++) {
+    for (let x = 0; x < size; x++)
+        for (let y = 0; y < size; y++) {
             if (!board[x][y]) available.push({ x, y });
         }
 };
@@ -162,7 +162,7 @@ function mousePressed() {
     }
 
     // Check winner
-    var result = checkWinner();
+    let result = checkWinner();
     if (result) done = true;
     switch (result) {
         case 'Tie':
