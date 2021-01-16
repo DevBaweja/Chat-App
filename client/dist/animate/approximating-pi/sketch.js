@@ -3,6 +3,7 @@ let pi;
 let points;
 let rate;
 let clicked;
+let r;
 const types = {
     square: 'square',
     circle: 'circle',
@@ -67,8 +68,9 @@ function draw() {
     noFill();
     rectMode(CENTER);
     strokeWeight(2);
-    rect(x, y, (3 * height) / 4, (3 * height) / 4);
-    ellipse(x, y, (3 * height) / 4);
+    r = (3 * height) / 4;
+    rect(x, y, r, r);
+    ellipse(x, y, r);
 
     if (clicked) noLoop();
 }
@@ -80,16 +82,15 @@ function mouseClicked() {
 }
 
 const generate = () => {
-    let r = (3 * height) / 8;
-    let x = random(width / 4 - r, width / 4 + r);
-    let y = random(height / 2 - r, height / 2 + r);
+    let x = random(width / 4 - r / 2, width / 4 + r / 2);
+    let y = random(height / 2 - r / 2, height / 2 + r / 2);
 
     let type;
     type = types.square;
 
     square++;
 
-    if (dist(width / 4, height / 2, x, y) < r) {
+    if (dist(width / 4, height / 2, x, y) < r / 2) {
         circle++;
         type = types.circle;
     }

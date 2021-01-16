@@ -4,7 +4,7 @@ let coordinate;
 let clicked;
 let rate;
 
-const initRate = 25;
+const initRate = 10;
 const incRate = 10;
 const minRate = 5;
 const maxRate = 100;
@@ -38,7 +38,7 @@ function draw() {
     point(coordinate[total].x, coordinate[total].y);
     total++;
     if (clicked || total > max) {
-        display();
+        // display();
         noLoop();
     }
 }
@@ -54,26 +54,29 @@ const generate = coordinate => {
     const config = new Array(candidate);
 
     for (let index = 0; index < candidate; index++) {
-        temp[index] = { x: random(0, width), y: random(0, height) };
+        let newX = random(0, width);
+        let newY = random(0, height);
+        temp[index] = { x: newX, y: newY };
         strokeWeight(4);
         stroke(attribute['color']);
-        point(temp[index].x, temp[index].y);
+        point(newX, newY);
         config[index] = getClose(temp[index], coordinate);
         strokeWeight(2);
-        line(temp[index].x, temp[index].y, coordinate[config[index].index].x, coordinate[config[index].index].y);
+        let { x, y } = coordinate[config[index].index];
+        line(newX, newY, x, y);
+        noFill();
+        ellipse(newX, newY, 2 * dist(newX, newY, x, y));
     }
 
     const fcand = maxDistance(config);
     stroke(0, 255, 0, 200);
     strokeWeight(6);
-    point(temp[fcand.index].x, temp[fcand.index].y);
+    let { x: newX, y: newY } = temp[fcand.index];
+    point(newX, newY);
     strokeWeight(2);
-    line(
-        temp[fcand.index].x,
-        temp[fcand.index].y,
-        coordinate[config[fcand.index].index].x,
-        coordinate[config[fcand.index].index].y
-    );
+    let { x, y } = coordinate[config[fcand.index].index];
+    line(newX, newY, x, y);
+    ellipse(newX, newY, 2 * dist(newX, newY, x, y));
     return temp[fcand.index];
 };
 
