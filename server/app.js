@@ -32,35 +32,8 @@ const app = express();
 // CORS
 app.use(cors());
 
-// Serving Static files - try multiple path approaches
-const clientDistPath = path.join(__dirname, '../client/dist');
-const altClientPath = path.join(process.cwd(), 'client/dist');
-const rootClientPath = path.join(process.cwd(), 'client/dist');
-
-console.log('=== Directory Debug Info ===');
-console.log('__dirname:', __dirname);
-console.log('process.cwd():', process.cwd());
-console.log('clientDistPath (../client/dist):', clientDistPath);
-console.log('altClientPath (process.cwd/client/dist):', altClientPath);
-console.log('rootClientPath (process.cwd/client/dist):', rootClientPath);
-
-// Try to find which path actually exists
-let staticPath = clientDistPath;
-if (require('fs').existsSync(altClientPath)) {
-    staticPath = altClientPath;
-    console.log('✅ Using altClientPath');
-} else if (require('fs').existsSync(rootClientPath)) {
-    staticPath = rootClientPath;
-    console.log('✅ Using rootClientPath');
-} else if (require('fs').existsSync(clientDistPath)) {
-    staticPath = clientDistPath;
-    console.log('✅ Using clientDistPath');
-} else {
-    console.log('❌ No client dist found at any path');
-}
-
-console.log('Final static path:', staticPath);
-app.use(express.static(staticPath));
+// Serving Static files - serve from client/dist
+app.use(express.static(path.join(__dirname, '../client/dist')));
 
 // Http Headers
 app.use(helmet());
@@ -121,9 +94,8 @@ app.use(`${url}messages`, messageRouter);
 
 // Catch-all route for SPA - must come after API routes
 app.get('*', (req, res) => {
-    const indexPath = path.join(staticPath, 'index.html');
+    const indexPath = path.join(__dirname, '../client/dist/index.html');
     console.log('Serving SPA route:', req.url);
-    console.log('Index file path:', indexPath);
     
     // Check if file exists
     if (require('fs').existsSync(indexPath)) {
@@ -133,13 +105,7 @@ app.get('*', (req, res) => {
         res.status(404).json({
             status: 'error',
             message: 'Frontend build not found. Please ensure client is built.',
-            path: indexPath,
-            availablePaths: {
-                clientDistPath,
-                altClientPath,
-                rootClientPath,
-                staticPath
-            }
+            path: indexPath
         });
     }
 });
