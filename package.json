@@ -8,7 +8,7 @@
         "server": "cd server && npm run dev",
         "dev": "npm-run-all client server",
         "postclient": "cd client && npm install && npm install --only=dev && npm run build",
-        "postserver": "cd server && npm install && cd .. && node copy-build.js",
+        "postserver": "cd server && npm install",
         "prebuild": "npm install",
         "build": "npm-run-all postclient postserver",
         "start": "cd server && npm start"
