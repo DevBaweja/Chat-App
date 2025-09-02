@@ -25,10 +25,10 @@
         "semantic-ui-css": "^2.4.1",
         "socket.io-client": "^2.3.0",
         "webpack": "^4.42.1",
-        "webpack-cli": "^3.3.11",
         "webpack-dev-server": "^3.10.3"
     },
     "devDependencies": {
+        "webpack-cli": "^3.3.11",
         "css-loader": "^3.6.0",
         "mini-css-extract-plugin": "^1.6.2",
         "postcss-loader": "^3.0.0",
