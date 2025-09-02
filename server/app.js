@@ -91,7 +91,12 @@ app.use(`${url}requests`, requestRouter);
 app.use(`${url}friends`, friendRouter);
 app.use(`${url}messages`, messageRouter);
 
-// Undefined Routes
+// Catch-all route for SPA - must come after API routes
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
+
+// Undefined Routes - this won't be reached due to catch-all above
 app.all('*', (req, res, next) => {
     next(new AppError(`Cann't find ${req.url} on this server!`, 404));
 });

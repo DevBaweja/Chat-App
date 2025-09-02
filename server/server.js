@@ -38,10 +38,11 @@ mongoose
     });
 
 // ------------
-// Port
+// Port - Render sets PORT environment variable
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
-    console.log(`App is served at http://localhost:${PORT}`);
+    console.log(`App is served on port ${PORT}`);
+    console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
 });
 const io = socket.init(server);
 io.on('connection', () => console.log('Connection Established'));
