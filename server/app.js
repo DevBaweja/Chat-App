@@ -9,6 +9,7 @@ const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const compression = require('compression');
+const fs = require('fs');
 
 // Routers
 const userRouter = require('./routes/userRoutes');
@@ -93,7 +94,21 @@ app.use(`${url}messages`, messageRouter);
 
 // Catch-all route for SPA - must come after API routes
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+    const indexPath = path.join(__dirname, '../client/dist/index.html');
+    console.log('Serving SPA route:', req.url);
+    console.log('Index file path:', indexPath);
+    
+    // Check if file exists
+    if (require('fs').existsSync(indexPath)) {
+        res.sendFile(indexPath);
+    } else {
+        console.error('Index file not found at:', indexPath);
+        res.status(404).json({
+            status: 'error',
+            message: 'Frontend build not found. Please ensure client is built.',
+            path: indexPath
+        });
+    }
 });
 
 // Undefined Routes - this won't be reached due to catch-all above
