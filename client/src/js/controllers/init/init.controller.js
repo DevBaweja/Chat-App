@@ -35,9 +35,10 @@ export const controlInit = async () => {
 
     // 3) isLogin
     try {
-        // !For Development
+        // Handle both development and production modes
         switch (state['mode'].mode) {
             case mode.mode.development:
+            case mode.mode.production:
                 state['token'] = getToken();
                 break;
         }
