@@ -6,8 +6,7 @@
     "scripts": {
         "start": "webpack --mode development",
         "build": "webpack --mode production",
-        "dev": "webpack-dev-server --mode development --open",
-        "prebuild": "npm install && npm install --only=dev"
+        "dev": "webpack-dev-server --mode development --open"
     },
     "author": "",
     "license": "ISC",
@@ -34,6 +33,7 @@
         "mini-css-extract-plugin": "^1.6.2",
         "postcss-loader": "^3.0.0",
         "resolve-url-loader": "^3.1.4",
-        "sass": "^1.89.2"
+        "sass": "^1.89.2",
+        "sass-loader": "^10.0.0"
     }
 }
