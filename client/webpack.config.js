@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ScssConfigWebpackPlugin = require('scss-config-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 // Object in which we can specify our setting or configuration
 // Export object using node js syntax
@@ -23,7 +23,7 @@ module.exports = {
         contentBase: './dist',
     },
     plugins: [
-        new ScssConfigWebpackPlugin({
+        new MiniCssExtractPlugin({
             filename: 'css/style.css',
         }),
         new HtmlWebpackPlugin({
@@ -42,6 +42,22 @@ module.exports = {
                         presets: ['@babel/preset-env'],
                     },
                 },
+            },
+            {
+                test: /\.scss$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'postcss-loader',
+                    'resolve-url-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            implementation: require('sass'),
+                            sourceMap: true,
+                        },
+                    },
+                ],
             },
         ],
     },

@@ -15,18 +15,25 @@
         "@babel/core": "^7.10.4",
         "@babel/plugin-proposal-class-properties": "^7.10.4",
         "@babel/preset-env": "^7.10.4",
+        "axios": "^0.19.2",
         "babel-core": "^6.26.3",
         "babel-loader": "^8.1.0",
-        "html-webpack-plugin": "^4.0.4",
-        "webpack-cli": "^3.3.11",
-        "webpack-dev-server": "^3.10.3",
-        "webpack": "^4.42.1",
-        "axios": "^0.19.2",
         "babel-polyfill": "^6.26.0",
         "faker": "^4.1.0",
         "gender-detection": "^0.1.0",
+        "html-webpack-plugin": "^4.0.4",
         "scss-config-webpack-plugin": "^2.0.0",
         "semantic-ui-css": "^2.4.1",
-        "socket.io-client": "^2.3.0"
+        "socket.io-client": "^2.3.0",
+        "webpack": "^4.42.1",
+        "webpack-cli": "^3.3.11",
+        "webpack-dev-server": "^3.10.3"
+    },
+    "devDependencies": {
+        "css-loader": "^3.6.0",
+        "mini-css-extract-plugin": "^1.6.2",
+        "postcss-loader": "^3.0.0",
+        "resolve-url-loader": "^3.1.4",
+        "sass": "^1.89.2"
     }
 }
