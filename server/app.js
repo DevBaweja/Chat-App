@@ -9,6 +9,7 @@ const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const compression = require('compression');
+const fs = require('fs');
 
 // Routers
 const userRouter = require('./routes/userRoutes');
@@ -28,11 +29,16 @@ const app = express();
 // ------------------------
 // Middleware Stack
 
-// CORS
-app.use(cors());
+// CORS - allow frontend domain
+app.use(cors({
+    origin: process.env.NODE_ENV === 'production' 
+        ? ['https://chat-app-frontend-l6ed.onrender.com', 'http://localhost:3000']
+        : 'http://localhost:3000',
+    credentials: true
+}));
 
-// Serving Static files
-app.use(express.static(path.join(__dirname, '../client/dist')));
+// Remove static file serving - frontend is deployed separately
+// app.use(express.static(path.join(process.cwd(), 'client/dist')));
 
 // Http Headers
 app.use(helmet());
@@ -91,9 +97,28 @@ app.use(`${url}requests`, requestRouter);
 app.use(`${url}friends`, friendRouter);
 app.use(`${url}messages`, messageRouter);
 
+// Remove catch-all route - frontend is served separately
+// app.get('*', (req, res) => {
+//     const indexPath = path.join(process.cwd(), 'client/dist/index.html');
+//     console.log('Serving SPA route:', req.url);
+//     console.log('Index file path:', indexPath);
+    
+//     // Check if file exists
+//     if (require('fs').existsSync(indexPath)) {
+//         res.sendFile(indexPath);
+//     } else {
+//         console.error('Index file not found at:', indexPath);
+//         res.status(404).json({
+//             status: 'error',
+//             message: 'Frontend build not found. Please ensure client is built.',
+//             path: indexPath
+//         });
+//     }
+// });
+
 // Undefined Routes
 app.all('*', (req, res, next) => {
-    next(new AppError(`Cann't find ${req.url} on this server!`, 404));
+    next(new AppError(`Can't find ${req.url} on this server!`, 404));
 });
 
 // Error Handling Middleware

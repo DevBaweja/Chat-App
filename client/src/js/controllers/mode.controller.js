@@ -12,6 +12,9 @@ export const initMode = () => {
         case window.location.hostname.includes('herokuapp'):
             controlMode({ mode: mode.mode.production });
             break;
+        case window.location.hostname.includes('onrender.com'):
+            controlMode({ mode: mode.mode.production });
+            break;
         default:
             controlMode({ mode: mode.mode.development });
     }

@@ -1,10 +1,12 @@
 import state from '../state';
 import { mode } from './base.util';
 export const addAuthorizationHeaders = headers => {
-    // ! For Development
+    // Handle both development and production modes with Authorization headers
     switch (state['mode'].mode) {
         case mode.mode.development:
+        case mode.mode.production:
             headers['authorization'] = 'Bearer ' + state['token'];
+            break;
     }
 };
 export const getToken = () => {
