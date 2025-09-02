@@ -32,8 +32,8 @@ const app = express();
 // CORS
 app.use(cors());
 
-// Serving Static files - serve from client/dist
-app.use(express.static(path.join(__dirname, '../client/dist')));
+// Serving Static files - serve from root client/dist
+app.use(express.static(path.join(process.cwd(), 'client/dist')));
 
 // Http Headers
 app.use(helmet());
@@ -94,8 +94,9 @@ app.use(`${url}messages`, messageRouter);
 
 // Catch-all route for SPA - must come after API routes
 app.get('*', (req, res) => {
-    const indexPath = path.join(__dirname, '../client/dist/index.html');
+    const indexPath = path.join(process.cwd(), 'client/dist/index.html');
     console.log('Serving SPA route:', req.url);
+    console.log('Index file path:', indexPath);
     
     // Check if file exists
     if (require('fs').existsSync(indexPath)) {
